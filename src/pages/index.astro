@@ -1,0 +1,375 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const services = [
+  {
+    icon: '🔥',
+    title: 'Pompe à chaleur',
+    desc: 'Air-eau, air-air, hybride. On remplace votre chaudière mazout avant la deadline. Primes Wallonie incluses dans le devis.',
+    href: '/pompe-a-chaleur/',
+  },
+  {
+    icon: '❄️',
+    title: 'Climatisation',
+    desc: 'Mono-split, multi-split, réversible, gainable. Daikin, LG, Gree. On dimensionne avant de vendre.',
+    href: '/climatisation/',
+  },
+  {
+    icon: '🔧',
+    title: 'Chauffage',
+    desc: 'Chaudière gaz condensation, chauffage sol, radiateurs. Entretien obligatoire tous les 3 ans en Wallonie.',
+    href: '/chauffage/',
+  },
+  {
+    icon: '💨',
+    title: 'Ventilation',
+    desc: 'VMC simple flux, double flux. Pour votre PEB et surtout pour ne plus avoir de moisissures.',
+    href: '/ventilation/',
+  },
+  {
+    icon: '☀️',
+    title: 'Panneaux solaires',
+    desc: 'Installation complète, batterie domestique, onduleur. On calcule votre autoconsommation avant de poser quoi que ce soit.',
+    href: '/panneaux-solaires/',
+  },
+  {
+    icon: '🚿',
+    title: 'Sanitaire',
+    desc: 'Rénovation salle de bain, adoucisseur, eau de pluie. Dépannage plomberie quand ça presse.',
+    href: '/sanitaire/',
+  },
+  {
+    icon: '🔌',
+    title: 'Électricité & domotique',
+    desc: 'Niko, Domintell. Mise en conformité RGIE, rénovation électrique. Du tableau au dernier interrupteur.',
+    href: '/electricite/',
+  },
+  {
+    icon: '⚡',
+    title: 'Bornes de recharge',
+    desc: 'Wallbox à domicile, charge intelligente couplée à vos panneaux. On gère le passage en triphasé si besoin.',
+    href: '/bornes-de-recharge/',
+  },
+]
+
+const zones = [
+  { name: 'Wavre', cp: '1300', href: '/zone/wavre/' },
+  { name: 'Waterloo', cp: '1410', href: '/zone/waterloo/' },
+  { name: 'Lasne', cp: '1380', href: '/zone/lasne/' },
+  { name: "Braine-l'Alleud", cp: '1420', href: '/zone/braine-l-alleud/' },
+  { name: 'Rixensart', cp: '1330', href: '/zone/rixensart/' },
+  { name: 'La Hulpe', cp: '1310', href: '/zone/la-hulpe/' },
+  { name: 'Ottignies-LLN', cp: '1340', href: '/zone/ottignies-louvain-la-neuve/' },
+  { name: 'Grez-Doiceau', cp: '1390', href: '/zone/grez-doiceau/' },
+  { name: 'Chaumont-Gistoux', cp: '1325', href: '/zone/chaumont-gistoux/' },
+  { name: 'Court-Saint-Étienne', cp: '1490', href: '/zone/court-saint-etienne/' },
+]
+
+const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha', 'Atlantic', 'Ariston', 'Niko']
+---
+
+<Layout
+  title="Pompe à chaleur Brabant Wallon — Installation, climatisation, chauffage | PAC-BW"
+  description="Installateur pompe à chaleur, climatisation et chauffage en Brabant Wallon. Wavre, Waterloo, Lasne. Devis gratuit sous 24h. Primes Wallonie."
+  canonical="/"
+>
+
+  <!-- ===== HERO ===== -->
+  <section class="pt-12 pb-8 sm:pt-20 sm:pb-14 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+      <div class="flex-1 max-w-2xl">
+        <span class="inline-block bg-[var(--color-vert-clair)] text-[var(--color-vert)] text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">
+          Installateur en Brabant Wallon
+        </span>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-[var(--color-vert-fonce)] mb-5">
+          Pompe à chaleur en Brabant Wallon. On s'occupe de tout.
+        </h1>
+        <p class="text-lg text-[var(--color-texte-light)] leading-relaxed mb-8">
+          Vous cherchez quelqu'un pour installer une pompe à chaleur, une clim ou remplacer votre vieille chaudière mazout ? On est basés en Brabant Wallon, on travaille à Wavre, Waterloo, Lasne et dans les communes autour. Pas de bla-bla, un devis clair sous 24h.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a
+            href="/devis/"
+            class="bg-[var(--color-orange)] text-white font-bold text-base px-8 py-4 rounded-xl text-center shadow-lg shadow-orange-200 hover:shadow-xl transition-all"
+          >
+            Demander un devis gratuit &rarr;
+          </a>
+          <a
+            href="tel:+3210000000"
+            class="border-2 border-[var(--color-vert)] text-[var(--color-vert)] font-bold text-base px-8 py-4 rounded-xl text-center hover:bg-[var(--color-vert-clair)] transition-colors"
+          >
+            010 / 00 00 00
+          </a>
+        </div>
+      </div>
+      <div class="flex-1 max-w-md w-full">
+        <div class="bg-gradient-to-br from-[var(--color-vert)] to-emerald-700 rounded-2xl p-8 text-white aspect-[4/3] flex flex-col justify-end relative overflow-hidden">
+          <div class="absolute top-6 right-6 text-7xl opacity-20">🌿</div>
+          <p class="text-sm font-bold uppercase tracking-wider opacity-70 mb-1">Nos marques</p>
+          <p class="text-base font-semibold">Daikin &middot; LG &middot; Vaillant &middot; Bosch &middot; Gree</p>
+          <div class="mt-4 bg-white/15 backdrop-blur-sm rounded-lg px-4 py-3">
+            <p class="text-xs">Installateur certifié multi-marques depuis le Brabant Wallon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <section class="bg-white border-y border-[var(--color-bordure)] py-6 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-texte-light)]/50 text-center mb-4">Nos marques partenaires</p>
+      <div class="flex items-center justify-center gap-8 sm:gap-12 flex-wrap">
+        {marques.map(m => (
+          <span class="text-base sm:text-lg font-extrabold uppercase tracking-wider text-[var(--color-texte)]/20">{m}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTRO CONTENU — Goal Completion + SEO ===== -->
+  <section class="py-14 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-6">
+        Installation pompe à chaleur et climatisation en Brabant Wallon
+      </h2>
+      <div class="prose prose-lg text-[var(--color-texte-light)] space-y-4 leading-relaxed">
+        <p>
+          Bon, on va pas se mentir. Trouver un installateur de pompe à chaleur qui répond au téléphone et qui donne un devis sans vous faire attendre trois semaines, c'est pas toujours simple dans le coin.
+        </p>
+        <p>
+          On est une équipe d'installateurs basée en Brabant Wallon. On fait les pompes à chaleur — air-eau, air-air, hybrides — la climatisation, le chauffage, la ventilation, le solaire et le reste. On travaille avec Daikin, LG, Vaillant, Bosch, Gree. Pas de marque maison, pas de stock à écouler. On vous conseille ce qui va le mieux pour votre maison, point.
+        </p>
+        <p>
+          L'hiver dernier, la moitié de nos appels venaient de gens à Wavre et Waterloo dont la chaudière mazout avait lâché. Avec l'interdiction qui tombe en 2026 pour les constructions neuves, beaucoup de propriétaires se posent la question : on répare encore une fois, ou on passe à la pompe à chaleur ? Si c'est votre cas, on peut venir faire un état des lieux chez vous. Gratuit, sans engagement. On vous dit ce qui est possible, combien ça coûte, et quelles primes vous pouvez avoir.
+        </p>
+        <p>
+          Et pour ceux qui ont déjà une PAC ou une clim, on fait aussi l'entretien et le dépannage. Même le week-end quand il fait 35 degrés et que votre split ne souffle plus que de l'air tiède.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="py-14 px-4 sm:px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-vert)] mb-2">Nos services</p>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-10">
+        Ce qu'on fait, concrètement
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {services.map(s => (
+          <a
+            href={s.href}
+            class="group block bg-[var(--color-fond)] border border-[var(--color-bordure)] rounded-xl p-6 hover:shadow-lg hover:shadow-green-100 hover:-translate-y-1 transition-all"
+          >
+            <div class="text-3xl mb-3">{s.icon}</div>
+            <h3 class="text-base font-bold text-[var(--color-vert)] mb-2 group-hover:text-[var(--color-vert-fonce)]">{s.title}</h3>
+            <p class="text-sm text-[var(--color-texte-light)] leading-relaxed">{s.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POURQUOI NOUS (contenu authentique) ===== -->
+  <section class="py-14 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-6">
+        Pourquoi les gens nous appellent
+      </h2>
+      <div class="space-y-4 text-[var(--color-texte-light)] leading-relaxed">
+        <p>
+          On va pas vous sortir les classiques du genre "20 ans d'expérience" et "satisfaction garantie". Vous les avez lus sur tous les sites de chauffagistes du Brabant Wallon.
+        </p>
+        <p>
+          Ce qu'on entend le plus souvent quand les gens nous appellent, c'est : <strong>"J'ai appelé trois boîtes, personne ne rappelle."</strong> Ou alors : <strong>"On m'a fait un devis mais je comprends rien à ce qu'il y a dedans."</strong>
+        </p>
+        <p>
+          Nous, on fonctionne simplement. Vous appelez. On répond ou on rappelle dans la journée. On passe chez vous, on regarde votre installation, on discute de ce que vous voulez. Ensuite vous recevez un devis détaillé où chaque ligne est expliquée. Le prix que vous voyez, c'est le prix que vous payez. Pas de surprises.
+        </p>
+        <p>
+          Et si vous avez droit à des primes — et en Wallonie, la plupart des gens y ont droit — on vous dit exactement combien et on vous aide avec les papiers. Parce que remplir un dossier de prime Wallonie un dimanche soir, c'est pas franchement la meilleure soirée.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REMPLACEMENT MAZOUT — SEO page pilier ===== -->
+  <section class="py-14 px-4 sm:px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-6">
+        Remplacement chaudière mazout par pompe à chaleur
+      </h2>
+      <div class="space-y-4 text-[var(--color-texte-light)] leading-relaxed">
+        <p>
+          Depuis le 1er janvier 2026, c'est fini les nouvelles chaudières mazout dans les constructions neuves en Wallonie. Et d'ici 2031, on ne pourra plus du tout remplacer une chaudière mazout par une autre au mazout. Point.
+        </p>
+        <p>
+          Si votre chaudière a 15 ou 20 ans, le mieux c'est de ne pas attendre qu'elle tombe en panne en plein mois de janvier pour y réfléchir. On a eu le cas trois fois rien que cet hiver à Lasne et Rixensart. Les gens se retrouvent sans chauffage, ils doivent décider vite, et ça coûte toujours plus cher dans l'urgence.
+        </p>
+        <p>
+          Une pompe à chaleur air-eau, c'est entre 8 000 et 15 000 euros installée. Ça paraît beaucoup. Mais avec les primes Wallonie — entre 600 et 3 600 euros selon vos revenus — et la TVA à 6% si votre maison a plus de 10 ans, ça change la donne. Sans compter que votre facture de mazout, vous ne la payez plus.
+        </p>
+        <p>
+          <a href="/pompe-a-chaleur/remplacement-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">
+            Tout savoir sur le remplacement de votre chaudière mazout &rarr;
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ZONES ===== -->
+  <section class="py-14 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-3">
+        On intervient près de chez vous
+      </h2>
+      <p class="text-[var(--color-texte-light)] mb-8">
+        Intervention rapide dans 10 communes du Brabant Wallon. On connaît le coin, on habite dans le coin.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+        {zones.map(z => (
+          <a
+            href={z.href}
+            class="bg-[var(--color-vert-clair)] text-[var(--color-vert)] font-semibold text-sm text-center px-4 py-3.5 rounded-lg hover:bg-[var(--color-vert)] hover:text-white transition-colors"
+          >
+            {z.name}
+            <span class="block text-xs font-normal opacity-60 mt-0.5">{z.cp}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ — Schema FAQ ===== -->
+  <section class="py-14 px-4 sm:px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-8">
+        Questions qu'on nous pose tout le temps
+      </h2>
+      <div class="space-y-6">
+        <details class="group border border-[var(--color-bordure)] rounded-xl" open>
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
+            Combien ça coûte une pompe à chaleur installée ?
+            <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
+            <p>
+              Ça dépend du type. Une PAC air-air (qui fait aussi clim), comptez entre 4 000 et 6 000 euros. Une air-eau pour chauffer toute la maison, c'est plutôt 8 000 à 15 000 euros. Ça inclut le matériel, la pose et la mise en service. Les primes Wallonie peuvent réduire la facture de 600 à 3 600 euros. On met tout ça dans le devis pour que vous voyiez ce que vous payez vraiment.
+            </p>
+          </div>
+        </details>
+
+        <details class="group border border-[var(--color-bordure)] rounded-xl">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
+            Ma chaudière mazout fonctionne encore. Je dois quand même la remplacer ?
+            <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
+            <p>
+              Pas tout de suite, non. Tant qu'elle marche, vous pouvez la garder. Mais le jour où elle lâche, après 2031 vous ne pourrez plus la remplacer par une chaudière mazout. Et si c'est en plein hiver, les délais d'installation d'une PAC sont plus longs qu'un simple échange de chaudière. Notre conseil : anticipez. Venez en discuter quand vous avez le temps, pas quand vous grelottez.
+            </p>
+          </div>
+        </details>
+
+        <details class="group border border-[var(--color-bordure)] rounded-xl">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
+            C'est vrai que les pompes à chaleur font du bruit ?
+            <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
+            <p>
+              Les anciens modèles, oui. Les nouveaux, beaucoup moins. Une Daikin Altherma récente tourne à 35 dB — c'est le bruit d'une bibliothèque. Par contre, l'emplacement de l'unité extérieure, c'est important. Il y a une réglementation en Wallonie : 45 dB maximum en journée, 40 dB la nuit à la limite de propriété. On regarde toujours avec vous où la placer pour éviter les soucis avec les voisins. On a vu des gens sur les forums se plaindre de bruit parce que l'installateur avait collé l'unité sous la fenêtre de la chambre du voisin. Pas malin.
+            </p>
+          </div>
+        </details>
+
+        <details class="group border border-[var(--color-bordure)] rounded-xl">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
+            Vous faites aussi le dépannage ?
+            <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
+            <p>
+              Oui. PAC, clim, chaudière. On dépanne les installations qu'on a posées, mais aussi celles des autres. Honnêtement, on préfère les contrats d'entretien — ça évite les pannes — mais quand ça tombe en panne un samedi soir en janvier, on est là.
+            </p>
+          </div>
+        </details>
+
+        <details class="group border border-[var(--color-bordure)] rounded-xl">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
+            Les primes en Wallonie, ça marche comment ?
+            <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
+          </summary>
+          <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
+            <p>
+              C'est le bazar, soyons honnêtes. Il y a les Primes Habitation, le Rénopack avec prêt à taux zéro, la TVA à 6% si votre maison a plus de 10 ans... Les montants dépendent de vos revenus et du type de travaux. Pour une PAC, ça va de 600 à 3 600 euros. Il faut un audit logement avant. On vous aide à y voir clair et à remplir les formulaires. C'est compris dans notre service, on ne facture pas ça en plus.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Combien coûte une pompe à chaleur installée ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Une PAC air-air coûte entre 4 000 et 6 000 euros installée. Une PAC air-eau pour chauffer toute la maison, entre 8 000 et 15 000 euros. Les primes Wallonie peuvent réduire de 600 à 3 600 euros."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ma chaudière mazout fonctionne encore. Je dois quand même la remplacer ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pas tant qu'elle fonctionne. Mais après 2031, on ne pourra plus remplacer une chaudière mazout par une autre au mazout en Wallonie. Mieux vaut anticiper que de décider dans l'urgence en plein hiver."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "C'est vrai que les pompes à chaleur font du bruit ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les modèles récents tournent à environ 35 dB, soit le bruit d'une bibliothèque. L'emplacement de l'unité extérieure est important pour respecter les 45 dB maximum en journée et 40 dB la nuit en Wallonie."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Les primes en Wallonie, ça marche comment ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Il y a les Primes Habitation (600 à 3 600 euros pour une PAC selon les revenus), le Rénopack avec prêt à taux zéro, et la TVA à 6% pour les maisons de plus de 10 ans. Un audit logement est nécessaire avant. Nous vous aidons avec les formulaires."
+        }
+      }
+    ]
+  })} />
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="mx-4 sm:mx-6 my-14">
+    <div class="max-w-5xl mx-auto bg-gradient-to-br from-[var(--color-vert)] to-emerald-700 rounded-2xl p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="text-white">
+        <h2 class="text-2xl sm:text-3xl font-extrabold mb-2">Un projet ? On en discute.</h2>
+        <p class="text-white/80">Devis gratuit et sans engagement. Réponse sous 24h.</p>
+      </div>
+      <a
+        href="/devis/"
+        class="bg-[var(--color-orange)] text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all whitespace-nowrap"
+      >
+        Demander un devis &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- bottom padding for mobile sticky CTA -->
+  <div class="h-20 lg:hidden"></div>
+
+</Layout>

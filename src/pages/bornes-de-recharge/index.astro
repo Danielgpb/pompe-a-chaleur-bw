@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import CTASection from '../../components/CTASection.astro'
+---
+
+<Layout
+  title="Borne de recharge Brabant Wallon — Wallbox, Zappi, installation domicile | PAC-BW"
+  description="Installation borne de recharge à domicile en Brabant Wallon. Wallbox, Zappi, Smappee. Smart charging solaire. 7kW, 11kW, 22kW. Devis gratuit."
+  canonical="/bornes-de-recharge/"
+>
+
+<Breadcrumb items={[{ label: 'Bornes de recharge' }]} />
+
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">
+    Installation borne de recharge en Brabant Wallon
+  </h1>
+  <p class="text-lg text-[var(--color-texte-light)] mb-8">
+    Borne de recharge à domicile pour voiture électrique à Wavre, Waterloo, Lasne. Wallbox, Zappi, Smappee. Smart charging solaire possible.
+  </p>
+
+  <div class="space-y-8 text-[var(--color-texte-light)] leading-relaxed">
+
+    <p>
+      Vous avez une voiture électrique ou hybride rechargeable. Vous la branchez sur une prise domestique et ça prend 14 heures. Ou vous allez à la borne publique et vous payez 45 centimes le kWh. La solution ? Une borne à domicile. Vous chargez la nuit à votre tarif (25-30 centimes), ou en journée gratuitement si vous avez des <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a>.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Borne 7 kW monophasé
+    </h2>
+
+    <p>
+      C'est ce que 90% des particuliers installent. Le réseau domestique en Belgique est souvent en monophasé, et 7,4 kW c'est le maximum sur une phase en 32A. En pratique, ça charge une voiture de 10 à 80% en 4 à 6 heures. Vous branchez en rentrant du boulot, c'est plein le matin. Largement suffisant pour un usage quotidien.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Borne 11 kW triphasé
+    </h2>
+
+    <p>
+      Si vous avez un raccordement triphasé (ou si vous faites le <a href="/electricite/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">passage au triphasé</a>), vous pouvez monter à 11 kW. La charge complète passe à 2-4 heures. C'est intéressant si vous roulez beaucoup ou si deux voitures électriques partagent la même borne.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Borne 22 kW entreprise
+    </h2>
+
+    <p>
+      Pour les entreprises, les indépendants ou les copropriétés, on installe des bornes 22 kW. Ça demande du triphasé et un câblage adapté. On gère aussi les installations multi-bornes avec gestion de charge dynamique (load balancing) pour éviter de faire sauter l'installation.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Marques de bornes de recharge
+    </h2>
+
+    <p>
+      On ne vend pas de marque blanche chinoise à 400 euros. On installe des bornes qui ont fait leurs preuves :
+    </p>
+
+    <ul class="list-disc pl-5 space-y-2">
+      <li><strong>Wallbox Pulsar Plus</strong> — la plus vendue en Europe. Compacte, fiable, app correcte. C'est notre recommandation par défaut.</li>
+      <li><strong>myenergi Zappi</strong> — la meilleure pour le smart charging solaire. Elle détecte automatiquement le surplus de production PV et charge la voiture avec. Fabriquée au Royaume-Uni, qualité solide.</li>
+      <li><strong>Smappee</strong> — marque belge (Courtrai). Bonne intégration avec la <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">domotique</a>, monitoring de consommation inclus.</li>
+      <li><strong>Alfen Eve Single</strong> — néerlandais, beaucoup utilisé dans les copropriétés et entreprises. Robuste, conçu pour l'extérieur.</li>
+    </ul>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Smart charging solaire
+    </h2>
+
+    <p>
+      Le concept est simple : quand vos <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a> produisent plus que ce que la maison consomme, le surplus va dans la voiture au lieu d'être réinjecté dans le réseau à un prix ridicule. La Zappi fait ça nativement. La Wallbox aussi avec un compteur de production en plus.
+    </p>
+
+    <p>
+      Si vous avez du <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Niko Home Control</a> avec le mode Solar, c'est encore mieux : la domotique gère la priorité entre la batterie, le boiler et la borne. Le soleil donne ? D'abord la maison, puis le boiler thermodynamique, puis la voiture. Tout est automatique.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Prix installation borne de recharge
+    </h2>
+
+    <p>
+      Comptez entre <strong>1 500 et 2 000 euros</strong> tout compris — borne, câblage, protection différentielle dédiée, mise en service. Ce prix suppose que le tableau électrique est accessible et à moins de 10 mètres du garage. Si le câble doit traverser toute la maison et passer dans une tranchée de 15 mètres, ça coûte plus. On fait toujours un devis après visite.
+    </p>
+
+    <p>
+      Si votre installation est en monophasé et que vous voulez du 11 kW, il faudra passer en triphasé. Le passage au triphasé coûte entre 1 000 et 2 500 euros (demande à ORES + modification du tableau). On gère ça aussi — c'est de l'<a href="/electricite/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">électricité</a>, et c'est notre métier.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Primes et fiscalité
+    </h2>
+
+    <p>
+      La prime fédérale pour les bornes de recharge a pris fin en août 2024. Il n'y a donc plus d'aide directe en 2026. Par contre, si votre maison a plus de 10 ans, vous bénéficiez de la <strong>TVA à 6%</strong> sur l'installation (au lieu de 21%). C'est valable pour la borne et pour les travaux électriques liés.
+    </p>
+
+    <p>
+      Pour les indépendants et les sociétés, la borne est déductible fiscalement. Et l'avantage de toute nature pour la recharge à domicile d'un véhicule de société reste avantageux. Parlez-en à votre comptable — les règles changent souvent.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Nos zones d'intervention
+    </h2>
+
+    <p>
+      On installe des bornes de recharge dans tout le Brabant Wallon : <a href="/zone/wavre/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Wavre</a>, <a href="/zone/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a>, <a href="/zone/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a>, <a href="/zone/braine-l-alleud/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Braine-l'Alleud</a>, <a href="/zone/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a>, <a href="/zone/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a>, <a href="/zone/ottignies-louvain-la-neuve/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Ottignies-LLN</a>, <a href="/zone/grez-doiceau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Grez-Doiceau</a>, <a href="/zone/chaumont-gistoux/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Chaumont-Gistoux</a> et <a href="/zone/court-saint-etienne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Court-Saint-Étienne</a>.
+    </p>
+
+  </div>
+</article>
+
+<CTASection title="Prêt à charger à domicile ?" text="Installation borne de recharge, smart charging solaire. Devis gratuit sous 24h." />
+
+<div class="h-20 lg:hidden"></div>
+
+</Layout>

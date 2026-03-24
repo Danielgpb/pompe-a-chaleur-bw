@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import CTASection from '../../components/CTASection.astro'
+
+const zones = [
+  { name: 'Wavre', cp: '1300', pop: '35 581', href: '/zone/wavre/', sections: 'Wavre, Limal, Bierges' },
+  { name: 'Waterloo', cp: '1410', pop: '30 389', href: '/zone/waterloo/', sections: 'Waterloo' },
+  { name: 'Lasne', cp: '1380', pop: '14 175', href: '/zone/lasne/', sections: 'Lasne, Ohain, Plancenoit, Maransart, Couture-Saint-Germain' },
+  { name: "Braine-l'Alleud", cp: '1420', pop: '40 756', href: '/zone/braine-l-alleud/', sections: "Braine-l'Alleud, Ophain-Bois-Seigneur-Isaac, Lillois-Witterzée" },
+  { name: 'Rixensart', cp: '1330', pop: '23 052', href: '/zone/rixensart/', sections: 'Rixensart, Rosières, Genval' },
+  { name: 'La Hulpe', cp: '1310', pop: '7 482', href: '/zone/la-hulpe/', sections: 'La Hulpe' },
+  { name: 'Ottignies-Louvain-la-Neuve', cp: '1340', pop: '31 766', href: '/zone/ottignies-louvain-la-neuve/', sections: 'Ottignies, Louvain-la-Neuve, Céroux-Mousty, Limelette' },
+  { name: 'Grez-Doiceau', cp: '1390', pop: '14 014', href: '/zone/grez-doiceau/', sections: 'Grez-Doiceau, Biez, Nethen, Archennes, Bossut-Gottechain' },
+  { name: 'Chaumont-Gistoux', cp: '1325', pop: '11 894', href: '/zone/chaumont-gistoux/', sections: 'Chaumont-Gistoux, Bonlez, Corroy-le-Grand, Dion-le-Mont, Gistoux' },
+  { name: 'Court-Saint-Étienne', cp: '1490', pop: '10 927', href: '/zone/court-saint-etienne/', sections: 'Court-Saint-Étienne' },
+]
+---
+
+<Layout
+  title="Zones d'intervention Brabant Wallon — Pompe à chaleur, climatisation | PAC-BW"
+  description="On intervient dans 10 communes du Brabant Wallon : Wavre, Waterloo, Lasne, Braine-l'Alleud, Rixensart, La Hulpe, Ottignies-LLN, Grez-Doiceau, Chaumont-Gistoux, Court-Saint-Étienne."
+  canonical="/zone/"
+>
+
+<Breadcrumb items={[{ label: 'Nos zones' }]} />
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-8">
+
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">
+    Nos zones d'intervention en Brabant Wallon
+  </h1>
+  <p class="text-lg text-[var(--color-texte-light)] mb-10">
+    On installe des <a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompes à chaleur</a>, de la <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, du <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, des <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a> et le reste dans 10 communes du Brabant Wallon. On connaît le coin — on y habite.
+  </p>
+
+  <div class="space-y-4">
+    {zones.map(z => (
+      <a href={z.href} class="block bg-white border border-[var(--color-bordure)] rounded-xl p-5 hover:shadow-lg hover:shadow-green-100 hover:-translate-y-0.5 transition-all group">
+        <div class="flex items-center justify-between mb-1">
+          <h2 class="text-lg font-bold text-[var(--color-vert)] group-hover:text-[var(--color-vert-fonce)]">{z.name}</h2>
+          <span class="text-sm font-mono text-[var(--color-texte-light)]">{z.cp}</span>
+        </div>
+        <p class="text-sm text-[var(--color-texte-light)]">
+          {z.sections} — {z.pop} habitants
+        </p>
+      </a>
+    ))}
+  </div>
+
+  <div class="mt-12 space-y-4 text-[var(--color-texte-light)] leading-relaxed">
+    <p>
+      Pourquoi ces 10 communes et pas tout le Brabant Wallon ? Parce qu'on préfère être là en 30 minutes que promettre une intervention rapide et arriver deux heures plus tard. Ce triangle entre Wavre, Waterloo et Lasne, c'est notre zone. On y travaille tous les jours.
+    </p>
+    <p>
+      Vous habitez dans une commune voisine (Nivelles, Tubize, Genappe) ? Appelez-nous quand même. On verra si on peut s'arranger.
+    </p>
+  </div>
+
+</div>
+
+<CTASection />
+
+<div class="h-20 lg:hidden"></div>
+
+</Layout>

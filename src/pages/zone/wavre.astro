@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import CTASection from '../../components/CTASection.astro'
+---
+
+<Layout
+  title="Pompe à chaleur et climatisation à Wavre — Installation, entretien, dépannage | PAC-BW"
+  description="Installateur pompe à chaleur et climatisation à Wavre (1300). Installation, entretien, dépannage. Daikin, LG, Vaillant. Devis gratuit."
+  canonical="/zone/wavre/"
+>
+
+<Breadcrumb items={[
+  { label: 'Nos zones', href: '/zone/' },
+  { label: 'Wavre' }
+]} />
+
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">
+    Pompe à chaleur et climatisation à Wavre
+  </h1>
+  <p class="text-lg text-[var(--color-texte-light)] mb-8">
+    Installateur pompe à chaleur, climatisation et chauffage à Wavre et ses sections (Limal, Bierges). Devis gratuit sous 24h. Intervention rapide.
+  </p>
+
+  <div class="space-y-8 text-[var(--color-texte-light)] leading-relaxed">
+
+    <p>
+      Si vous habitez à Wavre, Limal ou Bierges et que vous cherchez un installateur pour une pompe à chaleur, une climatisation ou un remplacement de chaudière, on est dans le coin. Littéralement. On ne vient pas de Bruxelles ou de Charleroi — on travaille en Brabant Wallon, on connaît les rues, les lotissements et les types de maisons qu'on y trouve.
+    </p>
+
+    <p>
+      Wavre, c'est un mix de tout : des maisons 4 façades des années 70-80 le long de la chaussée de Bruxelles, des villas récentes vers le zoning nord, des appartements au centre-ville, des maisons mitoyennes vers la gare. Chaque type de logement demande une solution différente. La PAC air-eau qui va bien dans une villa bien isolée à Bierges n'est pas forcément le bon choix pour une maison de rangée des années 60 au centre de Wavre.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Installation pompe à chaleur à Wavre
+    </h2>
+
+    <p>
+      On installe des <a href="/pompe-a-chaleur/air-eau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompes à chaleur air-eau</a> et <a href="/pompe-a-chaleur/air-air/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">air-air</a> à Wavre. Pour les maisons avec chauffage central existant (radiateurs ou sol), l'air-eau est le choix logique. Pour ceux qui veulent surtout la clim avec un bonus chauffage, l'air-air suffit.
+    </p>
+
+    <p>
+      Un point spécifique à Wavre : certaines copropriétés au centre (les immeubles récents vers la place Bosch, par exemple) ont des restrictions pour les unités extérieures. Il faut parfois un accord du syndic et un emplacement précis. On a l'habitude, on gère ça avec vous.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Climatisation à Wavre
+    </h2>
+
+    <p>
+      L'été, les maisons le long de l'avenue Henri Lepage et vers le parc du château de Wavre prennent le soleil en plein. Les grandes baies vitrées c'est super en hiver, mais en juillet c'est un four. Une <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation mono-split ou multi-split</a> règle le problème. On en installe régulièrement dans le quartier.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Chauffage et entretien chaudière à Wavre
+    </h2>
+
+    <p>
+      Beaucoup de maisons à Wavre sont raccordées au gaz naturel. Si votre chaudière a plus de 15 ans, un remplacement par une <a href="/chauffage/chaudiere-gaz/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chaudière gaz condensation</a> (Bosch, Vaillant, Remeha) ou une <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> peut diviser votre facture. On fait aussi l'<a href="/chauffage/entretien-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">entretien obligatoire</a> (tous les 3 ans en Wallonie) et le <a href="/chauffage/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">dépannage urgent</a>.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Tous nos services à Wavre
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-4">
+      {[
+        { href: '/pompe-a-chaleur/', label: 'Pompe à chaleur', icon: '🔥' },
+        { href: '/climatisation/', label: 'Climatisation', icon: '❄️' },
+        { href: '/chauffage/', label: 'Chauffage', icon: '🔧' },
+        { href: '/ventilation/', label: 'Ventilation', icon: '💨' },
+        { href: '/panneaux-solaires/', label: 'Panneaux solaires', icon: '☀️' },
+        { href: '/sanitaire/', label: 'Sanitaire', icon: '🚿' },
+        { href: '/electricite/', label: 'Électricité & domotique', icon: '🔌' },
+        { href: '/bornes-de-recharge/', label: 'Bornes de recharge', icon: '⚡' },
+      ].map(s => (
+        <a href={s.href} class="flex items-center gap-3 bg-[var(--color-vert-clair)] text-[var(--color-vert)] font-semibold text-sm px-4 py-3 rounded-lg hover:bg-[var(--color-vert)] hover:text-white transition-colors">
+          <span>{s.icon}</span> {s.label}
+        </a>
+      ))}
+    </div>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Sections et villages couverts
+    </h2>
+
+    <p>
+      On couvre tout Wavre et ses anciennes communes : <strong>Wavre centre</strong> (1300), <strong>Limal</strong> (1300) et <strong>Bierges</strong> (1301). Et évidemment les communes voisines : <a href="/zone/ottignies-louvain-la-neuve/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Ottignies-Louvain-la-Neuve</a>, <a href="/zone/chaumont-gistoux/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Chaumont-Gistoux</a>, <a href="/zone/grez-doiceau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Grez-Doiceau</a>, <a href="/zone/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a>.
+    </p>
+
+  </div>
+</article>
+
+<CTASection title="Vous êtes à Wavre ?" text="On passe chez vous pour un devis gratuit. Réponse sous 24h." />
+
+<div class="h-20 lg:hidden"></div>
+
+</Layout>

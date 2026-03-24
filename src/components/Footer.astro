@@ -1,0 +1,96 @@
+---
+const services = [
+  { href: '/pompe-a-chaleur/', label: 'Pompe à chaleur' },
+  { href: '/climatisation/', label: 'Climatisation' },
+  { href: '/chauffage/', label: 'Chauffage' },
+  { href: '/ventilation/', label: 'Ventilation' },
+  { href: '/sanitaire/', label: 'Sanitaire' },
+  { href: '/panneaux-solaires/', label: 'Panneaux solaires' },
+  { href: '/boiler-thermodynamique/', label: 'Boiler thermodynamique' },
+  { href: '/bornes-de-recharge/', label: 'Bornes de recharge' },
+  { href: '/electricite/', label: 'Électricité' },
+  { href: '/domotique/', label: 'Domotique' },
+]
+
+const zones = [
+  { href: '/zone/wavre/', label: 'Wavre' },
+  { href: '/zone/waterloo/', label: 'Waterloo' },
+  { href: '/zone/lasne/', label: 'Lasne' },
+  { href: '/zone/braine-l-alleud/', label: "Braine-l'Alleud" },
+  { href: '/zone/rixensart/', label: 'Rixensart' },
+  { href: '/zone/la-hulpe/', label: 'La Hulpe' },
+  { href: '/zone/ottignies-louvain-la-neuve/', label: 'Ottignies-LLN' },
+  { href: '/zone/grez-doiceau/', label: 'Grez-Doiceau' },
+  { href: '/zone/chaumont-gistoux/', label: 'Chaumont-Gistoux' },
+  { href: '/zone/court-saint-etienne/', label: 'Court-Saint-Étienne' },
+]
+---
+
+<footer class="bg-[var(--color-vert-fonce)] text-white mt-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Colonne 1 : Entreprise -->
+      <div>
+        <div class="flex items-center gap-1 mb-4">
+          <span class="text-xl font-extrabold">PAC</span>
+          <span class="text-xl font-light opacity-60">-BW</span>
+          <span class="text-xs opacity-40 ml-1">.be</span>
+        </div>
+        <p class="text-sm text-white/70 leading-relaxed mb-4">
+          Installation pompe à chaleur, climatisation, chauffage et énergie renouvelable en Brabant Wallon.
+        </p>
+        <p class="text-sm font-bold">010 / 00 00 00</p>
+        <p class="text-sm text-white/70 mt-1">Lundi - Vendredi : 8h - 18h</p>
+      </div>
+
+      <!-- Colonne 2 : Services -->
+      <div>
+        <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-white/50">Services</h3>
+        <ul class="space-y-2">
+          {services.map(s => (
+            <li><a href={s.href} class="text-sm text-white/70 hover:text-white transition-colors">{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Colonne 3 : Zones -->
+      <div>
+        <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-white/50">Zones d'intervention</h3>
+        <ul class="space-y-2">
+          {zones.map(z => (
+            <li><a href={z.href} class="text-sm text-white/70 hover:text-white transition-colors">{z.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Colonne 4 : Marques -->
+      <div>
+        <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-white/50">Nos marques</h3>
+        <div class="flex flex-wrap gap-2">
+          {['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha', 'Atlantic', 'Ariston', 'Niko', 'Domintell', 'Panasonic'].map(m => (
+            <span class="text-xs bg-white/10 px-3 py-1.5 rounded-md text-white/70">{m}</span>
+          ))}
+        </div>
+        <div class="mt-6">
+          <a
+            href="/devis/"
+            class="inline-block bg-[var(--color-orange)] text-white font-bold text-sm px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
+          >
+            Devis gratuit
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-white/10 my-10" />
+
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/40">
+      <p>pompe-a-chaleur-bw.be &copy; {new Date().getFullYear()} — Brabant Wallon, Belgique</p>
+      <div class="flex gap-4">
+        <a href="/mentions-legales/" class="hover:text-white/60">Mentions légales</a>
+        <a href="/politique-cookies/" class="hover:text-white/60">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
