@@ -38,12 +38,24 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       <!-- Adresse -->
       <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-6">
         <h2 class="text-lg font-bold text-[var(--color-vert-fonce)] mb-3">Adresse</h2>
-        <p class="text-[var(--color-texte-light)]">
+        <p class="text-[var(--color-texte-light)] mb-4">
           Pompe à chaleur BW<br>
           Rue de Nivelles 77<br>
           1300 Wavre<br>
           Belgique
         </p>
+        <div class="rounded-lg overflow-hidden">
+          <iframe
+            src="https://maps.google.com/maps?q=Rue+de+Nivelles+77,+1300+Wavre,+Belgique&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="250"
+            style="border:0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Pompe à chaleur BW — Rue de Nivelles 77, 1300 Wavre"
+          ></iframe>
+        </div>
       </div>
 
       <!-- Zones -->
