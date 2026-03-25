@@ -185,9 +185,28 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
   <section class="bg-white border-y border-[var(--color-bordure)] py-6 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto">
       <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-texte-light)]/50 text-center mb-4">Nos marques partenaires</p>
-      <div class="flex items-center justify-center gap-8 sm:gap-12 flex-wrap">
-        {marques.map(m => (
-          <span class="text-base sm:text-lg font-extrabold uppercase tracking-wider text-[var(--color-texte)]/20">{m}</span>
+      <div class="flex items-center justify-center gap-6 sm:gap-10 flex-wrap">
+        {[
+          { name: 'Daikin', file: 'daikin-logo' },
+          { name: 'LG', file: 'lg-logo' },
+          { name: 'Gree', file: 'gree-logo' },
+          { name: 'Vaillant', file: 'vaillant-logo' },
+          { name: 'Bemco', file: 'bemco-logo' },
+          { name: 'Bosch', file: 'bosch-logo' },
+          { name: 'Remeha', file: 'remeha-logo' },
+          { name: 'Atlantic', file: 'atlantic-logo' },
+          { name: 'Ariston', file: 'ariston-logo' },
+          { name: 'Niko', file: 'niko-logo' },
+        ].map(m => (
+          <img
+            src={`/images/marques/${m.file}.webp`}
+            alt={`Logo ${m.name} — partenaire Pompe à chaleur BW`}
+            width="120"
+            height="45"
+            loading="lazy"
+            decoding="async"
+            class="h-8 sm:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+          />
         ))}
       </div>
     </div>
