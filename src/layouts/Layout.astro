@@ -29,7 +29,26 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_BE" />
   <meta property="og:url" content={fullCanonical} />
+  <meta property="og:image" content={`${siteUrl}/images/global/og-image.webp`} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <!-- Schema.org WebSite — identifie le site pour Google -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Pompe à chaleur BW",
+    "url": siteUrl,
+    "description": "Installateur pompe à chaleur, climatisation et chauffage en Brabant Wallon",
+    "inLanguage": "fr-BE",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Pompe à chaleur BW",
+      "url": siteUrl,
+      "telephone": "+32-2-886-14-57"
+    }
+  })} />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
