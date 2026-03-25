@@ -1,0 +1,43 @@
+---
+interface Props {
+  name: string
+  description: string
+  url: string
+  areaServed?: string
+}
+
+const { name, description, url, areaServed = 'Brabant Wallon' } = Astro.props
+const siteUrl = 'https://pompe-a-chaleur-bw.be'
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": name,
+  "description": description,
+  "url": `${siteUrl}${url}`,
+  "provider": {
+    "@type": "HVACBusiness",
+    "name": "Pompe à chaleur BW",
+    "telephone": "+32-2-886-14-57",
+    "url": siteUrl,
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": areaServed
+    }
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": areaServed
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": `${siteUrl}/devis/`,
+    "servicePhone": {
+      "@type": "ContactPoint",
+      "telephone": "+32-2-886-14-57",
+      "contactType": "customer service",
+      "availableLanguage": "French"
+    }
+  }
+})} />
