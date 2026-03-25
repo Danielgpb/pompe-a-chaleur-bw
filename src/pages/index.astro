@@ -130,14 +130,14 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
   </section>
 
   <!-- ===== AVIS CLIENTS ===== -->
-  <section class="py-10 px-4 sm:px-6">
+  <section class="py-5 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto">
-      <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-vert)] text-center mb-6">Ce que nos clients disent</p>
+      <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-vert)] text-center mb-4">Ce que nos clients disent</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
 
-        <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-6">
-          <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">★★★★★</div>
-          <p class="text-sm text-[var(--color-texte-light)] leading-relaxed mb-4">
+        <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-4">
+          <div class="flex items-center gap-1 mb-2 text-yellow-400 text-sm">★★★★★</div>
+          <p class="text-xs text-[var(--color-texte-light)] leading-relaxed mb-3">
             "On a fait remplacer notre vieille chaudière mazout par une pompe à chaleur Daikin. L'équipe a été carrée du début à la fin. Le devis était clair, pas de mauvaises surprises, et ils nous ont aidés pour les primes. Ça tourne depuis 6 mois sans souci."
           </p>
           <div class="flex items-center gap-3">
@@ -149,9 +149,9 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
           </div>
         </div>
 
-        <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-6">
-          <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">★★★★★</div>
-          <p class="text-sm text-[var(--color-texte-light)] leading-relaxed mb-4">
+        <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-4">
+          <div class="flex items-center gap-1 mb-2 text-yellow-400 text-sm">★★★★★</div>
+          <p class="text-xs text-[var(--color-texte-light)] leading-relaxed mb-3">
             "Clim multi-split installée dans toute la maison. Trois chambres et le salon. Ils sont passés vérifier l'emplacement avant, nous ont déconseillé un modèle qu'on voulait (trop puissant pour la pièce), et ont proposé mieux pour moins cher. Honnêtes."
           </p>
           <div class="flex items-center gap-3">
@@ -163,9 +163,9 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
           </div>
         </div>
 
-        <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-6">
-          <div class="flex items-center gap-1 mb-3 text-yellow-400 text-lg">★★★★★</div>
-          <p class="text-sm text-[var(--color-texte-light)] leading-relaxed mb-4">
+        <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-4">
+          <div class="flex items-center gap-1 mb-2 text-yellow-400 text-sm">★★★★★</div>
+          <p class="text-xs text-[var(--color-texte-light)] leading-relaxed mb-3">
             "Dépannage de notre PAC un samedi de janvier. On les a appelés le matin, un technicien était là à 14h. C'était un problème de carte électronique. Réparé le jour même. Avec des enfants en bas âge, on aurait pas tenu un week-end sans chauffage."
           </p>
           <div class="flex items-center gap-3">
@@ -181,36 +181,64 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
     </div>
   </section>
 
-  <!-- ===== TRUST BAR ===== -->
-  <section class="bg-white border-y border-[var(--color-bordure)] py-6 px-4 sm:px-6">
-    <div class="max-w-7xl mx-auto">
-      <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-texte-light)]/50 text-center mb-4">Nos marques partenaires</p>
-      <div class="flex items-center justify-center gap-6 sm:gap-10 flex-wrap">
-        {[
-          { name: 'Daikin', file: 'daikin-logo' },
-          { name: 'LG', file: 'lg-logo' },
-          { name: 'Gree', file: 'gree-logo' },
-          { name: 'Vaillant', file: 'vaillant-logo' },
-          { name: 'Bemco', file: 'bemco-logo' },
-          { name: 'Bosch', file: 'bosch-logo' },
-          { name: 'Remeha', file: 'remeha-logo' },
-          { name: 'Atlantic', file: 'atlantic-logo' },
-          { name: 'Ariston', file: 'ariston-logo' },
-          { name: 'Niko', file: 'niko-logo' },
-        ].map(m => (
-          <img
-            src={`/images/marques/${m.file}.webp`}
-            alt={`Logo ${m.name} — partenaire Pompe à chaleur BW`}
-            width="120"
-            height="45"
-            loading="lazy"
-            decoding="async"
-            class="h-8 sm:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-          />
+  <!-- ===== TRUST BAR CARROUSEL ===== -->
+  <section class="bg-white border-y border-[var(--color-bordure)] py-5 overflow-hidden">
+    <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-texte-light)]/50 text-center mb-4">Nos marques partenaires</p>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        {[...Array(2)].map(() => (
+          <div class="marquee-logos">
+            {[
+              { name: 'Daikin', file: 'daikin-logo' },
+              { name: 'LG', file: 'lg-logo' },
+              { name: 'Gree', file: 'gree-logo' },
+              { name: 'Vaillant', file: 'vaillant-logo' },
+              { name: 'Bemco', file: 'bemco-logo' },
+              { name: 'Bosch', file: 'bosch-logo' },
+              { name: 'Remeha', file: 'remeha-logo' },
+              { name: 'Atlantic', file: 'atlantic-logo' },
+              { name: 'Ariston', file: 'ariston-logo' },
+              { name: 'Niko', file: 'niko-logo' },
+            ].map(m => (
+              <img
+                src={`/images/marques/${m.file}.webp`}
+                alt={`Logo ${m.name} — partenaire Pompe à chaleur BW`}
+                width="120"
+                height="45"
+                loading="lazy"
+                decoding="async"
+                class="h-8 sm:h-10 w-auto object-contain opacity-60 mx-8"
+              />
+            ))}
+          </div>
         ))}
       </div>
     </div>
   </section>
+
+  <style>
+    .marquee-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 25s linear infinite;
+    }
+    .marquee-logos {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-wrapper:hover .marquee-track {
+      animation-play-state: paused;
+    }
+  </style>
 
   <!-- ===== INTRO CONTENU — Goal Completion + SEO ===== -->
   <section class="py-14 px-4 sm:px-6">
