@@ -1,0 +1,114 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import CTASection from '../../components/CTASection.astro'
+---
+
+<Layout
+  title="Dépannage chaudière Brabant Wallon — Urgent 24h | PAC-BW"
+  description="Dépannage chaudière urgent en Brabant Wallon. Pression basse, vanne 3 voies, ne démarre plus. 90-140€ diagnostic. Intervention week-end hiver."
+  canonical="/chauffage/depannage/"
+>
+
+<Breadcrumb items={[{ label: 'Chauffage', href: '/chauffage/' }, { label: 'Dépannage' }]} />
+
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">
+    Dépannage chaudière en Brabant Wallon
+  </h1>
+  <p class="text-lg text-[var(--color-texte-light)] mb-8">
+    Votre chaudière ne démarre plus ? Pression trop basse ? Pas d'eau chaude ? On intervient rapidement, y compris le week-end en hiver.
+  </p>
+
+  <div class="rounded-xl overflow-hidden my-6">
+    <img src="/images/chauffage/depannage-chaudiere.webp" alt="Technicien dépannage chaudière en Brabant Wallon" width="1200" height="500" loading="eager" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+  </div>
+
+  <div class="space-y-8 text-[var(--color-texte-light)] leading-relaxed">
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Les pannes les plus fréquentes
+    </h2>
+
+    <p>
+      En 10 ans de dépannage en Brabant Wallon, on a vu les mêmes pannes revenir encore et encore. Les voici, avec ce qu'on fait pour les résoudre :
+    </p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>Pression trop basse</strong> : le manomètre est en dessous de 1 bar, la chaudière se met en sécurité. Parfois c'est juste un manque d'eau (on remplir le circuit). Parfois c'est une fuite ou un vase d'expansion percé.</li>
+      <li><strong>La chaudière ne démarre plus</strong> : pas de flamme. Causes possibles : électrode d'allumage encrassée, bloc gaz défaillant, carte électronique en panne. On diagnostique sur place.</li>
+      <li><strong>Eau chaude OK mais pas de chauffage</strong> : le classique. C'est la vanne 3 voies qui est bloquée en position "eau chaude sanitaire". Elle ne bascule plus vers le circuit de chauffage. On la remplace — c'est une réparation courante, comptez 200 à 400 euros pièce et main d'oeuvre.</li>
+      <li><strong>Bruit bizarre</strong> : claquements, sifflements, glouglous. Air dans le circuit, embouage, pompe qui fatigue, ou calcaire dans l'échangeur. On purge, on désemboue si nécessaire.</li>
+      <li><strong>Code erreur clignotant</strong> : chaque marque a ses codes. On connaît ceux de Bosch, Vaillant, Remeha, Viessmann, Buderus, Junkers. Souvent, un simple reset suffit. Si le code revient, il faut investiguer.</li>
+      <li><strong>Fuite d'eau sous la chaudière</strong> : joint défaillant, échangeur percé, soupape de sécurité qui se déclenche (signe de surpression). Il faut intervenir vite pour éviter les dégâts des eaux.</li>
+    </ul>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Les prix du dépannage
+    </h2>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>Diagnostic sur place</strong> : 90 à 140 euros (déplacement inclus en Brabant Wallon)</li>
+      <li><strong>Remplacement vanne 3 voies</strong> : 200 à 400 euros</li>
+      <li><strong>Remplacement circulateur</strong> : 250 à 500 euros</li>
+      <li><strong>Remplacement carte électronique</strong> : 300 à 600 euros</li>
+      <li><strong>Remplacement échangeur</strong> : 400 à 800 euros</li>
+      <li><strong>Majoration soir et week-end</strong> : +30 à 50%</li>
+    </ul>
+
+    <p>
+      On est transparents. Si la réparation dépasse 50% du prix d'une <a href="/chauffage/chaudiere-gaz/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chaudière neuve</a> et que la vôtre a plus de 12-15 ans, on vous le dit. On ne va pas vous facturer 1 000 euros de réparations sur une chaudière qui va retomber en panne 6 mois plus tard.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Avant de nous appeler
+    </h2>
+
+    <p>
+      Quelques vérifications que vous pouvez faire vous-même avant d'appeler :
+    </p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>Vérifiez le disjoncteur</strong> : la chaudière est-elle bien alimentée en électricité ? Un disjoncteur qui a sauté, ça arrive.</li>
+      <li><strong>Vérifiez la pression</strong> : le manomètre doit être entre 1,0 et 1,5 bar. En dessous de 0,8, rajoutez de l'eau via le robinet de remplissage (petit robinet sous la chaudière).</li>
+      <li><strong>Faites un reset</strong> : la plupart des chaudières ont un bouton reset. Appuyez dessus une fois. Si la chaudière repart, c'est bon. Si le code erreur revient après 2-3 resets, arrêtez et appelez-nous.</li>
+      <li><strong>Vérifiez le <a href="/chauffage/thermostat-intelligent/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">thermostat</a></strong> : est-il en mode chauffage ? La température de consigne est-elle plus haute que la température ambiante ? Les piles sont-elles bonnes ?</li>
+    </ul>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Urgence hiver
+    </h2>
+
+    <p>
+      Un mardi soir de décembre à 2°C dehors, pas de chauffage, les enfants sont là : on comprend l'urgence. En hiver, on étend nos horaires pour les dépannages urgents. On intervient le week-end et en soirée. Il y a une majoration, mais entre payer un peu plus et passer la nuit à 8°C, le choix est vite fait.
+    </p>
+
+    <p>
+      En attendant notre passage : fermez les portes des pièces que vous n'utilisez pas, mettez des pulls, utilisez un chauffage d'appoint électrique si vous en avez un (pas de poêle à pétrole dans une pièce fermée). Si vous avez une <a href="/climatisation/reversible/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">clim réversible</a>, mettez-la en mode chauffage.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Éviter les pannes
+    </h2>
+
+    <p>
+      La meilleure façon d'éviter un dépannage en plein hiver, c'est un <a href="/chauffage/entretien-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">entretien régulier</a>. Lors de l'entretien, on détecte les pièces usées avant qu'elles ne lâchent. Un joint qui commence à fuir en septembre, c'est une réparation tranquille. Le même joint qui lâche un samedi soir de janvier, c'est un dépannage urgent avec majoration.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Nos zones d'intervention
+    </h2>
+
+    <p>
+      On dépanne les chaudières dans tout le Brabant Wallon : <a href="/zone/wavre/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Wavre</a>, <a href="/zone/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a>, <a href="/zone/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a>, <a href="/zone/braine-l-alleud/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Braine-l'Alleud</a>, <a href="/zone/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a>, <a href="/zone/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a>, <a href="/zone/ottignies-louvain-la-neuve/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Ottignies-LLN</a>, <a href="/zone/grez-doiceau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Grez-Doiceau</a>, <a href="/zone/chaumont-gistoux/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Chaumont-Gistoux</a> et <a href="/zone/court-saint-etienne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Court-Saint-Étienne</a>.
+    </p>
+
+  </div>
+</article>
+
+<CTASection title="Chaudière en panne ?" text="Appelez-nous. Diagnostic rapide, intervention y compris le week-end en hiver." />
+
+<div class="h-20 lg:hidden"></div>
+
+</Layout>

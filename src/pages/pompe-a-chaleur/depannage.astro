@@ -1,0 +1,167 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Breadcrumb from '../../components/Breadcrumb.astro'
+import CTASection from '../../components/CTASection.astro'
+---
+
+<Layout
+  title="Dépannage pompe à chaleur Brabant Wallon"
+  description="Dépannage pompe à chaleur urgent en Brabant Wallon. Codes erreur, givrage, bruit, PAC ne chauffe plus. Intervention week-end. Toutes marques Daikin, LG, Vaillant."
+  canonical="/pompe-a-chaleur/depannage/"
+>
+
+<Breadcrumb items={[{ label: 'Pompe à chaleur', href: '/pompe-a-chaleur/' }, { label: 'Dépannage' }]} />
+
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">
+    Dépannage pompe à chaleur en Brabant Wallon
+  </h1>
+  <p class="text-lg text-[var(--color-texte-light)] mb-8">
+    Votre PAC ne chauffe plus, affiche un code erreur ou fait un bruit bizarre ? On intervient rapidement, y compris le week-end en hiver. Toutes marques.
+  </p>
+
+  <div class="rounded-xl overflow-hidden my-6">
+    <img src="/images/pac/unite-exterieure-bruit.webp" alt="Dépannage unité extérieure pompe à chaleur" width="1200" height="500" loading="eager" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+  </div>
+
+  <div class="space-y-8 text-[var(--color-texte-light)] leading-relaxed">
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Votre PAC ne chauffe plus : les causes fréquentes
+    </h2>
+
+    <p>
+      Avant d'appeler, il y a quelques choses que vous pouvez vérifier vous-même. Dans environ 20% des cas, le problème se résout sans intervention technique :
+    </p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>Disjoncteur déclenché</strong> : vérifiez votre tableau électrique. Un disjoncteur qui saute, ça peut arriver après une microcoupure. Remettez-le en position. Si ça redisjoncte immédiatement, là c'est un problème électrique — appelez-nous.</li>
+      <li><strong>Thermostat mal réglé ou en mode vacances</strong> : ça semble bête, mais on intervient au moins une fois par mois pour un thermostat qui avait été mis en mode vacances et pas remis en mode normal.</li>
+      <li><strong>Pression d'eau trop basse</strong> (PAC air-eau) : regardez le manomètre. En dessous de 0,8 bar, la PAC se met en sécurité. Remettez de l'eau dans le circuit via le robinet de remplissage.</li>
+      <li><strong>Unité extérieure bloquée par la neige ou la glace</strong> : en hiver, la neige peut bloquer l'aspiration d'air. Dégagez l'unité (pas avec de l'eau chaude, juste manuellement).</li>
+    </ul>
+
+    <p>
+      Si rien de tout ça ne résout le problème, alors oui, il faut un technicien.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Codes erreur : ce qu'ils signifient
+    </h2>
+
+    <p>
+      Chaque marque a ses propres codes erreur. Voici les plus fréquents qu'on rencontre sur le terrain :
+    </p>
+
+    <h3 class="text-xl font-bold text-[var(--color-vert-fonce)] pt-2">
+      Daikin
+    </h3>
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>E7</strong> : problème de ventilateur extérieur. Souvent un blocage mécanique ou un condensateur HS.</li>
+      <li><strong>U4</strong> : défaut de communication entre unité intérieure et extérieure. Câble de liaison à vérifier.</li>
+      <li><strong>F3</strong> : température de refoulement trop élevée. Possible manque de fluide ou filtre bouché.</li>
+    </ul>
+
+    <h3 class="text-xl font-bold text-[var(--color-vert-fonce)] pt-2">
+      LG
+    </h3>
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>CH05</strong> : erreur de communication. Vérifier le câblage entre les unités.</li>
+      <li><strong>CH38</strong> : sonde de température extérieure défectueuse. Pièce à remplacer (15-30 euros la sonde, mais il faut le diagnostic).</li>
+    </ul>
+
+    <h3 class="text-xl font-bold text-[var(--color-vert-fonce)] pt-2">
+      Vaillant
+    </h3>
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>F22</strong> : manque d'eau dans le circuit. Remplissage nécessaire.</li>
+      <li><strong>F75</strong> : pas de variation de pression détectée au démarrage. Circulateur ou capteur de pression à vérifier.</li>
+    </ul>
+
+    <p>
+      Si votre code erreur n'est pas dans cette liste, notez-le et appelez-nous. On connaît la plupart des codes par coeur. Et si on ne le connaît pas, on a les manuels techniques de toutes les marques qu'on installe.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Givrage de l'unité extérieure
+    </h2>
+
+    <p>
+      Un peu de givre sur l'unité extérieure en hiver, c'est normal. La PAC a un cycle de dégivrage automatique qui inverse le cycle toutes les 30 à 90 minutes pour faire fondre la glace. Vous entendez un "woush" suivi d'un peu de vapeur — c'est le dégivrage, tout va bien.
+    </p>
+
+    <p>
+      Par contre, si l'unité est complètement recouverte de glace et que ça ne fond plus, il y a un problème. Les causes possibles :
+    </p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>Sonde de dégivrage défectueuse</strong> : la PAC ne sait plus quand elle doit dégivrer. Pièce à remplacer.</li>
+      <li><strong>Vanne 4 voies bloquée</strong> : elle ne peut plus inverser le cycle. Réparation plus complexe.</li>
+      <li><strong>Manque de fluide frigorigène</strong> : le cycle de dégivrage fonctionne, mais il n'est pas assez puissant pour faire fondre la glace. Fuite à trouver et à réparer.</li>
+      <li><strong>Ventilateur ralenti ou bloqué</strong> : sans flux d'air, le givre s'accumule plus vite que le dégivrage ne peut l'éliminer.</li>
+    </ul>
+
+    <p>
+      Ne tentez jamais de dégivrer l'unité avec de l'eau chaude ou un nettoyeur haute pression. Vous risquez d'endommager les ailettes de l'échangeur. Un léger brossage à la main, oui. Le reste, c'est pour le technicien.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Bruit anormal
+    </h2>
+
+    <p>
+      Une PAC qui fonctionne normalement fait un ronronnement régulier. Si vous entendez autre chose, c'est un signal :
+    </p>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>Claquement métallique</strong> : dilatation thermique des tuyaux, ou support de l'unité extérieure mal fixé. Souvent bénin, mais agaçant.</li>
+      <li><strong>Sifflement aigu</strong> : vanne d'expansion qui siffle, ou débit de fluide trop rapide. A vérifier.</li>
+      <li><strong>Grondement grave</strong> : compresseur en souffrance. Ça peut être un manque de fluide, un retour de liquide, ou un roulement en fin de vie. Urgent.</li>
+      <li><strong>Vibration excessive</strong> : fixation de l'unité extérieure qui a lâché, ou silent blocks usés. On ajoute des plots anti-vibrations si nécessaire.</li>
+    </ul>
+
+    <p>
+      Si le bruit est nouveau et que votre PAC a plus de 2 ans, ne laissez pas traîner. Un problème mécanique qui s'aggrave, c'est une facture qui augmente.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Intervention week-end et urgence hiver
+    </h2>
+
+    <p>
+      On sait ce que c'est : votre PAC tombe en panne un samedi soir en janvier, il fait 2°C dans la maison, et vous avez des enfants. Ce n'est pas une option d'attendre lundi.
+    </p>
+
+    <p>
+      En période hivernale (novembre à mars), on assure des interventions le week-end pour les pannes de chauffage. Les délais dépendent de notre charge, mais on fait le maximum pour intervenir dans les 24 heures. Les clients sous <a href="/pompe-a-chaleur/entretien/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">contrat d'entretien</a> sont prioritaires.
+    </p>
+
+    <p>
+      On dépanne toutes les marques : Daikin, LG, Vaillant, Gree, Bemco, Mitsubishi, Panasonic, Toshiba. Même si on ne l'a pas installée. On a les outils, les connaissances et l'accès aux pièces détachées des principaux fabricants.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Mieux vaut prévenir que dépanner
+    </h2>
+
+    <p>
+      La plupart des pannes qu'on voit auraient pu être évitées avec un <a href="/pompe-a-chaleur/entretien/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">entretien annuel</a>. Un filtre bouché qui n'est pas nettoyé pendant 3 ans finit par griller le compresseur. Un manque de fluide qui n'est pas détecté pendant 2 ans finit par abîmer la vanne d'expansion. L'entretien coûte 150-250 euros par an. Un compresseur, c'est 2 000 à 4 000 euros. Le calcul est vite fait.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Zones d'intervention
+    </h2>
+
+    <p>
+      On dépanne des PAC dans 10 communes du Brabant Wallon : <a href="/zone/wavre/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Wavre</a>, <a href="/zone/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a>, <a href="/zone/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a>, <a href="/zone/braine-l-alleud/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Braine-l'Alleud</a>, <a href="/zone/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a>, <a href="/zone/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a>, <a href="/zone/ottignies-louvain-la-neuve/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Ottignies-LLN</a>, <a href="/zone/grez-doiceau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Grez-Doiceau</a>, <a href="/zone/chaumont-gistoux/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Chaumont-Gistoux</a> et <a href="/zone/court-saint-etienne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Court-Saint-Etienne</a>.
+    </p>
+
+  </div>
+</article>
+
+<CTASection title="PAC en panne ?" text="Appelez-nous. On intervient rapidement, y compris le week-end en hiver." />
+
+<div class="h-20 lg:hidden"></div>
+
+</Layout>

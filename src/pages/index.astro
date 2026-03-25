@@ -69,7 +69,7 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
 ---
 
 <Layout
-  title="Pompe à chaleur Brabant Wallon — Installation, climatisation, chauffage | PAC-BW"
+  title="Pompe à chaleur et climatisation | PAC-BW"
   description="Installateur pompe à chaleur, climatisation et chauffage en Brabant Wallon. Wavre, Waterloo, Lasne. Devis gratuit sous 24h. Primes Wallonie."
   canonical="/"
 >
@@ -95,20 +95,31 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
             Demander un devis gratuit &rarr;
           </a>
           <a
-            href="tel:+3210000000"
+            href="tel:+3228861457"
             class="border-2 border-[var(--color-vert)] text-[var(--color-vert)] font-bold text-base px-8 py-4 rounded-xl text-center hover:bg-[var(--color-vert-clair)] transition-colors"
           >
-            010 / 00 00 00
+            02 / 886 14 57
           </a>
         </div>
       </div>
       <div class="flex-1 max-w-md w-full">
-        <div class="bg-gradient-to-br from-[var(--color-vert)] to-emerald-700 rounded-2xl p-8 text-white aspect-[4/3] flex flex-col justify-end relative overflow-hidden">
-          <div class="absolute top-6 right-6 text-7xl opacity-20">🌿</div>
-          <p class="text-sm font-bold uppercase tracking-wider opacity-70 mb-1">Nos marques</p>
-          <p class="text-base font-semibold">Daikin &middot; LG &middot; Vaillant &middot; Bosch &middot; Gree</p>
-          <div class="mt-4 bg-white/15 backdrop-blur-sm rounded-lg px-4 py-3">
-            <p class="text-xs">Installateur certifié multi-marques depuis le Brabant Wallon</p>
+        <div class="rounded-2xl overflow-hidden relative aspect-[4/3]">
+          <img
+            src="/images/hero/hero-accueil.webp"
+            alt="Installation pompe à chaleur en Brabant Wallon"
+            width="800" height="600"
+            loading="eager"
+            decoding="async"
+            class="w-full h-full object-cover"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          />
+          <div class="bg-gradient-to-br from-[var(--color-vert)] to-emerald-700 text-white p-8 flex flex-col justify-end absolute inset-0" style="display:none">
+            <div class="absolute top-6 right-6 text-7xl opacity-20">🌿</div>
+            <p class="text-sm font-bold uppercase tracking-wider opacity-70 mb-1">Nos marques</p>
+            <p class="text-base font-semibold">Daikin &middot; LG &middot; Vaillant &middot; Bosch &middot; Gree</p>
+          </div>
+          <div class="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg px-4 py-3">
+            <p class="text-white text-xs font-semibold">Daikin &middot; LG &middot; Vaillant &middot; Bosch &middot; Gree</p>
           </div>
         </div>
       </div>
@@ -250,7 +261,7 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
         Questions qu'on nous pose tout le temps
       </h2>
       <div class="space-y-6">
-        <details class="group border border-[var(--color-bordure)] rounded-xl" open>
+        <details class="group border border-[var(--color-bordure)] rounded-xl">
           <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
             Combien ça coûte une pompe à chaleur installée ?
             <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
