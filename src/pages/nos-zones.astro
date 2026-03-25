@@ -1,26 +1,26 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import Breadcrumb from '../../components/Breadcrumb.astro'
-import CTASection from '../../components/CTASection.astro'
+import Layout from '../layouts/Layout.astro'
+import Breadcrumb from '../components/Breadcrumb.astro'
+import CTASection from '../components/CTASection.astro'
 
 const zones = [
-  { name: 'Wavre', cp: '1300', pop: '35 581', href: '/zone/wavre/', sections: 'Wavre, Limal, Bierges' },
-  { name: 'Waterloo', cp: '1410', pop: '30 389', href: '/zone/waterloo/', sections: 'Waterloo' },
-  { name: 'Lasne', cp: '1380', pop: '14 175', href: '/zone/lasne/', sections: 'Lasne, Ohain, Plancenoit, Maransart, Couture-Saint-Germain' },
-  { name: "Braine-l'Alleud", cp: '1420', pop: '40 756', href: '/zone/braine-l-alleud/', sections: "Braine-l'Alleud, Ophain-Bois-Seigneur-Isaac, Lillois-Witterzée" },
-  { name: 'Rixensart', cp: '1330', pop: '23 052', href: '/zone/rixensart/', sections: 'Rixensart, Rosières, Genval' },
-  { name: 'La Hulpe', cp: '1310', pop: '7 482', href: '/zone/la-hulpe/', sections: 'La Hulpe' },
-  { name: 'Ottignies-Louvain-la-Neuve', cp: '1340', pop: '31 766', href: '/zone/ottignies-louvain-la-neuve/', sections: 'Ottignies, Louvain-la-Neuve, Céroux-Mousty, Limelette' },
-  { name: 'Grez-Doiceau', cp: '1390', pop: '14 014', href: '/zone/grez-doiceau/', sections: 'Grez-Doiceau, Biez, Nethen, Archennes, Bossut-Gottechain' },
-  { name: 'Chaumont-Gistoux', cp: '1325', pop: '11 894', href: '/zone/chaumont-gistoux/', sections: 'Chaumont-Gistoux, Bonlez, Corroy-le-Grand, Dion-le-Mont, Gistoux' },
-  { name: 'Court-Saint-Étienne', cp: '1490', pop: '10 927', href: '/zone/court-saint-etienne/', sections: 'Court-Saint-Étienne' },
+  { name: 'Wavre', cp: '1300', pop: '35 581', href: '/wavre/', sections: 'Wavre, Limal, Bierges' },
+  { name: 'Waterloo', cp: '1410', pop: '30 389', href: '/waterloo/', sections: 'Waterloo' },
+  { name: 'Lasne', cp: '1380', pop: '14 175', href: '/lasne/', sections: 'Lasne, Ohain, Plancenoit, Maransart, Couture-Saint-Germain' },
+  { name: "Braine-l'Alleud", cp: '1420', pop: '40 756', href: '/braine-l-alleud/', sections: "Braine-l'Alleud, Ophain-Bois-Seigneur-Isaac, Lillois-Witterzée" },
+  { name: 'Rixensart', cp: '1330', pop: '23 052', href: '/rixensart/', sections: 'Rixensart, Rosières, Genval' },
+  { name: 'La Hulpe', cp: '1310', pop: '7 482', href: '/la-hulpe/', sections: 'La Hulpe' },
+  { name: 'Ottignies-Louvain-la-Neuve', cp: '1340', pop: '31 766', href: '/ottignies-louvain-la-neuve/', sections: 'Ottignies, Louvain-la-Neuve, Céroux-Mousty, Limelette' },
+  { name: 'Grez-Doiceau', cp: '1390', pop: '14 014', href: '/grez-doiceau/', sections: 'Grez-Doiceau, Biez, Nethen, Archennes, Bossut-Gottechain' },
+  { name: 'Chaumont-Gistoux', cp: '1325', pop: '11 894', href: '/chaumont-gistoux/', sections: 'Chaumont-Gistoux, Bonlez, Corroy-le-Grand, Dion-le-Mont, Gistoux' },
+  { name: 'Court-Saint-Étienne', cp: '1490', pop: '10 927', href: '/court-saint-etienne/', sections: 'Court-Saint-Étienne' },
 ]
 ---
 
 <Layout
   title="Zones d'intervention Brabant Wallon | Pompe à chaleur BW"
   description="On intervient dans 10 communes du Brabant Wallon : Wavre, Waterloo, Lasne, Braine-l'Alleud, Rixensart, La Hulpe, Ottignies-LLN, Grez-Doiceau, Chaumont-Gistoux."
-  canonical="/zone/"
+  canonical="/nos-zones/"
 >
 
 <Breadcrumb items={[{ label: 'Nos zones' }]} />

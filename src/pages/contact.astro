@@ -64,16 +64,16 @@ import Breadcrumb from '../components/Breadcrumb.astro'
         <p class="text-sm text-[var(--color-texte-light)] mb-3">On intervient dans 10 communes du Brabant Wallon :</p>
         <div class="grid grid-cols-2 gap-2">
           {[
-            { name: 'Wavre', href: '/zone/wavre/' },
-            { name: 'Waterloo', href: '/zone/waterloo/' },
-            { name: 'Lasne', href: '/zone/lasne/' },
-            { name: "Braine-l'Alleud", href: '/zone/braine-l-alleud/' },
-            { name: 'Rixensart', href: '/zone/rixensart/' },
-            { name: 'La Hulpe', href: '/zone/la-hulpe/' },
-            { name: 'Ottignies-LLN', href: '/zone/ottignies-louvain-la-neuve/' },
-            { name: 'Grez-Doiceau', href: '/zone/grez-doiceau/' },
-            { name: 'Chaumont-Gistoux', href: '/zone/chaumont-gistoux/' },
-            { name: 'Court-Saint-Étienne', href: '/zone/court-saint-etienne/' },
+            { name: 'Wavre', href: '/wavre/' },
+            { name: 'Waterloo', href: '/waterloo/' },
+            { name: 'Lasne', href: '/lasne/' },
+            { name: "Braine-l'Alleud", href: '/braine-l-alleud/' },
+            { name: 'Rixensart', href: '/rixensart/' },
+            { name: 'La Hulpe', href: '/la-hulpe/' },
+            { name: 'Ottignies-LLN', href: '/ottignies-louvain-la-neuve/' },
+            { name: 'Grez-Doiceau', href: '/grez-doiceau/' },
+            { name: 'Chaumont-Gistoux', href: '/chaumont-gistoux/' },
+            { name: 'Court-Saint-Étienne', href: '/court-saint-etienne/' },
           ].map(z => (
             <a href={z.href} class="text-sm text-[var(--color-vert)] font-medium hover:underline">{z.name}</a>
           ))}
