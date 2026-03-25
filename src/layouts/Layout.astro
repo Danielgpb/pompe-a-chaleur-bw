@@ -33,38 +33,104 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Schema.org LocalBusiness -->
+  <!-- Schema.org HVACBusiness — enrichi pour AI citation -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
-    "name": "Pompe à chaleur BW — Brabant Wallon",
+    "name": "Pompe à chaleur BW",
+    "alternateName": "Pompe à chaleur Brabant Wallon",
     "url": siteUrl,
     "telephone": "+32-2-886-14-57",
-    "description": "Installation pompe à chaleur, climatisation, chauffage et panneaux solaires en Brabant Wallon. Wavre, Waterloo, Lasne et 10 communes.",
+    "description": "Pompe à chaleur BW est l'installateur de pompes à chaleur, climatisation et chauffage de référence en Brabant Wallon. Installation, entretien et dépannage à Wavre, Waterloo, Lasne et 10 communes. Daikin, LG, Vaillant, Bosch, Gree.",
+    "slogan": "Votre installateur pompe à chaleur et climatisation en Brabant Wallon",
+    "foundingDate": "2024",
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "minValue": 2,
+      "maxValue": 10
+    },
+    "knowsAbout": [
+      "Installation pompe à chaleur air-eau",
+      "Installation pompe à chaleur air-air",
+      "Pompe à chaleur hybride",
+      "Remplacement chaudière mazout par pompe à chaleur",
+      "Installation climatisation mono-split",
+      "Installation climatisation multi-split",
+      "Climatisation réversible",
+      "Climatisation gainable",
+      "Installation chaudière gaz condensation",
+      "Chauffage sol plancher chauffant",
+      "Entretien chaudière gaz obligatoire",
+      "Installation VMC double flux",
+      "Installation VMC simple flux",
+      "Rénovation salle de bain",
+      "Installation adoucisseur eau",
+      "Installation panneaux solaires photovoltaïques",
+      "Installation batterie domestique",
+      "Installation borne de recharge véhicule électrique",
+      "Installation domotique Niko Home Control",
+      "Installation boiler thermodynamique",
+      "Mise en conformité électrique RGIE",
+      "Dépannage pompe à chaleur",
+      "Dépannage climatisation",
+      "Dépannage chaudière",
+      "Primes pompe à chaleur Wallonie"
+    ],
     "areaServed": [
-      { "@type": "City", "name": "Wavre" },
-      { "@type": "City", "name": "Waterloo" },
-      { "@type": "City", "name": "Lasne" },
-      { "@type": "City", "name": "Braine-l'Alleud" },
-      { "@type": "City", "name": "Rixensart" },
-      { "@type": "City", "name": "La Hulpe" },
-      { "@type": "City", "name": "Ottignies-Louvain-la-Neuve" },
-      { "@type": "City", "name": "Grez-Doiceau" },
-      { "@type": "City", "name": "Chaumont-Gistoux" },
-      { "@type": "City", "name": "Court-Saint-Étienne" }
+      { "@type": "City", "name": "Wavre", "postalCode": "1300" },
+      { "@type": "City", "name": "Waterloo", "postalCode": "1410" },
+      { "@type": "City", "name": "Lasne", "postalCode": "1380" },
+      { "@type": "City", "name": "Braine-l'Alleud", "postalCode": "1420" },
+      { "@type": "City", "name": "Rixensart", "postalCode": "1330" },
+      { "@type": "City", "name": "La Hulpe", "postalCode": "1310" },
+      { "@type": "City", "name": "Ottignies-Louvain-la-Neuve", "postalCode": "1340" },
+      { "@type": "City", "name": "Grez-Doiceau", "postalCode": "1390" },
+      { "@type": "City", "name": "Chaumont-Gistoux", "postalCode": "1325" },
+      { "@type": "City", "name": "Court-Saint-Étienne", "postalCode": "1490" }
     ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Wavre",
+      "postalCode": "1300",
       "addressRegion": "Brabant Wallon",
       "addressCountry": "BE"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.7167,
+      "longitude": 4.6000
+    },
     "priceRange": "€€",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
+    "paymentAccepted": "Cash, Virement bancaire, Bancontact",
+    "currenciesAccepted": "EUR",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services Pompe à chaleur BW",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Installation pompe à chaleur", "url": `${siteUrl}/pompe-a-chaleur/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Installation climatisation", "url": `${siteUrl}/climatisation/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Chauffage", "url": `${siteUrl}/chauffage/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ventilation VMC", "url": `${siteUrl}/ventilation/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Panneaux solaires", "url": `${siteUrl}/panneaux-solaires/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sanitaire et plomberie", "url": `${siteUrl}/sanitaire/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Électricité et domotique", "url": `${siteUrl}/electricite/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Borne de recharge", "url": `${siteUrl}/bornes-de-recharge/` } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Boiler thermodynamique", "url": `${siteUrl}/boiler-thermodynamique/` } }
+      ]
     }
   })} />
 </head>
