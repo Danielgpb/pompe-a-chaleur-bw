@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Breadcrumb from '../components/Breadcrumb.astro'
+import CTASection from '../components/CTASection.astro'
+---
+
+<Layout
+  title="À propos | Pompe à chaleur BW"
+  description="Qui sommes-nous ? Installateur pompe à chaleur, climatisation et chauffage en Brabant Wallon. Notre équipe, nos valeurs, nos certifications."
+  canonical="/a-propos/"
+>
+
+<Breadcrumb items={[{ label: 'À propos' }]} />
+
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">
+    Qui sommes-nous
+  </h1>
+  <p class="text-lg text-[var(--color-texte-light)] mb-8">
+    Installateur pompe à chaleur, climatisation et chauffage en Brabant Wallon. Basés dans la région, on intervient à Wavre, Waterloo, Lasne et 10 communes.
+  </p>
+
+  <div class="rounded-xl overflow-hidden my-6">
+    <img src="/images/global/equipe-technicien.webp" alt="Équipe Pompe à chaleur BW — installateurs en Brabant Wallon" width="800" height="500" loading="eager" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+  </div>
+
+  <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Pourquoi Pompe à chaleur BW
+    </h2>
+
+    <p>
+      On a créé Pompe à chaleur BW parce qu'on en avait marre d'entendre la même chose de la part des propriétaires du Brabant Wallon : "J'ai appelé trois installateurs, personne ne rappelle." Ou pire : "On m'a fait un devis, j'ai rien compris, et le gars n'a plus jamais donné signe de vie."
+    </p>
+
+    <p>
+      On s'est dit qu'il y avait moyen de faire ce métier autrement. Répondre au téléphone. Rappeler quand on dit qu'on rappelle. Donner un devis où chaque ligne est expliquée en français normal. Et surtout, installer du matériel qui tient la route — pas du premier prix qui tombe en panne au bout de deux hivers.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Ce qu'on fait
+    </h2>
+
+    <p>
+      On installe, on entretient et on dépanne tout ce qui touche au confort thermique et à l'énergie d'une maison. Les <a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompes à chaleur</a> air-eau, air-air et hybrides, c'est notre spécialité. Mais on fait aussi la <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, le <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a> (chaudières gaz, chauffage sol), la <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation</a>, le <a href="/sanitaire/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">sanitaire</a>, les <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a>, les <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">bornes de recharge</a>, l'<a href="/electricite/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">électricité</a>, la <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">domotique</a> et les <a href="/boiler-thermodynamique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">boilers thermodynamiques</a>.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Nos marques
+    </h2>
+
+    <p>
+      On travaille avec plusieurs marques, pas par opportunisme mais parce que chaque maison est différente. Une Daikin Altherma air-eau pour une villa à <a href="/zone/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a>, une Gree Clivia pour un appartement à <a href="/zone/ottignies-louvain-la-neuve/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Ottignies</a>, une Vaillant aroTHERM hybride pour une maison des années 70 à <a href="/zone/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a> — chaque situation a sa solution.
+    </p>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 gap-3 my-6">
+      {['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha', 'Atlantic', 'Ariston', 'Niko', 'Domintell', 'Panasonic'].map(m => (
+        <div class="bg-[var(--color-vert-clair)] text-[var(--color-vert)] font-bold text-center py-3 rounded-lg text-sm">{m}</div>
+      ))}
+    </div>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Notre zone
+    </h2>
+
+    <p>
+      On travaille dans 10 communes du Brabant Wallon : <a href="/zone/wavre/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Wavre</a>, <a href="/zone/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a>, <a href="/zone/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a>, <a href="/zone/braine-l-alleud/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Braine-l'Alleud</a>, <a href="/zone/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a>, <a href="/zone/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a>, <a href="/zone/ottignies-louvain-la-neuve/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Ottignies-LLN</a>, <a href="/zone/grez-doiceau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Grez-Doiceau</a>, <a href="/zone/chaumont-gistoux/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Chaumont-Gistoux</a> et <a href="/zone/court-saint-etienne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Court-Saint-Étienne</a>. On connaît le coin, on y habite, et on y est en 30 minutes max.
+    </p>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Comment on travaille
+    </h2>
+
+    <ol class="list-decimal pl-6 space-y-3">
+      <li><strong>Vous appelez ou remplissez le formulaire.</strong> On répond dans la journée.</li>
+      <li><strong>On passe chez vous.</strong> On regarde votre installation, on discute de ce que vous voulez, on prend les mesures.</li>
+      <li><strong>Vous recevez un devis détaillé.</strong> Chaque ligne expliquée. Le prix affiché, c'est le prix final. Les <a href="/pompe-a-chaleur/primes-wallonie/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">primes Wallonie</a> sont indiquées séparément pour que vous voyiez ce que vous payez vraiment.</li>
+      <li><strong>On installe.</strong> Proprement, dans les délais annoncés. On protège vos sols, on nettoie derrière nous.</li>
+      <li><strong>On reste disponible.</strong> <a href="/pompe-a-chaleur/entretien/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Entretien</a>, <a href="/pompe-a-chaleur/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">dépannage</a>, questions — on est là après l'installation aussi.</li>
+    </ol>
+
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
+      Nos certifications
+    </h2>
+
+    <ul class="list-disc pl-6 space-y-2">
+      <li><strong>Certification frigoriste</strong> — Agréé pour la manipulation de fluides frigorigènes (F-gaz)</li>
+      <li><strong>Installateur agréé</strong> — Éligible aux primes Wallonie pour pompes à chaleur et boilers thermodynamiques</li>
+      <li><strong>Partenaire multi-marques</strong> — Daikin, LG, Vaillant, Bosch, Gree, Remeha, Atlantic, Ariston</li>
+      <!-- Ajoutez ici vos certifications spécifiques : RESCert, QualiPAC, etc. -->
+    </ul>
+
+  </div>
+</article>
+
+<CTASection title="Un projet en tête ?" text="On en discute autour d'un café. Enfin, surtout autour de votre chaudière." />
+
+<div class="h-20 lg:hidden"></div>
+
+</Layout>
