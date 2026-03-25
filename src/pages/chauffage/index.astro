@@ -3,6 +3,30 @@ import Layout from '../../layouts/Layout.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
 import CTASection from '../../components/CTASection.astro'
 import ServiceSchema from '../../components/ServiceSchema.astro'
+import FAQSection from '../../components/FAQSection.astro'
+
+const faqs = [
+  {
+    question: "L'entretien de ma chaudière gaz est obligatoire en Wallonie ?",
+    answer: "Oui, tous les 3 ans en Wallonie (2 ans à Bruxelles). Pour le mazout, c'est annuel. Prix : 150 à 250 euros, attestation incluse. On ne peut pas le faire soi-même — il faut un technicien agréé. On propose des <a href='/chauffage/entretien-chaudiere/' class='text-[var(--color-vert)] font-semibold underline'>contrats d'entretien</a> à partir de 9 euros/mois."
+  },
+  {
+    question: "Ma chaudière mazout est interdite en 2026 ?",
+    answer: "Pas exactement. Depuis le 1er janvier 2026, on ne peut plus installer de nouvelle chaudière mazout en construction neuve en Wallonie. Votre chaudière existante peut continuer à fonctionner. Mais à partir de 2031, plus de remplacement mazout par mazout du tout. Mieux vaut anticiper avec une <a href='/pompe-a-chaleur/' class='text-[var(--color-vert)] font-semibold underline'>pompe à chaleur</a> ou une <a href='/chauffage/chaudiere-gaz/' class='text-[var(--color-vert)] font-semibold underline'>chaudière gaz</a>."
+  },
+  {
+    question: "Combien coûte une chaudière gaz condensation installée ?",
+    answer: "Entre 2 500 et 7 000 euros selon la puissance et le modèle. Une Bosch Condens 2300i pour une maison moyenne, c'est environ 3 500 euros posée. Une Vaillant ecoTEC avec ballon, plutôt 5 000 à 6 000 euros."
+  },
+  {
+    question: "Le chauffage sol, c'est possible en rénovation ?",
+    answer: "Oui. Il existe des systèmes de fraisage dans la chape existante à 30-45 euros/m². Pas besoin de tout casser. Le <a href='/chauffage/chauffage-sol/' class='text-[var(--color-vert)] font-semibold underline'>chauffage sol</a> se combine très bien avec une <a href='/pompe-a-chaleur/air-eau/' class='text-[var(--color-vert)] font-semibold underline'>pompe à chaleur air-eau</a> pour un rendement optimal."
+  },
+  {
+    question: "Ma chaudière ne démarre plus, vous dépannez en urgence ?",
+    answer: "Oui, <a href='/chauffage/depannage/' class='text-[var(--color-vert)] font-semibold underline'>dépannage chaudière</a> en Brabant Wallon y compris le week-end en hiver. Diagnostic sur place : 90 à 140 euros. On intervient sur toutes les marques."
+  }
+]
 ---
 
 <Layout
@@ -134,6 +158,8 @@ import ServiceSchema from '../../components/ServiceSchema.astro'
 
   </div>
 </article>
+
+<FAQSection items={faqs} />
 
 <CTASection title="Un souci de chauffage ?" text="Dépannage, remplacement ou entretien. Devis gratuit sous 24h." />
 

@@ -3,6 +3,30 @@ import Layout from '../../layouts/Layout.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
 import CTASection from '../../components/CTASection.astro'
 import ServiceSchema from '../../components/ServiceSchema.astro'
+import FAQSection from '../../components/FAQSection.astro'
+
+const faqs = [
+  {
+    question: "Combien coûte une pompe à chaleur installée en Brabant Wallon ?",
+    answer: "Une PAC air-air coûte entre 4 000 et 6 000 euros installée. Une PAC air-eau, entre 8 000 et 15 000 euros selon la puissance et la marque. Les <a href='/pompe-a-chaleur/primes-wallonie/' class='text-[var(--color-vert)] font-semibold underline'>primes Wallonie</a> réduisent la facture de 600 à 3 600 euros."
+  },
+  {
+    question: "Quelle différence entre PAC air-eau et air-air ?",
+    answer: "La <a href='/pompe-a-chaleur/air-eau/' class='text-[var(--color-vert)] font-semibold underline'>PAC air-eau</a> chauffe de l'eau pour vos radiateurs ou plancher chauffant. La <a href='/pompe-a-chaleur/air-air/' class='text-[var(--color-vert)] font-semibold underline'>PAC air-air</a> souffle de l'air chaud ou froid via des splits. L'air-eau convient mieux en rénovation. L'air-air est moins chère mais pas de prime en Wallonie."
+  },
+  {
+    question: "Une pompe à chaleur fonctionne quand il gèle ?",
+    answer: "Oui. Les Daikin Altherma, LG Therma V et Vaillant aroTHERM fonctionnent jusqu'à -20°C. Le rendement baisse un peu par grand froid. Si votre maison est mal isolée, la <a href='/pompe-a-chaleur/hybride/' class='text-[var(--color-vert)] font-semibold underline'>PAC hybride</a> combine PAC et chaudière gaz pour les jours les plus froids."
+  },
+  {
+    question: "L'entretien d'une PAC est obligatoire ?",
+    answer: "Si votre PAC contient plus de 3 kg de fluide frigorigène, oui. Un <a href='/pompe-a-chaleur/entretien/' class='text-[var(--color-vert)] font-semibold underline'>entretien annuel</a> coûte entre 150 et 250 euros. C'est aussi indispensable pour garder la garantie constructeur."
+  },
+  {
+    question: "Ma chaudière mazout est en fin de vie. Par quoi la remplacer ?",
+    answer: "Depuis 2026, plus de nouvelles chaudières mazout en construction neuve en Wallonie. Les alternatives : <a href='/pompe-a-chaleur/air-eau/' class='text-[var(--color-vert)] font-semibold underline'>PAC air-eau</a>, <a href='/pompe-a-chaleur/hybride/' class='text-[var(--color-vert)] font-semibold underline'>PAC hybride</a>, ou pellets. Notre <a href='/pompe-a-chaleur/remplacement-chaudiere/' class='text-[var(--color-vert)] font-semibold underline'>guide remplacement chaudière</a> détaille tout."
+  }
+]
 ---
 
 <Layout
@@ -211,6 +235,8 @@ import ServiceSchema from '../../components/ServiceSchema.astro'
 
   </div>
 </article>
+
+<FAQSection items={faqs} />
 
 <CTASection title="Votre projet pompe à chaleur ?" text="Devis gratuit, clair et détaillé. Réponse sous 24h." />
 

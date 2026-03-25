@@ -3,6 +3,30 @@ import Layout from '../../layouts/Layout.astro'
 import Breadcrumb from '../../components/Breadcrumb.astro'
 import CTASection from '../../components/CTASection.astro'
 import ServiceSchema from '../../components/ServiceSchema.astro'
+import FAQSection from '../../components/FAQSection.astro'
+
+const faqs = [
+  {
+    question: "Combien coûte l'installation d'une climatisation ?",
+    answer: "Un <a href='/climatisation/mono-split/' class='text-[var(--color-vert)] font-semibold underline'>mono-split</a> installé, c'est à partir de 3 000 euros. Un <a href='/climatisation/multi-split/' class='text-[var(--color-vert)] font-semibold underline'>bi-split</a> (2 pièces), entre 5 000 et 8 000 euros. Un <a href='/climatisation/gainable/' class='text-[var(--color-vert)] font-semibold underline'>gainable</a> (invisible), 10 000 à 12 000 euros. TVA 6% si votre maison a plus de 10 ans."
+  },
+  {
+    question: "Est-ce que la clim peut aussi chauffer en hiver ?",
+    answer: "Oui. Quasiment tous les splits qu'on installe sont <a href='/climatisation/reversible/' class='text-[var(--color-vert)] font-semibold underline'>réversibles</a> de base — ça ne coûte pas plus cher. Par contre, une clim réversible ne remplace pas un chauffage central si votre maison est mal isolée."
+  },
+  {
+    question: "L'unité extérieure fait beaucoup de bruit ?",
+    answer: "L'unité intérieure, 20-25 dB en mode nuit — vous ne l'entendez pas. L'unité extérieure, 45-55 dB selon le modèle. Le placement est la clé. On vérifie toujours les distances réglementaires (45 dB jour, 40 dB nuit en Wallonie) avant d'installer."
+  },
+  {
+    question: "L'entretien de la clim est obligatoire ?",
+    answer: "Si l'installation contient plus de 3 kg de fluide frigorigène, oui. Un <a href='/climatisation/entretien/' class='text-[var(--color-vert)] font-semibold underline'>entretien annuel</a> coûte 70 à 200 euros. Ça inclut le nettoyage des filtres, la vérification du fluide et le contrôle des performances."
+  },
+  {
+    question: "Je construis. Faut-il prévoir quelque chose pour la clim ?",
+    answer: "Oui. Faites prévoir un trou de 70 mm dans le mur extérieur, un circuit électrique dédié et un chemin de câble. Ça coûte 200 euros pendant la construction. Si on doit tout percer après, c'est 2 000 euros."
+  }
+]
 ---
 
 <Layout
@@ -134,6 +158,8 @@ import ServiceSchema from '../../components/ServiceSchema.astro'
 
   </div>
 </article>
+
+<FAQSection items={faqs} />
 
 <CTASection title="Vous pensez à la clim ?" text="C'est maintenant qu'il faut s'y prendre, pas en juillet. Devis gratuit sous 24h." />
 
