@@ -1,51 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Icons from '../components/Icons.astro'
 
 const services = [
   {
-    icon: '🔥',
+    icon: 'flame',
     title: 'Pompe à chaleur',
     desc: 'Air-eau, air-air, hybride. On remplace votre chaudière mazout avant la deadline. Primes Wallonie incluses dans le devis.',
     href: '/pompe-a-chaleur/',
   },
   {
-    icon: '❄️',
+    icon: 'snowflake',
     title: 'Climatisation',
     desc: 'Mono-split, multi-split, réversible, gainable. Daikin, LG, Gree. On dimensionne avant de vendre.',
     href: '/climatisation/',
   },
   {
-    icon: '🔧',
+    icon: 'thermometer',
     title: 'Chauffage',
     desc: 'Chaudière gaz condensation, chauffage sol, radiateurs. Entretien obligatoire tous les 3 ans en Wallonie.',
     href: '/chauffage/',
   },
   {
-    icon: '💨',
+    icon: 'wind',
     title: 'Ventilation',
     desc: 'VMC simple flux, double flux. Pour votre PEB et surtout pour ne plus avoir de moisissures.',
     href: '/ventilation/',
   },
   {
-    icon: '☀️',
+    icon: 'sun',
     title: 'Panneaux solaires',
     desc: 'Installation complète, batterie domestique, onduleur. On calcule votre autoconsommation avant de poser quoi que ce soit.',
     href: '/panneaux-solaires/',
   },
   {
-    icon: '🚿',
+    icon: 'droplets',
     title: 'Sanitaire',
     desc: 'Rénovation salle de bain, adoucisseur, eau de pluie. Dépannage plomberie quand ça presse.',
     href: '/sanitaire/',
   },
   {
-    icon: '🔌',
+    icon: 'plug',
     title: 'Électricité & domotique',
     desc: 'Niko, Domintell. Mise en conformité RGIE, rénovation électrique. Du tableau au dernier interrupteur.',
     href: '/electricite/',
   },
   {
-    icon: '⚡',
+    icon: 'zap',
     title: 'Bornes de recharge',
     desc: 'Wallbox à domicile, charge intelligente couplée à vos panneaux. On gère le passage en triphasé si besoin.',
     href: '/bornes-de-recharge/',
@@ -276,7 +277,7 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
             href={s.href}
             class="group block bg-[var(--color-fond)] border border-[var(--color-bordure)] rounded-xl p-6 hover:shadow-lg hover:shadow-green-100 hover:-translate-y-1 transition-all"
           >
-            <div class="text-3xl mb-3">{s.icon}</div>
+            <div class="text-[var(--color-vert)] mb-3"><Icons name={s.icon} class="w-8 h-8" /></div>
             <h3 class="text-base font-bold text-[var(--color-vert)] mb-2 group-hover:text-[var(--color-vert-fonce)]">{s.title}</h3>
             <p class="text-sm text-[var(--color-texte-light)] leading-relaxed">{s.desc}</p>
           </a>
