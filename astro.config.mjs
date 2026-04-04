@@ -14,5 +14,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [sitemap()]
+  integrations: [sitemap({ lastmod: new Date() })]
 });

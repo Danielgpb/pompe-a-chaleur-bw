@@ -5,8 +5,11 @@ import CTASection from '../components/CTASection.astro'
 ---
 <Layout
   title="PAC et climatisation à Court-St-Étienne | Pompe à chaleur BW"
-  description="Installateur pompe à chaleur et climatisation à Court-Saint-Étienne (1490). Installation, entretien, dépannage. Devis gratuit."
+  description="Pompe à chaleur et climatisation à Court-Saint-Étienne (1490). PAC air-eau, hybride, clim mono-split. Chauffagiste agréé BW. Devis gratuit."
   canonical="/court-saint-etienne/"
+  geoLat={50.6333}
+  geoLng={4.5648}
+  geoPlacename="Court-Saint-Étienne"
 >
 <Breadcrumb items={[{ label: 'Nos zones', href: '/nos-zones/' }, { label: 'Court-Saint-Étienne' }]} />
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
@@ -17,7 +20,7 @@ import CTASection from '../components/CTASection.astro'
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Court-Saint-Étienne. Devis gratuit sous 24h.</p>
 
   <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/zones/court-saint-etienne.webp" alt="Pompe à chaleur et climatisation à Court-Saint-Étienne" width="1200" height="400" loading="eager" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+    <img src="/images/pac/pac-hybride.webp" alt="Pompe à chaleur hybride installée à Court-Saint-Étienne" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
@@ -28,12 +31,24 @@ import CTASection from '../components/CTASection.astro'
     <p>Les maisons plus anciennes du centre, le long de la rue des Deportés ou vers la gare, c'est une autre histoire. Construction des années 50-70, murs creux ou pleins, radiateurs haute température, parfois une chaudière mazout au sous-sol. Là, il faut être honnête : une PAC en monovalent ne sera pas forcément suffisante sans travaux d'isolation. La <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> fait le lien — elle chauffe en pompe à chaleur dès que la température extérieure le permet, et bascule sur la chaudière quand il fait vraiment froid.</p>
     <p>Entre les deux, on trouve des maisons des années 90-2000 avec une isolation correcte. Pour celles-la, le passage en PAC air-eau se fait bien, a condition de vérifier que les radiateurs sont assez grands pour fonctionner a 45-50 °C. On mesure tout ca lors de la visite technique.</p>
     <p>Le choix de la marque, c'est souvent ce qui bloque. Daikin ou Mitsubishi ? Vaillant ou LG ? On voit le débat revenir chaque semaine. Un technicien expérimenté avait résumé ca très bien : "le choix de l'installateur est plus important que la marque". On est d'accord. Une Daikin mal installée fera moins bien qu'une LG parfaitement posée. Ce qui compte, c'est que l'installateur connaisse le matériel qu'il pose, qu'il ait les pièces en stock, et qu'il soit la quand ca tombe en panne. Nous, on travaille principalement en Daikin, LG et Vaillant parce qu'on les connaît sur le bout des doigts.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/pac/pac-air-eau.webp" alt="PAC air-eau installée dans un lotissement à Court-Saint-Étienne" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Climatisation à Court-Saint-Étienne</h2>
     <p>Les maisons récentes avec grandes baies vitrées et toitures plates, surtout dans les nouveaux quartiers, surchauffent en été. Un <a href="/climatisation/mono-split/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">mono-split</a> dans le séjour ou un <a href="/climatisation/multi-split/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">multi-split</a> séjour + chambres est la solution la plus demandée. Pas besoin de plus pour retrouver un confort normal en juillet-août.</p>
     <p>Pour les maisons anciennes du centre avec des combles aménagés, une <a href="/pompe-a-chaleur/air-air/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC air-air</a> qui fait chaud et froid est parfois le meilleur investissement : vous réglez le problème de la chaleur estivale et vous réduisez votre facture de chauffage en même temps.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/clim/real-lg-split.webp" alt="Climatisation LG installée à Court-Saint-Étienne — réalisation Pompe à chaleur BW" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Chauffage et entretien</h2>
     <p>Le centre de Court-Saint-Étienne est raccordé au gaz naturel. On installe des <a href="/chauffage/chaudiere-gaz/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chaudières gaz condensation</a>, on fait l'<a href="/chauffage/entretien-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">entretien obligatoire</a>, et le <a href="/chauffage/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">dépannage en urgence</a> quand la chaudière lâche un soir de janvier. En dehors du centre, la ou le mazout domine, on accompagne le passage vers une solution plus moderne -- PAC ou hybride selon le cas.</p>
     <p>Petit conseil pour l'<a href="/chauffage/entretien-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">entretien de chaudière</a> : on voit régulièrement des offres Groupon pour des entretiens a 39 ou 49 euros au lieu de 185. C'est tentant, mais la qualité du travail a ce prix-la fait débat, et a juste titre. Un entretien bâclé ne détectera pas un problème de monoxyde de carbone ou une pièce en fin de vie. Pour 150 a 200 euros chez un chauffagiste du coin qui connaît votre installation, vous avez un vrai entretien, une vraie attestation, et quelqu'un a rappeler si ca ne va pas.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/chauffage/depannage-chaudiere.webp" alt="Dépannage et entretien chaudière à Court-Saint-Étienne" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Tous nos services à Court-Saint-Étienne</h2>
     <p><a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Pompe à chaleur</a>, <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation</a>, <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a>, <a href="/sanitaire/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">sanitaire</a>, <a href="/electricite/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">électricité</a>, <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">bornes de recharge</a>. Toute la commune de Court-Saint-Étienne est couverte.</p>
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Communes voisines</h2>

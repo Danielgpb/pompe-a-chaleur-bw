@@ -5,8 +5,11 @@ import CTASection from '../components/CTASection.astro'
 ---
 <Layout
   title="PAC et climatisation à Chaumont-Gistoux | Pompe à chaleur BW"
-  description="Installateur pompe à chaleur et climatisation à Chaumont-Gistoux (1325). Bonlez, Corroy-le-Grand, Dion-le-Mont, Gistoux, Longueville. Devis gratuit."
+  description="Installation pompe à chaleur à Chaumont-Gistoux (1325) — remplacement mazout. PAC air-eau, hybride, clim. Bonlez, Corroy. Devis gratuit."
   canonical="/chaumont-gistoux/"
+  geoLat={50.6837}
+  geoLng={4.6909}
+  geoPlacename="Chaumont-Gistoux"
 >
 <Breadcrumb items={[{ label: 'Nos zones', href: '/nos-zones/' }, { label: 'Chaumont-Gistoux' }]} />
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
@@ -17,7 +20,7 @@ import CTASection from '../components/CTASection.astro'
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Chaumont-Gistoux, Bonlez, Corroy-le-Grand, Dion-le-Mont, Gistoux et Longueville. Devis gratuit sous 24h.</p>
 
   <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/zones/chaumont-gistoux.webp" alt="Pompe à chaleur et climatisation à Chaumont-Gistoux" width="1200" height="400" loading="eager" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+    <img src="/images/pac/pac-air-eau.webp" alt="Installation pompe à chaleur air-eau à Chaumont-Gistoux" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
@@ -28,10 +31,22 @@ import CTASection from '../components/CTASection.astro'
     <p>Chaumont-Gistoux a un avantage : les terrains sont grands. Une maison 4 façades avec 1 500 m² de jardin a Bonlez ou Longueville, c'est l'idéal pour placer une unité extérieure sans aucune contrainte de bruit. Et avec un COP de 4 a 5 sur les modèles récents, chaque kWh d'électricité produit 4 a 5 kWh de chaleur.</p>
     <p>La question qui revient chez les propriétaires de Chaumont-Gistoux : "combien va me coûter la PAC en électricité chaque année ?" Voici les chiffres réels qu'on constate sur le terrain. Pour une maison de 100 m² avec une PAC air-eau, comptez entre 5 100 et 5 500 kWh par an. Pour 150 m², entre 7 650 et 8 000 kWh. Au tarif moyen de 0,27 euro le kWh, ca donne entre 1 380 et 2 070 euros par an. Comparez avec 2 000 a 2 500 euros de mazout par an : l'économie est la, même sans panneaux solaires.</p>
     <p>Pour les maisons vraiment anciennes -- les fermettes de Corroy-le-Grand ou les maisons en pierre de Dion-le-Mont -- l'isolation est parfois insuffisante pour une PAC en monovalent. C'est la préoccupation numéro deux qu'on entend partout : "ma maison est-elle assez isolée ?" Si les murs ne sont pas isolés et que les châssis datent de 20 ans, une PAC seule devra envoyer de l'eau a 60 °C dans les radiateurs, le COP tombera a 2, et la facture d'électricité sera décevante. Dans ce cas, on propose la <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> : la pompe a chaleur fait le gros du travail 80 % du temps, l'ancienne chaudière (ou une neuve a condensation) prend le relais par -5 °C et en dessous. C'est pragmatique, et ca fonctionne -- en attendant d'isoler quand le budget le permet.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/pac/pac-hybride.webp" alt="PAC hybride — solution pour maisons mal isolées à Chaumont-Gistoux" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Climatisation à Chaumont-Gistoux</h2>
     <p>Les maisons 4 façades bien exposées de Gistoux et Bonlez chauffent fort en été — pas d'ombre des bâtiments voisins, le soleil tape de tous les côtés. Un <a href="/climatisation/multi-split/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">multi-split</a> avec un point dans le séjour et un ou deux dans les chambres est la solution la plus courante. Pour les budgets plus confortables, la <a href="/climatisation/gainable/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation gainable</a> offre un confort total sans appareil visible.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/clim/real-split-chambre.webp" alt="Climatisation split installée à Chaumont-Gistoux — réalisation Pompe à chaleur BW" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Solaire et autonomie énergétique</h2>
     <p>Sans gaz naturel, votre facture d'électricité augmente forcément avec une pompe à chaleur. La parade ? Des <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a> sur le toit. Les toitures des maisons 4 façades de Chaumont-Gistoux offrent souvent deux orientations exploitables — est/ouest ou sud — ce qui maximise la production. Combiné à une batterie domestique, vous pouvez couvrir une bonne partie de la consommation de votre PAC.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/solaire/hero-solaire.webp" alt="Panneaux solaires couplés à pompe à chaleur à Chaumont-Gistoux" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Tous nos services à Chaumont-Gistoux</h2>
     <p><a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Pompe à chaleur</a>, <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation</a>, <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a>, <a href="/sanitaire/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">sanitaire</a>, <a href="/electricite/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">électricité</a>, <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">bornes de recharge</a>. On couvre les six sections de Chaumont-Gistoux.</p>
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Communes voisines</h2>

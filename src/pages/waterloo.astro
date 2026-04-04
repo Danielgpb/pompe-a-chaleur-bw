@@ -5,8 +5,11 @@ import CTASection from '../components/CTASection.astro'
 ---
 <Layout
   title="PAC et climatisation à Waterloo | Pompe à chaleur BW"
-  description="Installateur pompe à chaleur et climatisation à Waterloo (1410). Installation, entretien, dépannage. Daikin, LG, Vaillant. Devis gratuit."
+  description="Installateur pompe à chaleur et climatisation à Waterloo (1410). PAC air-eau, hybride, gainable. Daikin, Vaillant, LG. Devis gratuit sur place."
   canonical="/waterloo/"
+  geoLat={50.7148}
+  geoLng={4.3997}
+  geoPlacename="Waterloo"
 >
 <Breadcrumb items={[{ label: 'Nos zones', href: '/nos-zones/' }, { label: 'Waterloo' }]} />
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
@@ -17,7 +20,7 @@ import CTASection from '../components/CTASection.astro'
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Waterloo (1410). Devis gratuit sous 24h.</p>
 
   <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/zones/waterloo.webp" alt="Pompe à chaleur et climatisation à Waterloo" width="1200" height="400" loading="eager" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+    <img src="/images/pac/hero-pac.webp" alt="Installation pompe à chaleur à Waterloo — chauffagiste agréé" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
@@ -28,10 +31,22 @@ import CTASection from '../components/CTASection.astro'
     <p>Point d'attention a Waterloo : les regles d'urbanisme sont strictes dans certains quartiers (classement, zone protegee autour du champ de bataille). On verifie toujours si un permis est necessaire pour l'unite exterieure.</p>
     <p>A Waterloo, les maisons sont souvent proches les unes des autres, surtout dans les lotissements du Chenois et les rues residentielles vers la dreve Richelle. Le bruit de l'unite exterieure, c'est le sujet qui fache. On a vu des cas ou un voisin avait porte plainte parce que la PAC etait collee contre le mur mitoyen. Un mur amplifie le son de 3 dB, un coin de 6 dB, et une cour fermee de 9 dB. Nous, on calcule l'emplacement avant de commander. Minimum 6 metres des limites de propriete quand c'est possible, et des modeles a faible niveau sonore (35 dB a 3 metres pour les Daikin recentes).</p>
     <p>Autre chose qu'on voit beaucoup a Waterloo : le demarchage telephonique pour des "packs PAC + panneaux a prix unique". Mefiance. Test-Achats a signale plusieurs societes qui gonflent les prix et font des promesses irealistes. Si quelqu'un vous propose une PAC a 1 euro ou un pack complet sans detail de prix, raccrochez. Demandez toujours un devis detaille ligne par ligne -- c'est ce qu'on fait systematiquement.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/boiler/real-boiler-thermo.webp" alt="Boiler thermodynamique installé à Waterloo — réalisation Pompe à chaleur BW" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Climatisation à Waterloo</h2>
     <p>La demande de <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a> explose à Waterloo. Les baies vitrées des maisons récentes vers le Chenois, c'est magnifique mais en juillet c'est invivable. On installe beaucoup de <a href="/climatisation/multi-split/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">multi-split</a> et de <a href="/climatisation/gainable/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">gainable</a> pour les propriétaires qui ne veulent pas voir de split au mur.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/clim/real-split-chambre.webp" alt="Climatisation split installée dans une chambre à Waterloo — réalisation Pompe à chaleur BW" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Chauffage et entretien à Waterloo</h2>
     <p>La plupart des maisons à Waterloo sont au gaz naturel. On fait l'installation de <a href="/chauffage/chaudiere-gaz/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chaudières gaz condensation</a>, l'<a href="/chauffage/entretien-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">entretien obligatoire</a>, et le <a href="/chauffage/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">dépannage en urgence</a>. Aussi les <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a>, les <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">bornes de recharge</a> et la <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">domotique</a>.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/chauffage/chaudiere-gaz.webp" alt="Remplacement chaudière gaz condensation à Waterloo" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Communes voisines</h2>
     <p>Depuis Waterloo, on couvre aussi <a href="/braine-l-alleud/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Braine-l'Alleud</a>, <a href="/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a>, <a href="/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a> et <a href="/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a>. Tout le sud du Brabant Wallon, en fait.</p>
   </div>

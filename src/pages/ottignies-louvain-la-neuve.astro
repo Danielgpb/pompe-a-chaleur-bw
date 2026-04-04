@@ -5,8 +5,11 @@ import CTASection from '../components/CTASection.astro'
 ---
 <Layout
   title="PAC et climatisation à Ottignies-LLN | Pompe à chaleur BW"
-  description="Installateur pompe à chaleur et climatisation à Ottignies-Louvain-la-Neuve (1340). Céroux-Mousty, Limelette. Installation, entretien, dépannage. Devis gratuit."
+  description="Installateur PAC et climatisation à Ottignies-Louvain-la-Neuve (1340). Air-eau, air-air, mono-split. Céroux-Mousty, Limelette. Devis gratuit."
   canonical="/ottignies-louvain-la-neuve/"
+  geoLat={50.6676}
+  geoLng={4.5670}
+  geoPlacename="Ottignies-Louvain-la-Neuve"
 >
 <Breadcrumb items={[{ label: 'Nos zones', href: '/nos-zones/' }, { label: 'Ottignies-LLN' }]} />
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
@@ -17,7 +20,7 @@ import CTASection from '../components/CTASection.astro'
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Ottignies, Louvain-la-Neuve, Céroux-Mousty et Limelette. Devis gratuit sous 24h.</p>
 
   <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/zones/ottignies.webp" alt="Pompe à chaleur et climatisation à Ottignies-Louvain-la-Neuve" width="1200" height="400" loading="eager" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+    <img src="/images/pac/hero-pac.webp" alt="Installation pompe à chaleur à Ottignies-Louvain-la-Neuve" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
@@ -27,13 +30,25 @@ import CTASection from '../components/CTASection.astro'
     <p>Les maisons familiales d'Ottignies — le long de l'avenue des Combattants, vers le bois des Rêves, le quartier du Stimont — sont souvent des 3 ou 4 façades des années 70-90. Beaucoup ont encore une chaudière mazout ou une vieille chaudière gaz atmosphérique. Le passage vers une <a href="/pompe-a-chaleur/air-eau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC air-eau</a> est tout à fait faisable, surtout si le chauffage sol ou des radiateurs basse température sont déjà en place.</p>
     <p>À Limelette, même profil. De belles maisons résidentielles, des terrains suffisants pour poser l'unité extérieure sans nuisance sonore. On a remplacé plusieurs chaudières mazout dans le quartier du Bauloy ces derniers mois — la transition se fait naturellement.</p>
     <p>Pour les maisons moins bien isolées, notamment à Céroux-Mousty où on trouve des bâtisses plus anciennes, la <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> reste la solution la plus raisonnable. Pas besoin de tout casser pour commencer à économiser.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/pac/pac-hybride.webp" alt="PAC hybride installée à Ottignies — solution pour maisons anciennes" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Climatisation et PAC air-air à Louvain-la-Neuve</h2>
     <p>Les appartements de Louvain-la-Neuve ont un problème typique : surchauffe en été sous les toitures plates, et pas de possibilité de ventilation croisée dans les étages. Une <a href="/climatisation/mono-split/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation mono-split</a> dans le séjour ou une <a href="/pompe-a-chaleur/air-air/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC air-air</a> qui fait chaud et froid, c'est la solution la plus pratique. Compact, efficace, et utilisable toute l'année.</p>
     <p>Attention, en copropriété à LLN, il faut souvent l'accord de l'AG pour placer une unité extérieure sur la façade ou le balcon. On prépare le dossier technique si votre syndic le demande.</p>
     <p>On nous demande souvent a LLN si on peut installer sa clim soi-même pour économiser. Vous pouvez fixer les unités intérieures et passer les tuyaux vous-même, c'est vrai. Mais la connexion des liaisons frigorifiques et la mise en service, c'est obligatoirement un frigoriste certifié. Sans ca, pas de garantie constructeur. Et dans un appartement, une fuite de fluide mal gérée peut devenir un vrai problème. L'économie théorique de 50 % ne vaut pas le risque, surtout sur du matériel a 3 000 euros.</p>
     <p>Côté budget, pour un appartement a Louvain-la-Neuve, une <a href="/climatisation/reversible/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">clim réversible</a> mono-split démarre a 3 000 euros installée. Pour un bi-split ou tri-split qui couvre séjour et chambres dans une maison a Ottignies, comptez entre 5 000 et 8 000 euros avec la TVA a 6 %. Il n'y a pas de prime en Wallonie pour les PAC air-air, mais le confort été comme hiver vaut l'investissement.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/clim/real-split-interieur.webp" alt="Climatisation split installée dans un appartement à Louvain-la-Neuve — réalisation Pompe à chaleur BW" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Ventilation et qualité de l'air</h2>
     <p>Les logements récents de LLN sont très bien isolés, parfois trop : sans <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation mécanique</a>, l'air stagne, l'humidité s'accumule, et les moisissures apparaissent. On installe des systèmes de ventilation double flux avec récupération de chaleur — le confort sans la perte énergétique.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/ventilation/real-vmc-ubbink.webp" alt="VMC Ubbink double flux installée à Louvain-la-Neuve — réalisation Pompe à chaleur BW" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Tous nos services à Ottignies-Louvain-la-Neuve</h2>
     <p><a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Pompe à chaleur</a>, <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation</a>, <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a>, <a href="/sanitaire/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">sanitaire</a>, <a href="/electricite/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">électricité</a>, <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">bornes de recharge</a>, <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">domotique</a>. On couvre Ottignies, Louvain-la-Neuve, Céroux-Mousty et Limelette.</p>
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Communes voisines</h2>

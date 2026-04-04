@@ -5,8 +5,11 @@ import CTASection from '../components/CTASection.astro'
 ---
 <Layout
   title="PAC et climatisation à Braine-l'Alleud | Pompe à chaleur BW"
-  description="Installateur pompe à chaleur et climatisation à Braine-l'Alleud (1420). Ophain, Lillois-Witterzée. Installation, entretien, dépannage. Devis gratuit."
+  description="Installateur pompe à chaleur et climatisation à Braine-l'Alleud (1420). PAC, clim, chaudière gaz. Ophain, Lillois. Devis gratuit sous 24h."
   canonical="/braine-l-alleud/"
+  geoLat={50.6834}
+  geoLng={4.3685}
+  geoPlacename="Braine-l'Alleud"
 >
 <Breadcrumb items={[{ label: 'Nos zones', href: '/nos-zones/' }, { label: "Braine-l'Alleud" }]} />
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
@@ -17,7 +20,7 @@ import CTASection from '../components/CTASection.astro'
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Braine-l'Alleud, Ophain-Bois-Seigneur-Isaac et Lillois-Witterzée. Devis gratuit sous 24h.</p>
 
   <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/zones/braine-l-alleud.webp" alt="Pompe à chaleur et climatisation à Braine-l'Alleud" width="1200" height="400" loading="eager" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+    <img src="/images/pac/hero-pac.webp" alt="Installation pompe à chaleur et climatisation à Braine-l'Alleud" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
@@ -28,11 +31,23 @@ import CTASection from '../components/CTASection.astro'
     <p>Au centre de Braine, les maisons mitoyennes et semi-mitoyennes posent un défi classique : où mettre l'unité extérieure sans gêner les voisins ? On a l'habitude. Un passage latéral, une cour arrière, parfois même un support mural avec des silent blocks — il y a toujours une solution. La <a href="/pompe-a-chaleur/air-eau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC air-eau</a> reste le choix principal pour les maisons avec radiateurs ou chauffage sol existant.</p>
     <p>Côté Ophain, c'est plus simple. Les propriétés sont plus grandes, les jardins plus profonds. On y installe des PAC air-eau en remplacement de chaudières mazout, souvent des maisons des années 80-90 avec de bonnes surfaces. Pour les maisons moins bien isolées vers Bois-Seigneur-Isaac, la <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> permet de garder la chaudière en appoint les jours les plus froids.</p>
     <p>À Lillois-Witterzée, on voit beaucoup de lotissements des années 2000-2010 le long de la route de l'Orme. Maisons bien isolées, chauffage sol, parfois même déjà un ballon tampon — le passage en pompe à chaleur est quasiment plug-and-play.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/pac/pac-air-eau.webp" alt="PAC air-eau installée dans une maison à Braine-l'Alleud" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Climatisation à Braine-l'Alleud</h2>
     <p>La <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a> devient un réflexe à Braine. Les appartements récents de la résidence du Parc et les maisons vers la gare, avec leurs toitures plates et grandes fenêtres, sont des fours en été. Un <a href="/climatisation/mono-split/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">mono-split</a> dans le séjour suffit souvent pour les appartements. Pour les maisons, un <a href="/climatisation/multi-split/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">multi-split</a> avec 2-3 unités couvre le living et les chambres.</p>
     <p>Les villas à Ophain, c'est plutôt la <a href="/climatisation/gainable/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation gainable</a> qui a la cote. Pas de splits au mur, juste des grilles discrètes au plafond. Plus cher à l'installation, mais le résultat est invisible.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/clim/real-split-interieur.webp" alt="Climatisation split installée dans une villa à Braine-l'Alleud — réalisation Pompe à chaleur BW" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Chauffage et remplacement chaudière</h2>
     <p>Le centre de Braine est bien desservi en gaz naturel. Si votre chaudière a 15-20 ans, un remplacement par une <a href="/chauffage/chaudiere-gaz/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chaudière gaz condensation</a> moderne fait déjà une grosse différence sur la facture. À Ophain et vers les zones plus rurales, là où le mazout domine encore, la question se pose autrement : faut-il remplacer par une PAC directement ou passer d'abord par une solution hybride ? On regarde ça ensemble lors de la visite technique.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/chauffage/chaudiere-gaz.webp" alt="Chaudière gaz condensation installée à Braine-l'Alleud" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Tous nos services à Braine-l'Alleud</h2>
     <p><a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Pompe à chaleur</a>, <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation</a>, <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a>, <a href="/sanitaire/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">sanitaire</a>, <a href="/electricite/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">électricité</a>, <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">bornes de recharge</a>, <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">domotique</a>. On couvre tout Braine-l'Alleud, Ophain-Bois-Seigneur-Isaac et Lillois-Witterzée.</p>
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Communes voisines</h2>

@@ -8,9 +8,12 @@ interface Props {
   title: string
   description: string
   canonical?: string
+  geoLat?: number
+  geoLng?: number
+  geoPlacename?: string
 }
 
-const { title, description, canonical } = Astro.props
+const { title, description, canonical, geoLat, geoLng, geoPlacename } = Astro.props
 const siteUrl = 'https://pompe-a-chaleur-bw.be'
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`
 ---
@@ -35,6 +38,14 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
   <meta property="og:image" content={`${siteUrl}/images/global/og-image.webp`} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  {geoLat && geoLng && (
+    <>
+      <meta name="geo.position" content={`${geoLat};${geoLng}`} />
+      <meta name="ICBM" content={`${geoLat}, ${geoLng}`} />
+      <meta name="geo.region" content="BE-WBR" />
+      {geoPlacename && <meta name="geo.placename" content={geoPlacename} />}
+    </>
+  )}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
 
   <!-- Schema.org WebSite — identifie le site pour Google -->
@@ -121,9 +132,10 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 50.7167,
-      "longitude": 4.6000
+      "latitude": 50.71640,
+      "longitude": 4.60130
     },
+    "sameAs": [],
     "priceRange": "€€",
     "paymentAccepted": "Cash, Virement bancaire, Bancontact",
     "currenciesAccepted": "EUR",

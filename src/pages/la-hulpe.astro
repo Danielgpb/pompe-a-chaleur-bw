@@ -5,8 +5,11 @@ import CTASection from '../components/CTASection.astro'
 ---
 <Layout
   title="PAC et climatisation à La Hulpe | Pompe à chaleur BW"
-  description="Installateur pompe à chaleur et climatisation à La Hulpe (1310). Installation haut de gamme, gainable, domotique. Devis gratuit."
+  description="Pompe à chaleur et climatisation haut de gamme à La Hulpe (1310). PAC air-eau, gainable, domotique. Installateur certifié. Devis gratuit sous 24h."
   canonical="/la-hulpe/"
+  geoLat={50.7299}
+  geoLng={4.4797}
+  geoPlacename="La Hulpe"
 >
 <Breadcrumb items={[{ label: 'Nos zones', href: '/nos-zones/' }, { label: 'La Hulpe' }]} />
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
@@ -17,7 +20,7 @@ import CTASection from '../components/CTASection.astro'
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à La Hulpe. Solutions haut de gamme, gainable, domotique. Devis gratuit sous 24h.</p>
 
   <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/zones/la-hulpe.webp" alt="Pompe à chaleur et climatisation à La Hulpe" width="1200" height="400" loading="eager" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+    <img src="/images/pac/hero-pac.webp" alt="Installation pompe à chaleur haut de gamme à La Hulpe" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
@@ -28,12 +31,24 @@ import CTASection from '../components/CTASection.astro'
     <p>Pour les propriétés les plus grandes, on propose parfois une cascade de deux unités extérieures pour garantir la puissance sans forcer un seul appareil. C'est plus fiable sur la durée, et le confort est irréprochable même par -10 °C.</p>
     <p>Avec les terrains généreux disponibles a La Hulpe, certains propriétaires nous demandent si la géothermie est envisageable. La réponse est oui, a condition d'avoir le budget : comptez entre 12 500 et 22 000 euros HTVA, forage inclus. Le forage vertical seul revient entre 50 et 100 euros par mètre, soit 5 000 a 10 000 euros pour 100 mètres. C'est un investissement conséquent, mais le rendement est supérieur a celui d'une PAC air-eau, et le système est totalement silencieux -- pas d'unité extérieure visible. Pour une villa a La Hulpe, ca peut avoir du sens.</p>
     <p>Certaines maisons de caractère sur la rue des Combattants ou vers l'église ont des murs en pierre et une isolation limitée. La <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> est alors le bon compromis — vous profitez des avantages de la pompe à chaleur 80 % du temps, et la chaudière prend le relais par grand froid.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/pac/pac-air-eau.webp" alt="PAC air-eau Daikin installée dans une villa à La Hulpe" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Climatisation haut de gamme à La Hulpe</h2>
     <p>À La Hulpe, on ne pose quasiment pas de splits muraux. Les propriétaires veulent une <a href="/climatisation/gainable/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation gainable</a> : le réseau de gaines passe dans les faux-plafonds ou les combles, et seules des grilles discrètes sont visibles. Résultat : la maison est climatisée sans aucun appareil apparent.</p>
     <p>On couple souvent le gainable avec une <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">gestion domotique</a> -- pilotage par zone, programmation horaire, contrôle a distance depuis le smartphone. C'est le standard qu'on propose ici, et c'est ce que les gens attendent.</p>
     <p>Si vous construisez a La Hulpe, pensez a prévoir les gaines et les raccordements pour la climatisation dès le gros oeuvre. C'est une question qu'on voit revenir régulièrement : "qu'est-ce que je dois demander a mon architecte maintenant pour ne pas tout casser plus tard ?" La réponse : des fourreaux entre les étages, un emplacement pour le groupe extérieur avec l'alimentation électrique, et idéalement un faux plafond technique. Prévoir ca a la construction coûte presque rien. Le rajouter après, c'est 2 000 a 3 000 euros de travaux en plus.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/clim/real-split-interieur.webp" alt="Climatisation split design installée dans une villa à La Hulpe — réalisation Pompe à chaleur BW" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Panneaux solaires et autoconsommation</h2>
     <p>Avec les grandes toitures disponibles à La Hulpe, les <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a> prennent tout leur sens. Surtout si vous avez une pompe à chaleur et une <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">borne de recharge</a> : l'autoconsommation grimpe vite. On dimensionne l'installation solaire en fonction de vos vrais besoins, pas juste pour remplir le toit.</p>
+    <div class="rounded-xl overflow-hidden my-6">
+      <img src="/images/solaire/hero-solaire.webp" alt="Panneaux solaires installés sur toiture à La Hulpe" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
+    </div>
+
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Tous nos services à La Hulpe</h2>
     <p><a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Pompe à chaleur</a>, <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation</a>, <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a>, <a href="/sanitaire/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">sanitaire</a>, <a href="/electricite/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">électricité</a>, <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">bornes de recharge</a>, <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">domotique</a>. Toute La Hulpe est couverte.</p>
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Communes voisines</h2>
