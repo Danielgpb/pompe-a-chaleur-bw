@@ -1,0 +1,236 @@
+<!-- WhatsApp floating bubble with devis flow -->
+<div id="wa-widget" class="fixed bottom-24 lg:bottom-6 right-4 z-50">
+
+  <!-- Chat bubble popup -->
+  <div id="wa-popup" class="hidden mb-3 w-80 rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
+    <!-- Header -->
+    <div class="bg-[#075e54] px-4 py-3 flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center shrink-0">
+        <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 01-4.106-1.138l-.294-.176-2.862.85.85-2.862-.176-.294A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+        </svg>
+      </div>
+      <div>
+        <p class="text-white font-bold text-sm">Pompe à chaleur BW</p>
+        <p class="text-white/70 text-xs">Répond en général sous 1h</p>
+      </div>
+      <button id="wa-close" class="ml-auto text-white/70 hover:text-white" aria-label="Fermer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Chat body -->
+    <div class="bg-[#ece5dd] px-4 py-4 max-h-[420px] overflow-y-auto" id="wa-body">
+
+      <!-- STEP 1: Service selection -->
+      <div id="wa-step1">
+        <div class="bg-white rounded-lg rounded-tl-none px-4 py-3 shadow-sm max-w-[90%] mb-3">
+          <p class="text-sm text-gray-800 font-medium">Bonjour ! Quel service vous intéresse ?</p>
+          <span class="text-[10px] text-gray-400 float-right mt-1">maintenant</span>
+        </div>
+        <div class="space-y-2">
+          <button data-service="Pompe à chaleur" class="wa-svc flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm hover:bg-green-50 hover:border-[#25d366] border border-transparent transition-all w-full text-left">
+            <span class="text-xl">🌡️</span>
+            <span class="text-sm font-medium text-gray-800">Pompe à chaleur</span>
+          </button>
+          <button data-service="Climatisation" class="wa-svc flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm hover:bg-green-50 hover:border-[#25d366] border border-transparent transition-all w-full text-left">
+            <span class="text-xl">❄️</span>
+            <span class="text-sm font-medium text-gray-800">Climatisation</span>
+          </button>
+          <button data-service="Chauffage" class="wa-svc flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm hover:bg-green-50 hover:border-[#25d366] border border-transparent transition-all w-full text-left">
+            <span class="text-xl">🔥</span>
+            <span class="text-sm font-medium text-gray-800">Chauffage</span>
+          </button>
+          <button data-service="Panneaux solaires" class="wa-svc flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm hover:bg-green-50 hover:border-[#25d366] border border-transparent transition-all w-full text-left">
+            <span class="text-xl">☀️</span>
+            <span class="text-sm font-medium text-gray-800">Panneaux solaires</span>
+          </button>
+          <button data-service="Dépannage urgent" class="wa-svc flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm hover:bg-red-50 hover:border-red-400 border border-transparent transition-all w-full text-left">
+            <span class="text-xl">🚨</span>
+            <span class="text-sm font-medium text-gray-800">Dépannage urgent</span>
+          </button>
+          <button data-service="Autre" class="wa-svc flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm hover:bg-green-50 hover:border-[#25d366] border border-transparent transition-all w-full text-left">
+            <span class="text-xl">💬</span>
+            <span class="text-sm font-medium text-gray-800">Autre</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Devis form -->
+      <div id="wa-step2" class="hidden">
+        <!-- User reply bubble -->
+        <div class="flex justify-end mb-3">
+          <div class="bg-[#dcf8c6] rounded-lg rounded-tr-none px-4 py-2 shadow-sm max-w-[80%]">
+            <p class="text-sm text-gray-800" id="wa-chosen"></p>
+          </div>
+        </div>
+        <!-- Bot reply -->
+        <div class="bg-white rounded-lg rounded-tl-none px-4 py-3 shadow-sm max-w-[90%] mb-4">
+          <p class="text-sm text-gray-800 font-medium">Parfait ! Quelques infos pour votre devis :</p>
+        </div>
+        <!-- Form -->
+        <div class="space-y-3">
+          <input type="text" id="wa-nom" placeholder="Votre nom" class="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 focus:outline-none focus:border-[#25d366] shadow-sm" />
+          <input type="text" id="wa-commune" placeholder="Commune (ex: Wavre)" class="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 focus:outline-none focus:border-[#25d366] shadow-sm" />
+          <select id="wa-type" class="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 focus:outline-none focus:border-[#25d366] shadow-sm bg-white text-gray-800">
+            <option value="">Type de logement</option>
+            <option value="Maison">Maison</option>
+            <option value="Appartement">Appartement</option>
+            <option value="Bureau / Commerce">Bureau / Commerce</option>
+            <option value="Neuf / Construction">Neuf / Construction</option>
+            <option value="Rénovation">Rénovation</option>
+          </select>
+          <textarea id="wa-details" rows="2" placeholder="Détails du projet (optionnel)" class="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 focus:outline-none focus:border-[#25d366] shadow-sm resize-none"></textarea>
+
+          <button id="wa-send" class="w-full flex items-center justify-center gap-2 bg-[#25d366] text-white font-bold text-sm py-3 rounded-xl hover:bg-[#1da851] transition-colors shadow-md">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 01-4.106-1.138l-.294-.176-2.862.85.85-2.862-.176-.294A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+            </svg>
+            Envoyer ma demande
+          </button>
+
+          <button id="wa-back" class="w-full text-xs text-gray-400 hover:text-gray-600 py-1 transition-colors">
+            ← Changer de service
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile teaser bubble (hidden on desktop) -->
+  <div id="wa-teaser" class="hidden lg:hidden flex items-center gap-2 mb-2 animate-fade-in cursor-pointer">
+    <div class="bg-white rounded-2xl rounded-br-none px-4 py-3 shadow-lg border border-gray-100 max-w-[220px]">
+      <p class="text-sm text-gray-800 font-medium">Besoin d'un devis ? Discutons !</p>
+    </div>
+  </div>
+
+  <!-- Floating button -->
+  <button
+    id="wa-toggle"
+    aria-label="Ouvrir WhatsApp"
+    class="w-14 h-14 rounded-full bg-[#25d366] shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center"
+  >
+    <svg id="wa-icon-open" class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 01-4.106-1.138l-.294-.176-2.862.85.85-2.862-.176-.294A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+    </svg>
+    <svg id="wa-icon-close" class="w-7 h-7 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <!-- Notification dot -->
+  <span id="wa-dot" class="absolute top-0 right-0 w-4 h-4 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
+</div>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.25s ease-out;
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('wa-toggle');
+  const popup = document.getElementById('wa-popup');
+  const closeBtn = document.getElementById('wa-close');
+  const iconOpen = document.getElementById('wa-icon-open');
+  const iconClose = document.getElementById('wa-icon-close');
+  const dot = document.getElementById('wa-dot');
+  const teaser = document.getElementById('wa-teaser');
+  const step1 = document.getElementById('wa-step1');
+  const step2 = document.getElementById('wa-step2');
+  const chosen = document.getElementById('wa-chosen');
+  const backBtn = document.getElementById('wa-back');
+  const sendBtn = document.getElementById('wa-send');
+
+  let selectedService = '';
+  const isMobile = window.innerWidth < 1024;
+
+  function openPopup() {
+    teaser?.classList.add('hidden');
+    popup?.classList.remove('hidden');
+    iconOpen?.classList.add('hidden');
+    iconClose?.classList.remove('hidden');
+    dot?.classList.add('hidden');
+  }
+
+  function closePopup() {
+    popup?.classList.add('hidden');
+    iconOpen?.classList.remove('hidden');
+    iconClose?.classList.add('hidden');
+  }
+
+  function showTeaser() {
+    teaser?.classList.remove('hidden');
+    teaser?.classList.add('flex');
+    dot?.classList.add('hidden');
+  }
+
+  function goStep1() {
+    step1?.classList.remove('hidden');
+    step2?.classList.add('hidden');
+  }
+
+  function goStep2(service: string) {
+    selectedService = service;
+    if (chosen) chosen.textContent = service;
+    step1?.classList.add('hidden');
+    step2?.classList.remove('hidden');
+  }
+
+  toggle?.addEventListener('click', () => {
+    popup?.classList.contains('hidden') ? openPopup() : closePopup();
+  });
+
+  closeBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closePopup();
+  });
+
+  document.querySelectorAll('.wa-svc').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const service = (btn as HTMLElement).dataset.service || '';
+      goStep2(service);
+    });
+  });
+
+  backBtn?.addEventListener('click', () => goStep1());
+
+  // Auto-open: desktop = popup complet, mobile = petite bulle teaser
+  setTimeout(() => {
+    if (isMobile) {
+      showTeaser();
+    } else {
+      openPopup();
+    }
+  }, 2000);
+
+  // Clic sur la bulle teaser = ouvrir le popup
+  teaser?.addEventListener('click', () => openPopup());
+
+  sendBtn?.addEventListener('click', () => {
+    const nom = (document.getElementById('wa-nom') as HTMLInputElement)?.value.trim();
+    const commune = (document.getElementById('wa-commune') as HTMLInputElement)?.value.trim();
+    const type = (document.getElementById('wa-type') as HTMLSelectElement)?.value;
+    const details = (document.getElementById('wa-details') as HTMLTextAreaElement)?.value.trim();
+
+    let msg = `Bonjour, je souhaite un devis.\n\n`;
+    msg += `Service : ${selectedService}\n`;
+    if (nom) msg += `Nom : ${nom}\n`;
+    if (commune) msg += `Commune : ${commune}\n`;
+    if (type) msg += `Logement : ${type}\n`;
+    if (details) msg += `Détails : ${details}\n`;
+
+    const url = `https://wa.me/3228861457?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+  });
+</script>
