@@ -10,26 +10,26 @@ const navLinks = [
 const currentPath = Astro.url.pathname
 ---
 
-<header class="bg-white border-b border-[var(--color-bordure)] sticky top-0 z-50">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 lg:h-18">
+<header class="bg-[var(--color-blanc)]/90 backdrop-blur-md border-b border-[var(--color-bordure)] sticky top-0 z-50">
+  <nav class="max-w-[88rem] mx-auto px-4 sm:px-8 flex items-center justify-between h-16 lg:h-18">
 
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-1 shrink-0">
-      <span class="text-lg font-extrabold text-[var(--color-vert)]">Pompe à chaleur</span>
-      <span class="text-lg font-light text-[var(--color-texte-light)]"> BW</span>
+    <!-- Logo éditorial -->
+    <a href="/" class="flex items-baseline gap-2 shrink-0 group">
+      <span class="font-display text-xl font-semibold text-[var(--color-vert-fonce)]" style="letter-spacing: -0.02em;">Pompe à chaleur</span>
+      <span class="font-display text-xl text-[var(--color-vert)]" style="font-variation-settings: 'wdth' 75; font-weight: 500;">BW</span>
     </a>
 
     <!-- Desktop nav -->
-    <ul class="hidden lg:flex items-center gap-6">
+    <ul class="hidden lg:flex items-center gap-7">
       {navLinks.map(link => (
         <li>
           <a
             href={link.href}
             class:list={[
-              'text-sm font-medium transition-colors',
+              'text-sm transition-colors',
               currentPath.startsWith(link.href)
-                ? 'text-[var(--color-vert)] font-semibold'
-                : 'text-[var(--color-texte-light)] hover:text-[var(--color-vert)]'
+                ? 'text-[var(--color-vert-fonce)] font-semibold'
+                : 'text-[var(--color-texte-light)] hover:text-[var(--color-vert-fonce)] font-medium'
             ]}
           >
             {link.label}
@@ -37,55 +37,58 @@ const currentPath = Astro.url.pathname
         </li>
       ))}
       <li>
-        <a href="/nos-zones/" class="text-sm font-medium text-[var(--color-texte-light)] hover:text-[var(--color-vert)]">
+        <a href="/nos-zones/" class="text-sm font-medium text-[var(--color-texte-light)] hover:text-[var(--color-vert-fonce)]">
           Nos zones
         </a>
       </li>
     </ul>
 
     <!-- CTA desktop -->
-    <div class="hidden lg:flex items-center gap-4">
-      <a href="tel:+3228861457" class="text-sm font-bold text-[var(--color-vert)]">
+    <div class="hidden lg:flex items-center gap-5">
+      <a href="tel:+3228861457" class="text-sm font-semibold text-[var(--color-vert-fonce)] tabular-nums">
         02 / 886 14 57
       </a>
       <a
         href="/devis/"
-        class="bg-[var(--color-vert)] text-white text-sm font-bold px-5 py-2.5 rounded-lg hover:bg-[var(--color-vert-fonce)] transition-colors"
+        class="inline-flex items-center gap-2 bg-[var(--color-vert-fonce)] text-[var(--color-fond)] text-sm font-semibold px-5 py-3 hover:bg-[var(--color-vert)] transition-colors"
       >
         Devis gratuit
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
 
     <!-- Mobile hamburger -->
     <button
       id="mobile-menu-btn"
-      class="lg:hidden p-3 rounded-lg hover:bg-gray-100"
+      class="lg:hidden p-3 text-[var(--color-vert-fonce)] hover:bg-[var(--color-surface)]"
       aria-label="Ouvrir le menu"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 7h16M4 12h16M4 17h16" />
       </svg>
     </button>
   </nav>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-[var(--color-bordure)]">
-    <div class="px-4 py-4 space-y-3">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-[var(--color-bordure)] bg-[var(--color-blanc)]">
+    <div class="px-4 py-4 space-y-1">
       {navLinks.map(link => (
-        <a href={link.href} class="block text-base font-medium text-[var(--color-texte)] py-2">
+        <a href={link.href} class="block font-display text-lg font-semibold text-[var(--color-vert-fonce)] py-2.5 border-b border-[var(--color-bordure)]" style="letter-spacing: -0.015em;">
           {link.label}
         </a>
       ))}
-      <a href="/ventilation/" class="block text-base font-medium text-[var(--color-texte)] py-2">Ventilation</a>
-      <a href="/sanitaire/" class="block text-base font-medium text-[var(--color-texte)] py-2">Sanitaire</a>
-      <a href="/nos-zones/" class="block text-base font-medium text-[var(--color-texte)] py-2">Nos zones</a>
-      <hr class="border-[var(--color-bordure)]" />
-      <a href="/devis/" class="block bg-[var(--color-vert)] text-white text-center font-bold py-3 rounded-lg">
-        Devis gratuit
-      </a>
-      <a href="tel:+3228861457" class="block text-center font-bold text-[var(--color-vert)] py-2">
-        02 / 886 14 57
-      </a>
+      <a href="/ventilation/" class="block font-display text-lg font-semibold text-[var(--color-vert-fonce)] py-2.5 border-b border-[var(--color-bordure)]">Ventilation</a>
+      <a href="/sanitaire/" class="block font-display text-lg font-semibold text-[var(--color-vert-fonce)] py-2.5 border-b border-[var(--color-bordure)]">Sanitaire</a>
+      <a href="/nos-zones/" class="block font-display text-lg font-semibold text-[var(--color-vert-fonce)] py-2.5 border-b border-[var(--color-bordure)]">Nos zones</a>
+      <div class="pt-3 space-y-2">
+        <a href="/devis/" class="flex items-center justify-between bg-[var(--color-vert-fonce)] text-[var(--color-fond)] font-semibold px-5 py-4">
+          <span>Devis gratuit</span>
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tel:+3228861457" class="block text-center font-semibold text-[var(--color-vert-fonce)] tabular-nums py-3 border border-[var(--color-vert-fonce)]">
+          02 / 886 14 57
+        </a>
+      </div>
     </div>
   </div>
 </header>

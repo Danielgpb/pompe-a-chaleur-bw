@@ -1,5 +1,5 @@
 <!-- WhatsApp floating bubble with devis flow -->
-<div id="wa-widget" class="fixed bottom-24 lg:bottom-6 right-4 z-50">
+<div id="wa-widget" class="fixed bottom-24 lg:bottom-6 right-4 z-50 flex flex-col items-end">
 
   <!-- Chat bubble popup -->
   <div id="wa-popup" class="hidden mb-3 w-80 rounded-2xl shadow-2xl overflow-hidden animate-fade-in">
@@ -102,10 +102,18 @@
     </div>
   </div>
 
-  <!-- Mobile teaser bubble (hidden on desktop) -->
-  <div id="wa-teaser" class="hidden lg:hidden flex items-center gap-2 mb-2 animate-fade-in cursor-pointer">
-    <div class="bg-white rounded-2xl rounded-br-none px-4 py-3 shadow-lg border border-gray-100 max-w-[220px]">
-      <p class="text-sm text-gray-800 font-medium">Besoin d'un devis ? Discutons !</p>
+  <!-- Teaser bubble (mobile + desktop) -->
+  <div id="wa-teaser" class="hidden items-end gap-2 mb-3 animate-wa-in">
+    <div class="relative bg-white px-4 py-3 shadow-xl border border-gray-100 max-w-[240px] cursor-pointer" id="wa-teaser-click">
+      <!-- Petit chevron façon bulle de BD -->
+      <span class="absolute -bottom-[7px] right-6 w-3 h-3 bg-white border-r border-b border-gray-100 rotate-45"></span>
+      <p class="text-sm text-gray-900 font-semibold leading-snug pr-4">
+        Hey&nbsp;! Besoin d'un devis&nbsp;?
+      </p>
+      <p class="text-xs text-gray-500 mt-0.5">On répond en moins d'1h.</p>
+      <button id="wa-teaser-close" class="absolute top-1.5 right-1.5 w-5 h-5 flex items-center justify-center text-gray-400 hover:text-gray-700" aria-label="Fermer">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
     </div>
   </div>
 
@@ -113,8 +121,9 @@
   <button
     id="wa-toggle"
     aria-label="Ouvrir WhatsApp"
-    class="w-14 h-14 rounded-full bg-[#25d366] shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center"
+    class="relative w-14 h-14 rounded-full bg-[#25d366] shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center"
   >
+    <span id="wa-attention" class="absolute inset-0 rounded-full bg-[#25d366] opacity-60 animate-wa-ping"></span>
     <svg id="wa-icon-open" class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
       <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 01-4.106-1.138l-.294-.176-2.862.85.85-2.862-.176-.294A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
@@ -136,6 +145,31 @@
   .animate-fade-in {
     animation: fade-in 0.25s ease-out;
   }
+
+  /* Entrée du teaser avec un petit bounce */
+  @keyframes wa-in {
+    0%   { opacity: 0; transform: translateY(12px) scale(0.9); }
+    60%  { opacity: 1; transform: translateY(-4px) scale(1.03); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .animate-wa-in {
+    animation: wa-in 0.5s cubic-bezier(0.2, 0.9, 0.25, 1.1) both;
+  }
+
+  /* Ping d'attention autour du bouton WhatsApp — 3 pulses puis stop */
+  @keyframes wa-ping {
+    0%   { transform: scale(1); opacity: 0.6; }
+    70%  { transform: scale(1.8); opacity: 0; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+  .animate-wa-ping {
+    animation: wa-ping 1.6s ease-out 3;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-wa-in, .animate-wa-ping, .animate-fade-in { animation: none; }
+  }
 </style>
 
 <script>
@@ -146,6 +180,8 @@
   const iconClose = document.getElementById('wa-icon-close');
   const dot = document.getElementById('wa-dot');
   const teaser = document.getElementById('wa-teaser');
+  const teaserClick = document.getElementById('wa-teaser-click');
+  const teaserClose = document.getElementById('wa-teaser-close');
   const step1 = document.getElementById('wa-step1');
   const step2 = document.getElementById('wa-step2');
   const chosen = document.getElementById('wa-chosen');
@@ -153,10 +189,10 @@
   const sendBtn = document.getElementById('wa-send');
 
   let selectedService = '';
-  const isMobile = window.innerWidth < 1024;
 
   function openPopup() {
     teaser?.classList.add('hidden');
+    teaser?.classList.remove('flex');
     popup?.classList.remove('hidden');
     iconOpen?.classList.add('hidden');
     iconClose?.classList.remove('hidden');
@@ -173,6 +209,11 @@
     teaser?.classList.remove('hidden');
     teaser?.classList.add('flex');
     dot?.classList.add('hidden');
+  }
+
+  function hideTeaser() {
+    teaser?.classList.add('hidden');
+    teaser?.classList.remove('flex');
   }
 
   function goStep1() {
@@ -205,21 +246,23 @@
 
   backBtn?.addEventListener('click', () => goStep1());
 
-  // Auto-open une seule fois par session
-  const waShown = sessionStorage.getItem('wa-shown');
-  if (!waShown) {
-    setTimeout(() => {
-      if (isMobile) {
-        showTeaser();
-      } else {
-        openPopup();
-      }
-      sessionStorage.setItem('wa-shown', '1');
-    }, 2000);
+  // Teaser = une fois par session, sauf si fermé volontairement
+  const waDismissed = sessionStorage.getItem('wa-dismissed');
+  if (!waDismissed) {
+    setTimeout(() => showTeaser(), 2500);
   }
 
-  // Clic sur la bulle teaser = ouvrir le popup
-  teaser?.addEventListener('click', () => openPopup());
+  // Clic sur la bulle teaser (sauf la croix) = ouvrir le popup
+  teaserClick?.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).closest('#wa-teaser-close')) return;
+    openPopup();
+  });
+
+  teaserClose?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hideTeaser();
+    sessionStorage.setItem('wa-dismissed', '1');
+  });
 
   sendBtn?.addEventListener('click', () => {
     const nom = (document.getElementById('wa-nom') as HTMLInputElement)?.value.trim();

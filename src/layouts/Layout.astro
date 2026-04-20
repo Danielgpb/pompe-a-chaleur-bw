@@ -12,9 +12,10 @@ interface Props {
   geoLat?: number
   geoLng?: number
   geoPlacename?: string
+  preloadHero?: string
 }
 
-const { title, description, canonical, geoLat, geoLng, geoPlacename } = Astro.props
+const { title, description, canonical, geoLat, geoLng, geoPlacename, preloadHero } = Astro.props
 const siteUrl = 'https://pompe-a-chaleur-bw.be'
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`
 ---
@@ -54,6 +55,10 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
     </>
   )}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..700&family=Figtree:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  {preloadHero && <link rel="preload" as="image" href={preloadHero} fetchpriority="high" />}
 
   <!-- Schema.org WebSite — identifie le site pour Google -->
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -70,8 +75,6 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
       "telephone": "+32-2-886-14-57"
     }
   })} />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Schema.org HVACBusiness — enrichi pour AI citation -->
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -156,7 +159,7 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "5",
+      "reviewCount": "9",
       "bestRating": "5",
       "worstRating": "1"
     },

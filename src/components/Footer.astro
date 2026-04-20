@@ -26,70 +26,74 @@ const zones = [
 ]
 ---
 
-<footer class="bg-[var(--color-vert-fonce)] text-white mt-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+<footer class="bg-[var(--color-vert-fonce)] text-[var(--color-fond)]">
+  <div class="max-w-[88rem] mx-auto px-4 sm:px-8 pt-20 pb-10">
 
-      <!-- Colonne 1 : Entreprise -->
+    <!-- Marque XL en haut -->
+    <div class="border-b border-[var(--color-fond)]/15 pb-10 mb-10 flex flex-wrap items-end justify-between gap-8">
       <div>
-        <div class="flex items-center gap-1 mb-4">
-          <span class="text-lg font-extrabold">Pompe à chaleur</span>
-          <span class="text-lg font-light opacity-60"> BW</span>
-        </div>
-        <p class="text-sm text-white/70 leading-relaxed mb-4">
-          Installation pompe à chaleur, climatisation, chauffage et énergie renouvelable en Brabant Wallon.
+        <p class="text-xs uppercase tracking-widest opacity-60 mb-3">Colophon</p>
+        <p class="font-display font-semibold" style="font-size: clamp(2.5rem, 6vw, 5rem); line-height: 0.95; letter-spacing: -0.03em;">
+          Pompe à chaleur <span style="font-variation-settings: 'wdth' 75; font-weight: 500;">BW</span>
         </p>
-        <p class="text-sm text-white/70 mb-2">Rue de Nivelles 77<br>1300 Wavre</p>
-        <p class="text-sm font-bold">02 / 886 14 57</p>
-        <p class="text-sm text-white/70 mt-1">Lundi - Dimanche : 8h - 20h</p>
+      </div>
+      <a
+        href="/devis/"
+        class="group inline-flex items-center gap-4 bg-[var(--color-orange)] text-[var(--color-vert-fonce)] font-semibold px-7 py-4 hover:bg-[var(--color-fond)] transition-colors"
+      >
+        <span>Demander un devis</span>
+        <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+
+      <!-- Colonne 1 : Contact -->
+      <div class="col-span-2 md:col-span-1">
+        <p class="text-xs uppercase tracking-widest opacity-60 mb-4">Contact</p>
+        <address class="not-italic text-sm leading-relaxed opacity-80 mb-3">
+          Rue de Nivelles 77<br/>1300 Wavre<br/>Brabant Wallon
+        </address>
+        <p class="font-display text-xl font-semibold tabular-nums mb-1" style="letter-spacing: -0.015em;">02 / 886 14 57</p>
+        <p class="text-xs opacity-60 tabular-nums">Lun–Dim · 8h–20h</p>
       </div>
 
       <!-- Colonne 2 : Services -->
       <div>
-        <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-white/50">Services</h3>
-        <ul class="space-y-2">
+        <p class="text-xs uppercase tracking-widest opacity-60 mb-4">Services</p>
+        <ul class="space-y-2.5">
           {services.map(s => (
-            <li><a href={s.href} class="text-sm text-white/70 hover:text-white transition-colors">{s.label}</a></li>
+            <li><a href={s.href} class="text-sm opacity-80 hover:opacity-100 hover:text-[var(--color-orange)] transition-colors">{s.label}</a></li>
           ))}
         </ul>
       </div>
 
       <!-- Colonne 3 : Zones -->
       <div>
-        <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-white/50">Zones d'intervention</h3>
-        <ul class="space-y-2">
+        <p class="text-xs uppercase tracking-widest opacity-60 mb-4">Zones</p>
+        <ul class="space-y-2.5">
           {zones.map(z => (
-            <li><a href={z.href} class="text-sm text-white/70 hover:text-white transition-colors">{z.label}</a></li>
+            <li><a href={z.href} class="text-sm opacity-80 hover:opacity-100 hover:text-[var(--color-orange)] transition-colors">{z.label}</a></li>
           ))}
         </ul>
       </div>
 
       <!-- Colonne 4 : Marques -->
       <div>
-        <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-white/50">Nos marques</h3>
-        <div class="flex flex-wrap gap-2">
+        <p class="text-xs uppercase tracking-widest opacity-60 mb-4">Marques</p>
+        <ul class="grid grid-cols-2 gap-x-3 gap-y-2">
           {['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha', 'Atlantic', 'Ariston', 'Niko', 'Domintell', 'Panasonic'].map(m => (
-            <span class="text-xs bg-white/10 px-3 py-1.5 rounded-md text-white/70">{m}</span>
+            <li class="text-sm opacity-80 tabular-nums">{m}</li>
           ))}
-        </div>
-        <div class="mt-6">
-          <a
-            href="/devis/"
-            class="inline-block bg-[var(--color-orange)] text-white font-bold text-sm px-6 py-3 rounded-lg hover:opacity-90 transition-opacity"
-          >
-            Devis gratuit
-          </a>
-        </div>
+        </ul>
       </div>
     </div>
 
-    <hr class="border-white/10 my-10" />
-
-    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-white/40">
-      <p>pompe-a-chaleur-bw.be &copy; {new Date().getFullYear()} — Brabant Wallon, Belgique</p>
-      <div class="flex gap-4">
-        <a href="/mentions-legales/" class="hover:text-white/60">Mentions légales</a>
-        <a href="/politique-cookies/" class="hover:text-white/60">Cookies</a>
+    <div class="mt-14 pt-6 border-t border-[var(--color-fond)]/15 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 text-xs opacity-50">
+      <p class="tabular-nums">pompe-a-chaleur-bw.be &copy; {new Date().getFullYear()} · Brabant Wallon, Belgique</p>
+      <div class="flex gap-6">
+        <a href="/mentions-legales/" class="hover:opacity-80">Mentions légales</a>
+        <a href="/politique-cookies/" class="hover:opacity-80">Cookies</a>
       </div>
     </div>
   </div>

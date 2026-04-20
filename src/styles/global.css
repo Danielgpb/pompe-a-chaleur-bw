@@ -1,17 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-vert: #1B5E3B;
-  --color-vert-clair: #E8F5E9;
-  --color-vert-fonce: #0D2B16;
-  --color-orange: #E8720C;
-  --color-orange-clair: #FFF3E8;
-  --color-fond: #FAFDF8;
-  --color-blanc: #FFFFFF;
-  --color-texte: #1A2E1A;
-  --color-texte-light: #4A5E4A;
-  --color-bordure: #E0EBE0;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Palette OKLCH — teintée vers le vert brabant (chroma 0.005-0.008 sur les neutres) */
+  --color-vert: oklch(42% 0.09 152);
+  --color-vert-clair: oklch(96% 0.025 152);
+  --color-vert-fonce: oklch(22% 0.06 152);
+  --color-orange: oklch(66% 0.17 48);
+  --color-orange-clair: oklch(96% 0.04 60);
+
+  /* Neutres teintés vert (pas de blanc ni noir pur) */
+  --color-fond: oklch(98.5% 0.008 152);
+  --color-blanc: oklch(99.5% 0.003 152);
+  --color-texte: oklch(22% 0.015 152);
+  --color-texte-light: oklch(42% 0.018 152);
+  --color-bordure: oklch(92% 0.012 152);
+  --color-surface: oklch(97% 0.01 152);
+
+  /* Typographie pairing */
+  --font-sans: 'Figtree', system-ui, -apple-system, sans-serif;
+  --font-display: 'Bricolage Grotesque', 'Figtree', sans-serif;
+
+  /* Type scale — ratio 1.333, contraste net */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.875rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.25rem;
+  --text-5xl: clamp(2.75rem, 5vw + 1rem, 4.5rem);
+  --text-hero: clamp(3rem, 6vw + 1rem, 5.75rem);
 }
 
 html {
@@ -23,4 +42,63 @@ body {
   color: var(--color-texte);
   background: var(--color-fond);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+/* Display font — titres, hero */
+.font-display {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 100, 'opsz' 24;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+.font-display-wide {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 110, 'opsz' 36;
+  letter-spacing: -0.025em;
+}
+
+/* Compact headline pour sections secondaires */
+.font-display-condensed {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 85, 'opsz' 18;
+  letter-spacing: -0.01em;
+}
+
+/* Lecture longue — optimisé pour le body */
+.prose-editorial p {
+  max-width: 64ch;
+  line-height: 1.7;
+  font-size: 1.0625rem;
+}
+
+.prose-editorial p + p {
+  margin-top: 1.1em;
+}
+
+/* Underline offset custom pour les liens inline */
+a.link-editorial {
+  color: var(--color-vert);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in oklch, var(--color-vert) 40%, transparent);
+  transition: text-decoration-color 0.2s;
+}
+a.link-editorial:hover {
+  text-decoration-color: var(--color-vert);
+}
+
+/* Numéros de section éditoriaux */
+.section-number {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 75;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-vert);
+  font-weight: 500;
 }

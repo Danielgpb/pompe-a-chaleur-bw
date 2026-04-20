@@ -3,55 +3,33 @@ import Layout from '../layouts/Layout.astro'
 import Icons from '../components/Icons.astro'
 import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 
-const services = [
+// Hiérarchie : 2 services phares (PAC + Clim), 6 services secondaires
+const servicesPrimary = [
   {
+    num: '01',
     icon: 'flame',
     title: 'Pompe à chaleur',
-    desc: 'Air-eau, air-air, hybride. On remplace votre chaudière mazout avant la deadline. Primes Wallonie incluses dans le devis.',
+    kicker: 'Notre métier de cœur',
+    desc: 'Air-eau, air-air, hybride. On remplace votre chaudière mazout avant la deadline 2031. Primes Wallonie incluses dans le devis.',
     href: '/pompe-a-chaleur/',
   },
   {
+    num: '02',
     icon: 'snowflake',
     title: 'Climatisation',
-    desc: 'Mono-split, multi-split, réversible, gainable. Daikin, LG, Gree. On dimensionne avant de vendre.',
+    kicker: 'Frigoriste certifié',
+    desc: 'Mono-split, multi-split, réversible, gainable. Daikin, LG, Gree. On dimensionne avant de vendre — pas l\'inverse.',
     href: '/climatisation/',
   },
-  {
-    icon: 'thermometer',
-    title: 'Chauffage',
-    desc: 'Chaudière gaz condensation, chauffage sol, radiateurs. Entretien obligatoire tous les 3 ans en Wallonie.',
-    href: '/chauffage/',
-  },
-  {
-    icon: 'wind',
-    title: 'Ventilation',
-    desc: 'VMC simple flux, double flux. Pour votre PEB et surtout pour ne plus avoir de moisissures.',
-    href: '/ventilation/',
-  },
-  {
-    icon: 'sun',
-    title: 'Panneaux solaires',
-    desc: 'Installation complète, batterie domestique, onduleur. On calcule votre autoconsommation avant de poser quoi que ce soit.',
-    href: '/panneaux-solaires/',
-  },
-  {
-    icon: 'droplets',
-    title: 'Sanitaire',
-    desc: 'Rénovation salle de bain, adoucisseur, eau de pluie. Dépannage plomberie quand ça presse.',
-    href: '/sanitaire/',
-  },
-  {
-    icon: 'plug',
-    title: 'Électricité & domotique',
-    desc: 'Niko, Domintell. Mise en conformité RGIE, rénovation électrique. Du tableau au dernier interrupteur.',
-    href: '/electricite/',
-  },
-  {
-    icon: 'zap',
-    title: 'Bornes de recharge',
-    desc: 'Wallbox à domicile, charge intelligente couplée à vos panneaux. On gère le passage en triphasé si besoin.',
-    href: '/bornes-de-recharge/',
-  },
+]
+
+const servicesSecondary = [
+  { num: '03', title: 'Chauffage', desc: 'Chaudière gaz condensation, sol, radiateurs. Entretien 3 ans Wallonie.', href: '/chauffage/' },
+  { num: '04', title: 'Ventilation', desc: 'VMC simple et double flux. Pour votre PEB et contre les moisissures.', href: '/ventilation/' },
+  { num: '05', title: 'Panneaux solaires', desc: 'Installation, batterie, onduleur. On calcule votre autoconsommation d\'abord.', href: '/panneaux-solaires/' },
+  { num: '06', title: 'Sanitaire', desc: 'Salle de bain, adoucisseur, eau de pluie. Dépannage plomberie quand ça presse.', href: '/sanitaire/' },
+  { num: '07', title: 'Électricité & domotique', desc: 'Niko, Domintell. Conformité RGIE, rénovation, tableau.', href: '/electricite/' },
+  { num: '08', title: 'Bornes de recharge', desc: 'Wallbox, charge intelligente avec PV. Passage triphasé si besoin.', href: '/bornes-de-recharge/' },
 ]
 
 const zones = [
@@ -68,6 +46,44 @@ const zones = [
 ]
 
 const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha', 'Atlantic', 'Ariston', 'Niko']
+
+// FAQ — source unique pour affichage ET schema FAQPage
+const faqs = [
+  {
+    q: "Combien ça coûte une pompe à chaleur installée ?",
+    a: `Ça dépend du type. Une <a href="/pompe-a-chaleur/air-air/" class="link-editorial">PAC air-air</a> (qui fait aussi clim), comptez entre 4 000 et 6 000 euros. Une <a href="/pompe-a-chaleur/air-eau/" class="link-editorial">air-eau</a> pour chauffer toute la maison, c'est plutôt 8 000 à 15 000 euros. Ça inclut le matériel, la pose et la mise en service. Les <a href="/pompe-a-chaleur/primes-wallonie/" class="link-editorial">primes Wallonie</a> peuvent réduire la facture de 600 à 3 600 euros. On met tout ça dans le <a href="/devis/" class="link-editorial">devis</a> pour que vous voyiez ce que vous payez vraiment.`,
+    open: true,
+  },
+  {
+    q: "Ma chaudière mazout fonctionne encore. Je dois quand même la remplacer ?",
+    a: `Pas tout de suite, non. Tant qu'elle marche, vous pouvez la garder. Mais le jour où elle lâche, après 2031 vous ne pourrez plus la remplacer par une chaudière mazout. Et si c'est en plein hiver, les délais d'installation d'une PAC sont plus longs qu'un simple échange de chaudière. On a écrit un <a href="/pompe-a-chaleur/remplacement-chaudiere/" class="link-editorial">guide complet sur le remplacement de chaudière mazout</a> si vous voulez en savoir plus. Notre conseil : anticipez. Venez en discuter quand vous avez le temps, pas quand vous grelottez.`,
+  },
+  {
+    q: "C'est vrai que les pompes à chaleur font du bruit ?",
+    a: `Les anciens modèles, oui. Les nouveaux, beaucoup moins. Une Daikin Altherma récente tourne à 35 dB — c'est le bruit d'une bibliothèque. Par contre, l'emplacement de l'unité extérieure, c'est important. Il y a une réglementation en Wallonie : 45 dB maximum en journée, 40 dB la nuit à la limite de propriété. On regarde toujours avec vous où la placer pour éviter les soucis avec les voisins. Plus de détails sur notre page <a href="/pompe-a-chaleur/" class="link-editorial">pompe à chaleur</a>.`,
+  },
+  {
+    q: "Vous faites aussi le dépannage ?",
+    a: `Oui. <a href="/pompe-a-chaleur/depannage/" class="link-editorial">Dépannage PAC</a>, <a href="/climatisation/depannage/" class="link-editorial">dépannage clim</a>, <a href="/chauffage/depannage/" class="link-editorial">dépannage chaudière</a>. On dépanne les installations qu'on a posées, mais aussi celles des autres. Honnêtement, on préfère les contrats d'<a href="/pompe-a-chaleur/entretien/" class="link-editorial">entretien</a> — ça évite les pannes — mais quand ça tombe en panne un samedi soir en janvier, on est là.`,
+  },
+  {
+    q: "Les primes en Wallonie, ça marche comment ?",
+    a: `C'est le bazar, soyons honnêtes. Il y a les <a href="https://energie.wallonie.be" target="_blank" rel="noopener" class="link-editorial">Primes Habitation</a>, le Rénopack avec prêt à taux zéro, la TVA à 6 % si votre maison a plus de 10 ans... Les montants dépendent de vos revenus et du type de travaux. Pour une PAC, ça va de 600 à 3 600 euros. Il faut un audit logement avant. On a fait une <a href="/pompe-a-chaleur/primes-wallonie/" class="link-editorial">page complète sur les primes Wallonie 2026</a> pour y voir clair. Et on vous aide à remplir les formulaires — c'est compris dans notre service, on ne facture pas ça en plus.`,
+  },
+]
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a.replace(/<[^>]*>/g, '').trim(),
+    },
+  })),
+}
 ---
 
 <Layout
@@ -77,57 +93,96 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
   geoLat={50.71640}
   geoLng={4.60130}
   geoPlacename="Wavre"
+  preloadHero="/images/hero/hero-accueil.webp"
 >
 
-  <!-- ===== HERO ===== -->
-  <section class="pt-12 pb-8 sm:pt-20 sm:pb-14 px-4 sm:px-6">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-      <div class="flex-1 max-w-2xl">
-        <span class="inline-block bg-[var(--color-vert-clair)] text-[var(--color-vert)] text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full mb-5">
-          Installateur agréé en Brabant Wallon
-        </span>
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight text-[var(--color-vert-fonce)] mb-5">
-          Chauffage et pompe à chaleur en Brabant Wallon. On s'occupe de tout.
+  <!-- ===== HERO — layout éditorial asymétrique ===== -->
+  <section class="relative overflow-hidden border-b border-[var(--color-bordure)]">
+    <div class="max-w-[88rem] mx-auto px-4 sm:px-8 pt-10 sm:pt-16 pb-6">
+      <!-- Meta line éditoriale -->
+      <div class="flex items-center gap-4 text-xs font-medium text-[var(--color-texte-light)] mb-8 sm:mb-12">
+        <span class="section-number">N° 001 — Brabant Wallon</span>
+        <span class="h-px flex-1 bg-[var(--color-bordure)]"></span>
+        <span class="hidden sm:inline uppercase tracking-wider">Installateur agréé · Frigoriste certifié</span>
+      </div>
+
+      <div class="grid grid-cols-12 gap-y-8 gap-x-4 sm:gap-x-8 items-end">
+        <!-- Titre XL — prend toute la largeur -->
+        <h1 class="col-span-12 font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-hero);">
+          <span class="block">Pompe à chaleur, chauffage</span>
+          <span class="block text-[var(--color-vert)]" style="font-variation-settings: 'wdth' 75; font-weight: 500;">et climatisation en Brabant Wallon.</span>
+          <span class="block">On&nbsp;passe&nbsp;demain.</span>
         </h1>
-        <p class="text-lg text-[var(--color-texte)] leading-relaxed mb-3 font-medium">
-          <strong>Pompe à chaleur BW</strong> est l'installateur agréé de chauffage, pompes à chaleur et climatisation de référence en Brabant Wallon. Frigoriste certifié. Wavre, Waterloo, Lasne et 10 communes. Devis gratuit sous 24h.
-        </p>
-        <p class="text-base text-[var(--color-texte-light)] leading-relaxed mb-8">
-          Vous cherchez quelqu'un pour installer une pompe à chaleur, une clim ou remplacer votre vieille chaudière mazout ? On est basés dans le coin, on connaît les maisons du Brabant Wallon, et on répond au téléphone. Pas de bla-bla.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3">
+
+        <!-- Sous-titre à gauche -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-1 mt-2">
+          <p class="text-[var(--color-texte)] leading-relaxed" style="font-size: 1.1875rem;">
+            <strong>Pompe à chaleur BW</strong> — installateur agréé de chauffage, pompes à chaleur et climatisation en Brabant Wallon. Wavre, Waterloo, Lasne et 10 communes. On répond au téléphone. On donne un vrai devis. Pas de bla-bla.
+          </p>
+        </div>
+
+        <!-- CTA bloc à droite — décalé -->
+        <div class="col-span-12 lg:col-span-5 lg:col-start-8 flex flex-col sm:flex-row lg:flex-col gap-3">
           <a
             href="/devis/"
-            class="bg-[var(--color-orange)] text-white font-bold text-base px-8 py-4 rounded-xl text-center shadow-lg shadow-orange-200 hover:shadow-xl transition-all"
+            class="group inline-flex items-center justify-between gap-4 bg-[var(--color-vert-fonce)] text-[var(--color-fond)] font-semibold px-7 py-5 hover:bg-[var(--color-vert)] transition-colors"
           >
-            Demander un devis gratuit &rarr;
+            <span class="flex flex-col leading-tight">
+              <span class="text-xs uppercase tracking-widest opacity-60 mb-1">Étape 1</span>
+              <span class="text-lg">Demander un devis gratuit</span>
+            </span>
+            <svg class="w-6 h-6 shrink-0 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
           <a
             href="tel:+3228861457"
-            class="border-2 border-[var(--color-vert)] text-[var(--color-vert)] font-bold text-base px-8 py-4 rounded-xl text-center hover:bg-[var(--color-vert-clair)] transition-colors"
+            class="group inline-flex items-center justify-between gap-4 border border-[var(--color-vert-fonce)] text-[var(--color-vert-fonce)] font-semibold px-7 py-5 hover:bg-[var(--color-vert-fonce)] hover:text-[var(--color-fond)] transition-colors"
           >
-            02 / 886 14 57
+            <span class="flex flex-col leading-tight">
+              <span class="text-xs uppercase tracking-widest opacity-60 mb-1">Ou directement</span>
+              <span class="text-lg tabular-nums">02 / 886 14 57</span>
+            </span>
+            <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </a>
         </div>
       </div>
-      <div class="flex-1 max-w-md w-full">
-        <div class="rounded-2xl overflow-hidden relative aspect-[4/3]">
+    </div>
+
+    <!-- Image hero — full-bleed sous la typo -->
+    <div class="relative">
+      <div class="max-w-[88rem] mx-auto px-4 sm:px-8">
+        <div class="relative overflow-hidden aspect-[21/9] sm:aspect-[16/7]">
           <img
             src="/images/hero/hero-accueil.webp"
-            alt="Installation pompe à chaleur en Brabant Wallon"
-            width="800" height="600"
+            alt="Installation pompe à chaleur par l'équipe Pompe à chaleur BW en Brabant Wallon"
+            width="1800" height="770"
             loading="eager"
             decoding="async"
+            fetchpriority="high"
             class="w-full h-full object-cover"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
           />
-          <div class="bg-gradient-to-br from-[var(--color-vert)] to-emerald-700 text-white p-8 flex flex-col justify-end absolute inset-0" style="display:none">
-            <div class="absolute top-6 right-6 text-7xl opacity-20">🌿</div>
-            <p class="text-sm font-bold uppercase tracking-wider opacity-70 mb-1">Nos marques</p>
-            <p class="text-base font-semibold">Daikin &middot; LG &middot; Vaillant &middot; Bosch &middot; Gree</p>
+          <div class="bg-[var(--color-vert-fonce)] text-[var(--color-fond)] p-12 flex-col justify-between absolute inset-0 hidden">
+            <p class="section-number" style="color: var(--color-orange);">Nos marques partenaires</p>
+            <p class="font-display text-3xl sm:text-5xl leading-none" style="font-variation-settings: 'wdth' 110;">Daikin · LG · Vaillant · Bosch · Gree</p>
           </div>
-          <div class="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg px-4 py-3">
-            <p class="text-white text-xs font-semibold">Daikin &middot; LG &middot; Vaillant &middot; Bosch &middot; Gree</p>
+
+          <!-- Bandeau info sur l'image -->
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[var(--color-vert-fonce)]/85 via-[var(--color-vert-fonce)]/40 to-transparent p-6 sm:p-10">
+            <div class="flex flex-wrap items-end justify-between gap-6 text-[var(--color-fond)]">
+              <div>
+                <p class="text-xs uppercase tracking-widest opacity-70 mb-1">Installation · Dépannage · Entretien</p>
+                <p class="font-display text-xl sm:text-3xl" style="font-variation-settings: 'wdth' 90; letter-spacing: -0.02em;">
+                  Daikin · LG · Gree · Vaillant · Bosch
+                </p>
+              </div>
+              <div class="flex items-center gap-6 text-sm">
+                <div><p class="text-2xl font-display font-semibold tabular-nums">10</p><p class="text-xs opacity-70">communes</p></div>
+                <div class="h-10 w-px bg-[var(--color-fond)]/30"></div>
+                <div><p class="text-2xl font-display font-semibold tabular-nums">5,0<span class="text-base">/5</span></p><p class="text-xs opacity-70">Google Avis</p></div>
+                <div class="h-10 w-px bg-[var(--color-fond)]/30 hidden sm:block"></div>
+                <div class="hidden sm:block"><p class="text-2xl font-display font-semibold tabular-nums">24<span class="text-base">h</span></p><p class="text-xs opacity-70">réponse devis</p></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -138,8 +193,12 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
   <ReviewsCarousel />
 
   <!-- ===== TRUST BAR CARROUSEL ===== -->
-  <section class="bg-white border-y border-[var(--color-bordure)] py-5 overflow-hidden">
-    <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-texte-light)]/50 text-center mb-4">Nos marques partenaires</p>
+  <section class="bg-[var(--color-blanc)] border-y border-[var(--color-bordure)] py-6 overflow-hidden">
+    <div class="max-w-[88rem] mx-auto px-4 sm:px-8 mb-4 flex items-center gap-4">
+      <span class="section-number">§ Marques partenaires</span>
+      <span class="h-px flex-1 bg-[var(--color-bordure)]"></span>
+      <span class="hidden sm:inline text-xs text-[var(--color-texte-light)] uppercase tracking-wider">Pas de marque maison, pas de stock à écouler</span>
+    </div>
     <div class="marquee-wrapper">
       <div class="marquee-track">
         {[...Array(2)].map(() => (
@@ -163,7 +222,7 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
                 height="45"
                 loading="lazy"
                 decoding="async"
-                class="h-10 sm:h-14 w-auto object-contain mx-8"
+                class="h-9 sm:h-12 w-auto object-contain mx-10 opacity-70 hover:opacity-100 transition-opacity"
               />
             ))}
           </div>
@@ -197,62 +256,109 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
   </style>
 
   <!-- ===== INTRO CONTENU — Goal Completion + SEO ===== -->
-  <section class="py-14 px-4 sm:px-6">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-6">
-        Installation pompe à chaleur et climatisation en Brabant Wallon
-      </h2>
-      <div class="prose prose-lg text-[var(--color-texte-light)] space-y-4 leading-relaxed">
+  <section class="py-20 sm:py-24 px-4 sm:px-8">
+    <div class="max-w-[88rem] mx-auto grid grid-cols-12 gap-x-8 gap-y-6">
+      <div class="col-span-12 lg:col-span-4">
+        <p class="section-number mb-4">§ 02 — Introduction</p>
+        <h2 class="font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">
+          Installation pompe à chaleur et climatisation en Brabant Wallon.
+        </h2>
+      </div>
+      <div class="col-span-12 lg:col-span-7 lg:col-start-6 prose-editorial text-[var(--color-texte)]">
         <p>
           Bon, on va pas se mentir. Trouver un installateur de pompe à chaleur qui répond au téléphone et qui donne un devis sans vous faire attendre trois semaines, c'est pas toujours simple dans le coin.
         </p>
         <p>
-          On est une équipe d'installateurs basée en Brabant Wallon. On fait les <a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompes à chaleur</a> — air-eau, air-air, hybrides — la <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, le <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, la <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation</a>, les <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a> et le reste. On travaille avec <a href="https://www.daikin.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Daikin</a>, LG, Vaillant, Bosch, Gree. Pas de marque maison, pas de stock à écouler. On vous conseille ce qui va le mieux pour votre maison, point.
+          On est une équipe d'installateurs basée en Brabant Wallon. On fait les <a href="/pompe-a-chaleur/" class="link-editorial">pompes à chaleur</a> — air-eau, air-air, hybrides — la <a href="/climatisation/" class="link-editorial">climatisation</a>, le <a href="/chauffage/" class="link-editorial">chauffage</a>, la <a href="/ventilation/" class="link-editorial">ventilation</a>, les <a href="/panneaux-solaires/" class="link-editorial">panneaux solaires</a> et le reste. On travaille avec <a href="https://www.daikin.be" target="_blank" rel="noopener" class="link-editorial">Daikin</a>, LG, Vaillant, Bosch, Gree. Pas de marque maison, pas de stock à écouler. On vous conseille ce qui va le mieux pour votre maison, point.
         </p>
         <p>
-          L'hiver dernier, la moitié de nos appels venaient de gens à <a href="/wavre/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Wavre</a> et <a href="/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a> dont la chaudière mazout avait lâché. Avec l'interdiction qui tombe en 2026 pour les constructions neuves, beaucoup de propriétaires se posent la question : on répare encore une fois, ou on passe à la <a href="/pompe-a-chaleur/remplacement-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompe à chaleur</a> ? Si c'est votre cas, on peut venir faire un état des lieux chez vous. Gratuit, sans engagement. On vous dit ce qui est possible, combien ça coûte, et quelles <a href="/pompe-a-chaleur/primes-wallonie/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">primes</a> vous pouvez avoir.
+          L'hiver dernier, la moitié de nos appels venaient de gens à <a href="/wavre/" class="link-editorial">Wavre</a> et <a href="/waterloo/" class="link-editorial">Waterloo</a> dont la chaudière mazout avait lâché. Avec l'interdiction qui tombe en 2026 pour les constructions neuves, beaucoup de propriétaires se posent la question : on répare encore une fois, ou on passe à la <a href="/pompe-a-chaleur/remplacement-chaudiere/" class="link-editorial">pompe à chaleur</a> ? Si c'est votre cas, on peut venir faire un état des lieux chez vous. Gratuit, sans engagement. On vous dit ce qui est possible, combien ça coûte, et quelles <a href="/pompe-a-chaleur/primes-wallonie/" class="link-editorial">primes</a> vous pouvez avoir.
         </p>
         <p>
-          On fait aussi le <a href="/sanitaire/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">sanitaire</a>, l'<a href="/electricite/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">électricité</a>, la <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">domotique</a>, les <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">bornes de recharge</a> et les <a href="/boiler-thermodynamique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">boilers thermodynamiques</a>. Et pour ceux qui ont déjà une PAC ou une clim, on fait aussi l'entretien et le dépannage. Même le week-end quand il fait 35 degrés et que votre split ne souffle plus que de l'air tiède.
+          On fait aussi le <a href="/sanitaire/" class="link-editorial">sanitaire</a>, l'<a href="/electricite/" class="link-editorial">électricité</a>, la <a href="/domotique/" class="link-editorial">domotique</a>, les <a href="/bornes-de-recharge/" class="link-editorial">bornes de recharge</a> et les <a href="/boiler-thermodynamique/" class="link-editorial">boilers thermodynamiques</a>. Et pour ceux qui ont déjà une PAC ou une clim, on fait aussi l'entretien et le dépannage. Même le week-end quand il fait 35 degrés et que votre split ne souffle plus que de l'air tiède.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ===== SERVICES ===== -->
-  <section class="py-14 px-4 sm:px-6 bg-white">
-    <div class="max-w-7xl mx-auto">
-      <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-vert)] mb-2">Nos services</p>
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-10">
-        Ce qu'on fait, concrètement
-      </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {services.map(s => (
+  <!-- ===== SERVICES — hiérarchie éditoriale ===== -->
+  <section class="py-20 sm:py-28 px-4 sm:px-8 bg-[var(--color-blanc)]">
+    <div class="max-w-[88rem] mx-auto">
+
+      <!-- En-tête éditorial -->
+      <div class="flex items-end justify-between gap-6 mb-14 pb-8 border-b border-[var(--color-bordure)]">
+        <div>
+          <p class="section-number mb-3">§ Services</p>
+          <h2 class="font-display font-semibold text-[var(--color-vert-fonce)] max-w-3xl" style="font-size: var(--text-4xl); line-height: 1.02;">
+            Ce qu'on fait, <span class="text-[var(--color-vert)]" style="font-variation-settings: 'wdth' 75; font-weight: 500;">concrètement</span>.
+          </h2>
+        </div>
+        <p class="hidden lg:block text-sm text-[var(--color-texte-light)] max-w-xs text-right leading-relaxed">
+          Huit métiers sous un toit. Deux qu'on fait mieux que la moyenne : la pompe à chaleur et la clim.
+        </p>
+      </div>
+
+      <!-- Services phares — 2 blocs éditoriaux larges -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-px bg-[var(--color-bordure)] mb-px">
+        {servicesPrimary.map(s => (
           <a
             href={s.href}
-            class="group block bg-[var(--color-fond)] border border-[var(--color-bordure)] rounded-xl p-6 hover:shadow-lg hover:shadow-green-100 hover:-translate-y-1 transition-all"
+            class="group relative block bg-[var(--color-blanc)] p-8 sm:p-12 hover:bg-[var(--color-vert-clair)] transition-colors"
           >
-            <div class="text-[var(--color-vert)] mb-3"><Icons name={s.icon} class="w-8 h-8" /></div>
-            <h3 class="text-base font-bold text-[var(--color-vert)] mb-2 group-hover:text-[var(--color-vert-fonce)]">{s.title}</h3>
-            <p class="text-sm text-[var(--color-texte-light)] leading-relaxed">{s.desc}</p>
+            <div class="flex items-start justify-between mb-8">
+              <span class="section-number">{s.num} · {s.kicker}</span>
+              <div class="text-[var(--color-vert)] opacity-80 group-hover:opacity-100 transition-opacity"><Icons name={s.icon} class="w-10 h-10" /></div>
+            </div>
+            <h3 class="font-display text-[var(--color-vert-fonce)] mb-5" style="font-size: var(--text-4xl); line-height: 0.98; letter-spacing: -0.025em;">
+              {s.title}
+            </h3>
+            <p class="text-[var(--color-texte-light)] leading-relaxed max-w-md mb-8" style="font-size: 1.0625rem;">
+              {s.desc}
+            </p>
+            <span class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-vert)]">
+              Voir en détail
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </span>
           </a>
         ))}
       </div>
+
+      <!-- Services secondaires — liste compacte 3 colonnes -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-bordure)]">
+        {servicesSecondary.map(s => (
+          <a
+            href={s.href}
+            class="group block bg-[var(--color-blanc)] p-6 hover:bg-[var(--color-fond)] transition-colors"
+          >
+            <div class="flex items-baseline gap-3 mb-2">
+              <span class="text-xs font-display font-medium text-[var(--color-vert)] tabular-nums" style="font-variation-settings: 'wdth' 75;">{s.num}</span>
+              <h3 class="font-display text-[var(--color-vert-fonce)] text-xl font-semibold" style="letter-spacing: -0.015em;">
+                {s.title}
+              </h3>
+            </div>
+            <p class="text-sm text-[var(--color-texte-light)] leading-relaxed pl-9">{s.desc}</p>
+          </a>
+        ))}
+      </div>
+
     </div>
   </section>
 
   <!-- ===== POURQUOI NOUS (contenu authentique) ===== -->
-  <section class="py-14 px-4 sm:px-6">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-6">
-        Pourquoi les gens nous appellent
-      </h2>
-      <div class="space-y-4 text-[var(--color-texte-light)] leading-relaxed">
+  <section class="py-20 sm:py-24 px-4 sm:px-8 bg-[var(--color-surface)]">
+    <div class="max-w-[88rem] mx-auto grid grid-cols-12 gap-x-8 gap-y-6">
+      <div class="col-span-12 lg:col-span-4">
+        <p class="section-number mb-4">§ 04 — Méthode</p>
+        <h2 class="font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">
+          Pourquoi les gens nous appellent.
+        </h2>
+      </div>
+      <div class="col-span-12 lg:col-span-7 lg:col-start-6 prose-editorial text-[var(--color-texte)]">
         <p>
-          On va pas vous sortir les classiques du genre "20 ans d'expérience" et "satisfaction garantie". Vous les avez lus sur tous les sites de chauffagistes du Brabant Wallon.
+          On va pas vous sortir les classiques du genre « 20 ans d'expérience » et « satisfaction garantie ». Vous les avez lus sur tous les sites de chauffagistes du Brabant Wallon.
         </p>
         <p>
-          Ce qu'on entend le plus souvent quand les gens nous appellent, c'est : <strong>"J'ai appelé trois boîtes, personne ne rappelle."</strong> Ou alors : <strong>"On m'a fait un devis mais je comprends rien à ce qu'il y a dedans."</strong>
+          Ce qu'on entend le plus souvent quand les gens nous appellent, c'est : <strong>« J'ai appelé trois boîtes, personne ne rappelle. »</strong> Ou alors : <strong>« On m'a fait un devis mais je comprends rien à ce qu'il y a dedans. »</strong>
         </p>
         <p>
           Nous, on fonctionne simplement. Vous appelez. On répond ou on rappelle dans la journée. On passe chez vous, on regarde votre installation, on discute de ce que vous voulez. Ensuite vous recevez un devis détaillé où chaque ligne est expliquée. Le prix que vous voyez, c'est le prix que vous payez. Pas de surprises.
@@ -265,57 +371,71 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
   </section>
 
   <!-- ===== PHOTOS RÉALISATIONS ===== -->
-  <section class="py-10 px-4 sm:px-6">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-vert)] text-center mb-4">Nos réalisations en Brabant Wallon</p>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-        <div class="rounded-xl overflow-hidden aspect-[4/3]">
-          <img src="/images/realisations/real-1-vmc-zehnder.webp" alt="VMC Zehnder installée dans un local technique — réalisation Pompe à chaleur BW" width="400" height="300" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+  <section class="py-20 sm:py-24 px-4 sm:px-8 bg-[var(--color-blanc)]">
+    <div class="max-w-[88rem] mx-auto">
+      <div class="flex items-end justify-between gap-6 mb-10 pb-6 border-b border-[var(--color-bordure)]">
+        <div>
+          <p class="section-number mb-3">§ 05 — Archives</p>
+          <h2 class="font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">
+            Chantiers récents en Brabant Wallon.
+          </h2>
         </div>
-        <div class="rounded-xl overflow-hidden aspect-[4/3]">
-          <img src="/images/realisations/real-2-vmc-duco.webp" alt="VMC Duco installée avec gaines isolées — réalisation Pompe à chaleur BW" width="400" height="300" loading="lazy" decoding="async" class="w-full h-full object-cover" />
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-[4/3]">
-          <img src="/images/realisations/real-3-lg-split.webp" alt="Climatisation LG split murale — réalisation Pompe à chaleur BW" width="400" height="300" loading="lazy" decoding="async" class="w-full h-full object-cover" />
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-[4/3]">
-          <img src="/images/realisations/real-4-vmc-local.webp" alt="VMC double flux avec réseau de gaines — réalisation Pompe à chaleur BW" width="400" height="300" loading="lazy" decoding="async" class="w-full h-full object-cover" />
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-[4/3]">
-          <img src="/images/realisations/real-5-vmc-ubbink.webp" alt="VMC Ubbink installée sur mur en briques — réalisation Pompe à chaleur BW" width="400" height="300" loading="lazy" decoding="async" class="w-full h-full object-cover" />
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-[4/3]">
-          <img src="/images/realisations/real-6-vmc-combles.webp" alt="VMC double flux installée dans des combles — réalisation Pompe à chaleur BW" width="400" height="300" loading="lazy" decoding="async" class="w-full h-full object-cover" />
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-[4/3]">
-          <img src="/images/realisations/real-7-boiler.webp" alt="Boiler thermodynamique installé — réalisation Pompe à chaleur BW" width="400" height="300" loading="lazy" decoding="async" class="w-full h-full object-cover" />
-        </div>
-        <div class="rounded-xl overflow-hidden aspect-[4/3]">
-          <img src="/images/realisations/real-8-vmc-combles-unilin.webp" alt="VMC double flux dans combles isolés Unilin — réalisation Pompe à chaleur BW" width="400" height="300" loading="lazy" decoding="async" class="w-full h-full object-cover" />
-        </div>
+        <p class="hidden md:block text-sm text-[var(--color-texte-light)] tabular-nums">Huit réalisations · 2024—2026</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {[
+          { file: 'real-1-vmc-zehnder', alt: 'VMC Zehnder installée dans un local technique', cap: 'VMC Zehnder' },
+          { file: 'real-2-vmc-duco', alt: 'VMC Duco installée avec gaines isolées', cap: 'VMC Duco · gaines isolées' },
+          { file: 'real-3-lg-split', alt: 'Climatisation LG split murale', cap: 'Climatisation LG · split mural' },
+          { file: 'real-4-vmc-local', alt: 'VMC double flux avec réseau de gaines', cap: 'VMC double flux' },
+          { file: 'real-5-vmc-ubbink', alt: 'VMC Ubbink installée sur mur en briques', cap: 'VMC Ubbink' },
+          { file: 'real-6-vmc-combles', alt: 'VMC double flux installée dans des combles', cap: 'VMC · combles' },
+          { file: 'real-7-boiler', alt: 'Boiler thermodynamique installé', cap: 'Boiler thermodynamique' },
+          { file: 'real-8-vmc-combles-unilin', alt: 'VMC double flux dans combles isolés Unilin', cap: 'VMC · combles Unilin' },
+        ].map((r, i) => (
+          <figure class="group">
+            <div class="overflow-hidden aspect-[4/5] bg-[var(--color-surface)]">
+              <img src={`/images/realisations/${r.file}.webp`} alt={`${r.alt} — réalisation Pompe à chaleur BW`} width="400" height="500" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" />
+            </div>
+            <figcaption class="mt-2 flex items-baseline justify-between gap-2 text-xs text-[var(--color-texte-light)]">
+              <span class="tabular-nums opacity-60">{String(i + 1).padStart(2, '0')}</span>
+              <span class="flex-1 truncate">{r.cap}</span>
+            </figcaption>
+          </figure>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- ===== REMPLACEMENT MAZOUT — SEO page pilier ===== -->
-  <section class="py-14 px-4 sm:px-6 bg-white">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-6">
-        Remplacement chaudière mazout par pompe à chaleur
-      </h2>
-      <div class="space-y-4 text-[var(--color-texte-light)] leading-relaxed">
+  <section class="py-20 sm:py-24 px-4 sm:px-8 border-t border-[var(--color-bordure)]">
+    <div class="max-w-[88rem] mx-auto grid grid-cols-12 gap-x-8 gap-y-6">
+      <div class="col-span-12 lg:col-span-4">
+        <p class="section-number mb-4">§ 06 — Deadline 2031</p>
+        <h2 class="font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">
+          Remplacement chaudière mazout par pompe à chaleur.
+        </h2>
+        <div class="mt-6 border-t border-[var(--color-bordure)] pt-4 space-y-2 tabular-nums text-sm">
+          <div class="flex justify-between"><span class="text-[var(--color-texte-light)]">PAC air-eau installée</span><span class="font-semibold">8 000 – 15 000 €</span></div>
+          <div class="flex justify-between"><span class="text-[var(--color-texte-light)]">Primes Wallonie</span><span class="font-semibold">– 600 à 3 600 €</span></div>
+          <div class="flex justify-between"><span class="text-[var(--color-texte-light)]">TVA (maison &gt; 10 ans)</span><span class="font-semibold">6 %</span></div>
+        </div>
+      </div>
+      <div class="col-span-12 lg:col-span-7 lg:col-start-6 prose-editorial text-[var(--color-texte)]">
         <p>
-          Depuis le 1er janvier 2026, c'est fini les nouvelles chaudières mazout dans les constructions neuves en Wallonie. Et d'ici 2031, on ne pourra plus du tout remplacer une chaudière mazout par une autre au mazout. Point.
+          Depuis le 1<sup>er</sup> janvier 2026, c'est fini les nouvelles chaudières mazout dans les constructions neuves en Wallonie. Et d'ici 2031, on ne pourra plus du tout remplacer une chaudière mazout par une autre au mazout. Point.
         </p>
         <p>
           Si votre chaudière a 15 ou 20 ans, le mieux c'est de ne pas attendre qu'elle tombe en panne en plein mois de janvier pour y réfléchir. On a eu le cas trois fois rien que cet hiver à Lasne et Rixensart. Les gens se retrouvent sans chauffage, ils doivent décider vite, et ça coûte toujours plus cher dans l'urgence.
         </p>
         <p>
-          Une pompe à chaleur air-eau, c'est entre 8 000 et 15 000 euros installée. Ça paraît beaucoup. Mais avec les <a href="https://energie.wallonie.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">primes Wallonie</a> — entre 600 et 3 600 euros selon vos revenus — et la TVA à 6% si votre maison a plus de 10 ans, ça change la donne. Sans compter que votre facture de mazout, vous ne la payez plus.
+          Une pompe à chaleur air-eau, c'est entre 8 000 et 15 000 euros installée. Ça paraît beaucoup. Mais avec les <a href="https://energie.wallonie.be" target="_blank" rel="noopener" class="link-editorial">primes Wallonie</a> — entre 600 et 3 600 euros selon vos revenus — et la TVA à 6 % si votre maison a plus de 10 ans, ça change la donne. Sans compter que votre facture de mazout, vous ne la payez plus.
         </p>
-        <p>
-          <a href="/pompe-a-chaleur/remplacement-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">
-            Tout savoir sur le remplacement de votre chaudière mazout &rarr;
+        <p class="mt-6">
+          <a href="/pompe-a-chaleur/remplacement-chaudiere/" class="inline-flex items-center gap-3 text-[var(--color-vert-fonce)] font-semibold border-b border-[var(--color-vert-fonce)] pb-1 hover:border-[var(--color-vert)] hover:text-[var(--color-vert)] transition-colors">
+            Guide complet sur le remplacement mazout
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
         </p>
       </div>
@@ -323,25 +443,36 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
   </section>
 
   <!-- ===== ZONES ===== -->
-  <section class="py-14 px-4 sm:px-6">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-3">
-        On intervient près de chez vous
-      </h2>
-      <p class="text-[var(--color-texte-light)] mb-4">
-        Intervention rapide dans 10 communes du Brabant Wallon. On connaît le coin, on habite dans le coin.
-      </p>
-      <p class="text-[var(--color-texte-light)] mb-8">
-        Que vous soyez à <a href="/wavre/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Wavre</a> avec une chaudière mazout en fin de vie, à <a href="/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a> avec un projet de clim gainable, ou à <a href="/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a> avec une grande villa qui mérite une PAC air-eau — on passe chez vous pour un devis gratuit. Pareil pour <a href="/braine-l-alleud/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Braine-l'Alleud</a>, <a href="/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a>, <a href="/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a>, <a href="/ottignies-louvain-la-neuve/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Ottignies-LLN</a>, <a href="/grez-doiceau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Grez-Doiceau</a>, <a href="/chaumont-gistoux/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Chaumont-Gistoux</a> et <a href="/court-saint-etienne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Court-Saint-Étienne</a>. Toutes nos <a href="/nos-zones/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">zones d'intervention</a> sont à moins de 30 minutes.
-      </p>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-        {zones.map(z => (
+  <section class="py-20 sm:py-24 px-4 sm:px-8 bg-[var(--color-surface)]">
+    <div class="max-w-[88rem] mx-auto">
+      <div class="grid grid-cols-12 gap-x-8 gap-y-6 mb-12">
+        <div class="col-span-12 lg:col-span-5">
+          <p class="section-number mb-4">§ 07 — Territoire</p>
+          <h2 class="font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">
+            On intervient près de chez vous.
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7 prose-editorial text-[var(--color-texte)]">
+          <p>
+            Intervention rapide dans 10 communes du Brabant Wallon. On connaît le coin, on habite dans le coin.
+          </p>
+          <p>
+            Que vous soyez à <a href="/wavre/" class="link-editorial">Wavre</a> avec une chaudière mazout en fin de vie, à <a href="/waterloo/" class="link-editorial">Waterloo</a> avec un projet de clim gainable, ou à <a href="/lasne/" class="link-editorial">Lasne</a> avec une grande villa qui mérite une PAC air-eau — on passe chez vous pour un devis gratuit. Pareil pour <a href="/braine-l-alleud/" class="link-editorial">Braine-l'Alleud</a>, <a href="/rixensart/" class="link-editorial">Rixensart</a>, <a href="/la-hulpe/" class="link-editorial">La Hulpe</a>, <a href="/ottignies-louvain-la-neuve/" class="link-editorial">Ottignies-LLN</a>, <a href="/grez-doiceau/" class="link-editorial">Grez-Doiceau</a>, <a href="/chaumont-gistoux/" class="link-editorial">Chaumont-Gistoux</a> et <a href="/court-saint-etienne/" class="link-editorial">Court-Saint-Étienne</a>. Toutes nos <a href="/nos-zones/" class="link-editorial">zones d'intervention</a> sont à moins de 30 minutes.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-[var(--color-bordure)]">
+        {zones.map((z, i) => (
           <a
             href={z.href}
-            class="bg-[var(--color-vert-clair)] text-[var(--color-vert)] font-semibold text-sm text-center px-4 py-3.5 rounded-lg hover:bg-[var(--color-vert)] hover:text-white transition-colors"
+            class="group block bg-[var(--color-surface)] hover:bg-[var(--color-vert-fonce)] hover:text-[var(--color-fond)] transition-colors p-5"
           >
-            {z.name}
-            <span class="block text-xs font-normal opacity-60 mt-0.5">{z.cp}</span>
+            <div class="flex items-baseline justify-between gap-2 mb-1">
+              <span class="text-xs tabular-nums opacity-50 group-hover:opacity-70">{String(i + 1).padStart(2, '0')}</span>
+              <span class="text-xs tabular-nums opacity-50 group-hover:opacity-70">{z.cp}</span>
+            </div>
+            <p class="font-display font-semibold text-[var(--color-vert-fonce)] group-hover:text-[var(--color-fond)] text-lg leading-tight" style="letter-spacing: -0.015em;">{z.name}</p>
           </a>
         ))}
       </div>
@@ -349,80 +480,47 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
   </section>
 
   <!-- ===== FAQ — Schema FAQ ===== -->
-  <section class="py-14 px-4 sm:px-6 bg-white">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-8">
-        Questions qu'on nous pose tout le temps
-      </h2>
-      <div class="space-y-6">
-        <details class="group border border-[var(--color-bordure)] rounded-xl" open>
-          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
-            Combien ça coûte une pompe à chaleur installée ?
-            <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
-          </summary>
-          <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
-            <p>
-              Ça dépend du type. Une <a href="/pompe-a-chaleur/air-air/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC air-air</a> (qui fait aussi clim), comptez entre 4 000 et 6 000 euros. Une <a href="/pompe-a-chaleur/air-eau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">air-eau</a> pour chauffer toute la maison, c'est plutôt 8 000 à 15 000 euros. Ça inclut le matériel, la pose et la mise en service. Les <a href="/pompe-a-chaleur/primes-wallonie/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">primes Wallonie</a> peuvent réduire la facture de 600 à 3 600 euros. On met tout ça dans le <a href="/devis/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">devis</a> pour que vous voyiez ce que vous payez vraiment.
-            </p>
-          </div>
-        </details>
-
-        <details class="group border border-[var(--color-bordure)] rounded-xl" open>
-          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
-            Ma chaudière mazout fonctionne encore. Je dois quand même la remplacer ?
-            <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
-          </summary>
-          <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
-            <p>
-              Pas tout de suite, non. Tant qu'elle marche, vous pouvez la garder. Mais le jour où elle lâche, après 2031 vous ne pourrez plus la remplacer par une chaudière mazout. Et si c'est en plein hiver, les délais d'installation d'une PAC sont plus longs qu'un simple échange de chaudière. On a écrit un <a href="/pompe-a-chaleur/remplacement-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">guide complet sur le remplacement de chaudière mazout</a> si vous voulez en savoir plus. Notre conseil : anticipez. Venez en discuter quand vous avez le temps, pas quand vous grelottez.
-            </p>
-          </div>
-        </details>
-
-        <details class="group border border-[var(--color-bordure)] rounded-xl" open>
-          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
-            C'est vrai que les pompes à chaleur font du bruit ?
-            <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
-          </summary>
-          <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
-            <p>
-              Les anciens modèles, oui. Les nouveaux, beaucoup moins. Une Daikin Altherma récente tourne à 35 dB — c'est le bruit d'une bibliothèque. Par contre, l'emplacement de l'unité extérieure, c'est important. Il y a une réglementation en Wallonie : 45 dB maximum en journée, 40 dB la nuit à la limite de propriété. On regarde toujours avec vous où la placer pour éviter les soucis avec les voisins. Plus de détails sur notre page <a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompe à chaleur</a>.
-            </p>
-          </div>
-        </details>
-
-        <details class="group border border-[var(--color-bordure)] rounded-xl" open>
-          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
-            Vous faites aussi le dépannage ?
-            <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
-          </summary>
-          <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
-            <p>
-              Oui. <a href="/pompe-a-chaleur/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Dépannage PAC</a>, <a href="/climatisation/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">dépannage clim</a>, <a href="/chauffage/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">dépannage chaudière</a>. On dépanne les installations qu'on a posées, mais aussi celles des autres. Honnêtement, on préfère les contrats d'<a href="/pompe-a-chaleur/entretien/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">entretien</a> — ça évite les pannes — mais quand ça tombe en panne un samedi soir en janvier, on est là.
-            </p>
-          </div>
-        </details>
-
-        <details class="group border border-[var(--color-bordure)] rounded-xl" open>
-          <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-[var(--color-vert-fonce)]">
-            Les primes en Wallonie, ça marche comment ?
-            <span class="text-[var(--color-vert)] group-open:rotate-180 transition-transform">▼</span>
-          </summary>
-          <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
-            <p>
-              C'est le bazar, soyons honnêtes. Il y a les <a href="https://energie.wallonie.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Primes Habitation</a>, le Rénopack avec prêt à taux zéro, la TVA à 6% si votre maison a plus de 10 ans... Les montants dépendent de vos revenus et du type de travaux. Pour une PAC, ça va de 600 à 3 600 euros. Il faut un audit logement avant. On a fait une <a href="/pompe-a-chaleur/primes-wallonie/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">page complète sur les primes Wallonie 2026</a> pour y voir clair. Et on vous aide à remplir les formulaires — c'est compris dans notre service, on ne facture pas ça en plus.
-            </p>
-          </div>
-        </details>
+  <section class="py-20 sm:py-24 px-4 sm:px-8 bg-[var(--color-blanc)]">
+    <div class="max-w-[88rem] mx-auto grid grid-cols-12 gap-x-8 gap-y-6">
+      <div class="col-span-12 lg:col-span-4">
+        <p class="section-number mb-4">§ 08 — FAQ</p>
+        <h2 class="font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">
+          Questions qu'on nous pose tout le temps.
+        </h2>
+      </div>
+      <div class="col-span-12 lg:col-span-7 lg:col-start-6">
+        {faqs.map((item, i) => (
+          <details class="group border-t border-[var(--color-bordure)] last:border-b" open={item.open}>
+            <summary class="flex items-start gap-6 cursor-pointer py-6 list-none marker:content-none">
+              <span class="text-xs tabular-nums text-[var(--color-texte-light)] opacity-60 pt-1.5 w-8">{String(i + 1).padStart(2, '0')}</span>
+              <span class="flex-1 font-display text-lg sm:text-xl font-semibold text-[var(--color-vert-fonce)]" style="letter-spacing: -0.015em;">{item.q}</span>
+              <span class="shrink-0 pt-1.5 relative w-5 h-5">
+                <span class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-[var(--color-vert-fonce)]"></span>
+                <span class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-[var(--color-vert-fonce)] group-open:opacity-0 transition-opacity"></span>
+              </span>
+            </summary>
+            <div class="pl-14 pr-6 pb-8 prose-editorial text-[var(--color-texte)]" set:html={`<p>${item.a}</p>`}>
+            </div>
+          </details>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- ===== CARTE GOOGLE MAPS ===== -->
-  <section class="mx-4 sm:mx-6 my-14">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-[var(--color-vert-fonce)] mb-6 text-center">Où nous trouver</h2>
-      <div class="rounded-2xl overflow-hidden shadow-lg">
+  <section class="px-4 sm:px-8 py-20 sm:py-24">
+    <div class="max-w-[88rem] mx-auto">
+      <div class="flex items-end justify-between gap-6 mb-8 pb-6 border-b border-[var(--color-bordure)]">
+        <div>
+          <p class="section-number mb-3">§ 09 — Adresse</p>
+          <h2 class="font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">Où nous trouver.</h2>
+        </div>
+        <address class="not-italic text-right text-sm text-[var(--color-texte-light)] leading-relaxed">
+          Rue de Nivelles 77<br/>
+          <span class="text-[var(--color-vert-fonce)] font-semibold">1300 Wavre · Brabant Wallon</span>
+        </address>
+      </div>
+      <div class="overflow-hidden">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1267.1!2d4.6064332!3d50.7143234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c17dc22e29281b%3A0x4029a47e136cfb7a!2sPompe%20%C3%A0%20chaleur%20BW!5e0!3m2!1sfr!2sbe!4v1712400000000"
           width="100%"
@@ -437,23 +535,47 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
     </div>
   </section>
 
-  <!-- ===== CTA FINAL ===== -->
-  <section class="mx-4 sm:mx-6 my-14">
-    <div class="max-w-5xl mx-auto bg-gradient-to-br from-[var(--color-vert)] to-emerald-700 rounded-2xl p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="text-white">
-        <h2 class="text-2xl sm:text-3xl font-extrabold mb-2">Un projet ? On en discute.</h2>
-        <p class="text-white/80">Devis gratuit et sans engagement. Réponse sous 24h.</p>
+  <!-- ===== CTA FINAL — bloc éditorial plein ===== -->
+  <section class="bg-[var(--color-vert-fonce)] text-[var(--color-fond)] mt-24">
+    <div class="max-w-[88rem] mx-auto px-4 sm:px-8 py-20 sm:py-28">
+      <div class="grid grid-cols-12 gap-y-10 gap-x-6 items-end">
+        <div class="col-span-12 lg:col-span-8">
+          <p class="section-number mb-6" style="color: var(--color-orange);">§ Prochaine étape</p>
+          <h2 class="font-display font-semibold" style="font-size: var(--text-5xl); line-height: 0.98; letter-spacing: -0.03em;">
+            Un projet&nbsp;?<br/>
+            <span class="opacity-80" style="font-variation-settings: 'wdth' 75; font-weight: 500;">On en discute de vive voix.</span>
+          </h2>
+          <p class="mt-8 max-w-xl text-lg opacity-75 leading-relaxed">
+            Devis gratuit, sans engagement, sous 24h. On passe chez vous, on regarde, on vous dit ce qui est possible et combien ça coûte. Point.
+          </p>
+        </div>
+        <div class="col-span-12 lg:col-span-4 flex flex-col gap-3">
+          <a
+            href="/devis/"
+            class="group inline-flex items-center justify-between gap-4 bg-[var(--color-orange)] text-[var(--color-vert-fonce)] font-semibold px-7 py-5 hover:bg-[var(--color-fond)] transition-colors"
+          >
+            <span class="text-lg">Demander un devis</span>
+            <svg class="w-6 h-6 shrink-0 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a
+            href="tel:+3228861457"
+            class="group inline-flex items-center justify-between gap-4 border border-[var(--color-fond)]/30 font-semibold px-7 py-5 hover:bg-[var(--color-fond)]/10 transition-colors"
+          >
+            <span class="flex flex-col leading-tight">
+              <span class="text-xs uppercase tracking-widest opacity-60 mb-0.5">Ou appelez</span>
+              <span class="text-lg tabular-nums">02 / 886 14 57</span>
+            </span>
+            <svg class="w-5 h-5 shrink-0 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+        </div>
       </div>
-      <a
-        href="/devis/"
-        class="bg-[var(--color-orange)] text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all whitespace-nowrap"
-      >
-        Demander un devis &rarr;
-      </a>
     </div>
   </section>
 
   <!-- bottom padding for mobile sticky CTA -->
   <div class="h-20 lg:hidden"></div>
+
+  <!-- Schema FAQPage — rich snippets Google -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 </Layout>
