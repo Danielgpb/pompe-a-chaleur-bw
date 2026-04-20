@@ -8,6 +8,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://pompe-a-chaleur-bw.be',
+  trailingSlash: 'always',
   devToolbar: { enabled: false },
 
   vite: {

@@ -6,7 +6,7 @@ import CTASection from '../../components/CTASection.astro'
 
 <Layout
   title="Primes pompe à chaleur Wallonie 2026 — Montants"
-  description="Guide complet des primes pompe à chaleur en Wallonie 2026. PAC air-eau 600-3600€, boiler thermo 280-1680€, TVA 6%, Rénopack. Régime transitoire jusqu'au 30/09/2026."
+  description="Primes pompe à chaleur Wallonie 2026. PAC air-eau 600-3600€, boiler thermo 280-1680€, TVA 6%, Rénopack. Régime transitoire jusqu'au 30/09/2026."
   canonical="/pompe-a-chaleur/primes-wallonie/"
 >
 
@@ -139,7 +139,7 @@ import CTASection from '../../components/CTASection.astro'
       <li>Demander vos devis (on s'en charge)</li>
       <li>Faire réaliser les travaux par un installateur agréé</li>
       <li>Rassembler les factures et les attestations techniques</li>
-      <li>Introduire la demande de prime en ligne (portail Wallonie)</li>
+      <li>Introduire la demande de prime en ligne sur le <a href="https://energie.wallonie.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">portail SPW Énergie</a></li>
       <li>Recevoir la prime (délai : 2 à 6 mois après la demande)</li>
     </ol>
 
@@ -153,5 +153,23 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Besoin d'aide avec les primes ?" text="On vous fait le devis ET on vous aide à monter le dossier de primes. Gratuit." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/primes-wallonie/#service",
+  "name": "Primes pompe à chaleur Wallonie 2026",
+  "description": "Accompagnement primes pompe à chaleur Wallonie 2026. PAC air-eau 600-3600€, TVA 6%, Rénopack, audit logement.",
+  "serviceType": "Energy Subsidy Consulting",
+  "url": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/primes-wallonie/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Brabant Wallon"
+  }
+})} />
 
 </Layout>

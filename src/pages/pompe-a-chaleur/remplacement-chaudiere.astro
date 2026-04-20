@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="Remplacer chaudière mazout par PAC — Guide 2026"
+  title="Remplacer chaudière mazout par pompe à chaleur — Guide 2026"
   description="Guide complet pour remplacer votre chaudière mazout par une pompe à chaleur en Wallonie. Interdiction 2026/2031, alternatives, primes majorées, témoignages."
   canonical="/pompe-a-chaleur/remplacement-chaudiere/"
 >
@@ -32,7 +32,7 @@ import CTASection from '../../components/CTASection.astro'
     </h2>
 
     <p>
-      Depuis le <strong>1er janvier 2026</strong>, plus de nouvelles chaudières mazout dans les constructions neuves en Wallonie. C'est déjà en vigueur. Et à partir de <strong>2031</strong>, plus de remplacement mazout par mazout du tout — même en rénovation. Votre chaudière actuelle peut continuer à tourner, mais quand elle rendra l'âme, ce sera fini.
+      Depuis le <strong>1er janvier 2026</strong>, plus de nouvelles chaudières mazout dans les constructions neuves en Wallonie, conformément à la <a href="https://energie.wallonie.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">stratégie énergie de la Région wallonne</a>. C'est déjà en vigueur. Et à partir de <strong>2031</strong>, plus de remplacement mazout par mazout du tout — même en rénovation. Votre chaudière actuelle peut continuer à tourner, mais quand elle rendra l'âme, ce sera fini.
     </p>
 
     <p>
@@ -123,5 +123,23 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Votre chaudière mazout arrive en fin de vie ?" text="Visite technique gratuite. On vous dit quoi choisir sans bullshit." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/remplacement-chaudiere/#service",
+  "name": "Remplacement chaudière mazout par pompe à chaleur en Brabant Wallon",
+  "description": "Remplacement de chaudière mazout par pompe à chaleur. Interdiction 2026/2031, alternatives PAC, primes majorées.",
+  "serviceType": "Heat Pump Installation",
+  "url": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/remplacement-chaudiere/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Brabant Wallon"
+  }
+})} />
 
 </Layout>

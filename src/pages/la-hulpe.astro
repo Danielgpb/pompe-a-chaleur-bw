@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 ---
 <Layout
-  title="PAC et climatisation à La Hulpe | Pompe à chaleur BW"
+  title="Pompe à chaleur et climatisation à La Hulpe | Pompe à chaleur BW"
   description="Pompe à chaleur et climatisation haut de gamme à La Hulpe (1310). PAC air-eau, gainable, domotique. Installateur certifié. Devis gratuit sous 24h."
   canonical="/la-hulpe/"
   geoLat={50.7299}
@@ -19,12 +20,16 @@ import CTASection from '../components/CTASection.astro'
   </p>
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à La Hulpe. Solutions haut de gamme, gainable, domotique. Devis gratuit sous 24h.</p>
 
+</article>
+<ReviewsCarousel />
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
   <div class="rounded-xl overflow-hidden my-6">
     <img src="/images/pac/hero-pac.webp" alt="Installation pompe à chaleur haut de gamme à La Hulpe" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
-    <p>La Hulpe, c'est un village de 7 500 habitants avec un parc immobilier qui n'a rien à voir avec la moyenne du Brabant Wallon. Grandes propriétés, souvent 4 façades, des terrains généreux, et un pouvoir d'achat élevé. Le domaine Solvay donne le ton : ici, on ne fait pas dans l'à-peu-près. Les propriétaires veulent du travail propre, des marques solides, et des installations invisibles.</p>
+    <p><a href="https://www.lahulpe.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a>, c'est un village de 7 500 habitants avec un parc immobilier qui n'a rien à voir avec la moyenne du Brabant Wallon. Grandes propriétés, souvent 4 façades, des terrains généreux, et un pouvoir d'achat élevé. Le domaine Solvay donne le ton : ici, on ne fait pas dans l'à-peu-près. Les propriétaires veulent du travail propre, des marques solides, et des installations invisibles.</p>
     <p>C'est exactement ce qu'on propose. Pas de pose à la va-vite, pas de matériel premier prix. On prend le temps de faire les choses bien — et à La Hulpe, les clients apprécient ça.</p>
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Installation pompe à chaleur à La Hulpe</h2>
     <p>Les villas de La Hulpe sont souvent de belles surfaces : 200, 300, parfois 400 m². Une <a href="/pompe-a-chaleur/air-eau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC air-eau</a> bien dimensionnée avec un ballon tampon et un boiler sanitaire couvre le chauffage et l'eau chaude sans problème. Les jardins sont assez grands pour placer l'unité extérieure loin de la terrasse et des fenêtres de chambre.</p>
@@ -55,6 +60,38 @@ import CTASection from '../components/CTASection.astro'
     <p>La Hulpe est entre <a href="/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a>, <a href="/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a>, <a href="/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a> et <a href="/ottignies-louvain-la-neuve/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Ottignies-Louvain-la-Neuve</a>. Toutes ces communes font partie de notre zone d'intervention quotidienne.</p>
   </div>
 </article>
+
 <CTASection title="Vous êtes à La Hulpe ?" text="On passe chez vous pour un devis gratuit. Réponse sous 24h." />
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/la-hulpe/#service",
+  "name": "Installation pompe à chaleur et climatisation à La Hulpe",
+  "description": "Pompe à chaleur BW intervient à La Hulpe (1310) pour l'installation, l'entretien et le dépannage de pompes à chaleur, climatisation et chaudières.",
+  "serviceType": "HVAC Installation",
+  "url": "https://pompe-a-chaleur-bw.be/la-hulpe/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "La Hulpe",
+    "postalCode": "1310",
+    "addressCountry": "BE"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://pompe-a-chaleur-bw.be/devis/",
+    "servicePhone": {
+      "@type": "ContactPoint",
+      "telephone": "+32-2-886-14-57",
+      "contactType": "customer service",
+      "availableLanguage": "French"
+    }
+  }
+})} />
+
 </Layout>

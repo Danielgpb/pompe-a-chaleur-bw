@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 ---
 <Layout
-  title="PAC et climatisation à Braine-l'Alleud | Pompe à chaleur BW"
+  title="Pompe à chaleur et climatisation à Braine-l'Alleud | Pompe à chaleur BW"
   description="Installateur pompe à chaleur et climatisation à Braine-l'Alleud (1420). PAC, clim, chaudière gaz. Ophain, Lillois. Devis gratuit sous 24h."
   canonical="/braine-l-alleud/"
   geoLat={50.6834}
@@ -19,12 +20,16 @@ import CTASection from '../components/CTASection.astro'
   </p>
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Braine-l'Alleud, Ophain-Bois-Seigneur-Isaac et Lillois-Witterzée. Devis gratuit sous 24h.</p>
 
+</article>
+<ReviewsCarousel />
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
   <div class="rounded-xl overflow-hidden my-6">
     <img src="/images/pac/hero-pac.webp" alt="Installation pompe à chaleur et climatisation à Braine-l'Alleud" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
-    <p>Braine-l'Alleud, c'est la plus grosse commune du Brabant Wallon. Plus de 40 000 habitants, trois sections bien distinctes : le centre de Braine, Ophain-Bois-Seigneur-Isaac côté campagne, et Lillois-Witterzée entre les deux. Du coup, les situations varient énormément d'une rue à l'autre. Une maison mitoyenne rue Longue au centre, ce n'est pas du tout le même dossier qu'une villa 4 façades à Ophain.</p>
+    <p><a href="https://www.braine-lalleud.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Braine-l'Alleud</a>, c'est la plus grosse commune du Brabant Wallon. Plus de 40 000 habitants, trois sections bien distinctes : le centre de Braine, Ophain-Bois-Seigneur-Isaac côté campagne, et Lillois-Witterzée entre les deux. Du coup, les situations varient énormément d'une rue à l'autre. Une maison mitoyenne rue Longue au centre, ce n'est pas du tout le même dossier qu'une villa 4 façades à Ophain.</p>
     <p>On connaît bien Braine -- c'est une des communes ou on intervient le plus. Il y a pas mal d'installateurs basés directement sur place, et les gens comparent. C'est une bonne chose. On recommande toujours de demander au moins trois devis avant de se décider. Un propriétaire du coin avait posté ses trois devis pour un bi-split Daikin sur un forum : les prix allaient de 4 800 a 7 200 euros pour le même type de matériel. L'écart venait de la longueur des liaisons, du type de finition, et de la marge de chacun. Comparez, posez des questions, et choisissez en connaissance de cause -- y compris en nous mettant dans la boucle.</p>
     <p>Le grand dilemme a Braine-l'Alleud, c'est souvent PAC ou chaudière gaz. La réponse honnête : si votre maison est bien isolée avec un chauffage sol, la PAC est imbattable sur le long terme. Si vous avez une isolation moyenne et des radiateurs haute température, la chaudière gaz condensation reste rationnelle. Et entre les deux, la <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> offre le meilleur compromis. Attention quand même : l'électricité coûte 3 a 4 fois plus cher que le gaz au kWh. Le COP de la PAC compense cette différence, mais seulement si la maison est raisonnablement isolée.</p>
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Installation pompe à chaleur à Braine-l'Alleud</h2>
@@ -54,6 +59,38 @@ import CTASection from '../components/CTASection.astro'
     <p>Depuis Braine-l'Alleud, on est aussi actifs à <a href="/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a>, <a href="/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a>, <a href="/court-saint-etienne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Court-Saint-Étienne</a> et <a href="/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a>.</p>
   </div>
 </article>
+
 <CTASection title="Vous êtes à Braine-l'Alleud ?" text="On passe chez vous pour un devis gratuit. Ophain, Lillois-Witterzée, tout le 1420." />
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/braine-l-alleud/#service",
+  "name": "Installation pompe à chaleur et climatisation à Braine-l'Alleud",
+  "description": "Pompe à chaleur BW intervient à Braine-l'Alleud (1420) pour l'installation, l'entretien et le dépannage de pompes à chaleur, climatisation et chaudières.",
+  "serviceType": "HVAC Installation",
+  "url": "https://pompe-a-chaleur-bw.be/braine-l-alleud/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Braine-l'Alleud",
+    "postalCode": "1420",
+    "addressCountry": "BE"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://pompe-a-chaleur-bw.be/devis/",
+    "servicePhone": {
+      "@type": "ContactPoint",
+      "telephone": "+32-2-886-14-57",
+      "contactType": "customer service",
+      "availableLanguage": "French"
+    }
+  }
+})} />
+
 </Layout>

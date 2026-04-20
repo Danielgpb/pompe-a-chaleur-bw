@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 ---
 <Layout
-  title="PAC et climatisation à Lasne | Pompe à chaleur BW"
+  title="Pompe à chaleur et climatisation à Lasne | Pompe à chaleur BW"
   description="Remplacement chaudière mazout et installation pompe à chaleur à Lasne (1380). Ohain, Plancenoit, Maransart. Chauffagiste agréé. Devis gratuit."
   canonical="/lasne/"
   geoLat={50.6707}
@@ -19,12 +20,16 @@ import CTASection from '../components/CTASection.astro'
   </p>
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Lasne, Ohain, Plancenoit et Maransart. Devis gratuit sous 24h.</p>
 
+</article>
+<ReviewsCarousel />
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
   <div class="rounded-xl overflow-hidden my-6">
     <img src="/images/pac/remplacement-mazout.webp" alt="Remplacement chaudière mazout par pompe à chaleur à Lasne" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
-    <p>Lasne est une des communes les plus vertes du Brabant Wallon. Grandes propriétés, beaucoup d'espace, des maisons souvent isolées en 4 façades. C'est aussi une commune où pas mal de gens sont encore au mazout — pas toujours de raccordement gaz dans les sections comme Plancenoit ou Maransart. Avec l'interdiction mazout qui avance, on reçoit de plus en plus d'appels de propriétaires à Lasne qui veulent anticiper.</p>
+    <p><a href="https://www.lasne.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a> est une des communes les plus vertes du Brabant Wallon. Grandes propriétés, beaucoup d'espace, des maisons souvent isolées en 4 façades. C'est aussi une commune où pas mal de gens sont encore au mazout — pas toujours de raccordement gaz dans les sections comme Plancenoit ou Maransart. Avec l'interdiction mazout qui avance, on reçoit de plus en plus d'appels de propriétaires à Lasne qui veulent anticiper.</p>
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Installation pompe à chaleur à Lasne</h2>
     <p>Les grandes maisons de Lasne sont idéales pour les <a href="/pompe-a-chaleur/air-eau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC air-eau</a>. Le terrain est là pour placer l'unité extérieure loin des voisins — le bruit n'est pas un problème quand vous avez 1 000 m² de jardin. Par contre, certaines maisons des années 70 à Ohain ne sont pas super bien isolées. Dans ce cas, la <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> fait le job sans obliger à refaire l'isolation d'abord.</p>
     <p>Cet hiver, on a remplacé trois chaudières mazout à Lasne. Une à Plancenoit (villa 200 m², passage en PAC air-eau Daikin Altherma), une à Maransart (PAC hybride Vaillant sur chaudière gaz existante) et une à Ohain (PAC air-eau LG Therma V). Trois situations différentes, trois solutions différentes. C'est pour ça qu'on passe toujours sur place avant de faire un devis.</p>
@@ -46,6 +51,38 @@ import CTASection from '../components/CTASection.astro'
     <p>Depuis Lasne, on est aussi à 10 minutes de <a href="/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a>, <a href="/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a>, <a href="/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a> et <a href="/grez-doiceau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Grez-Doiceau</a>.</p>
   </div>
 </article>
+
 <CTASection title="Vous êtes à Lasne ?" text="On passe chez vous pour un devis gratuit. Ohain, Plancenoit, Maransart aussi." />
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/lasne/#service",
+  "name": "Installation pompe à chaleur et climatisation à Lasne",
+  "description": "Pompe à chaleur BW intervient à Lasne (1380) pour l'installation, l'entretien et le dépannage de pompes à chaleur, climatisation et chaudières.",
+  "serviceType": "HVAC Installation",
+  "url": "https://pompe-a-chaleur-bw.be/lasne/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Lasne",
+    "postalCode": "1380",
+    "addressCountry": "BE"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://pompe-a-chaleur-bw.be/devis/",
+    "servicePhone": {
+      "@type": "ContactPoint",
+      "telephone": "+32-2-886-14-57",
+      "contactType": "customer service",
+      "availableLanguage": "French"
+    }
+  }
+})} />
+
 </Layout>

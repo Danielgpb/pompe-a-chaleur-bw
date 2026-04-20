@@ -205,14 +205,18 @@
 
   backBtn?.addEventListener('click', () => goStep1());
 
-  // Auto-open: desktop = popup complet, mobile = petite bulle teaser
-  setTimeout(() => {
-    if (isMobile) {
-      showTeaser();
-    } else {
-      openPopup();
-    }
-  }, 2000);
+  // Auto-open une seule fois par session
+  const waShown = sessionStorage.getItem('wa-shown');
+  if (!waShown) {
+    setTimeout(() => {
+      if (isMobile) {
+        showTeaser();
+      } else {
+        openPopup();
+      }
+      sessionStorage.setItem('wa-shown', '1');
+    }, 2000);
+  }
 
   // Clic sur la bulle teaser = ouvrir le popup
   teaser?.addEventListener('click', () => openPopup());

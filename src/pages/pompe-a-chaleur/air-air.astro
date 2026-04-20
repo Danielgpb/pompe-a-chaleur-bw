@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="PAC air-air Brabant Wallon — Clim réversible"
+  title="Pompe à chaleur air-air — Clim réversible Brabant Wallon"
   description="Pompe à chaleur air-air (climatisation réversible) en Brabant Wallon. Prix 4000-6000€ bi-split. Chauffe en hiver, refroidit en été. Devis gratuit."
   canonical="/pompe-a-chaleur/air-air/"
 >
@@ -91,7 +91,7 @@ import CTASection from '../../components/CTASection.astro'
     </h2>
 
     <p>
-      Question qu'on voit souvent sur les forums. La réponse courte : oui, dans une maison bien isolée. Les PAC air-air récentes (Daikin, Mitsubishi, LG) fonctionnent jusqu'à -15°C ou -20°C. En Brabant Wallon, on descend rarement sous -10°C.
+      Question qu'on voit souvent sur les forums. La réponse courte : oui, dans une maison bien isolée. Les PAC air-air récentes (<a href="https://www.daikin.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Daikin</a>, Mitsubishi, LG) fonctionnent jusqu'à -15°C ou -20°C. En Brabant Wallon, on descend rarement sous -10°C.
     </p>
 
     <p>
@@ -120,5 +120,29 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Un projet PAC air-air ou clim ?" text="Devis gratuit sous 24h. Installation rapide, toutes marques." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/air-air/#service",
+  "name": "Installation pompe à chaleur air-air en Brabant Wallon",
+  "description": "Installation de pompes à chaleur air-air (climatisation réversible). Chauffe en hiver, refroidit en été. Toutes marques.",
+  "serviceType": "Heat Pump Installation",
+  "url": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/air-air/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Brabant Wallon"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "4000",
+    "highPrice": "6000",
+    "priceCurrency": "EUR"
+  }
+})} />
 
 </Layout>

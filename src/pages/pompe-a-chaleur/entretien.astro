@@ -32,7 +32,7 @@ import CTASection from '../../components/CTASection.astro'
     </h2>
 
     <p>
-      Réponse courte : <strong>oui, dans la grande majorité des cas</strong>. Si votre pompe à chaleur contient plus de 3 kg de fluide frigorigène — et la plupart des PAC air-eau et des grosses PAC air-air en contiennent — un contrôle d'étanchéité par un frigoriste certifié est obligatoire chaque année. C'est la réglementation fédérale belge sur les gaz fluorés.
+      Réponse courte : <strong>oui, dans la grande majorité des cas</strong>. Si votre pompe à chaleur contient plus de 3 kg de fluide frigorigène — et la plupart des PAC air-eau et des grosses PAC air-air en contiennent — un contrôle d'étanchéité par un frigoriste certifié est obligatoire chaque année. C'est la <a href="https://www.health.belgium.be/fr/environnement/substances-chimiques/gaz-fluores" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">réglementation fédérale belge sur les gaz fluorés</a>.
     </p>
 
     <p>
@@ -123,5 +123,23 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Entretien PAC à planifier ?" text="Contrat annuel ou intervention ponctuelle. On s'occupe de tout, y compris la paperasse réglementaire." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/entretien/#service",
+  "name": "Entretien pompe à chaleur en Brabant Wallon",
+  "description": "Entretien annuel pompe à chaleur. Contrôle étanchéité, nettoyage échangeur, contrats maintenance. Toutes marques Daikin, LG, Vaillant.",
+  "serviceType": "Heat Pump Maintenance",
+  "url": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/entretien/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Brabant Wallon"
+  }
+})} />
 
 </Layout>

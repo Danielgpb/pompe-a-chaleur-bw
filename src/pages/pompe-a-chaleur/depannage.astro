@@ -55,7 +55,7 @@ import CTASection from '../../components/CTASection.astro'
     </p>
 
     <h3 class="text-xl font-bold text-[var(--color-vert-fonce)] pt-2">
-      Daikin
+      <a href="https://www.daikin.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Daikin</a>
     </h3>
     <ul class="list-disc pl-6 space-y-2">
       <li><strong>E7</strong> : problème de ventilateur extérieur. Souvent un blocage mécanique ou un condensateur HS.</li>
@@ -155,5 +155,23 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="PAC en panne ?" text="Appelez-nous. On intervient rapidement, y compris le week-end en hiver." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/depannage/#service",
+  "name": "Dépannage pompe à chaleur en Brabant Wallon",
+  "description": "Dépannage pompe à chaleur urgent. Codes erreur, givrage, bruit, PAC ne chauffe plus. Intervention week-end. Toutes marques.",
+  "serviceType": "Heat Pump Repair",
+  "url": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/depannage/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Brabant Wallon"
+  }
+})} />
 
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Icons from '../components/Icons.astro'
+import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 
 const services = [
   {
@@ -70,7 +71,7 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
 ---
 
 <Layout
-  title="Chauffage et pompe à chaleur Brabant Wallon | Pompe à chaleur BW"
+  title="Pompe à chaleur Brabant Wallon | Chauffage & Clim | PAC BW"
   description="Installateur agréé pompe à chaleur, climatisation et chauffage en Brabant Wallon. Wavre, Waterloo, Lasne. Frigoriste certifié. Devis gratuit."
   canonical="/"
   geoLat={50.71640}
@@ -134,56 +135,7 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
   </section>
 
   <!-- ===== AVIS CLIENTS ===== -->
-  <section class="py-5 px-4 sm:px-6">
-    <div class="max-w-7xl mx-auto">
-      <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-vert)] text-center mb-4">Ce que nos clients disent</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
-        <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-4">
-          <div class="flex items-center gap-1 mb-2 text-yellow-400 text-sm">★★★★★</div>
-          <p class="text-xs text-[var(--color-texte-light)] leading-relaxed mb-3">
-            "On a fait remplacer notre vieille chaudière mazout par une pompe à chaleur Daikin. L'équipe a été carrée du début à la fin. Le devis était clair, pas de mauvaises surprises, et ils nous ont aidés pour les primes. Ça tourne depuis 6 mois sans souci."
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 bg-[var(--color-vert-clair)] text-[var(--color-vert)] font-bold rounded-full flex items-center justify-center text-sm">ML</div>
-            <div>
-              <p class="text-sm font-semibold text-[var(--color-vert-fonce)]">Marc L.</p>
-              <p class="text-xs text-[var(--color-texte-light)]">Wavre — PAC air-eau</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-4">
-          <div class="flex items-center gap-1 mb-2 text-yellow-400 text-sm">★★★★★</div>
-          <p class="text-xs text-[var(--color-texte-light)] leading-relaxed mb-3">
-            "Clim multi-split installée dans toute la maison. Trois chambres et le salon. Ils sont passés vérifier l'emplacement avant, nous ont déconseillé un modèle qu'on voulait (trop puissant pour la pièce), et ont proposé mieux pour moins cher. Honnêtes."
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 bg-[var(--color-vert-clair)] text-[var(--color-vert)] font-bold rounded-full flex items-center justify-center text-sm">SD</div>
-            <div>
-              <p class="text-sm font-semibold text-[var(--color-vert-fonce)]">Sophie D.</p>
-              <p class="text-xs text-[var(--color-texte-light)]">Waterloo — Climatisation</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-4">
-          <div class="flex items-center gap-1 mb-2 text-yellow-400 text-sm">★★★★★</div>
-          <p class="text-xs text-[var(--color-texte-light)] leading-relaxed mb-3">
-            "Dépannage de notre PAC un samedi de janvier. On les a appelés le matin, un technicien était là à 14h. C'était un problème de carte électronique. Réparé le jour même. Avec des enfants en bas âge, on aurait pas tenu un week-end sans chauffage."
-          </p>
-          <div class="flex items-center gap-3">
-            <div class="w-9 h-9 bg-[var(--color-vert-clair)] text-[var(--color-vert)] font-bold rounded-full flex items-center justify-center text-sm">PV</div>
-            <div>
-              <p class="text-sm font-semibold text-[var(--color-vert-fonce)]">Philippe V.</p>
-              <p class="text-xs text-[var(--color-texte-light)]">Lasne — Dépannage PAC</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
+  <ReviewsCarousel />
 
   <!-- ===== TRUST BAR CARROUSEL ===== -->
   <section class="bg-white border-y border-[var(--color-bordure)] py-5 overflow-hidden">
@@ -255,7 +207,7 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
           Bon, on va pas se mentir. Trouver un installateur de pompe à chaleur qui répond au téléphone et qui donne un devis sans vous faire attendre trois semaines, c'est pas toujours simple dans le coin.
         </p>
         <p>
-          On est une équipe d'installateurs basée en Brabant Wallon. On fait les <a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompes à chaleur</a> — air-eau, air-air, hybrides — la <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, le <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, la <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation</a>, les <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a> et le reste. On travaille avec Daikin, LG, Vaillant, Bosch, Gree. Pas de marque maison, pas de stock à écouler. On vous conseille ce qui va le mieux pour votre maison, point.
+          On est une équipe d'installateurs basée en Brabant Wallon. On fait les <a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompes à chaleur</a> — air-eau, air-air, hybrides — la <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, le <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, la <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation</a>, les <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a> et le reste. On travaille avec <a href="https://www.daikin.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Daikin</a>, LG, Vaillant, Bosch, Gree. Pas de marque maison, pas de stock à écouler. On vous conseille ce qui va le mieux pour votre maison, point.
         </p>
         <p>
           L'hiver dernier, la moitié de nos appels venaient de gens à <a href="/wavre/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Wavre</a> et <a href="/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a> dont la chaudière mazout avait lâché. Avec l'interdiction qui tombe en 2026 pour les constructions neuves, beaucoup de propriétaires se posent la question : on répare encore une fois, ou on passe à la <a href="/pompe-a-chaleur/remplacement-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompe à chaleur</a> ? Si c'est votre cas, on peut venir faire un état des lieux chez vous. Gratuit, sans engagement. On vous dit ce qui est possible, combien ça coûte, et quelles <a href="/pompe-a-chaleur/primes-wallonie/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">primes</a> vous pouvez avoir.
@@ -359,7 +311,7 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
           Si votre chaudière a 15 ou 20 ans, le mieux c'est de ne pas attendre qu'elle tombe en panne en plein mois de janvier pour y réfléchir. On a eu le cas trois fois rien que cet hiver à Lasne et Rixensart. Les gens se retrouvent sans chauffage, ils doivent décider vite, et ça coûte toujours plus cher dans l'urgence.
         </p>
         <p>
-          Une pompe à chaleur air-eau, c'est entre 8 000 et 15 000 euros installée. Ça paraît beaucoup. Mais avec les primes Wallonie — entre 600 et 3 600 euros selon vos revenus — et la TVA à 6% si votre maison a plus de 10 ans, ça change la donne. Sans compter que votre facture de mazout, vous ne la payez plus.
+          Une pompe à chaleur air-eau, c'est entre 8 000 et 15 000 euros installée. Ça paraît beaucoup. Mais avec les <a href="https://energie.wallonie.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">primes Wallonie</a> — entre 600 et 3 600 euros selon vos revenus — et la TVA à 6% si votre maison a plus de 10 ans, ça change la donne. Sans compter que votre facture de mazout, vous ne la payez plus.
         </p>
         <p>
           <a href="/pompe-a-chaleur/remplacement-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">
@@ -458,53 +410,13 @@ const marques = ['Daikin', 'LG', 'Gree', 'Vaillant', 'Bemco', 'Bosch', 'Remeha',
           </summary>
           <div class="px-6 pb-5 text-[var(--color-texte-light)] leading-relaxed">
             <p>
-              C'est le bazar, soyons honnêtes. Il y a les Primes Habitation, le Rénopack avec prêt à taux zéro, la TVA à 6% si votre maison a plus de 10 ans... Les montants dépendent de vos revenus et du type de travaux. Pour une PAC, ça va de 600 à 3 600 euros. Il faut un audit logement avant. On a fait une <a href="/pompe-a-chaleur/primes-wallonie/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">page complète sur les primes Wallonie 2026</a> pour y voir clair. Et on vous aide à remplir les formulaires — c'est compris dans notre service, on ne facture pas ça en plus.
+              C'est le bazar, soyons honnêtes. Il y a les <a href="https://energie.wallonie.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Primes Habitation</a>, le Rénopack avec prêt à taux zéro, la TVA à 6% si votre maison a plus de 10 ans... Les montants dépendent de vos revenus et du type de travaux. Pour une PAC, ça va de 600 à 3 600 euros. Il faut un audit logement avant. On a fait une <a href="/pompe-a-chaleur/primes-wallonie/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">page complète sur les primes Wallonie 2026</a> pour y voir clair. Et on vous aide à remplir les formulaires — c'est compris dans notre service, on ne facture pas ça en plus.
             </p>
           </div>
         </details>
       </div>
     </div>
   </section>
-
-  <!-- FAQ Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Combien coûte une pompe à chaleur installée ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Une PAC air-air coûte entre 4 000 et 6 000 euros installée. Une PAC air-eau pour chauffer toute la maison, entre 8 000 et 15 000 euros. Les primes Wallonie peuvent réduire de 600 à 3 600 euros."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Ma chaudière mazout fonctionne encore. Je dois quand même la remplacer ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Pas tant qu'elle fonctionne. Mais après 2031, on ne pourra plus remplacer une chaudière mazout par une autre au mazout en Wallonie. Mieux vaut anticiper que de décider dans l'urgence en plein hiver."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "C'est vrai que les pompes à chaleur font du bruit ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Les modèles récents tournent à environ 35 dB, soit le bruit d'une bibliothèque. L'emplacement de l'unité extérieure est important pour respecter les 45 dB maximum en journée et 40 dB la nuit en Wallonie."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Les primes en Wallonie, ça marche comment ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Il y a les Primes Habitation (600 à 3 600 euros pour une PAC selon les revenus), le Rénopack avec prêt à taux zéro, et la TVA à 6% pour les maisons de plus de 10 ans. Un audit logement est nécessaire avant. Nous vous aidons avec les formulaires."
-        }
-      }
-    ]
-  })} />
 
   <!-- ===== CARTE GOOGLE MAPS ===== -->
   <section class="mx-4 sm:mx-6 my-14">

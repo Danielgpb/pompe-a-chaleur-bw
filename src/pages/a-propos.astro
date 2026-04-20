@@ -5,7 +5,7 @@ import CTASection from '../components/CTASection.astro'
 ---
 
 <Layout
-  title="À propos | Pompe à chaleur BW"
+  title="Installateur agréé pompe à chaleur Brabant Wallon | À propos"
   description="Qui sommes-nous ? Installateur pompe à chaleur, climatisation et chauffage en Brabant Wallon. Notre équipe, nos valeurs, nos certifications."
   canonical="/a-propos/"
 >
@@ -98,5 +98,19 @@ import CTASection from '../components/CTASection.astro'
 <CTASection title="Un projet en tête ?" text="On en discute autour d'un café. Enfin, surtout autour de votre chaudière." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://pompe-a-chaleur-bw.be/a-propos/#webpage",
+  "name": "À propos — Pompe à chaleur BW",
+  "url": "https://pompe-a-chaleur-bw.be/a-propos/",
+  "description": "Installateur HVAC agréé en Brabant Wallon. Notre équipe, nos marques partenaires et nos engagements.",
+  "inLanguage": "fr-BE",
+  "about": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  }
+})} />
 
 </Layout>

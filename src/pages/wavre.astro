@@ -2,11 +2,12 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 ---
 
 <Layout
-  title="PAC et climatisation à Wavre | Pompe à chaleur BW"
-  description="Installation pompe à chaleur et climatisation à Wavre (1300). Chauffagiste agréé pour PAC air-eau, clim et chaudière. Daikin, LG, Vaillant. Devis gratuit sous 24h."
+  title="Pompe à chaleur et climatisation à Wavre | Pompe à chaleur BW"
+  description="Installation pompe à chaleur et climatisation à Wavre (1300). Chauffagiste agréé pour PAC air-eau, clim et chaudière. Daikin, LG, Vaillant. Devis gratuit."
   canonical="/wavre/"
   geoLat={50.7164}
   geoLng={4.6013}
@@ -30,6 +31,10 @@ import CTASection from '../components/CTASection.astro'
     Installateur pompe à chaleur, climatisation et chauffage à Wavre et ses sections (Limal, Bierges). Devis gratuit sous 24h. Intervention rapide.
   </p>
 
+</article>
+<ReviewsCarousel />
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
   <div class="rounded-xl overflow-hidden my-6">
     <img src="/images/pac/pac-air-eau.webp" alt="Installation pompe à chaleur air-eau à Wavre — unité extérieure sur façade" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
@@ -37,7 +42,7 @@ import CTASection from '../components/CTASection.astro'
   <div class="space-y-8 text-[var(--color-texte-light)] leading-relaxed">
 
     <p>
-      Si vous habitez à Wavre, Limal ou Bierges et que vous cherchez un installateur pour une pompe à chaleur, une climatisation ou un remplacement de chaudière, on est dans le coin. Littéralement. On ne vient pas de Bruxelles ou de Charleroi — on travaille en Brabant Wallon, on connaît les rues, les lotissements et les types de maisons qu'on y trouve.
+      Si vous habitez à <a href="https://www.wavre.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Wavre</a>, Limal ou Bierges et que vous cherchez un installateur pour une pompe à chaleur, une climatisation ou un remplacement de chaudière, on est dans le coin. Littéralement. On ne vient pas de Bruxelles ou de Charleroi — on travaille en Brabant Wallon, on connaît les rues, les lotissements et les types de maisons qu'on y trouve.
     </p>
 
     <p>
@@ -127,5 +132,35 @@ import CTASection from '../components/CTASection.astro'
 <CTASection title="Vous êtes à Wavre ?" text="On passe chez vous pour un devis gratuit. Réponse sous 24h." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/wavre/#service",
+  "name": "Installation pompe à chaleur et climatisation à Wavre",
+  "description": "Pompe à chaleur BW intervient à Wavre (1300) pour l'installation, l'entretien et le dépannage de pompes à chaleur, climatisation et chaudières.",
+  "serviceType": "HVAC Installation",
+  "url": "https://pompe-a-chaleur-bw.be/wavre/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Wavre",
+    "postalCode": "1300",
+    "addressCountry": "BE"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://pompe-a-chaleur-bw.be/devis/",
+    "servicePhone": {
+      "@type": "ContactPoint",
+      "telephone": "+32-2-886-14-57",
+      "contactType": "customer service",
+      "availableLanguage": "French"
+    }
+  }
+})} />
 
 </Layout>

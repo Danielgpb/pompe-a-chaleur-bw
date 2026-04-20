@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 ---
 <Layout
-  title="PAC et climatisation à Waterloo | Pompe à chaleur BW"
+  title="Pompe à chaleur et climatisation à Waterloo | Pompe à chaleur BW"
   description="Installateur pompe à chaleur et climatisation à Waterloo (1410). PAC air-eau, hybride, gainable. Daikin, Vaillant, LG. Devis gratuit sur place."
   canonical="/waterloo/"
   geoLat={50.7148}
@@ -19,12 +20,16 @@ import CTASection from '../components/CTASection.astro'
   </p>
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Waterloo (1410). Devis gratuit sous 24h.</p>
 
+</article>
+<ReviewsCarousel />
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
   <div class="rounded-xl overflow-hidden my-6">
     <img src="/images/pac/hero-pac.webp" alt="Installation pompe à chaleur à Waterloo — chauffagiste agréé" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
-    <p>Waterloo, c'est 30 000 habitants, des maisons de caractère le long de la chaussée de Bruxelles, des villas cossues vers le golf et des lotissements récents côté Chenois. Le pouvoir d'achat est là, et les gens veulent des installations qui tiennent la route. Pas du low-cost qui tombe en panne au bout de deux ans.</p>
+    <p><a href="https://www.waterloo.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a>, c'est 30 000 habitants, des maisons de caractère le long de la chaussée de Bruxelles, des villas cossues vers le golf et des lotissements récents côté Chenois. Le pouvoir d'achat est là, et les gens veulent des installations qui tiennent la route. Pas du low-cost qui tombe en panne au bout de deux ans.</p>
     <p>On y intervient très régulièrement. C'est même une de nos communes les plus actives avec <a href="/braine-l-alleud/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Braine-l'Alleud</a> juste à côté.</p>
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Installation pompe à chaleur à Waterloo</h2>
     <p>Les grandes villas de Waterloo se prêtent bien aux <a href="/pompe-a-chaleur/air-eau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC air-eau</a>. Souvent combinées avec un <a href="/chauffage/chauffage-sol/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage sol</a> existant, le rendement est excellent. Pour les maisons plus anciennes avec de vieux radiateurs, la <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> est souvent le meilleur compromis.</p>
@@ -43,6 +48,10 @@ import CTASection from '../components/CTASection.astro'
 
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Chauffage et entretien à Waterloo</h2>
     <p>La plupart des maisons à Waterloo sont au gaz naturel. On fait l'installation de <a href="/chauffage/chaudiere-gaz/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chaudières gaz condensation</a>, l'<a href="/chauffage/entretien-chaudiere/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">entretien obligatoire</a>, et le <a href="/chauffage/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">dépannage en urgence</a>. Aussi les <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a>, les <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">bornes de recharge</a> et la <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">domotique</a>.</p>
+
+    <p>Chaque quartier de Waterloo a ses particularités en matière de chauffage. À Joli-Bois, les villas des années 60-70 ont souvent des chaudières atmosphériques d'origine qui consomment beaucoup trop -- un remplacement par une condensation moderne réduit la facture de 25 à 30 % sans rien toucher d'autre. Le Faubourg Ouest, avec ses maisons mitoyennes et semi-mitoyennes plus compactes, se prête bien aux PAC air-eau de petite puissance (6-8 kW) : surface raisonnable, bonne isolation, chauffage sol fréquent dans les rénovations récentes.</p>
+
+    <p>Côté Chenois, les constructions récentes sont souvent déjà équipées en basse température, mais on voit régulièrement des propriétaires qui veulent compléter leur installation avec des <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a> pour maximiser l'autoconsommation. Avec une PAC et 10 panneaux bien orientés, on couvre une bonne partie de la consommation électrique du chauffage en mi-saison. Pour les maisons de caractère vers le centre historique et la butte du Lion, l'enjeu est différent : murs épais, châssis anciens, parfois un classement patrimonial. La PAC hybride permet de moderniser le chauffage sans tout bouleverser, et sans perdre le cachet de la maison.</p>
     <div class="rounded-xl overflow-hidden my-6">
       <img src="/images/chauffage/chaudiere-gaz.webp" alt="Remplacement chaudière gaz condensation à Waterloo" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
     </div>
@@ -51,6 +60,38 @@ import CTASection from '../components/CTASection.astro'
     <p>Depuis Waterloo, on couvre aussi <a href="/braine-l-alleud/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Braine-l'Alleud</a>, <a href="/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a>, <a href="/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a> et <a href="/rixensart/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a>. Tout le sud du Brabant Wallon, en fait.</p>
   </div>
 </article>
+
 <CTASection title="Vous êtes à Waterloo ?" text="On passe chez vous pour un devis gratuit." />
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/waterloo/#service",
+  "name": "Installation pompe à chaleur et climatisation à Waterloo",
+  "description": "Pompe à chaleur BW intervient à Waterloo (1410) pour l'installation, l'entretien et le dépannage de pompes à chaleur, climatisation et chaudières.",
+  "serviceType": "HVAC Installation",
+  "url": "https://pompe-a-chaleur-bw.be/waterloo/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Waterloo",
+    "postalCode": "1410",
+    "addressCountry": "BE"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://pompe-a-chaleur-bw.be/devis/",
+    "servicePhone": {
+      "@type": "ContactPoint",
+      "telephone": "+32-2-886-14-57",
+      "contactType": "customer service",
+      "availableLanguage": "French"
+    }
+  }
+})} />
+
 </Layout>

@@ -24,9 +24,10 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <title>{title}</title>
   <meta name="description" content={description} />
@@ -40,6 +41,10 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
   <meta property="og:image" content={`${siteUrl}/images/global/og-image.webp`} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={`${siteUrl}/images/global/og-image.webp`} />
   {geoLat && geoLng && (
     <>
       <meta name="geo.position" content={`${geoLat};${geoLng}`} />
@@ -72,10 +77,18 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
+    "@id": `${siteUrl}/#business`,
     "name": "Pompe à chaleur BW",
     "alternateName": "Pompe à chaleur Brabant Wallon",
     "url": siteUrl,
     "telephone": "+32-2-886-14-57",
+    "image": `${siteUrl}/images/global/og-image.webp`,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/favicon-192.png`,
+      "width": 192,
+      "height": 192
+    },
     "description": "Pompe à chaleur BW est l'installateur de chauffage, pompes à chaleur et climatisation de référence en Brabant Wallon. Installation, entretien et dépannage à Wavre, Waterloo, Lasne et 10 communes. Daikin, LG, Vaillant, Bosch, Gree.",
     "slogan": "Chauffage et pompe à chaleur en Brabant Wallon — installateur agréé",
     "additionalType": "https://schema.org/HeatingContractor",
@@ -137,7 +150,16 @@ const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.
       "latitude": 50.71640,
       "longitude": 4.60130
     },
-    "sameAs": [],
+    "sameAs": [
+      "https://www.google.com/maps/place/Pompe+%C3%A0+chaleur+BW/@50.7143234,4.6064332,17z/"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "5",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "priceRange": "€€",
     "paymentAccepted": "Cash, Virement bancaire, Bancontact",
     "currenciesAccepted": "EUR",

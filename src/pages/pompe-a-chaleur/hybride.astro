@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="PAC hybride Brabant Wallon — Le compromis malin"
+  title="Pompe à chaleur hybride Brabant Wallon — Le compromis malin"
   description="Pompe à chaleur hybride en Brabant Wallon. PAC + chaudière gaz existante, idéal en rénovation. Le choix le plus recommandé pour maisons mal isolées."
   canonical="/pompe-a-chaleur/hybride/"
 >
@@ -96,7 +96,7 @@ import CTASection from '../../components/CTASection.astro'
     </h2>
 
     <p>
-      L'avantage de l'hybride, c'est que l'installation est relativement simple. On pose l'unité extérieure de la PAC (comme pour une air-eau classique), on la raccorde au circuit de chauffage existant en parallèle de votre chaudière, et on installe le régulateur intelligent qui gère la bascule entre les deux.
+      L'avantage de l'hybride, c'est que l'installation est relativement simple. On pose l'unité extérieure de la PAC (comme pour une air-eau classique), on la raccorde au circuit de chauffage existant en parallèle de votre chaudière, et on installe le régulateur intelligent qui gère la bascule entre les deux. Parmi les systèmes hybrides qu'on installe, le <a href="https://www.vaillant.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Vaillant aroTHERM</a> est l'un des plus demandés.
     </p>
 
     <p>
@@ -121,5 +121,23 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="L'hybride, c'est pour vous ?" text="Devis gratuit sous 24h. On analyse votre situation et on vous dit franchement si c'est la bonne option." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/hybride/#service",
+  "name": "Installation pompe à chaleur hybride en Brabant Wallon",
+  "description": "Installation de pompes à chaleur hybrides. PAC + chaudière gaz existante, idéal en rénovation pour maisons mal isolées.",
+  "serviceType": "Heat Pump Installation",
+  "url": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/hybride/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Brabant Wallon"
+  }
+})} />
 
 </Layout>

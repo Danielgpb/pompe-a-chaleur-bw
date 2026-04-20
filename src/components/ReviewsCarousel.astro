@@ -1,0 +1,83 @@
+---
+const reviews = [
+  {
+    initials: 'JD',
+    name: 'Jérôme Deleu',
+    text: 'Il on installé ma climatisation super professionnel, réactif !',
+  },
+  {
+    initials: 'IS',
+    name: 'IML siuu',
+    text: 'Intervention très rapide de leur part, tout est correct rapide et efficace.',
+  },
+  {
+    initials: 'TD',
+    name: 'Tanguy Dimanche',
+    text: 'Service réactif et rapide, ils ont réparé ma climatisation rapidement.',
+  },
+  {
+    initials: 'AD',
+    name: 'Annis Dimah',
+    text: 'Service pro ! Ils savent de quoi ils parlent.',
+  },
+  {
+    initials: 'JR',
+    name: 'Jen R',
+    text: 'Ils ont placé ma pompe à chaleur super pro et disponible. Merci.',
+  },
+]
+---
+
+<section class="py-5 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto">
+    <p class="text-xs font-bold uppercase tracking-widest text-[var(--color-vert)] text-center mb-4">Avis Google — 5.0/5</p>
+    <div class="reviews-carousel-wrapper">
+      <div class="reviews-carousel-track">
+        {[...Array(2)].map(() => (
+          <div class="reviews-carousel-set">
+            {reviews.map(r => (
+              <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-4 min-w-[280px] max-w-[320px] flex-shrink-0">
+                <div class="flex items-center gap-1 mb-2 text-yellow-400 text-sm">★★★★★</div>
+                <p class="text-xs text-[var(--color-texte-light)] leading-relaxed mb-3">
+                  "{r.text}"
+                </p>
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 bg-[var(--color-vert-clair)] text-[var(--color-vert)] font-bold rounded-full flex items-center justify-center text-sm">{r.initials}</div>
+                  <div>
+                    <p class="text-sm font-semibold text-[var(--color-vert-fonce)]">{r.name}</p>
+                    <p class="text-xs text-[var(--color-texte-light)]">Avis Google</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .reviews-carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+  .reviews-carousel-track {
+    display: flex;
+    width: max-content;
+    animation: reviews-scroll 30s linear infinite;
+  }
+  .reviews-carousel-set {
+    display: flex;
+    gap: 1.25rem;
+    flex-shrink: 0;
+    padding-right: 1.25rem;
+  }
+  @keyframes reviews-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .reviews-carousel-wrapper:hover .reviews-carousel-track {
+    animation-play-state: paused;
+  }
+</style>

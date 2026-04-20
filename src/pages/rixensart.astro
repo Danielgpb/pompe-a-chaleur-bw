@@ -2,9 +2,10 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 ---
 <Layout
-  title="PAC et climatisation à Rixensart | Pompe à chaleur BW"
+  title="Pompe à chaleur et climatisation à Rixensart | Pompe à chaleur BW"
   description="Pompe à chaleur et climatisation à Rixensart (1330). Remplacement mazout, PAC hybride, clim gainable. Rosières, Genval. Devis gratuit."
   canonical="/rixensart/"
   geoLat={50.7141}
@@ -19,12 +20,16 @@ import CTASection from '../components/CTASection.astro'
   </p>
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Rixensart, Rosières et Genval. Devis gratuit sous 24h.</p>
 
+</article>
+<ReviewsCarousel />
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
   <div class="rounded-xl overflow-hidden my-6">
     <img src="/images/pac/pac-air-eau.webp" alt="Installation pompe à chaleur air-eau à Rixensart" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
-    <p>Rixensart, c'est trois villages en un : Rixensart proprement dit, Rosières et Genval avec son lac. Commune résidentielle, plutôt aisée, avec un parc immobilier qui date surtout des années 50 à 80. Beaucoup de ces maisons n'ont jamais été rénovées côté chauffage. On y trouve encore pas mal de chaudières mazout, y compris dans des maisons raccordables au gaz.</p>
+    <p><a href="https://www.rixensart.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Rixensart</a>, c'est trois villages en un : Rixensart proprement dit, Rosières et Genval avec son lac. Commune résidentielle, plutôt aisée, avec un parc immobilier qui date surtout des années 50 à 80. Beaucoup de ces maisons n'ont jamais été rénovées côté chauffage. On y trouve encore pas mal de chaudières mazout, y compris dans des maisons raccordables au gaz.</p>
     <p>Ce sont souvent des propriétaires qui savent qu'il faut changer, mais qui ne savent pas par quoi commencer. Le mazout coûte cher, la chaudière vieillit, et l'interdiction approche. On passe, on regarde, et on propose la solution qui tient la route pour leur maison — pas juste la plus chère du catalogue.</p>
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Installation pompe à chaleur à Rixensart</h2>
     <p>Les maisons de Rixensart-centre, le long de l'avenue de Merode et vers le château, sont souvent de belles bâtisses avec des murs pleins et une isolation moyenne. Pas l'idéal pour une <a href="/pompe-a-chaleur/air-eau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC air-eau seule</a>, mais parfait pour une <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> : la pompe à chaleur prend le relais quand c'est rentable, la chaudière gaz fait le complément par grand froid.</p>
@@ -54,6 +59,38 @@ import CTASection from '../components/CTASection.astro'
     <p>Rixensart est au carrefour entre <a href="/wavre/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Wavre</a>, <a href="/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a>, <a href="/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a> et <a href="/ottignies-louvain-la-neuve/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Ottignies-Louvain-la-Neuve</a>. On couvre tout ce secteur.</p>
   </div>
 </article>
+
 <CTASection title="Vous êtes à Rixensart ?" text="On passe chez vous pour un devis gratuit. Rosières, Genval, tout le 1330." />
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/rixensart/#service",
+  "name": "Installation pompe à chaleur et climatisation à Rixensart",
+  "description": "Pompe à chaleur BW intervient à Rixensart (1330) pour l'installation, l'entretien et le dépannage de pompes à chaleur, climatisation et chaudières.",
+  "serviceType": "HVAC Installation",
+  "url": "https://pompe-a-chaleur-bw.be/rixensart/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Rixensart",
+    "postalCode": "1330",
+    "addressCountry": "BE"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://pompe-a-chaleur-bw.be/devis/",
+    "servicePhone": {
+      "@type": "ContactPoint",
+      "telephone": "+32-2-886-14-57",
+      "contactType": "customer service",
+      "availableLanguage": "French"
+    }
+  }
+})} />
+
 </Layout>

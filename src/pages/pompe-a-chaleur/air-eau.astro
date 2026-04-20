@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="PAC air-eau Brabant Wallon — Prix, COP, marques"
+  title="Pompe à chaleur air-eau Brabant Wallon — Prix, COP, marques"
   description="Pompe à chaleur air-eau en Brabant Wallon. COP 3 à 5, prix 8000-15000€, marques Daikin, LG, Vaillant. Primes jusqu'à 3600€. Devis gratuit."
   canonical="/pompe-a-chaleur/air-eau/"
 >
@@ -76,7 +76,7 @@ import CTASection from '../../components/CTASection.astro'
     </p>
 
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
-      Daikin vs Mitsubishi vs LG : le comparatif honnête
+      Daikin vs LG vs Vaillant : le comparatif honnête
     </h2>
 
     <p>
@@ -84,7 +84,7 @@ import CTASection from '../../components/CTASection.astro'
     </p>
 
     <p>
-      <strong>Daikin Altherma</strong> : c'est la référence en Belgique. Le SAV est basé en Belgique, les pièces sont disponibles rapidement, et la gamme est large. Le logiciel de régulation est un peu complexe au début, mais une fois bien paramétré, c'est du solide. C'est ce qu'on installe le plus.
+      <a href="https://www.daikin.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Daikin Altherma</a> : c'est la référence en Belgique. Le SAV est basé en Belgique, les pièces sont disponibles rapidement, et la gamme est large. Le logiciel de régulation est un peu complexe au début, mais une fois bien paramétré, c'est du solide. C'est ce qu'on installe le plus.
     </p>
 
     <p>
@@ -102,6 +102,43 @@ import CTASection from '../../components/CTASection.astro'
     <p>
       Un technicien sur un forum avait résumé ça bien : "Le choix de l'installateur est plus important que la marque." On est d'accord avec lui. Une Daikin mal installée fera moins bien qu'une LG parfaitement installée.
     </p>
+
+    <div class="overflow-x-auto my-6">
+      <table class="w-full text-sm border border-[var(--color-bordure)] rounded-xl overflow-hidden">
+        <thead class="bg-[var(--color-vert-clair)]">
+          <tr>
+            <th class="text-left px-4 py-3 font-bold text-[var(--color-vert-fonce)]">Modèle</th>
+            <th class="text-left px-4 py-3 font-bold text-[var(--color-vert-fonce)]">COP</th>
+            <th class="text-left px-4 py-3 font-bold text-[var(--color-vert-fonce)]">Bruit</th>
+            <th class="text-left px-4 py-3 font-bold text-[var(--color-vert-fonce)]">Prix installé</th>
+            <th class="text-left px-4 py-3 font-bold text-[var(--color-vert-fonce)]">Garantie</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-[var(--color-bordure)]">
+          <tr class="bg-white">
+            <td class="px-4 py-3 font-semibold text-[var(--color-vert)]">Daikin Altherma 3</td>
+            <td class="px-4 py-3">4.6</td>
+            <td class="px-4 py-3">35 dB</td>
+            <td class="px-4 py-3">9 000 – 14 000 €</td>
+            <td class="px-4 py-3">5 ans</td>
+          </tr>
+          <tr class="bg-[var(--color-fond)]">
+            <td class="px-4 py-3 font-semibold text-[var(--color-vert)]">LG Therma V</td>
+            <td class="px-4 py-3">4.5</td>
+            <td class="px-4 py-3">37 dB</td>
+            <td class="px-4 py-3">8 000 – 12 000 €</td>
+            <td class="px-4 py-3">5 ans</td>
+          </tr>
+          <tr class="bg-white">
+            <td class="px-4 py-3 font-semibold text-[var(--color-vert)]">Vaillant aroTHERM plus</td>
+            <td class="px-4 py-3">4.8</td>
+            <td class="px-4 py-3">34 dB</td>
+            <td class="px-4 py-3">10 000 – 15 000 €</td>
+            <td class="px-4 py-3">5 ans</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
       Pour qui est faite la PAC air-eau ?
@@ -125,5 +162,29 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Un projet PAC air-eau ?" text="Devis gratuit et détaillé sous 24h. On s'occupe aussi des primes." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/air-eau/#service",
+  "name": "Installation pompe à chaleur air-eau en Brabant Wallon",
+  "description": "Installation de pompes à chaleur air-eau. Daikin, LG, Vaillant. Primes Wallonie jusqu'à 3 600€.",
+  "serviceType": "Heat Pump Installation",
+  "url": "https://pompe-a-chaleur-bw.be/pompe-a-chaleur/air-eau/",
+  "provider": {
+    "@type": "HVACBusiness",
+    "@id": "https://pompe-a-chaleur-bw.be/#business"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Brabant Wallon"
+  },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "8000",
+    "highPrice": "15000",
+    "priceCurrency": "EUR"
+  }
+})} />
 
 </Layout>
