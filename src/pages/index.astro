@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Icons from '../components/Icons.astro'
 import ReviewsCarousel from '../components/ReviewsCarousel.astro'
+import VideoPresentation from '../components/VideoPresentation.astro'
 
 // Hiérarchie : 2 services phares (PAC + Clim), 6 services secondaires
 const servicesPrimary = [
@@ -343,6 +344,9 @@ const faqSchema = {
 
     </div>
   </section>
+
+  <!-- ===== VIDÉO PRÉSENTATION — façade YouTube (perf) + schema ===== -->
+  <VideoPresentation number="§ 03 — En vidéo" schema={true} />
 
   <!-- ===== POURQUOI NOUS (contenu authentique) ===== -->
   <section class="py-20 sm:py-24 px-4 sm:px-8 bg-[var(--color-surface)]">

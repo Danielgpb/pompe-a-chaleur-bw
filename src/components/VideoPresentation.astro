@@ -1,0 +1,115 @@
+---
+// Lecteur vidéo YouTube avec façade cliquable (performance / Core Web Vitals).
+// L'iframe lourde ne se charge qu'au clic — seule la miniature est chargée au départ.
+//
+// Props :
+//   videoId   — identifiant YouTube (défaut : vidéo de présentation)
+//   number    — numéro de section éditorial (ex. "§ 03 — En vidéo")
+//   title     — titre H2
+//   intro     — paragraphe d'introduction
+//   schema    — true UNIQUEMENT sur une page (la home) pour éviter de déclarer
+//               la même vidéo comme contenu principal sur plusieurs URL
+interface Props {
+  videoId?: string
+  number?: string
+  title?: string
+  intro?: string
+  schema?: boolean
+}
+
+const {
+  videoId = 'notZGYrtUQg',
+  number = '§ — En vidéo',
+  title = 'Une installation, de A à Z.',
+  intro = "Plutôt qu'un long discours, on vous montre. Voici comment se déroule une de nos installations en Brabant Wallon — de la prise de mesures à la mise en service.",
+  schema = false,
+} = Astro.props
+
+// ID unique pour éviter les collisions si plusieurs lecteurs sur une page
+const uid = `video-${videoId}-${Math.random().toString(36).slice(2, 8)}`
+
+const videoSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Installation pompe à chaleur et climatisation en Brabant Wallon — Pompe à chaleur BW",
+  "description": "Présentation d'une installation par l'équipe Pompe à chaleur BW : de la prise de mesures à la mise en service, en conditions réelles en Brabant Wallon.",
+  "thumbnailUrl": `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`,
+  "uploadDate": "2026-06-12",
+  "contentUrl": `https://youtu.be/${videoId}`,
+  "embedUrl": `https://www.youtube-nocookie.com/embed/${videoId}`,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Pompe à chaleur BW",
+  },
+}
+---
+
+<section class="py-20 sm:py-24 px-4 sm:px-8 border-t border-[var(--color-bordure)]">
+  <div class="max-w-[88rem] mx-auto">
+    <div class="grid grid-cols-12 gap-x-8 gap-y-6 mb-10">
+      <div class="col-span-12 lg:col-span-4">
+        <p class="section-number mb-4">{number}</p>
+        <h2 class="font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">
+          {title}
+        </h2>
+      </div>
+      <div class="col-span-12 lg:col-span-6 lg:col-start-6 prose-editorial text-[var(--color-texte)] flex items-center">
+        <p>{intro}</p>
+      </div>
+    </div>
+
+    <div
+      id={uid}
+      class="relative overflow-hidden aspect-video bg-[var(--color-vert-fonce)] cursor-pointer group max-w-3xl mx-auto"
+      role="button"
+      tabindex="0"
+      aria-label="Lire la vidéo de présentation d'une installation"
+    >
+      <img
+        src={`https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`}
+        alt="Vidéo — installation de pompe à chaleur et climatisation par Pompe à chaleur BW en Brabant Wallon"
+        width="1280" height="720"
+        loading="lazy"
+        decoding="async"
+        class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-500"
+        onerror={`this.src='https://i.ytimg.com/vi/${videoId}/hqdefault.jpg'`}
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-vert-fonce)]/70 via-transparent to-transparent"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <span class="flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[var(--color-orange)] text-[var(--color-vert-fonce)] shadow-2xl group-hover:scale-110 transition-transform">
+          <svg class="w-8 h-8 sm:w-10 sm:h-10 ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </div>
+      <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+        <p class="text-[var(--color-fond)] font-display text-lg sm:text-2xl" style="font-variation-settings: 'wdth' 90; letter-spacing: -0.02em;">
+          Pompe à chaleur BW — installation en conditions réelles
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ uid, videoId }}>
+    (function () {
+      const wrap = document.getElementById(uid)
+      if (!wrap) return
+      function load() {
+        const iframe = document.createElement('iframe')
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0'
+        iframe.title = 'Vidéo de présentation — installation Pompe à chaleur BW'
+        iframe.setAttribute('frameborder', '0')
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share')
+        iframe.setAttribute('allowfullscreen', '')
+        iframe.className = 'absolute inset-0 w-full h-full'
+        wrap.innerHTML = ''
+        wrap.appendChild(iframe)
+        wrap.style.cursor = 'default'
+      }
+      wrap.addEventListener('click', load)
+      wrap.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load() }
+      })
+    })()
+  </script>
+
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(videoSchema)} />}
+</section>
