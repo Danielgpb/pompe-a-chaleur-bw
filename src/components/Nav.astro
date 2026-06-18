@@ -37,6 +37,16 @@ const currentPath = Astro.url.pathname
         </li>
       ))}
       <li>
+        <a href="/tarifs/" class:list={[
+          'text-sm transition-colors',
+          currentPath.startsWith('/tarifs/')
+            ? 'text-[var(--color-vert-fonce)] font-semibold'
+            : 'text-[var(--color-texte-light)] hover:text-[var(--color-vert-fonce)] font-medium'
+        ]}>
+          Tarifs
+        </a>
+      </li>
+      <li>
         <a href="/nos-zones/" class="text-sm font-medium text-[var(--color-texte-light)] hover:text-[var(--color-vert-fonce)]">
           Nos zones
         </a>
@@ -79,6 +89,7 @@ const currentPath = Astro.url.pathname
       ))}
       <a href="/ventilation/" class="block font-display text-lg font-semibold text-[var(--color-vert-fonce)] py-2.5 border-b border-[var(--color-bordure)]">Ventilation</a>
       <a href="/sanitaire/" class="block font-display text-lg font-semibold text-[var(--color-vert-fonce)] py-2.5 border-b border-[var(--color-bordure)]">Sanitaire</a>
+      <a href="/tarifs/" class="block font-display text-lg font-semibold text-[var(--color-vert-fonce)] py-2.5 border-b border-[var(--color-bordure)]">Tarifs</a>
       <a href="/nos-zones/" class="block font-display text-lg font-semibold text-[var(--color-vert-fonce)] py-2.5 border-b border-[var(--color-bordure)]">Nos zones</a>
       <div class="pt-3 space-y-2">
         <a href="/devis/" class="flex items-center justify-between bg-[var(--color-vert-fonce)] text-[var(--color-fond)] font-semibold px-5 py-4">

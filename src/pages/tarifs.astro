@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Breadcrumb from '../components/Breadcrumb.astro'
+import CTASection from '../components/CTASection.astro'
+
+const misesEnService = [
+  { label: 'Climatisation 1 split', prix: '360 €' },
+  { label: 'Climatisation 2 splits', prix: '400 €' },
+  { label: 'Climatisation 3 splits', prix: '450 €' },
+  { label: 'Climatisation 4 splits', prix: '500 €' },
+  { label: 'Pompe à chaleur air-eau', prix: '550 €' },
+  { label: 'Ventilation simple flux (C / C+)', prix: '250 €' },
+  { label: 'Ventilation double flux (D)', prix: '400 €' },
+  { label: 'Mise sous pression chauffage sol', prix: '200 €' },
+  { label: 'Adoucisseur Durlem / Valeco (placement + MES)', prix: '350 €' },
+  { label: 'Anti-calcaire Solucalc (placement + MES)', prix: '250 €' },
+]
+
+const entretiens = [
+  { label: 'Chaudière gaz atmosphérique', prix: '180 €' },
+  { label: 'Chaudière gaz condensation', prix: '200 €' },
+  { label: 'Chaudière mazout', prix: '220 €' },
+  { label: 'Chaudière mazout condensation', prix: '280 €' },
+  { label: 'Pompe à chaleur air-eau', prix: '240 €' },
+  { label: 'Pompe à chaleur air-air (1 unité ext. + 1 int.)', prix: '170 €', note: 'déplacement compris dans le Brabant Wallon' },
+  { label: 'Unité intérieure supplémentaire', prix: '50 €' },
+  { label: 'Boiler thermodynamique (partie frigorifique)', prix: '180 €' },
+  { label: 'Boiler électrique (détartrage, joints inclus)', prix: 'sur devis' },
+]
+
+const depannage = [
+  { label: 'Main d’œuvre dépannage', prix: '80 € / h', note: 'hors frais de déplacement' },
+  { label: 'Recharge gaz frigorifique', prix: '90 € / 100 gr' },
+  { label: 'Carottage Ø max 131 mm', prix: '75 €' },
+  { label: 'Carottage Ø max 220 mm', prix: '105 €' },
+]
+
+const deplacement = [
+  { label: 'Brabant Wallon', prix: '50 €' },
+  { label: 'Expertise sur place (selon la zone)', prix: 'à partir de 75 €' },
+  { label: 'Namur · Charleroi · Mons', prix: '100 €' },
+  { label: 'Liège · Marche · Tournai', prix: '120 €' },
+  { label: 'Province de Luxembourg', prix: '150 €' },
+  { label: 'Hors zone', prix: '1,20 € / km' },
+]
+---
+
+<Layout
+  title="Tarifs entretien, mise en service et dépannage — Pompe à chaleur BW"
+  description="Tarifs clairs en Brabant Wallon : entretien chaudière dès 180€, entretien PAC dès 240€, mise en service climatisation dès 360€, dépannage 80€/h. Prix HT, devis gratuit."
+  canonical="/tarifs/"
+>
+
+<Breadcrumb items={[{ label: 'Tarifs' }]} />
+
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
+
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">
+    Nos tarifs
+  </h1>
+  <p class="text-lg text-[var(--color-texte-light)] mb-8">
+    On préfère annoncer la couleur dès le départ. Voici nos prix pour les entretiens, les mises en service et le dépannage. Pour une installation complète, chaque chantier est différent — là, on passe par un <a href="/devis/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">devis gratuit</a>.
+  </p>
+
+  <div class="bg-[var(--color-vert-clair)] border border-[var(--color-bordure)] rounded-xl p-5 mb-12 text-sm text-[var(--color-texte-light)] leading-relaxed">
+    Les montants ci-dessous sont <strong>hors TVA</strong>. Sauf mention contraire, les frais de déplacement sont en supplément (50 € dans le Brabant Wallon). On vous confirme toujours le prix avant d'intervenir, pas de mauvaise surprise.
+  </div>
+
+  <div class="space-y-12">
+
+    <section>
+      <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-2">Entretien</h2>
+      <p class="text-[var(--color-texte-light)] mb-5">
+        L'entretien annuel garde votre installation performante et, pour les chaudières, c'est une obligation légale en Wallonie. On vous remet l'attestation.
+      </p>
+      <dl class="divide-y divide-[var(--color-bordure)] border-y border-[var(--color-bordure)]">
+        {entretiens.map(item => (
+          <div class="flex items-baseline justify-between gap-4 py-3">
+            <dt class="text-[var(--color-texte)]">
+              {item.label}
+              {item.note && <span class="block text-xs text-[var(--color-texte-light)] mt-0.5">{item.note}</span>}
+            </dt>
+            <dd class="font-semibold text-[var(--color-vert-fonce)] tabular-nums whitespace-nowrap">{item.prix}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-2">Mise en service</h2>
+      <p class="text-[var(--color-texte-light)] mb-5">
+        La mise en service d'un appareil que vous avez déjà, ou que nous installons : raccordement, paramétrage, contrôle d'étanchéité et tests de fonctionnement.
+      </p>
+      <dl class="divide-y divide-[var(--color-bordure)] border-y border-[var(--color-bordure)]">
+        {misesEnService.map(item => (
+          <div class="flex items-baseline justify-between gap-4 py-3">
+            <dt class="text-[var(--color-texte)]">{item.label}</dt>
+            <dd class="font-semibold text-[var(--color-vert-fonce)] tabular-nums whitespace-nowrap">{item.prix}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-2">Dépannage</h2>
+      <p class="text-[var(--color-texte-light)] mb-5">
+        Une panne ? On intervient à l'heure, avec le diagnostic en début d'intervention. <a href="/climatisation/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Clim</a>, <a href="/pompe-a-chaleur/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompe à chaleur</a> ou <a href="/chauffage/depannage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chaudière</a>.
+      </p>
+      <dl class="divide-y divide-[var(--color-bordure)] border-y border-[var(--color-bordure)]">
+        {depannage.map(item => (
+          <div class="flex items-baseline justify-between gap-4 py-3">
+            <dt class="text-[var(--color-texte)]">
+              {item.label}
+              {item.note && <span class="block text-xs text-[var(--color-texte-light)] mt-0.5">{item.note}</span>}
+            </dt>
+            <dd class="font-semibold text-[var(--color-vert-fonce)] tabular-nums whitespace-nowrap">{item.prix}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-2">Frais de déplacement</h2>
+      <p class="text-[var(--color-texte-light)] mb-5">
+        On est basés à Wavre. Dans le Brabant Wallon, le déplacement est à 50 €. Au-delà, ça dépend de la distance — voici nos zones.
+      </p>
+      <dl class="divide-y divide-[var(--color-bordure)] border-y border-[var(--color-bordure)]">
+        {deplacement.map(item => (
+          <div class="flex items-baseline justify-between gap-4 py-3">
+            <dt class="text-[var(--color-texte)]">{item.label}</dt>
+            <dd class="font-semibold text-[var(--color-vert-fonce)] tabular-nums whitespace-nowrap">{item.prix}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+  </div>
+
+  <div class="border-t border-[var(--color-bordure)] mt-12 pt-6 space-y-4 text-sm text-[var(--color-texte-light)] leading-relaxed">
+    <p>
+      Prix hors TVA. TVA 6 % pour la rénovation d'un logement de plus de 10 ans. TVA 21 % pour le neuf, et pour la fourniture-installation d'une chaudière au gaz ou au mazout (les radiateurs, vannes, planchers chauffants et pompes à chaleur restent à 6 %).
+    </p>
+    <p>
+      Prix indicatifs, susceptibles d'évoluer selon l'état et l'accessibilité de l'installation. Pour une installation complète (pompe à chaleur, climatisation, chaudière), demandez votre <a href="/devis/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">devis gratuit</a>.
+    </p>
+  </div>
+
+</article>
+
+<CTASection title="Un entretien ou un dépannage à prévoir ?" text="Appelez-nous au 02 / 886 14 57 ou demandez un devis gratuit." />
+
+<div class="h-20 lg:hidden"></div>
+
+</Layout>
