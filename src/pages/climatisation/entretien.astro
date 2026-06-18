@@ -110,4 +110,26 @@ import CTASection from '../../components/CTASection.astro'
 
 <div class="h-20 lg:hidden"></div>
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/climatisation/entretien/#service",
+  "name": "Entretien climatisation en Brabant Wallon",
+  "description": "Entretien climatisation : nettoyage des filtres, désinfection de l'échangeur, contrôle du fluide. Déplacement compris dans le Brabant Wallon.",
+  "serviceType": "Air Conditioning Maintenance",
+  "url": "https://pompe-a-chaleur-bw.be/climatisation/entretien/",
+  "provider": { "@type": "HVACBusiness", "@id": "https://pompe-a-chaleur-bw.be/#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Brabant Wallon" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": 170,
+      "priceCurrency": "EUR",
+      "valueAddedTaxIncluded": false
+    }
+  }
+})} />
+
 </Layout>

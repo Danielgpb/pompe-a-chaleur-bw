@@ -122,4 +122,27 @@ import CTASection from '../../components/CTASection.astro'
 
 <div class="h-20 lg:hidden"></div>
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/chauffage/entretien-chaudiere/#service",
+  "name": "Entretien chaudière en Brabant Wallon",
+  "description": "Entretien chaudière gaz et mazout, obligatoire en Wallonie. Attestation officielle incluse. Technicien agréé.",
+  "serviceType": "Boiler Maintenance",
+  "url": "https://pompe-a-chaleur-bw.be/chauffage/entretien-chaudiere/",
+  "provider": { "@type": "HVACBusiness", "@id": "https://pompe-a-chaleur-bw.be/#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Brabant Wallon" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": 180,
+      "maxPrice": 280,
+      "priceCurrency": "EUR",
+      "valueAddedTaxIncluded": false
+    }
+  }
+})} />
+
 </Layout>

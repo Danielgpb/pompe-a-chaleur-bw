@@ -103,4 +103,27 @@ import CTASection from '../../components/CTASection.astro'
 
 <div class="h-20 lg:hidden"></div>
 
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/climatisation/depannage/#service",
+  "name": "Dépannage climatisation en Brabant Wallon",
+  "description": "Dépannage climatisation : clim qui ne refroidit plus, fuite de fluide, code erreur. Intervention y compris le week-end.",
+  "serviceType": "Air Conditioning Repair",
+  "url": "https://pompe-a-chaleur-bw.be/climatisation/depannage/",
+  "provider": { "@type": "HVACBusiness", "@id": "https://pompe-a-chaleur-bw.be/#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Brabant Wallon" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
+      "price": 80,
+      "priceCurrency": "EUR",
+      "unitCode": "HUR",
+      "valueAddedTaxIncluded": false
+    }
+  }
+})} />
+
 </Layout>
