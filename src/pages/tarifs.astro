@@ -98,6 +98,7 @@ const offerCatalog = {
   title="Tarifs entretien, mise en service et dépannage — Pompe à chaleur BW"
   description="Tarifs clairs en Brabant Wallon : entretien chaudière dès 180€, entretien PAC dès 240€, mise en service climatisation dès 360€, dépannage 80€/h. Prix HT, devis gratuit."
   canonical="/tarifs/"
+  ogImage="/images/global/tarifs-og.webp"
 >
 
 <Breadcrumb items={[{ label: 'Tarifs' }]} />
@@ -212,5 +213,17 @@ const offerCatalog = {
 <div class="h-20 lg:hidden"></div>
 
 <script type="application/ld+json" set:html={JSON.stringify(offerCatalog)} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "contentUrl": `${siteUrl}/images/global/tarifs-entretien-clim.webp`,
+  "url": `${siteUrl}/images/global/tarifs-entretien-clim.webp`,
+  "width": 1200,
+  "height": 676,
+  "caption": "Technicien Pompe à chaleur BW contrôlant une climatisation au manomètre en Brabant Wallon",
+  "representativeOfPage": true,
+  "creator": { "@type": "HVACBusiness", "name": "Pompe à chaleur BW", "@id": `${siteUrl}/#business` }
+})} />
 
 </Layout>
