@@ -43,6 +43,53 @@ const deplacement = [
   { label: 'Province de Luxembourg', prix: '150 €' },
   { label: 'Hors zone', prix: '1,20 € / km' },
 ]
+
+// Données structurées Schema.org — prix machine-lisibles (HT) pour Google et les IA
+const siteUrl = 'https://pompe-a-chaleur-bw.be'
+const offresSchema = [
+  { nom: 'Entretien chaudière gaz', min: 180 },
+  { nom: 'Entretien chaudière mazout', min: 220 },
+  { nom: 'Entretien climatisation (1 split)', prix: 170 },
+  { nom: 'Entretien pompe à chaleur air-eau', prix: 240 },
+  { nom: 'Entretien boiler thermodynamique', prix: 180 },
+  { nom: 'Mise en service climatisation', min: 360 },
+  { nom: 'Mise en service pompe à chaleur air-eau', prix: 550 },
+  { nom: 'Mise en service ventilation double flux', prix: 400 },
+  { nom: 'Mise en service ventilation simple flux', prix: 250 },
+  { nom: "Placement et mise en service d'un adoucisseur", prix: 350 },
+  { nom: 'Mise sous pression du chauffage au sol', prix: 200 },
+  { nom: 'Dépannage (main d’œuvre)', prix: 80, unit: 'HUR' },
+  { nom: 'Recharge gaz frigorifique (100 g)', prix: 90 },
+  { nom: 'Carottage Ø max 131 mm', prix: 75 },
+  { nom: 'Carottage Ø max 220 mm', prix: 105 },
+  { nom: 'Déplacement dans le Brabant Wallon', prix: 50 },
+]
+const offerCatalog = {
+  "@context": "https://schema.org",
+  "@type": "OfferCatalog",
+  "name": "Tarifs — entretien, mise en service et dépannage",
+  "url": `${siteUrl}/tarifs/`,
+  "provider": {
+    "@type": "HVACBusiness",
+    "name": "Pompe à chaleur BW",
+    "@id": `${siteUrl}/#business`
+  },
+  "itemListElement": offresSchema.map(o => ({
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": o.nom,
+      "provider": { "@type": "HVACBusiness", "name": "Pompe à chaleur BW", "@id": `${siteUrl}/#business` }
+    },
+    "priceSpecification": {
+      "@type": o.unit ? "UnitPriceSpecification" : "PriceSpecification",
+      ...(o.min ? { "minPrice": o.min } : { "price": o.prix }),
+      "priceCurrency": "EUR",
+      "valueAddedTaxIncluded": false,
+      ...(o.unit ? { "unitCode": o.unit } : {})
+    }
+  }))
+}
 ---
 
 <Layout
@@ -150,5 +197,7 @@ const deplacement = [
 <CTASection title="Un entretien ou un dépannage à prévoir ?" text="Appelez-nous au 02 / 886 14 57 ou demandez un devis gratuit." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify(offerCatalog)} />
 
 </Layout>
