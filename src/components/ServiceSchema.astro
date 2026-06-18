@@ -4,9 +4,10 @@ interface Props {
   description: string
   url: string
   areaServed?: string
+  image?: string
 }
 
-const { name, description, url, areaServed = 'Brabant Wallon' } = Astro.props
+const { name, description, url, areaServed = 'Brabant Wallon', image } = Astro.props
 const siteUrl = 'https://pompe-a-chaleur-bw.be'
 ---
 
@@ -16,6 +17,7 @@ const siteUrl = 'https://pompe-a-chaleur-bw.be'
   "name": name,
   "description": description,
   "url": `${siteUrl}${url}`,
+  ...(image ? { "image": { "@type": "ImageObject", "url": `${siteUrl}${image}`, "representativeOfPage": true } } : {}),
   "provider": {
     "@type": "HVACBusiness",
     "name": "Pompe à chaleur BW",

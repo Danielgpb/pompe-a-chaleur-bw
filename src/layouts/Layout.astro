@@ -14,9 +14,11 @@ interface Props {
   geoPlacename?: string
   preloadHero?: string
   ogImage?: string
+  ogImageW?: number
+  ogImageH?: number
 }
 
-const { title, description, canonical, geoLat, geoLng, geoPlacename, preloadHero, ogImage } = Astro.props
+const { title, description, canonical, geoLat, geoLng, geoPlacename, preloadHero, ogImage, ogImageW = 1200, ogImageH = 630 } = Astro.props
 const siteUrl = 'https://pompe-a-chaleur-bw.be'
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`
 const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/og-image.webp`
@@ -42,8 +44,8 @@ const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/
   <meta property="og:locale" content="fr_BE" />
   <meta property="og:url" content={fullCanonical} />
   <meta property="og:image" content={ogImageUrl} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:image:width" content={String(ogImageW)} />
+  <meta property="og:image:height" content={String(ogImageH)} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
