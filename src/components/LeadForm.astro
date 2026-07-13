@@ -1,0 +1,243 @@
+---
+// Formulaire de demande — POST JSON vers l'app (Supabase Edge Function).
+// Réutilisable : page devis, contact, accueil. Mobile d'abord, gros boutons.
+interface Props {
+  compact?: boolean
+}
+const { compact = false } = Astro.props
+
+const SERVICES = ['Installation pompe à chaleur', 'Climatisation', 'Entretien', 'Dépannage urgent']
+---
+
+<div class="lead-widget" data-compact={compact ? '1' : '0'}>
+
+  <!-- Étape 1 : le formulaire -->
+  <form class="lead-form space-y-5" novalidate>
+
+    <div class:list={['grid gap-4', compact ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2']}>
+      <div>
+        <label class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-1">
+          Nom *
+          <input type="text" name="nom" required autocomplete="name"
+            class="mt-1 w-full border border-[var(--color-bordure)] rounded-lg px-4 py-3.5 text-base font-normal bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-vert)] focus:border-transparent" />
+        </label>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-1">
+          Téléphone *
+          <input type="tel" name="telephone" required inputmode="tel" autocomplete="tel"
+            class="mt-1 w-full border border-[var(--color-bordure)] rounded-lg px-4 py-3.5 text-base font-normal bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-vert)] focus:border-transparent" />
+        </label>
+      </div>
+    </div>
+
+    <fieldset>
+      <legend class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-2">Votre demande *</legend>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        {SERVICES.map(s => (
+          <label class="lead-choice flex items-center justify-center gap-2 border-2 border-[var(--color-bordure)] rounded-xl px-4 py-4 text-base font-semibold text-[var(--color-vert-fonce)] bg-white cursor-pointer select-none text-center transition-colors has-[:checked]:border-[var(--color-vert)] has-[:checked]:bg-[var(--color-vert-clair)]">
+            <input type="radio" name="service" value={s} class="sr-only" />
+            <span>{s === 'Dépannage urgent' ? '🚨 ' + s : s}</span>
+          </label>
+        ))}
+      </div>
+    </fieldset>
+
+    <div class:list={['grid gap-4', compact ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2']}>
+      <div>
+        <label class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-1">
+          Commune
+          <input type="text" name="commune" autocomplete="address-level2" placeholder="Ex : Wavre"
+            class="mt-1 w-full border border-[var(--color-bordure)] rounded-lg px-4 py-3.5 text-base font-normal bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-vert)] focus:border-transparent" />
+        </label>
+      </div>
+      <fieldset>
+        <legend class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-1">Logement</legend>
+        <div class="mt-1 grid grid-cols-2 gap-2.5">
+          {['Maison', 'Appartement'].map(l => (
+            <label class="lead-choice flex items-center justify-center border-2 border-[var(--color-bordure)] rounded-xl px-3 py-3.5 text-base font-semibold text-[var(--color-vert-fonce)] bg-white cursor-pointer select-none transition-colors has-[:checked]:border-[var(--color-vert)] has-[:checked]:bg-[var(--color-vert-clair)]">
+              <input type="radio" name="logement" value={l} class="sr-only" />
+              <span>{l}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+    </div>
+
+    <div>
+      <label class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-1">
+        Détails <span class="font-normal text-[var(--color-texte-light)]">(facultatif)</span>
+        <textarea name="message" rows={compact ? 3 : 4} placeholder="Votre installation actuelle, ce que vous souhaitez…"
+          class="mt-1 w-full border border-[var(--color-bordure)] rounded-lg px-4 py-3.5 text-base font-normal bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-vert)] focus:border-transparent resize-y"></textarea>
+      </label>
+    </div>
+
+    <!-- Honeypot anti-spam : invisible pour les humains -->
+    <div style="position:absolute; left:-9999px; top:-9999px; height:0; overflow:hidden;" aria-hidden="true">
+      <label>Ne pas remplir ce champ
+        <input type="text" name="_piege" tabindex="-1" autocomplete="off" />
+      </label>
+    </div>
+
+    <p class="lead-erreur-champs hidden text-sm font-semibold text-red-700"></p>
+
+    <button type="submit"
+      class="lead-submit w-full bg-[var(--color-orange)] text-white font-bold text-lg py-4.5 sm:py-4 rounded-xl shadow-lg shadow-orange-200 hover:shadow-xl hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-wait disabled:translate-y-0"
+      style="padding-top: 1.125rem; padding-bottom: 1.125rem;">
+      Envoyer ma demande
+    </button>
+
+    <p class="text-xs text-[var(--color-texte-light)] text-center">
+      Vos données ne servent qu'à vous recontacter.
+    </p>
+  </form>
+
+  <!-- Étape 2 : confirmation -->
+  <div class="lead-ok hidden text-center py-6 space-y-5">
+    <div class="text-5xl">✅</div>
+    <h3 class="text-2xl font-extrabold text-[var(--color-vert-fonce)]">Merci, on vous recontacte vite&nbsp;!</h3>
+    <p class="lead-ok-texte text-[var(--color-texte-light)]">Votre demande est bien enregistrée.</p>
+    <div class="space-y-3 max-w-md mx-auto">
+      <a href="#" target="_blank" rel="noopener"
+        class="lead-btn-photos hidden w-full inline-flex items-center justify-center gap-2 bg-[var(--color-vert-fonce)] text-white font-bold text-lg px-6 rounded-xl shadow-lg hover:bg-[var(--color-vert)] transition-colors"
+        style="padding-top: 1.125rem; padding-bottom: 1.125rem;">
+        📷 Envoyer des photos de votre installation
+      </a>
+      <p class="lead-photos-note hidden text-xs text-[var(--color-texte-light)]">Quelques photos et votre devis va deux fois plus vite.</p>
+      <a href="#" target="_blank" rel="noopener"
+        class="lead-btn-whatsapp w-full inline-flex items-center justify-center gap-2 border-2 border-[#25D366] text-[var(--color-vert-fonce)] font-bold text-lg px-6 rounded-xl hover:bg-[#25D366]/10 transition-colors"
+        style="padding-top: 1.125rem; padding-bottom: 1.125rem;">
+        💬 Continuer sur WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Étape erreur -->
+  <div class="lead-err hidden text-center py-8 space-y-4">
+    <div class="text-5xl">😕</div>
+    <h3 class="text-xl font-extrabold text-[var(--color-vert-fonce)]">Un souci est survenu</h3>
+    <p class="text-[var(--color-texte-light)]">Votre demande n'est pas partie. Le plus simple : appelez-nous, on décroche.</p>
+    <a href="tel:+3228861457" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] text-white font-bold text-lg px-8 rounded-xl shadow-lg" style="padding-top: 1.125rem; padding-bottom: 1.125rem;">
+      📞 02 / 886 14 57
+    </a>
+    <p><button type="button" class="lead-retry text-sm font-semibold text-[var(--color-vert)] underline underline-offset-2">Réessayer le formulaire</button></p>
+  </div>
+
+</div>
+
+<script>
+  const ENDPOINT = 'https://zawhjurtnoosnfuicxfe.supabase.co/functions/v1/formulaire-site'
+  const SITE = 's-pac'
+  const SECRET = '3653dfb02cd4a8d8635cdde77ea39e51c59a0c940ee10a67'
+  const WA_NUM = '32479890089'
+
+  function waLink(service: string, nom: string, commune: string, tel: string): string {
+    const lignes = [
+      'Bonjour, je viens du site pompe-a-chaleur-bw.be.',
+      'Demande : ' + (service || '—'),
+      'Nom : ' + (nom || '—'),
+      'Commune : ' + (commune || '—'),
+      'Tél : ' + (tel || '—'),
+    ]
+    return 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(lignes.join('\n'))
+  }
+
+  document.querySelectorAll<HTMLElement>('.lead-widget').forEach((widget) => {
+    const form = widget.querySelector<HTMLFormElement>('.lead-form')
+    const ok = widget.querySelector<HTMLElement>('.lead-ok')
+    const err = widget.querySelector<HTMLElement>('.lead-err')
+    if (!form || !ok || !err) return
+
+    const bouton = form.querySelector<HTMLButtonElement>('.lead-submit')
+    const erreurChamps = form.querySelector<HTMLElement>('.lead-erreur-champs')
+
+    widget.querySelector('.lead-retry')?.addEventListener('click', () => {
+      err.classList.add('hidden')
+      form.classList.remove('hidden')
+    })
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault()
+      if (!bouton || !erreurChamps) return
+
+      const fd = new FormData(form)
+      const nom = String(fd.get('nom') || '').trim()
+      const tel = String(fd.get('telephone') || '').trim()
+      const service = String(fd.get('service') || '').trim()
+      const commune = String(fd.get('commune') || '').trim()
+      const logement = String(fd.get('logement') || '').trim()
+      const message = String(fd.get('message') || '').trim()
+      const piege = String(fd.get('_piege') || '')
+
+      // Validation simple, messages clairs
+      const manquants: string[] = []
+      if (!nom) manquants.push('votre nom')
+      if (!tel) manquants.push('votre téléphone')
+      if (!service) manquants.push('le type de demande')
+      if (manquants.length) {
+        erreurChamps.textContent = 'Il manque ' + manquants.join(', ') + '.'
+        erreurChamps.classList.remove('hidden')
+        return
+      }
+      erreurChamps.classList.add('hidden')
+
+      const urgent = service === 'Dépannage urgent'
+      const type = urgent ? 't-pac-depannage' : 't-pac-install'
+      const url = ENDPOINT + '?site=' + SITE + '&type=' + type + '&secret=' + SECRET
+
+      bouton.disabled = true
+      const texteInitial = bouton.textContent
+      bouton.textContent = 'Envoi en cours…'
+
+      try {
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            nom,
+            telephone: tel,
+            message,
+            page: window.location.href,
+            photos: true,
+            champs: { 'Service': service, 'Commune': commune, 'Logement': logement },
+            _piege: piege,
+          }),
+        })
+        if (!res.ok) throw new Error('HTTP ' + res.status)
+        const data = await res.json()
+
+        // Écran de confirmation (toujours affiché — aussi en secours du renvoi WhatsApp)
+        form.classList.add('hidden')
+        ok.classList.remove('hidden')
+
+        const wa = waLink(service, nom, commune, tel)
+        const btnWa = ok.querySelector<HTMLAnchorElement>('.lead-btn-whatsapp')
+        if (btnWa) btnWa.href = wa
+
+        const btnPhotos = ok.querySelector<HTMLAnchorElement>('.lead-btn-photos')
+        const notePhotos = ok.querySelector<HTMLElement>('.lead-photos-note')
+        if (data && data.photosUrl && btnPhotos) {
+          btnPhotos.href = data.photosUrl
+          btnPhotos.classList.remove('hidden')
+          notePhotos?.classList.remove('hidden')
+        }
+
+        const texteOk = ok.querySelector<HTMLElement>('.lead-ok-texte')
+        if (texteOk && data && data.rappel) {
+          texteOk.textContent = 'On a déjà bien reçu votre demande — on vous recontacte très vite.'
+        }
+
+        if (urgent) {
+          if (texteOk) texteOk.textContent = 'Demande urgente bien reçue. On vous ouvre WhatsApp pour aller plus vite…'
+          window.location.href = wa
+        }
+      } catch (_) {
+        form.classList.add('hidden')
+        err.classList.remove('hidden')
+      } finally {
+        bouton.disabled = false
+        bouton.textContent = texteInitial
+      }
+    })
+  })
+</script>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
+import LeadForm from '../components/LeadForm.astro'
 ---
 
 <Layout
@@ -60,7 +61,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
       <!-- Zones -->
       <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-6">
         <h2 class="text-lg font-bold text-[var(--color-vert-fonce)] mb-3">Zones d'intervention</h2>
-        <p class="text-sm text-[var(--color-texte-light)] mb-3">On intervient dans 10 communes du Brabant Wallon :</p>
+        <p class="text-sm text-[var(--color-texte-light)] mb-3">On intervient dans 12 communes du Brabant Wallon :</p>
         <div class="grid grid-cols-2 gap-2">
           {[
             { name: 'Wavre', href: '/wavre/' },
@@ -73,6 +74,8 @@ import Breadcrumb from '../components/Breadcrumb.astro'
             { name: 'Grez-Doiceau', href: '/grez-doiceau/' },
             { name: 'Chaumont-Gistoux', href: '/chaumont-gistoux/' },
             { name: 'Court-Saint-Étienne', href: '/court-saint-etienne/' },
+            { name: 'Ittre', href: '/ittre/' },
+            { name: 'Rhode-Saint-Genèse', href: '/rhode-saint-genese/' },
           ].map(z => (
             <a href={z.href} class="text-sm text-[var(--color-vert)] font-medium hover:underline">{z.name}</a>
           ))}
@@ -105,35 +108,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
     <div>
       <div class="bg-white border border-[var(--color-bordure)] rounded-xl p-6 sticky top-20">
         <h2 class="text-lg font-bold text-[var(--color-vert-fonce)] mb-4">Envoyez-nous un message</h2>
-        <form action="#" method="POST" class="space-y-4">
-          <div>
-            <label for="nom" class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-1">Nom *</label>
-            <input type="text" id="nom" name="nom" required
-              class="w-full border border-[var(--color-bordure)] rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-vert)]" />
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-1">Email *</label>
-            <input type="email" id="email" name="email" required
-              class="w-full border border-[var(--color-bordure)] rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-vert)]" />
-          </div>
-          <div>
-            <label for="tel" class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-1">Téléphone</label>
-            <input type="tel" id="tel" name="tel"
-              class="w-full border border-[var(--color-bordure)] rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-vert)]" />
-          </div>
-          <div>
-            <label for="message" class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-1">Message *</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Décrivez votre projet ou votre question..."
-              class="w-full border border-[var(--color-bordure)] rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-vert)] resize-y"></textarea>
-          </div>
-          <button type="submit"
-            class="w-full bg-[var(--color-orange)] text-white font-bold text-base py-3.5 rounded-xl shadow-lg shadow-orange-200 hover:shadow-xl transition-all">
-            Envoyer
-          </button>
-          <p class="text-xs text-[var(--color-texte-light)] text-center">
-            Réponse sous 24h. Vos données ne servent qu'à vous répondre.
-          </p>
-        </form>
+        <LeadForm compact={true} />
       </div>
     </div>
 

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import Icons from '../components/Icons.astro'
 import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 import VideoPresentation from '../components/VideoPresentation.astro'
+import LeadForm from '../components/LeadForm.astro'
 
 // Hiérarchie : 2 services phares (PAC + Clim), 6 services secondaires
 const servicesPrimary = [
@@ -535,6 +536,33 @@ const faqSchema = {
           referrerpolicy="no-referrer-when-downgrade"
           title="Pompe à chaleur BW — Rue de Nivelles 77, 1300 Wavre"
         ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FORMULAIRE DE DEMANDE ===== -->
+  <section class="py-20 sm:py-24 px-4 sm:px-8 bg-[var(--color-surface)] border-t border-[var(--color-bordure)]" id="demande">
+    <div class="max-w-[88rem] mx-auto">
+      <div class="grid grid-cols-12 gap-y-10 gap-x-10 items-start">
+        <div class="col-span-12 lg:col-span-5">
+          <p class="section-number mb-3">§ 10 — Demande</p>
+          <h2 class="font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">
+            Dites-nous ce qu'il vous faut.
+          </h2>
+          <p class="mt-6 text-lg text-[var(--color-texte-light)] leading-relaxed max-w-md">
+            Deux minutes, montre en main. On vous rappelle dans la journée — et si c'est urgent, on bascule direct sur WhatsApp.
+          </p>
+          <ul class="mt-8 space-y-3 text-[var(--color-texte-light)]">
+            <li class="flex items-start gap-3"><span class="text-[var(--color-vert)] font-bold">✓</span> Devis gratuit et sans engagement</li>
+            <li class="flex items-start gap-3"><span class="text-[var(--color-vert)] font-bold">✓</span> Réponse sous 24h, souvent bien plus vite</li>
+            <li class="flex items-start gap-3"><span class="text-[var(--color-vert)] font-bold">✓</span> On se déplace dans tout le Brabant Wallon</li>
+          </ul>
+        </div>
+        <div class="col-span-12 lg:col-span-7">
+          <div class="bg-[var(--color-blanc)] border border-[var(--color-bordure)] rounded-2xl p-5 sm:p-8 shadow-sm">
+            <LeadForm />
+          </div>
+        </div>
       </div>
     </div>
   </section>
