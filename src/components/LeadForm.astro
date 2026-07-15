@@ -6,7 +6,9 @@ interface Props {
 }
 const { compact = false } = Astro.props
 
-const SERVICES = ['Installation pompe à chaleur', 'Climatisation', 'Entretien', 'Dépannage urgent']
+const DOMAINES = ['Pompe à chaleur', 'Climatisation', 'Chauffage', 'Solaire', 'Sanitaire', 'Ventilation']
+const PRESTATIONS = ['Installation', 'Dépannage', 'Entretien']
+const UNITES = ['1 unité (mono-split)', '2 unités ou plus']
 ---
 
 <div class="lead-widget" data-compact={compact ? '1' : '0'}>
@@ -32,12 +34,37 @@ const SERVICES = ['Installation pompe à chaleur', 'Climatisation', 'Entretien',
     </div>
 
     <fieldset>
-      <legend class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-2">Votre demande *</legend>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-        {SERVICES.map(s => (
+      <legend class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-2">Votre demande concerne *</legend>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+        {DOMAINES.map(s => (
+          <label class="lead-choice flex items-center justify-center gap-2 border-2 border-[var(--color-bordure)] rounded-xl px-3 py-3.5 text-base font-semibold text-[var(--color-vert-fonce)] bg-white cursor-pointer select-none text-center transition-colors has-[:checked]:border-[var(--color-vert)] has-[:checked]:bg-[var(--color-vert-clair)]">
+            <input type="radio" name="domaine" value={s} class="sr-only" />
+            <span>{s}</span>
+          </label>
+        ))}
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-2">Type d'intervention *</legend>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+        {PRESTATIONS.map(s => (
           <label class="lead-choice flex items-center justify-center gap-2 border-2 border-[var(--color-bordure)] rounded-xl px-4 py-4 text-base font-semibold text-[var(--color-vert-fonce)] bg-white cursor-pointer select-none text-center transition-colors has-[:checked]:border-[var(--color-vert)] has-[:checked]:bg-[var(--color-vert-clair)]">
-            <input type="radio" name="service" value={s} class="sr-only" />
-            <span>{s === 'Dépannage urgent' ? '🚨 ' + s : s}</span>
+            <input type="radio" name="prestation" value={s} class="sr-only" />
+            <span>{s === 'Dépannage' ? '🚨 ' + s : s}</span>
+          </label>
+        ))}
+      </div>
+    </fieldset>
+
+    <!-- Nombre d'unités : seulement pour un entretien PAC / climatisation -->
+    <fieldset class="lead-unites hidden">
+      <legend class="block text-sm font-semibold text-[var(--color-vert-fonce)] mb-2">Combien d'unités à entretenir ? *</legend>
+      <div class="grid grid-cols-2 gap-2.5">
+        {UNITES.map(s => (
+          <label class="lead-choice flex items-center justify-center gap-2 border-2 border-[var(--color-bordure)] rounded-xl px-3 py-3.5 text-base font-semibold text-[var(--color-vert-fonce)] bg-white cursor-pointer select-none text-center transition-colors has-[:checked]:border-[var(--color-vert)] has-[:checked]:bg-[var(--color-vert-clair)]">
+            <input type="radio" name="unites" value={s} class="sr-only" />
+            <span>{s}</span>
           </label>
         ))}
       </div>
@@ -131,16 +158,19 @@ const SERVICES = ['Installation pompe à chaleur', 'Climatisation', 'Entretien',
   const SECRET = '3653dfb02cd4a8d8635cdde77ea39e51c59a0c940ee10a67'
   const WA_NUM = '32479890089'
 
-  function waLink(service: string, nom: string, commune: string, tel: string): string {
+  function waLink(demande: string, nom: string, commune: string, tel: string): string {
     const lignes = [
       'Bonjour, je viens du site pompe-a-chaleur-bw.be.',
-      'Demande : ' + (service || '—'),
+      'Demande : ' + (demande || '—'),
       'Nom : ' + (nom || '—'),
       'Commune : ' + (commune || '—'),
       'Tél : ' + (tel || '—'),
     ]
     return 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(lignes.join('\n'))
   }
+
+  // Le nombre d'unités ne concerne qu'un entretien PAC / climatisation
+  const AVEC_UNITES = ['Pompe à chaleur', 'Climatisation']
 
   document.querySelectorAll<HTMLElement>('.lead-widget').forEach((widget) => {
     const form = widget.querySelector<HTMLFormElement>('.lead-form')
@@ -150,6 +180,19 @@ const SERVICES = ['Installation pompe à chaleur', 'Climatisation', 'Entretien',
 
     const bouton = form.querySelector<HTMLButtonElement>('.lead-submit')
     const erreurChamps = form.querySelector<HTMLElement>('.lead-erreur-champs')
+    const blocUnites = form.querySelector<HTMLElement>('.lead-unites')
+
+    // Affiche la question « unités » pour un entretien PAC / clim uniquement
+    const majUnites = () => {
+      if (!blocUnites) return
+      const fd = new FormData(form)
+      const visible = String(fd.get('prestation') || '') === 'Entretien'
+        && AVEC_UNITES.includes(String(fd.get('domaine') || ''))
+      blocUnites.classList.toggle('hidden', !visible)
+      if (!visible) blocUnites.querySelectorAll<HTMLInputElement>('input').forEach((i) => { i.checked = false })
+    }
+    form.querySelectorAll<HTMLInputElement>('input[name="domaine"], input[name="prestation"]')
+      .forEach((i) => i.addEventListener('change', majUnites))
 
     widget.querySelector('.lead-retry')?.addEventListener('click', () => {
       err.classList.add('hidden')
@@ -163,17 +206,23 @@ const SERVICES = ['Installation pompe à chaleur', 'Climatisation', 'Entretien',
       const fd = new FormData(form)
       const nom = String(fd.get('nom') || '').trim()
       const tel = String(fd.get('telephone') || '').trim()
-      const service = String(fd.get('service') || '').trim()
+      const domaine = String(fd.get('domaine') || '').trim()
+      const prestation = String(fd.get('prestation') || '').trim()
+      const unites = String(fd.get('unites') || '').trim()
       const commune = String(fd.get('commune') || '').trim()
       const logement = String(fd.get('logement') || '').trim()
       const message = String(fd.get('message') || '').trim()
       const piege = String(fd.get('_piege') || '')
 
+      const demandeUnites = prestation === 'Entretien' && AVEC_UNITES.includes(domaine)
+
       // Validation simple, messages clairs
       const manquants: string[] = []
       if (!nom) manquants.push('votre nom')
       if (!tel) manquants.push('votre téléphone')
-      if (!service) manquants.push('le type de demande')
+      if (!domaine) manquants.push('ce que concerne votre demande')
+      if (!prestation) manquants.push("le type d'intervention")
+      if (demandeUnites && !unites) manquants.push("le nombre d'unités")
       if (manquants.length) {
         erreurChamps.textContent = 'Il manque ' + manquants.join(', ') + '.'
         erreurChamps.classList.remove('hidden')
@@ -181,8 +230,14 @@ const SERVICES = ['Installation pompe à chaleur', 'Climatisation', 'Entretien',
       }
       erreurChamps.classList.add('hidden')
 
-      const urgent = service === 'Dépannage urgent'
-      const type = urgent ? 't-pac-depannage' : 't-pac-install'
+      const urgent = prestation === 'Dépannage'
+      // Chaque prestation part vers le bon type de lead (et la bonne commission)
+      const type = urgent
+        ? 't-pac-depannage'
+        : prestation === 'Entretien'
+          ? (demandeUnites && unites.startsWith('1') ? 't-pac-entretien-mono' : 't-pac-entretien')
+          : 't-pac-install'
+      const service = domaine + ' — ' + prestation
       const url = ENDPOINT + '?site=' + SITE + '&type=' + type + '&secret=' + SECRET
 
       bouton.disabled = true
@@ -199,7 +254,12 @@ const SERVICES = ['Installation pompe à chaleur', 'Climatisation', 'Entretien',
             message,
             page: window.location.href,
             photos: true,
-            champs: { 'Service': service, 'Commune': commune, 'Logement': logement },
+            champs: {
+              'Domaine': domaine,
+              'Commune': commune,
+              'Logement': logement,
+              ...(unites ? { 'Unités': unites } : {}),
+            },
             _piege: piege,
           }),
         })
