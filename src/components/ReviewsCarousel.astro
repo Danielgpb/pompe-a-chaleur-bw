@@ -1,6 +1,46 @@
 ---
 const reviews = [
   {
+    initials: 'DS',
+    name: 'Delfosse Sigrid',
+    text: 'Installation de ma climatisation super soigné et disponible très rapidement ! Merci',
+  },
+  {
+    initials: 'GG',
+    name: 'Gazi Gazi',
+    text: "Entreprise très sérieuse avec un excellent suivi du premier contact jusqu'à la mise en service de notre pompe à chaleur. Les explications étaient claires, le travail a été réalisé avec soin et les délais ont été respectés.",
+  },
+  {
+    initials: 'JC',
+    name: 'Jacques Couvert',
+    text: "Excellente expérience avec Pompe à Chaleur BW. L'équipe a pris le temps de nous conseiller la solution la plus adaptée à notre maison. Les techniciens étaient ponctuels, professionnels et très soigneux. Nous recommandons sans hésiter.",
+  },
+  {
+    initials: 'SL',
+    name: 'Sandra Lothaire',
+    text: "Super boîte ils sont venue me réparer ma climatisation et ont placé tout l'installation de pompe à chaleur chez mes parents, je recommande !! Bravo",
+  },
+  {
+    initials: 'SM',
+    name: 'Sou Mimo',
+    text: 'Super entreprise de climatisation, sérieux et compétent je recommande !',
+  },
+  {
+    initials: 'MC',
+    name: 'Maëlle Croly',
+    text: "Installation de notre pompe à chaleur réalisée avec beaucoup de professionnalisme. Nous constatons déjà une nette amélioration du confort à la maison. Je recommande sans hésitation.",
+  },
+  {
+    initials: 'JD',
+    name: 'Jc Desmet',
+    text: "Super expérience avec cette société de pompes à chaleur. Intervention rapide à Jodoigne, technicien à l'écoute et résultat au top. Hâte de profiter du mode clim cet été.",
+  },
+  {
+    initials: 'FO',
+    name: 'F. (Ogive)',
+    text: 'Équipe professionnelle et super sympa, prix vraiment raisonnable, ils ont installé tout mon système de climatisation à pompe à chaleur. Merci je recommande !',
+  },
+  {
     initials: 'CG',
     name: 'Cindy Garnier',
     text: "Beau boulot, j'ai rien à dire !",
@@ -53,7 +93,12 @@ const reviews = [
     <div class="flex items-center gap-4 mb-6">
       <span class="section-number">§ 03 — Avis Google</span>
       <span class="h-px flex-1 bg-[var(--color-bordure)]"></span>
-      <span class="text-xs text-[var(--color-texte-light)] uppercase tracking-wider tabular-nums">5,0 / 5 · 9 avis</span>
+      <a href="https://www.google.com/maps/place/Pompe+%C3%A0+chaleur+BW/@50.7143226,4.6070769,17z/" target="_blank" rel="noopener" class="text-xs text-[var(--color-texte-light)] uppercase tracking-wider tabular-nums underline underline-offset-2 hover:text-[var(--color-vert)]">5,0 / 5 · 26 avis</a>
+    </div>
+    <div class="flex justify-end mb-4">
+      <a href="https://search.google.com/local/writereview?placeid=ChIJGygpLsJ9wUcRevtsE36kKUA" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--color-vert)] border border-[var(--color-bordure)] rounded-lg px-4 py-2 hover:bg-[var(--color-vert-clair)] transition-colors">
+        ★ Laisser un avis Google
+      </a>
     </div>
     <div class="reviews-carousel-wrapper">
       <div class="reviews-carousel-track">
@@ -86,7 +131,7 @@ const reviews = [
   .reviews-carousel-track {
     display: flex;
     width: max-content;
-    animation: reviews-scroll 30s linear infinite;
+    animation: reviews-scroll 55s linear infinite;
   }
   .reviews-carousel-set {
     display: flex;

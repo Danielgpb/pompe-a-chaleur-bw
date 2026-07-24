@@ -21,7 +21,7 @@ const zones = [
 
 <Layout
   title="Zones d'intervention Brabant Wallon | Pompe à chaleur BW"
-  description="On intervient dans 12 communes du Brabant Wallon : Wavre, Waterloo, Lasne, Braine-l'Alleud, Rixensart, La Hulpe, Ottignies-LLN, Grez-Doiceau, Chaumont-Gistoux, Court-Saint-Étienne, Ittre, Rhode-Saint-Genèse."
+  description="12 communes du Brabant Wallon : Wavre, Waterloo, Lasne, Braine-l'Alleud, Rixensart, La Hulpe, Ottignies-LLN, Grez-Doiceau et 4 autres. Sur place en 30 minutes."
   canonical="/nos-zones/"
 >
 
@@ -64,5 +64,17 @@ const zones = [
 <CTASection />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Zones d'intervention Pompe à chaleur BW",
+  "itemListElement": zones.map((z, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": z.name,
+    "url": `https://pompe-a-chaleur-bw.be${z.href}`
+  }))
+})} />
 
 </Layout>

@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="Plancher chauffant Brabant Wallon — Prix | Pompe à chaleur BW"
+  title="Plancher chauffant Brabant Wallon — Prix | PAC BW"
   description="Installation plancher chauffant en Brabant Wallon. Neuf 50-120€/m², rénovation 30-45€/m² par fraisage. Combo idéal avec pompe à chaleur. Devis gratuit."
   canonical="/chauffage/chauffage-sol/"
 >
@@ -105,5 +105,29 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Vous construisez ou rénovez ?" text="Le chauffage sol, c'est le moment d'y penser. Devis gratuit sous 24h." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/chauffage/chauffage-sol/#service",
+  "name": "Installation plancher chauffant en Brabant Wallon",
+  "description": "Installation de plancher chauffant en Brabant Wallon, en neuf ou en rénovation par fraisage. Idéal avec une pompe à chaleur.",
+  "serviceType": "Underfloor Heating Installation",
+  "url": "https://pompe-a-chaleur-bw.be/chauffage/chauffage-sol/",
+  "provider": { "@type": "HVACBusiness", "@id": "https://pompe-a-chaleur-bw.be/#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Brabant Wallon" },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Plancher chauffant — construction neuve",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "minPrice": "50", "maxPrice": "120", "priceCurrency": "EUR", "unitCode": "MTK", "valueAddedTaxIncluded": false }
+    },
+    {
+      "@type": "Offer",
+      "name": "Plancher chauffant — rénovation par fraisage",
+      "priceSpecification": { "@type": "UnitPriceSpecification", "minPrice": "30", "maxPrice": "45", "priceCurrency": "EUR", "unitCode": "MTK", "valueAddedTaxIncluded": false }
+    }
+  ]
+})} />
 
 </Layout>

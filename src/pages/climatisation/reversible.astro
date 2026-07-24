@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="Climatisation réversible Brabant Wallon — Chaud et froid | Pompe à chaleur BW"
+  title="Climatisation réversible Brabant Wallon — Chaud et froid"
   description="Climatisation réversible en Brabant Wallon. Votre clim chauffe aussi en hiver. Tous nos splits sont réversibles de base. Devis gratuit sous 24h."
   canonical="/climatisation/reversible/"
 >
@@ -97,5 +97,17 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Chaud en hiver, frais en été ?" text="Tous nos splits sont réversibles de base. Devis gratuit sous 24h." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/climatisation/reversible/#service",
+  "name": "Climatisation réversible en Brabant Wallon",
+  "description": "Installation de climatisation réversible (froid l'été, chauffage l'hiver) en Brabant Wallon. Tous nos splits sont réversibles.",
+  "serviceType": "Reversible Air Conditioning Installation",
+  "url": "https://pompe-a-chaleur-bw.be/climatisation/reversible/",
+  "provider": { "@type": "HVACBusiness", "@id": "https://pompe-a-chaleur-bw.be/#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Brabant Wallon" }
+})} />
 
 </Layout>

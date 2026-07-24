@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="Chaudière gaz condensation Brabant Wallon — Prix | Pompe à chaleur BW"
+  title="Chaudière gaz condensation Brabant Wallon — Prix | PAC BW"
   description="Installation chaudière gaz condensation en Brabant Wallon. Bosch, Vaillant, Remeha. 2500-7000€ installée. Plus de prime en Wallonie. Devis gratuit."
   canonical="/chauffage/chaudiere-gaz/"
 >
@@ -106,5 +106,24 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Votre chaudière a plus de 15 ans ?" text="C'est le moment de la remplacer. Devis gratuit sous 24h." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/chauffage/chaudiere-gaz/#service",
+  "name": "Installation chaudière gaz condensation en Brabant Wallon",
+  "description": "Installation de chaudière gaz à condensation en Brabant Wallon. Bosch, Vaillant, Remeha.",
+  "serviceType": "Gas Boiler Installation",
+  "url": "https://pompe-a-chaleur-bw.be/chauffage/chaudiere-gaz/",
+  "provider": { "@type": "HVACBusiness", "@id": "https://pompe-a-chaleur-bw.be/#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Brabant Wallon" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "2500",
+    "highPrice": "7000",
+    "valueAddedTaxIncluded": false
+  }
+})} />
 
 </Layout>

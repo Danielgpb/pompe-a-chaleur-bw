@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="Thermostat intelligent Brabant Wallon — Nest, Tado | Pompe à chaleur BW"
+  title="Thermostat intelligent Brabant Wallon — Nest, Tado | PAC BW"
   description="Installation thermostat intelligent en Brabant Wallon. Nest, Tado, Netatmo. Économie 10-25%. Intégration Niko Home Control. Devis gratuit."
   canonical="/chauffage/thermostat-intelligent/"
 >
@@ -104,5 +104,21 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Envie de piloter votre chauffage ?" text="Thermostat intelligent installé à partir de 200€. Devis gratuit." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/chauffage/thermostat-intelligent/#service",
+  "name": "Installation thermostat intelligent en Brabant Wallon",
+  "description": "Installation de thermostat intelligent (Nest, Tado, Netatmo) en Brabant Wallon. Économie de 10 à 25 % sur le chauffage.",
+  "serviceType": "Smart Thermostat Installation",
+  "url": "https://pompe-a-chaleur-bw.be/chauffage/thermostat-intelligent/",
+  "provider": { "@type": "HVACBusiness", "@id": "https://pompe-a-chaleur-bw.be/#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Brabant Wallon" },
+  "offers": {
+    "@type": "Offer",
+    "priceSpecification": { "@type": "PriceSpecification", "minPrice": "200", "priceCurrency": "EUR", "valueAddedTaxIncluded": false }
+  }
+})} />
 
 </Layout>

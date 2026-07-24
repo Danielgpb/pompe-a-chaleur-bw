@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="Climatisation gainable Brabant Wallon — Clim invisible | Pompe à chaleur BW"
+  title="Climatisation gainable Brabant Wallon — Invisible | PAC BW"
   description="Installation climatisation gainable en Brabant Wallon. Clim invisible dans faux plafond. 10000-12000€. Haut de gamme à Waterloo, La Hulpe, Lasne."
   canonical="/climatisation/gainable/"
 >
@@ -115,5 +115,24 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Vous construisez ou rénovez ?" text="Le gainable, c'est le moment d'y penser. Visite technique et devis gratuit." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/climatisation/gainable/#service",
+  "name": "Installation climatisation gainable en Brabant Wallon",
+  "description": "Installation de climatisation gainable, unités dissimulées en faux plafond. Solution invisible pour rénovation ou construction neuve.",
+  "serviceType": "Ducted Air Conditioning Installation",
+  "url": "https://pompe-a-chaleur-bw.be/climatisation/gainable/",
+  "provider": { "@type": "HVACBusiness", "@id": "https://pompe-a-chaleur-bw.be/#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Brabant Wallon" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "10000",
+    "highPrice": "12000",
+    "valueAddedTaxIncluded": false
+  }
+})} />
 
 </Layout>

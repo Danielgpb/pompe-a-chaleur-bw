@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="Climatisation multi-split Brabant Wallon — Prix bi-split, tri-split | Pompe à chaleur BW"
+  title="Climatisation multi-split Brabant Wallon — Prix | PAC BW"
   description="Installation clim multi-split en Brabant Wallon. 1 groupe extérieur, 2 à 5 unités intérieures. Bi-split 5000-8000€. Daikin, LG, Gree. Devis gratuit."
   canonical="/climatisation/multi-split/"
 >
@@ -63,7 +63,7 @@ import CTASection from '../../components/CTASection.astro'
     </h2>
 
     <p>
-      Sur Bricozone, un propriétaire avait posté ses 3 devis pour un bi-split Daikin. Les prix allaient de 4 800 à 7 200 euros pour le même type de matériel. La différence : la longueur des liaisons (8 mètres vs 15 mètres), le type de goulotte (apparente vs encastrée), et la marge de l'installateur. C'est pour ça qu'on vous dit toujours de faire plusieurs devis. Y compris le nôtre.
+      Trois devis pour un même bi-split Daikin peuvent aller de 4 800 à 7 200 euros. La différence : la longueur des liaisons (8 mètres vs 15 mètres), le type de goulotte (apparente vs encastrée), et la marge de l'installateur. C'est pour ça qu'on vous dit toujours de faire plusieurs devis. Y compris le nôtre.
     </p>
 
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">
@@ -118,5 +118,24 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Besoin d'un multi-split ?" text="Visite technique gratuite pour dimensionner votre installation. Devis sous 24h." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/climatisation/multi-split/#service",
+  "name": "Installation climatisation multi-split en Brabant Wallon",
+  "description": "Installation d'une climatisation multi-split (1 groupe extérieur, 2 à 5 unités intérieures) en Brabant Wallon. Daikin, LG, Gree.",
+  "serviceType": "Multi-Split Air Conditioning Installation",
+  "url": "https://pompe-a-chaleur-bw.be/climatisation/multi-split/",
+  "provider": { "@type": "HVACBusiness", "@id": "https://pompe-a-chaleur-bw.be/#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Brabant Wallon" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "EUR",
+    "lowPrice": "5000",
+    "highPrice": "8000",
+    "valueAddedTaxIncluded": false
+  }
+})} />
 
 </Layout>

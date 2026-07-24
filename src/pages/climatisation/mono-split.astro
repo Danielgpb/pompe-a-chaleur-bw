@@ -5,7 +5,7 @@ import CTASection from '../../components/CTASection.astro'
 ---
 
 <Layout
-  title="Climatisation mono-split Brabant Wallon — Prix et installation | Pompe à chaleur BW"
+  title="Climatisation mono-split Brabant Wallon — Prix | PAC BW"
   description="Installation clim mono-split en Brabant Wallon. 1 unité intérieure + 1 extérieure. À partir de 3000€. Daikin Sensira, Gree Clivia. Devis gratuit."
   canonical="/climatisation/mono-split/"
 >
@@ -107,5 +107,26 @@ import CTASection from '../../components/CTASection.astro'
 <CTASection title="Un mono-split pour cet été ?" text="N'attendez pas la canicule. Devis gratuit sous 24h, installation en 1 journée." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://pompe-a-chaleur-bw.be/climatisation/mono-split/#service",
+  "name": "Installation climatisation mono-split en Brabant Wallon",
+  "description": "Installation d'une climatisation mono-split (1 unité intérieure + 1 unité extérieure) en Brabant Wallon. Daikin, Gree, LG.",
+  "serviceType": "Split Air Conditioning Installation",
+  "url": "https://pompe-a-chaleur-bw.be/climatisation/mono-split/",
+  "provider": { "@type": "HVACBusiness", "@id": "https://pompe-a-chaleur-bw.be/#business" },
+  "areaServed": { "@type": "AdministrativeArea", "name": "Brabant Wallon" },
+  "offers": {
+    "@type": "Offer",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": "3000",
+      "priceCurrency": "EUR",
+      "valueAddedTaxIncluded": false
+    }
+  }
+})} />
 
 </Layout>
