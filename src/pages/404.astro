@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title="Page introuvable | Pompe à chaleur BW"
+  description="Cette page n'existe pas ou a été déplacée. Retrouvez nos services de chauffage, pompe à chaleur et climatisation en Brabant Wallon."
+  canonical="/404/"
+  noindex={true}
+>
+
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-16 text-center">
+
+  <p class="font-display font-semibold text-[var(--color-vert)] mt-16 mb-4" style="font-size: clamp(4rem, 12vw, 8rem); line-height: 1;">
+    404
+  </p>
+
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4">
+    Cette page n'existe pas
+  </h1>
+
+  <p class="text-lg text-[var(--color-texte-light)] mb-10">
+    Elle a peut-être été déplacée, ou l'adresse contient une coquille. Pas de panique — voici les raccourcis utiles.
+  </p>
+
+  <div class="flex flex-wrap justify-center gap-3 mb-12">
+    <a href="/" class="bg-[var(--color-vert)] text-white font-bold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity">Retour à l'accueil</a>
+    <a href="/tarifs/" class="border border-[var(--color-bordure)] text-[var(--color-vert-fonce)] font-semibold px-6 py-3 rounded-xl hover:bg-[var(--color-vert-clair)] transition-colors">Nos tarifs</a>
+    <a href="/devis/" class="border border-[var(--color-bordure)] text-[var(--color-vert-fonce)] font-semibold px-6 py-3 rounded-xl hover:bg-[var(--color-vert-clair)] transition-colors">Devis gratuit</a>
+  </div>
+
+  <p class="text-[var(--color-texte-light)]">
+    Vous cherchiez nos services ? <a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Pompe à chaleur</a>, <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a> — ou appelez-nous au <a href="tel:+3228861457" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">02 / 886 14 57</a>.
+  </p>
+
+</article>
+
+</Layout>

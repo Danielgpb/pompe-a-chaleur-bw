@@ -16,9 +16,10 @@ interface Props {
   ogImage?: string
   ogImageW?: number
   ogImageH?: number
+  noindex?: boolean
 }
 
-const { title, description, canonical, geoLat, geoLng, geoPlacename, preloadHero, ogImage, ogImageW = 1200, ogImageH = 630 } = Astro.props
+const { title, description, canonical, geoLat, geoLng, geoPlacename, preloadHero, ogImage, ogImageW = 1200, ogImageH = 630, noindex = false } = Astro.props
 const siteUrl = 'https://pompe-a-chaleur-bw.be'
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`
 const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/og-image.webp`
@@ -37,7 +38,7 @@ const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={fullCanonical} />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
@@ -157,7 +158,7 @@ const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/
       "longitude": 4.607077
     },
     "sameAs": [
-      "https://www.google.com/maps/place/Pompe+%C3%A0+chaleur+BW/@50.7143234,4.6064332,17z/"
+      "https://www.google.com/maps/place/Pompe+%C3%A0+chaleur+BW/@50.714323,4.607077,17z/"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",

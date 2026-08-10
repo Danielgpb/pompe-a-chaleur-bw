@@ -27,9 +27,13 @@ const entretiens = [
   { label: 'Unité intérieure supplémentaire', prix: '50 €' },
   { label: 'Boiler thermodynamique (partie frigorifique)', prix: '180 €' },
   { label: 'Boiler électrique (détartrage, joints inclus)', prix: 'sur devis' },
+  { label: 'Ventilation simple flux (C)', prix: '160 €', note: 'entretien + déplacement compris' },
+  { label: 'Ventilation simple flux (C+)', prix: '240 €', note: 'entretien + déplacement compris' },
+  { label: 'Ventilation double flux (D)', prix: '280 €', note: 'entretien + déplacement compris' },
 ]
 
 const depannage = [
+  { label: 'Expertise', prix: '80 € / h', note: 'hors frais de déplacement' },
   { label: 'Main d’œuvre dépannage', prix: '80 € / h', note: 'hors frais de déplacement' },
   { label: 'Recharge gaz frigorifique', prix: '90 € / 100 gr' },
   { label: 'Carottage Ø max 131 mm', prix: '75 €' },
@@ -37,12 +41,10 @@ const depannage = [
 ]
 
 const deplacement = [
-  { label: 'Brabant Wallon', prix: '50 €' },
-  { label: 'Expertise sur place (selon la zone)', prix: 'à partir de 75 €' },
+  { label: 'Brabant Wallon', prix: '80 €' },
   { label: 'Namur · Charleroi · Mons', prix: '100 €' },
   { label: 'Liège · Marche · Tournai', prix: '120 €' },
   { label: 'Province de Luxembourg', prix: '150 €' },
-  { label: 'Hors zone', prix: '1,20 € / km' },
 ]
 
 // Données structurées Schema.org — prix machine-lisibles (HT) pour Google et les IA
@@ -52,19 +54,28 @@ const offresSchema = [
   { nom: 'Entretien chaudière mazout', min: 220 },
   { nom: 'Entretien climatisation (1 split)', prix: 170 },
   { nom: 'Entretien pompe à chaleur air-eau', prix: 240 },
+  { nom: 'Entretien climatisation — unité intérieure supplémentaire', prix: 50 },
   { nom: 'Entretien boiler thermodynamique', prix: 180 },
+  { nom: 'Entretien ventilation simple flux C (déplacement compris)', prix: 160 },
+  { nom: 'Entretien ventilation simple flux C+ (déplacement compris)', prix: 240 },
+  { nom: 'Entretien ventilation double flux D (déplacement compris)', prix: 280 },
   { nom: 'Mise en service climatisation', min: 360 },
   { nom: 'Mise en service pompe à chaleur air-eau', prix: 550 },
   { nom: 'Mise en service ventilation double flux', prix: 400 },
   { nom: 'Mise en service ventilation simple flux C', prix: 250 },
   { nom: 'Mise en service ventilation simple flux C+', prix: 300 },
   { nom: "Placement et mise en service d'un adoucisseur", prix: 350 },
+  { nom: 'Placement et mise en service d\'un anti-calcaire Solucalc', prix: 250 },
   { nom: 'Mise sous pression du chauffage au sol', prix: 200 },
+  { nom: 'Expertise', prix: 80, unit: 'HUR' },
   { nom: 'Dépannage (main d’œuvre)', prix: 80, unit: 'HUR' },
   { nom: 'Recharge gaz frigorifique (100 g)', prix: 90 },
   { nom: 'Carottage Ø max 131 mm', prix: 75 },
   { nom: 'Carottage Ø max 220 mm', prix: 105 },
-  { nom: 'Déplacement dans le Brabant Wallon', prix: 50 },
+  { nom: 'Déplacement dans le Brabant Wallon', prix: 80 },
+  { nom: 'Déplacement Namur · Charleroi · Mons', prix: 100 },
+  { nom: 'Déplacement Liège · Marche · Tournai', prix: 120 },
+  { nom: 'Déplacement Province de Luxembourg', prix: 150 },
 ]
 const offerCatalog = {
   "@context": "https://schema.org",
@@ -124,7 +135,7 @@ const offerCatalog = {
   </figure>
 
   <div class="bg-[var(--color-vert-clair)] border border-[var(--color-bordure)] rounded-xl p-5 mb-12 text-sm text-[var(--color-texte-light)] leading-relaxed">
-    Les montants ci-dessous sont <strong>hors TVA</strong>. Sauf mention contraire, les frais de déplacement sont en supplément (50 € dans le Brabant Wallon). On vous confirme toujours le prix avant d'intervenir, pas de mauvaise surprise.
+    Les montants ci-dessous sont <strong>hors TVA</strong>. Sauf mention contraire, les frais de déplacement sont en supplément (80 € dans le Brabant Wallon). On vous confirme toujours le prix avant d'intervenir, pas de mauvaise surprise.
   </div>
 
   <div class="space-y-12">
@@ -183,7 +194,7 @@ const offerCatalog = {
     <section>
       <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-2">Frais de déplacement</h2>
       <p class="text-[var(--color-texte-light)] mb-5">
-        On est basés à Wavre. Dans le Brabant Wallon, le déplacement est à 50 €. Au-delà, ça dépend de la distance — voici nos zones.
+        On est basés à Wavre. Dans le Brabant Wallon, le déplacement est à 80 €. Au-delà, ça dépend de la distance — voici nos zones.
       </p>
       <dl class="divide-y divide-[var(--color-bordure)] border-y border-[var(--color-bordure)]">
         {deplacement.map(item => (
