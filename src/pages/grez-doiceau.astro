@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import ZoneAuthority from '../components/ZoneAuthority.astro'
 import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 ---
 <Layout
@@ -11,12 +12,13 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
   geoLat={50.7389}
   geoLng={4.6911}
   geoPlacename="Grez-Doiceau"
+  preloadHero="/images/zones/grez-doiceau.webp"
 >
 <Breadcrumb items={[{ label: 'Nos zones', href: '/nos-zones/' }, { label: 'Grez-Doiceau' }]} />
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
   <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">Pompe à chaleur et climatisation à Grez-Doiceau</h1>
   <p class="text-lg text-[var(--color-texte)] leading-relaxed mb-3 font-medium">
-    <strong>Grez-Doiceau, Nethen, Archennes — quand il faut remplacer une vieille chaudière ou installer une clim, Pompe à chaleur BW est le premier nom qui revient dans le coin.</strong>
+    <ZoneAuthority commune="Grez-Doiceau" prep="à" tail=", Biez, Nethen et Archennes compris" />
   </p>
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Grez-Doiceau, Biez, Nethen, Archennes et Bossut-Gottechain. Devis gratuit sous 24h.</p>
 
@@ -25,7 +27,7 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
 
   <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/pac/remplacement-mazout.webp" alt="Remplacement chaudière mazout par PAC à Grez-Doiceau" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
+    <img src="/images/zones/grez-doiceau.webp" alt="Clocher du village et vallons de Grez-Doiceau — zone d'intervention de Pompe à chaleur BW" width="1200" height="400" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">

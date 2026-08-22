@@ -4,6 +4,8 @@ import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 import StickyMobileCTA from '../components/StickyMobileCTA.astro'
 import WhatsAppBubble from '../components/WhatsAppBubble.astro'
+import { RATING_VALUE, REVIEWS_COUNT, VAT_NUMBER, GBP_MAPS_URL } from '../data/business'
+import { reviews } from '../data/reviews'
 
 interface Props {
   title: string
@@ -14,15 +16,25 @@ interface Props {
   geoPlacename?: string
   preloadHero?: string
   ogImage?: string
+  ogImageAlt?: string
   ogImageW?: number
   ogImageH?: number
   noindex?: boolean
 }
 
-const { title, description, canonical, geoLat, geoLng, geoPlacename, preloadHero, ogImage, ogImageW = 1200, ogImageH = 630, noindex = false } = Astro.props
+const { title, description, canonical, geoLat, geoLng, geoPlacename, preloadHero, ogImage, ogImageAlt, ogImageW = 1200, ogImageH = 630, noindex = false } = Astro.props
 const siteUrl = 'https://pompe-a-chaleur-bw.be'
 const fullCanonical = canonical ? `${siteUrl}${canonical}` : `${siteUrl}${Astro.url.pathname}`
 const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/og-image.webp`
+const ogAlt = ogImageAlt ?? title
+// Avis datés uniquement → schema Review (les autres restent dans le carrousel)
+const schemaReviews = reviews.filter(r => r.date).slice(0, 8).map(r => ({
+  '@type': 'Review',
+  author: { '@type': 'Person', name: r.name },
+  datePublished: r.date,
+  reviewBody: r.text,
+  reviewRating: { '@type': 'Rating', ratingValue: String(r.rating ?? 5), bestRating: '5', worstRating: '1' },
+}))
 ---
 
 <!DOCTYPE html>
@@ -47,10 +59,12 @@ const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/
   <meta property="og:image" content={ogImageUrl} />
   <meta property="og:image:width" content={String(ogImageW)} />
   <meta property="og:image:height" content={String(ogImageH)} />
+  <meta property="og:image:alt" content={ogAlt} />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageUrl} />
+  <meta name="twitter:image:alt" content={ogAlt} />
   {geoLat && geoLng && (
     <>
       <meta name="geo.position" content={`${geoLat};${geoLng}`} />
@@ -59,14 +73,12 @@ const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/
       {geoPlacename && <meta name="geo.placename" content={geoPlacename} />}
     </>
   )}
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..700&family=Figtree:wght@400;500;600;700&display=swap" />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/figtree-latin.woff2" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/bricolage-grotesque-latin.woff2" />
   {preloadHero && <link rel="preload" as="image" href={preloadHero} fetchpriority="high" />}
 
   <!-- Schema.org WebSite — identifie le site pour Google -->
-  <script type="application/ld+json" set:html={JSON.stringify({
+  {!noindex && <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Pompe à chaleur BW",
@@ -76,10 +88,10 @@ const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/
     "publisher": {
       "@id": `${siteUrl}/#business`
     }
-  })} />
+  })} />}
 
   <!-- Schema.org HVACBusiness — enrichi pour AI citation -->
-  <script type="application/ld+json" set:html={JSON.stringify({
+  {!noindex && <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "HVACBusiness",
     "@id": `${siteUrl}/#business`,
@@ -94,7 +106,7 @@ const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/
       "width": 192,
       "height": 192
     },
-    "description": "Pompe à chaleur BW est l'installateur de chauffage, pompes à chaleur et climatisation de référence en Brabant Wallon. Installation, entretien et dépannage à Wavre, Waterloo, Lasne et 10 communes. Daikin, LG, Vaillant, Bosch, Gree.",
+    "description": "Pompe à chaleur BW est l'installateur de chauffage, pompes à chaleur et climatisation de référence en Brabant Wallon. Installation, entretien et dépannage à Wavre, Waterloo, Lasne et 9 autres communes du Brabant Wallon. Daikin, LG, Vaillant, Bosch, Gree.",
     "slogan": "Chauffage et pompe à chaleur en Brabant Wallon — installateur agréé",
     "additionalType": "https://schema.org/HeatingContractor",
     "foundingDate": "2024",
@@ -157,16 +169,20 @@ const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/
       "latitude": 50.714323,
       "longitude": 4.607077
     },
+    ...(VAT_NUMBER ? { "vatID": VAT_NUMBER } : {}),
+    "hasMap": GBP_MAPS_URL,
     "sameAs": [
-      "https://www.google.com/maps/place/Pompe+%C3%A0+chaleur+BW/@50.714323,4.607077,17z/"
+      "https://www.google.com/maps/place/Pompe+%C3%A0+chaleur+BW/@50.714323,4.607077,17z/",
+      GBP_MAPS_URL
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "26",
+      "ratingValue": RATING_VALUE,
+      "reviewCount": String(REVIEWS_COUNT),
       "bestRating": "5",
       "worstRating": "1"
     },
+    ...(schemaReviews.length ? { "review": schemaReviews } : {}),
     "priceRange": "€€",
     "paymentAccepted": "Cash, Virement bancaire, Bancontact",
     "currenciesAccepted": "EUR",
@@ -193,7 +209,7 @@ const ogImageUrl = ogImage ? `${siteUrl}${ogImage}` : `${siteUrl}/images/global/
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Boiler thermodynamique", "url": `${siteUrl}/boiler-thermodynamique/` } }
       ]
     }
-  })} />
+  })} />}
 </head>
 <body class="min-h-screen flex flex-col">
   <Nav />

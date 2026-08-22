@@ -1,4 +1,6 @@
 ---
+import { VAT_NUMBER } from '../data/business'
+
 const services = [
   { href: '/pompe-a-chaleur/', label: 'Pompe à chaleur' },
   { href: '/climatisation/', label: 'Climatisation' },
@@ -56,8 +58,10 @@ const zones = [
         <address class="not-italic text-sm leading-relaxed opacity-80 mb-3">
           Rue de Nivelles 77<br/>1300 Wavre<br/>Brabant Wallon
         </address>
-        <p class="font-display text-xl font-semibold tabular-nums mb-1" style="letter-spacing: -0.015em;">02 / 886 14 57</p>
+        <p class="font-display text-xl font-semibold tabular-nums mb-1" style="letter-spacing: -0.015em;"><a href="tel:+3228861457" class="hover:text-[var(--color-orange)] transition-colors">02 / 886 14 57</a></p>
+        <p class="text-sm opacity-80 mb-1"><a href="mailto:contact@pompe-a-chaleur-bw.be" class="hover:text-[var(--color-orange)] transition-colors">contact@pompe-a-chaleur-bw.be</a></p>
         <p class="text-xs opacity-60 tabular-nums">Lun–Dim · 8h–20h</p>
+        {VAT_NUMBER && <p class="text-xs opacity-60 tabular-nums mt-2">N° d'entreprise : {VAT_NUMBER}</p>}
       </div>
 
       <!-- Colonne 2 : Services -->

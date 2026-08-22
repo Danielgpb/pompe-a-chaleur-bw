@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import ZoneAuthority from '../components/ZoneAuthority.astro'
 import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 ---
 <Layout
@@ -11,12 +12,13 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
   geoLat={50.6333}
   geoLng={4.5648}
   geoPlacename="Court-Saint-Étienne"
+  preloadHero="/images/zones/court-saint-etienne.webp"
 >
 <Breadcrumb items={[{ label: 'Nos zones', href: '/nos-zones/' }, { label: 'Court-Saint-Étienne' }]} />
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
   <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">Pompe à chaleur et climatisation à Court-Saint-Étienne</h1>
   <p class="text-lg text-[var(--color-texte)] leading-relaxed mb-3 font-medium">
-    <strong>À Court-Saint-Étienne, Pompe à chaleur BW est l'installateur chauffage et pompe à chaleur que les voisins se recommandent entre eux.</strong>
+    <ZoneAuthority commune="Court-Saint-Étienne" prep="à" tail=" — celui que les voisins se recommandent entre eux" />
   </p>
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Court-Saint-Étienne. Devis gratuit sous 24h.</p>
 
@@ -25,7 +27,7 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
 
   <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/pac/pac-hybride.webp" alt="Pompe à chaleur hybride installée à Court-Saint-Étienne" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
+    <img src="/images/zones/court-saint-etienne.webp" alt="Anciens bâtiments industriels en briques et toits de Court-Saint-Étienne — zone d'intervention de Pompe à chaleur BW" width="1200" height="400" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">

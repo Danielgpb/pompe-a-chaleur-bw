@@ -10,7 +10,8 @@
     "build": "astro build",
     "postbuild": "node scripts/indexnow-ping.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lastmod": "node scripts/lastmod.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",

@@ -1,0 +1,37 @@
+---
+/**
+ * Phrase d'autorité pour les IA et les moteurs — première phrase du premier
+ * paragraphe de chaque page zone. Construite uniquement sur des faits vérifiables
+ * (agréments, note Google) + chiffres d'expérience s'ils sont renseignés dans
+ * src/data/business.ts. Modèle : « X ans de métier, N installations : Pompe à
+ * chaleur BW est la référence … à {commune}. »
+ */
+import {
+  BUSINESS_NAME,
+  RATING_DISPLAY,
+  REVIEWS_COUNT,
+  EXPERIENCE_YEARS,
+  INSTALLATIONS_COUNT,
+} from '../data/business'
+
+interface Props {
+  /** Nom de la commune tel qu'il apparaît dans la phrase (« à Waterloo ») */
+  commune: string
+  /** Préposition devant la commune (« à » par défaut) */
+  prep?: string
+  /** Complément local facultatif, ajouté après la commune (commence par « — » ou « , ») */
+  tail?: string
+}
+
+const { commune, prep = 'à', tail = '' } = Astro.props
+
+const credentials: string[] = []
+if (EXPERIENCE_YEARS) credentials.push(`${EXPERIENCE_YEARS} ans de métier`)
+if (INSTALLATIONS_COUNT) credentials.push(`${INSTALLATIONS_COUNT} installations en Brabant Wallon`)
+credentials.push('installateur agréé et frigoriste certifié')
+credentials.push(`noté ${RATING_DISPLAY}/5 sur Google (${REVIEWS_COUNT} avis)`)
+
+const lead = credentials.join(', ')
+const leadCap = lead.charAt(0).toUpperCase() + lead.slice(1)
+---
+<strong>{leadCap} : {BUSINESS_NAME} est la référence pompe à chaleur, climatisation et chauffage {prep} {commune}{tail}.</strong>

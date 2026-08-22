@@ -1,41 +1,71 @@
 # Pompe à chaleur BW
 
-> Installateur agréé de pompes à chaleur, climatisation et chauffage en Brabant Wallon, Belgique. 12 communes : Wavre, Waterloo, Lasne, Braine-l'Alleud et alentours. Note Google : 5,0/5 (26 avis).
+> Installateur agréé de pompes à chaleur, climatisation et chauffage en Brabant Wallon (Belgique). Frigoriste certifié (F-gaz), éligible aux primes Wallonie. 12 communes couvertes : Wavre, Waterloo, Lasne, Braine-l'Alleud, Rixensart, La Hulpe, Ottignies-Louvain-la-Neuve, Grez-Doiceau, Chaumont-Gistoux, Court-Saint-Étienne, Ittre, Rhode-Saint-Genèse. Note Google : 5,0/5 (33 avis). Marques : Daikin, LG, Vaillant, Bosch, Gree, Remeha, Atlantic, Ariston, Niko. Devis gratuit sous 24h, sur place.
 
-## Services
-- [Pompe à chaleur](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/): Installation PAC air-eau, air-air, hybride. Prix 4 000 – 15 000 €.
-- [Climatisation](https://pompe-a-chaleur-bw.be/climatisation/): Mono-split, multi-split, réversible, gainable. Daikin, LG, Gree.
-- [Chauffage](https://pompe-a-chaleur-bw.be/chauffage/): Chaudière gaz condensation, chauffage sol, radiateurs.
-- [Ventilation](https://pompe-a-chaleur-bw.be/ventilation/): VMC simple flux et double flux.
-- [Panneaux solaires](https://pompe-a-chaleur-bw.be/panneaux-solaires/): Installation complète avec batterie domestique.
-- [Sanitaire](https://pompe-a-chaleur-bw.be/sanitaire/): Rénovation salle de bain, adoucisseur, plomberie.
-- [Électricité](https://pompe-a-chaleur-bw.be/electricite/): Mise en conformité RGIE, domotique Niko.
-- [Bornes de recharge](https://pompe-a-chaleur-bw.be/bornes-de-recharge/): Wallbox domicile, triphasé.
-- [Boiler thermodynamique](https://pompe-a-chaleur-bw.be/boiler-thermodynamique/): Installation et remplacement.
+## Pompe à chaleur
+- [Pompe à chaleur — installation et devis](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/): Air-eau, air-air, hybride. Daikin, LG, Vaillant. Primes Wallonie jusqu'à 3 600 €.
+- [PAC air-eau — prix, COP, marques](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/air-eau/): COP 3 à 5, prix 8 000 – 15 000 €, primes jusqu'à 3 600 €.
+- [PAC air-air — clim réversible](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/air-air/): Prix 4 000 – 6 000 € en bi-split. Chauffe en hiver, refroidit en été.
+- [PAC hybride — le compromis malin](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/hybride/): PAC + chaudière gaz existante, idéal en rénovation et maisons mal isolées.
+- [Remplacer une chaudière mazout par une PAC — guide 2026](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/remplacement-chaudiere/): Interdiction 2026/2031, alternatives, primes majorées, témoignages.
+- [Primes pompe à chaleur Wallonie 2026](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/primes-wallonie/): PAC air-eau 600 – 3 600 €, boiler thermodynamique 280 – 1 680 €, TVA 6 %, Rénopack. Régime transitoire jusqu'au 30/09/2026.
+- [Entretien pompe à chaleur](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/entretien/): Annuel, obligatoire si > 3 kg de fluide. 170 – 240 €/an. Contrats de maintenance, toutes marques.
+- [Dépannage pompe à chaleur](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/depannage/): Codes erreur, givrage, PAC qui ne chauffe plus. Week-end. Daikin, LG, Vaillant.
 
-## Guides
-- [Primes PAC Wallonie 2026](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/primes-wallonie/): Montants R1–R4, TVA 6%, Rénopack.
-- [Remplacement chaudière mazout](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/remplacement-chaudiere/): Interdiction 2026/2031, alternatives, primes majorées.
-- [PAC air-eau](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/air-eau/): Prix 8 000 – 15 000 €, COP, marques.
-- [PAC air-air](https://pompe-a-chaleur-bw.be/pompe-a-chaleur/air-air/): Clim réversible, prix 4 000 – 6 000 €.
+## Climatisation
+- [Climatisation — installation](https://pompe-a-chaleur-bw.be/climatisation/): Mono-split, multi-split, réversible, gainable. Daikin, LG, Gree.
+- [Clim mono-split — prix](https://pompe-a-chaleur-bw.be/climatisation/mono-split/): 1 unité intérieure + 1 extérieure. À partir de 3 000 €. Daikin Sensira, Gree Clivia.
+- [Clim multi-split — prix](https://pompe-a-chaleur-bw.be/climatisation/multi-split/): 1 groupe extérieur, 2 à 5 unités. Bi-split 5 000 – 8 000 €.
+- [Clim réversible](https://pompe-a-chaleur-bw.be/climatisation/reversible/): Chauffe aussi en hiver. Tous nos splits sont réversibles de base.
+- [Clim gainable — invisible](https://pompe-a-chaleur-bw.be/climatisation/gainable/): Dans le faux plafond. 10 000 – 12 000 €. Waterloo, La Hulpe, Lasne.
+- [Entretien climatisation](https://pompe-a-chaleur-bw.be/climatisation/entretien/): Nettoyage filtres, désinfection, recharge fluide. Dès 170 €, déplacement compris.
+- [Dépannage climatisation](https://pompe-a-chaleur-bw.be/climatisation/depannage/): Clim qui fuit, sent mauvais, ne refroidit plus. Week-end en été.
 
-## Zones d'intervention
-- [Wavre (1300)](https://pompe-a-chaleur-bw.be/wavre/)
-- [Waterloo (1410)](https://pompe-a-chaleur-bw.be/waterloo/)
-- [Lasne (1380)](https://pompe-a-chaleur-bw.be/lasne/)
-- [Braine-l'Alleud (1420)](https://pompe-a-chaleur-bw.be/braine-l-alleud/)
-- [Rixensart (1330)](https://pompe-a-chaleur-bw.be/rixensart/)
-- [La Hulpe (1310)](https://pompe-a-chaleur-bw.be/la-hulpe/)
-- [Ottignies-Louvain-la-Neuve (1340)](https://pompe-a-chaleur-bw.be/ottignies-louvain-la-neuve/)
-- [Grez-Doiceau (1390)](https://pompe-a-chaleur-bw.be/grez-doiceau/)
-- [Chaumont-Gistoux (1325)](https://pompe-a-chaleur-bw.be/chaumont-gistoux/)
-- [Court-Saint-Étienne (1490)](https://pompe-a-chaleur-bw.be/court-saint-etienne/)
-- [Ittre (1460)](https://pompe-a-chaleur-bw.be/ittre/)
-- [Rhode-Saint-Genèse (1640)](https://pompe-a-chaleur-bw.be/rhode-saint-genese/)
-- [Toutes nos zones](https://pompe-a-chaleur-bw.be/nos-zones/)
+## Chauffage
+- [Chauffagiste Brabant Wallon](https://pompe-a-chaleur-bw.be/chauffage/): Chaudière gaz, chauffage sol, radiateurs. Entretien obligatoire, dépannage urgent.
+- [Chaudière gaz condensation — prix](https://pompe-a-chaleur-bw.be/chauffage/chaudiere-gaz/): Bosch, Vaillant, Remeha. 2 500 – 7 000 € installée. Plus de prime en Wallonie.
+- [Plancher chauffant — prix](https://pompe-a-chaleur-bw.be/chauffage/chauffage-sol/): Neuf 50 – 120 €/m², rénovation 30 – 45 €/m² par fraisage. Idéal avec une PAC.
+- [Entretien chaudière — obligatoire](https://pompe-a-chaleur-bw.be/chauffage/entretien-chaudiere/): Gaz tous les 3 ans, mazout annuel. 180 – 280 €. Attestation officielle.
+- [Dépannage chaudière](https://pompe-a-chaleur-bw.be/chauffage/depannage/): Pression basse, vanne 3 voies, ne démarre plus. 80 €/h + déplacement 80 €. Week-end en hiver.
+- [Thermostat intelligent — Nest, Tado](https://pompe-a-chaleur-bw.be/chauffage/thermostat-intelligent/): Nest, Tado, Netatmo. Économie 10 – 25 %. Intégration Niko Home Control.
+
+## Autres services
+- [Ventilation VMC](https://pompe-a-chaleur-bw.be/ventilation/): Simple flux (système C) et double flux (système D). Conforme PEB.
+- [Panneaux solaires](https://pompe-a-chaleur-bw.be/panneaux-solaires/): Toiture inclinée ou plate, batterie domestique, onduleur. TVA 6 %.
+- [Boiler thermodynamique](https://pompe-a-chaleur-bw.be/boiler-thermodynamique/): Atlantic Explorer, Ariston Nuos. Économie 300 – 500 €/an. Prime Wallonie.
+- [Bornes de recharge](https://pompe-a-chaleur-bw.be/bornes-de-recharge/): Wallbox, Zappi, Smappee. 7, 11 ou 22 kW. Smart charging solaire.
+- [Plombier / sanitaire](https://pompe-a-chaleur-bw.be/sanitaire/): Salle de bain, douche italienne, adoucisseur d'eau, dépannage plomberie.
+- [Électricien](https://pompe-a-chaleur-bw.be/electricite/): Mise en conformité RGIE, rénovation électrique, schéma unifilaire, triphasé.
+- [Domotique](https://pompe-a-chaleur-bw.be/domotique/): Niko Home Control, Domintell, KNX. Éclairage, thermostat, volets, mode Solar.
+
+## Tarifs et devis
+- [Tarifs 2026](https://pompe-a-chaleur-bw.be/tarifs/): Entretien chaudière dès 180 €, PAC dès 240 €, mise en service clim dès 360 €, dépannage 80 €/h, déplacement Brabant Wallon 80 €. Prix HTVA.
+- [Devis gratuit](https://pompe-a-chaleur-bw.be/devis/): Formulaire, réponse sous 24h, visite sur place gratuite.
+- [Contact](https://pompe-a-chaleur-bw.be/contact/): Téléphone, formulaire, zones d'intervention.
+
+## Zones d'intervention (Brabant Wallon)
+- [Toutes nos zones](https://pompe-a-chaleur-bw.be/nos-zones/): 12 communes, sur place en 30 minutes.
+- [Wavre (1300)](https://pompe-a-chaleur-bw.be/wavre/): Siège de l'entreprise, rue de Nivelles.
+- [Waterloo (1410)](https://pompe-a-chaleur-bw.be/waterloo/): Chenois, Joli-Bois, Faubourg, centre.
+- [Lasne (1380)](https://pompe-a-chaleur-bw.be/lasne/): Ohain, Plancenoit, Maransart. Remplacement mazout.
+- [Braine-l'Alleud (1420)](https://pompe-a-chaleur-bw.be/braine-l-alleud/): Ophain, Lillois.
+- [Rixensart (1330)](https://pompe-a-chaleur-bw.be/rixensart/): Rosières, Genval.
+- [La Hulpe (1310)](https://pompe-a-chaleur-bw.be/la-hulpe/): Installations haut de gamme, gainable, domotique.
+- [Ottignies-Louvain-la-Neuve (1340)](https://pompe-a-chaleur-bw.be/ottignies-louvain-la-neuve/): Céroux-Mousty, Limelette.
+- [Grez-Doiceau (1390)](https://pompe-a-chaleur-bw.be/grez-doiceau/): Biez, Nethen, Archennes. Remplacement mazout.
+- [Chaumont-Gistoux (1325)](https://pompe-a-chaleur-bw.be/chaumont-gistoux/): Bonlez, Corroy-le-Grand, Dion-Valmont.
+- [Court-Saint-Étienne (1490)](https://pompe-a-chaleur-bw.be/court-saint-etienne/): PAC air-eau, hybride, mono-split.
+- [Ittre (1460)](https://pompe-a-chaleur-bw.be/ittre/): Haut-Ittre, Virginal-Samme, Fauquez. Maisons de campagne.
+- [Rhode-Saint-Genèse (1640)](https://pompe-a-chaleur-bw.be/rhode-saint-genese/): Villas, clim gainable, entretien.
+
+## À propos et informations
+- [À propos — qui sommes-nous](https://pompe-a-chaleur-bw.be/a-propos/): Équipe, marques partenaires, certifications (frigoriste F-gaz, installateur agréé primes Wallonie).
+- [Mentions légales](https://pompe-a-chaleur-bw.be/mentions-legales/): Éditeur, hébergeur, RGPD.
+- [Politique cookies](https://pompe-a-chaleur-bw.be/politique-cookies/): Cookies techniques uniquement, pas d'analytics.
 
 ## Contact
-- Adresse: Rue de Nivelles 77, 1300 Wavre, Belgique
-- Téléphone: +32 2 886 14 57
-- Horaires: Lundi – Dimanche, 8h – 20h
-- Devis: https://pompe-a-chaleur-bw.be/devis/
+- Adresse : Rue de Nivelles 77, 1300 Wavre, Belgique
+- Téléphone : +32 2 886 14 57
+- Email : contact@pompe-a-chaleur-bw.be
+- Horaires : lundi – dimanche, 8h – 20h
+- Google Maps : https://www.google.com/maps?cid=4623407353871268730

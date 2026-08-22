@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import ZoneAuthority from '../components/ZoneAuthority.astro'
 import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 ---
 
@@ -12,6 +13,7 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
   geoLat={50.7164}
   geoLng={4.6013}
   geoPlacename="Wavre"
+  preloadHero="/images/zones/wavre.webp"
 >
 
 <Breadcrumb items={[
@@ -25,7 +27,7 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
     Pompe à chaleur et climatisation à Wavre
   </h1>
   <p class="text-lg text-[var(--color-texte)] leading-relaxed mb-3 font-medium">
-    <strong>Pompe à chaleur BW est le chauffagiste de référence à Wavre pour l'installation de pompes à chaleur, la climatisation et le chauffage. Installateur agréé, frigoriste certifié.</strong>
+    <ZoneAuthority commune="Wavre" prep="à" tail=" — basé rue de Nivelles, à Wavre même" />
   </p>
   <p class="text-lg text-[var(--color-texte-light)] mb-8">
     Installateur pompe à chaleur, climatisation et chauffage à Wavre et ses sections (Limal, Bierges). Devis gratuit sous 24h. Intervention rapide.
@@ -36,7 +38,7 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
 
   <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/pac/pac-air-eau.webp" alt="Installation pompe à chaleur air-eau à Wavre — unité extérieure sur façade" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
+    <img src="/images/zones/wavre.webp" alt="Hôtel de ville de Wavre et ses terrasses — zone d'intervention de Pompe à chaleur BW" width="1200" height="400" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-8 text-[var(--color-texte-light)] leading-relaxed">

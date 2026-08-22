@@ -20,13 +20,8 @@ const siteUrl = 'https://pompe-a-chaleur-bw.be'
   ...(image ? { "image": { "@type": "ImageObject", "url": `${siteUrl}${image}`, "representativeOfPage": true } } : {}),
   "provider": {
     "@type": "HVACBusiness",
-    "name": "Pompe à chaleur BW",
-    "telephone": "+32-2-886-14-57",
-    "url": siteUrl,
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": areaServed
-    }
+    "@id": `${siteUrl}/#business`,
+    "name": "Pompe à chaleur BW"
   },
   "areaServed": {
     "@type": "AdministrativeArea",

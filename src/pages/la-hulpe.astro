@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import ZoneAuthority from '../components/ZoneAuthority.astro'
 import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 ---
 <Layout
@@ -11,12 +12,13 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
   geoLat={50.7299}
   geoLng={4.4797}
   geoPlacename="La Hulpe"
+  preloadHero="/images/zones/la-hulpe.webp"
 >
 <Breadcrumb items={[{ label: 'Nos zones', href: '/nos-zones/' }, { label: 'La Hulpe' }]} />
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
   <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">Pompe à chaleur et climatisation à La Hulpe</h1>
   <p class="text-lg text-[var(--color-texte)] leading-relaxed mb-3 font-medium">
-    <strong>À La Hulpe, Pompe à chaleur BW est devenu la référence pour les installations de chauffage et climatisation haut de gamme. Certifié, agréé, sans sous-traitance.</strong>
+    <ZoneAuthority commune="La Hulpe" prep="à" tail=" — pour les installations haut de gamme, sans sous-traitance" />
   </p>
   <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à La Hulpe. Solutions haut de gamme, gainable, domotique. Devis gratuit sous 24h.</p>
 
@@ -25,7 +27,7 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
 <article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
 
   <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/pac/hero-pac.webp" alt="Installation pompe à chaleur haut de gamme à La Hulpe" width="800" height="500" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
+    <img src="/images/zones/la-hulpe.webp" alt="Le château de La Hulpe et son étang dans le domaine Solvay — zone d'intervention de Pompe à chaleur BW" width="1200" height="400" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
   </div>
 
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">

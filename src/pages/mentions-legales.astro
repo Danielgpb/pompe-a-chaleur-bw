@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { VAT_NUMBER } from '../data/business'
 import Breadcrumb from '../components/Breadcrumb.astro'
 ---
 
@@ -30,6 +31,7 @@ import Breadcrumb from '../components/Breadcrumb.astro'
     <ul class="list-none pl-0 space-y-1">
       <li><strong>Dénomination</strong> : Pompe à chaleur BW</li>
       <li><strong>Siège social</strong> : Rue de Nivelles 77, 1300 Wavre, Belgique</li>
+      {VAT_NUMBER && <li><strong>Numéro d'entreprise (BCE) / TVA</strong> : {VAT_NUMBER}</li>}
       <li><strong>Téléphone</strong> : <a href="tel:+3228861457">02 / 886 14 57</a></li>
       <li><strong>Email</strong> : <a href="mailto:contact@pompe-a-chaleur-bw.be">contact@pompe-a-chaleur-bw.be</a></li>
     </ul>
