@@ -13,7 +13,7 @@ export const RATING_VALUE = '5.0'
 export const REVIEWS_COUNT = 33
 
 /** Nombre de communes couvertes par des pages dédiées */
-export const COMMUNES_COUNT = 12
+export const COMMUNES_COUNT = 15
 
 /** Google Business Profile */
 export const GBP_PLACE_ID = 'ChIJGygpLsJ9wUcRevtsE36kKUA'

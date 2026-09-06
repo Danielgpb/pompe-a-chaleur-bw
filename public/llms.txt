@@ -44,7 +44,7 @@
 - [Contact](https://pompe-a-chaleur-bw.be/contact/): Téléphone, formulaire, zones d'intervention.
 
 ## Zones d'intervention (Brabant Wallon)
-- [Toutes nos zones](https://pompe-a-chaleur-bw.be/nos-zones/): 12 communes, sur place en 30 minutes.
+- [Toutes nos zones](https://pompe-a-chaleur-bw.be/nos-zones/): 15 communes, sur place en 30 minutes.
 - [Wavre (1300)](https://pompe-a-chaleur-bw.be/wavre/): Siège de l'entreprise, rue de Nivelles.
 - [Waterloo (1410)](https://pompe-a-chaleur-bw.be/waterloo/): Chenois, Joli-Bois, Faubourg, centre.
 - [Lasne (1380)](https://pompe-a-chaleur-bw.be/lasne/): Ohain, Plancenoit, Maransart. Remplacement mazout.
