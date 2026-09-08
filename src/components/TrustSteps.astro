@@ -52,10 +52,15 @@ const steps = [
 {compact ? (
   <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
     {steps.map((s, i) => (
-      <div class="bg-[var(--color-blanc)] border border-[var(--color-bordure)] rounded-xl p-5">
-        <p class="font-display text-3xl font-semibold text-[var(--color-vert)] tabular-nums mb-2">{i + 1}</p>
-        <h3 class="font-bold text-[var(--color-vert-fonce)] mb-1.5 leading-snug">{s.titre}</h3>
-        <p class="text-sm text-[var(--color-texte-light)] leading-relaxed">{s.courtTexte}</p>
+      <div class="bg-[var(--color-blanc)] border border-[var(--color-bordure)] rounded-xl overflow-hidden">
+        <div class="aspect-video overflow-hidden">
+          <img src={s.image} alt={s.alt} width="1200" height="676" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.parentElement.style.display='none'" />
+        </div>
+        <div class="p-5">
+          <p class="font-display text-3xl font-semibold text-[var(--color-vert)] tabular-nums mb-2">{i + 1}</p>
+          <h3 class="font-bold text-[var(--color-vert-fonce)] mb-1.5 leading-snug">{s.titre}</h3>
+          <p class="text-sm text-[var(--color-texte-light)] leading-relaxed">{s.courtTexte}</p>
+        </div>
       </div>
     ))}
   </div>
