@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Icons from '../components/Icons.astro'
 import ReviewsCarousel from '../components/ReviewsCarousel.astro'
+import TrustSteps from '../components/TrustSteps.astro'
 import VideoPresentation from '../components/VideoPresentation.astro'
 import LeadForm from '../components/LeadForm.astro'
 
@@ -540,12 +541,23 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- ===== PARCOURS CLIENT ===== -->
+  <section class="py-20 sm:py-24 px-4 sm:px-8 bg-[var(--color-blanc)] border-t border-[var(--color-bordure)]">
+    <div class="max-w-[88rem] mx-auto">
+      <p class="section-number mb-4">§ 10 — Comment ça se passe</p>
+      <h2 class="font-display font-semibold text-[var(--color-vert-fonce)] mb-10 max-w-3xl" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">
+        Du premier message à la mise en service, le même déroulé pour tout le monde.
+      </h2>
+      <TrustSteps compact={true} />
+    </div>
+  </section>
+
   <!-- ===== FORMULAIRE DE DEMANDE ===== -->
   <section class="py-20 sm:py-24 px-4 sm:px-8 bg-[var(--color-surface)] border-t border-[var(--color-bordure)]" id="demande">
     <div class="max-w-[88rem] mx-auto">
       <div class="grid grid-cols-12 gap-y-10 gap-x-4 lg:gap-x-10 items-start">
         <div class="col-span-12 lg:col-span-5">
-          <p class="section-number mb-3">§ 10 — Demande</p>
+          <p class="section-number mb-3">§ 11 — Demande</p>
           <h2 class="font-display font-semibold text-[var(--color-vert-fonce)]" style="font-size: var(--text-3xl); line-height: 1.02; letter-spacing: -0.02em;">
             Dites-nous ce qu'il vous faut.
           </h2>

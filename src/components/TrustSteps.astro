@@ -1,0 +1,81 @@
+---
+/**
+ * Étapes de confiance « Comment ça se passe » — parcours client en 5 étapes.
+ * Mode par défaut : liste verticale numérotée avec photo optionnelle par étape
+ * (les images /images/etapes/etape-N.webp s'affichent dès qu'elles existent).
+ * Mode compact : grille de cartes sans photos, pour l'accueil.
+ */
+interface Props {
+  compact?: boolean
+}
+const { compact = false } = Astro.props
+
+const steps = [
+  {
+    titre: 'Vous nous écrivez, on revient vers vous',
+    texte: "Le plus simple : le formulaire de devis, deux minutes montre en main, et on vous rappelle sous 24 h avec les bonnes questions déjà préparées. C'est urgent — plus de chauffage, fuite ? Alors appelez directement le 02 / 886 14 57, on décroche de 8h à 20h, week-end compris.",
+    courtTexte: 'Formulaire en 2 minutes, rappel sous 24 h. Urgence ? Appelez, on décroche 7j/7 de 8h à 20h.',
+    image: '/images/etapes/etape-1.webp',
+    alt: 'Demande de devis envoyée depuis la table de la cuisine — Pompe à chaleur BW',
+  },
+  {
+    titre: 'On passe chez vous',
+    texte: "Pas de devis à distance sur trois photos. On vient voir la maison, on mesure, on regarde les radiateurs, le tableau, la place disponible. C'est gratuit et vous n'êtes obligés à rien.",
+    courtTexte: 'État des lieux gratuit et sans engagement. On mesure, on regarde, on vous dit ce qui est possible.',
+    image: '/images/etapes/etape-2.webp',
+    alt: "Technicien Pompe à chaleur BW en visite d'état des lieux dans une chaufferie",
+  },
+  {
+    titre: 'Un prix, pas de surprise',
+    texte: "Le devis est détaillé, poste par poste, hors TVA comme indiqué. Le prix annoncé est le prix facturé. Un imprévu en cours de chantier ? On vous appelle avant de toucher quoi que ce soit.",
+    courtTexte: 'Devis poste par poste. Le prix annoncé est le prix facturé, point.',
+    image: '/images/etapes/etape-3.webp',
+    alt: 'Devis détaillé expliqué ligne par ligne au client — Pompe à chaleur BW',
+  },
+  {
+    titre: 'On installe proprement',
+    texte: "On protège les sols, on emporte nos déchets, on remet les meubles en place. Et on ne s'en va pas avant que tout tourne et que vous sachiez utiliser votre installation — télécommande comprise.",
+    courtTexte: 'Sols protégés, déchets emportés, et on vous explique tout avant de partir.',
+    image: '/images/etapes/etape-4.webp',
+    alt: 'Chantier propre : bâches de protection et installation soignée — Pompe à chaleur BW',
+  },
+  {
+    titre: 'On reste joignables',
+    texte: "Mise en service, attestation, garantie enregistrée. Un doute trois semaines plus tard ? Vous rappelez le même numéro et vous tombez sur les mêmes personnes, pas sur un call center.",
+    courtTexte: 'Après le chantier, même numéro, mêmes personnes. Pas de call center.',
+    image: '/images/etapes/etape-5.webp',
+    alt: "Remise de l'attestation et des documents de garantie au client — Pompe à chaleur BW",
+  },
+]
+---
+
+{compact ? (
+  <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+    {steps.map((s, i) => (
+      <div class="bg-[var(--color-blanc)] border border-[var(--color-bordure)] rounded-xl p-5">
+        <p class="font-display text-3xl font-semibold text-[var(--color-vert)] tabular-nums mb-2">{i + 1}</p>
+        <h3 class="font-bold text-[var(--color-vert-fonce)] mb-1.5 leading-snug">{s.titre}</h3>
+        <p class="text-sm text-[var(--color-texte-light)] leading-relaxed">{s.courtTexte}</p>
+      </div>
+    ))}
+  </div>
+) : (
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-4">
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-2">Comment ça se passe</h2>
+    <p class="text-[var(--color-texte-light)] mb-6">Du premier message à la mise en service, voici le déroulé — le même pour tout le monde.</p>
+    <ol class="space-y-6">
+      {steps.map((s, i) => (
+        <li class="flex gap-4">
+          <span class="font-display text-2xl font-semibold text-[var(--color-vert)] tabular-nums shrink-0 w-8 pt-0.5">{i + 1}</span>
+          <div class="min-w-0">
+            <h3 class="font-bold text-[var(--color-vert-fonce)] mb-1">{s.titre}</h3>
+            <p class="text-[var(--color-texte-light)] leading-relaxed">{s.texte}</p>
+            <div class="rounded-xl overflow-hidden mt-3 max-w-md">
+              <img src={s.image} alt={s.alt} width="1200" height="676" loading="lazy" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+            </div>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}
