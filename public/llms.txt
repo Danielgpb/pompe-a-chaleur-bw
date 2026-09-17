@@ -43,8 +43,12 @@
 - [Devis gratuit](https://pompe-a-chaleur-bw.be/devis/): Formulaire, réponse sous 24h, visite sur place gratuite.
 - [Contact](https://pompe-a-chaleur-bw.be/contact/): Téléphone, formulaire, zones d'intervention.
 
-## Zones d'intervention (Brabant Wallon)
-- [Toutes nos zones](https://pompe-a-chaleur-bw.be/nos-zones/): 15 communes, sur place en 30 minutes.
+## Zones d'intervention (Brabant Wallon, Uccle et Overijse)
+- [Toutes nos zones](https://pompe-a-chaleur-bw.be/nos-zones/): 16 communes, du Brabant Wallon à Uccle et Overijse.
+- [Uccle (1180)](https://pompe-a-chaleur-bw.be/uccle/): Saint-Job, Fort Jaco, Dieweg. Déplacement 80 € HTVA, contrôle PEB gaz 2 ans.
+- [Nivelles (1400)](https://pompe-a-chaleur-bw.be/nivelles/): Baulers, Bornival, Monstreux, Thines. Gaz en ville, mazout villages.
+- [Genappe (1470)](https://pompe-a-chaleur-bw.be/genappe/): Bousval, Baisy-Thy, Glabais, Ways. Remplacement mazout, fermettes.
+- [Overijse (3090)](https://pompe-a-chaleur-bw.be/overijse/): Jezus-Eik, Maleizen, Tombeek. Service en français, primes flamandes.
 - [Wavre (1300)](https://pompe-a-chaleur-bw.be/wavre/): Siège de l'entreprise, rue de Nivelles.
 - [Waterloo (1410)](https://pompe-a-chaleur-bw.be/waterloo/): Chenois, Joli-Bois, Faubourg, centre.
 - [Lasne (1380)](https://pompe-a-chaleur-bw.be/lasne/): Ohain, Plancenoit, Maransart. Remplacement mazout.

@@ -42,6 +42,7 @@ const depannage = [
 
 const deplacement = [
   { label: 'Brabant Wallon', prix: '80 €' },
+  { label: 'Uccle · Bruxelles', prix: '80 €' },
   { label: 'Namur · Charleroi · Mons', prix: '100 €' },
   { label: 'Liège · Marche · Tournai', prix: '120 €' },
   { label: 'Province de Luxembourg', prix: '150 €' },
@@ -73,6 +74,7 @@ const offresSchema = [
   { nom: 'Carottage Ø max 131 mm', prix: 75 },
   { nom: 'Carottage Ø max 220 mm', prix: 105 },
   { nom: 'Déplacement dans le Brabant Wallon', prix: 80 },
+  { nom: 'Déplacement Uccle · Bruxelles', prix: 80 },
   { nom: 'Déplacement Namur · Charleroi · Mons', prix: 100 },
   { nom: 'Déplacement Liège · Marche · Tournai', prix: 120 },
   { nom: 'Déplacement Province de Luxembourg', prix: 150 },
@@ -135,7 +137,7 @@ const offerCatalog = {
   </figure>
 
   <div class="bg-[var(--color-vert-clair)] border border-[var(--color-bordure)] rounded-xl p-5 mb-12 text-sm text-[var(--color-texte-light)] leading-relaxed">
-    Les montants ci-dessous sont <strong>hors TVA</strong>. Sauf mention contraire, les frais de déplacement sont en supplément (80 € dans le Brabant Wallon). On vous confirme toujours le prix avant d'intervenir, pas de mauvaise surprise.
+    Les montants ci-dessous sont <strong>hors TVA</strong>. Sauf mention contraire, les frais de déplacement sont en supplément (80 € dans le Brabant Wallon et à Uccle). On vous confirme toujours le prix avant d'intervenir, pas de mauvaise surprise.
   </div>
 
   <div class="space-y-12">
@@ -194,7 +196,7 @@ const offerCatalog = {
     <section>
       <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-2">Frais de déplacement</h2>
       <p class="text-[var(--color-texte-light)] mb-5">
-        On est basés à Wavre. Dans le Brabant Wallon, le déplacement est à 80 €. Au-delà, ça dépend de la distance — voici nos zones.
+        On est basés à Wavre. Dans le Brabant Wallon et à Uccle, le déplacement est à 80 €. Au-delà, ça dépend de la distance — voici nos zones.
       </p>
       <dl class="divide-y divide-[var(--color-bordure)] border-y border-[var(--color-bordure)]">
         {deplacement.map(item => (
@@ -210,7 +212,7 @@ const offerCatalog = {
 
   <div class="border-t border-[var(--color-bordure)] mt-12 pt-6 space-y-4 text-sm text-[var(--color-texte-light)] leading-relaxed">
     <p>
-      Prix hors TVA. TVA 6 % pour la rénovation d'un logement de plus de 10 ans. TVA 21 % pour le neuf, et pour la fourniture-installation d'une chaudière au gaz ou au mazout (les radiateurs, vannes, planchers chauffants et pompes à chaleur restent à 6 %).
+      Prix hors TVA. TVA 6 % pour la rénovation d'un logement de plus de 10 ans et, depuis 2026, pour toute installation de pompe à chaleur — même dans le neuf. TVA 21 % pour le reste du neuf et pour la fourniture-installation d'une chaudière au gaz ou au mazout (les radiateurs, vannes et planchers chauffants restent à 6 % en rénovation).
     </p>
     <p>
       Prix indicatifs, susceptibles d'évoluer selon l'état et l'accessibilité de l'installation. Pour une installation complète (pompe à chaleur, climatisation, chaudière), demandez votre <a href="/devis/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">devis gratuit</a>.
