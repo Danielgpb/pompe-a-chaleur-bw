@@ -26,7 +26,7 @@ export const GBP_REVIEW_URL = `https://search.google.com/local/writereview?place
  * Renseigner au format "BE 0123.456.789" : il s'affichera automatiquement
  * dans le footer, les mentions légales et le schema (vatID).
  */
-export const VAT_NUMBER: string | null = null
+export const VAT_NUMBER: string | null = "BE 1010.300.233"
 
 /**
  * Chiffres d'expérience optionnels pour la phrase d'autorité des pages zones

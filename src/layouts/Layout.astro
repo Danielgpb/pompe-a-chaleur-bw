@@ -176,8 +176,9 @@ const schemaReviews = reviews.filter(r => r.date).slice(0, 8).map(r => ({
     ...(VAT_NUMBER ? { "vatID": VAT_NUMBER } : {}),
     "hasMap": GBP_MAPS_URL,
     "sameAs": [
-      GBP_MAPS_URL
-      // Ajouter ici les fiches annuaires (Pages d'Or, TrustUp) et réseaux sociaux dès qu'ils existent
+      GBP_MAPS_URL,
+      "https://www.pagesdor.be/entreprise/Wavre/L623975869/Pompe+%C3%A0+chaleur+BW/"
+      // Ajouter ici les prochaines fiches annuaires et réseaux sociaux
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
