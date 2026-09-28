@@ -176,8 +176,8 @@ const schemaReviews = reviews.filter(r => r.date).slice(0, 8).map(r => ({
     ...(VAT_NUMBER ? { "vatID": VAT_NUMBER } : {}),
     "hasMap": GBP_MAPS_URL,
     "sameAs": [
-      "https://www.google.com/maps/place/Pompe+%C3%A0+chaleur+BW/@50.714323,4.607077,17z/",
       GBP_MAPS_URL
+      // Ajouter ici les fiches annuaires (Pages d'Or, TrustUp) et réseaux sociaux dès qu'ils existent
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
