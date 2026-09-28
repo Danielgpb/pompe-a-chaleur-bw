@@ -51,8 +51,10 @@ const deplacement = [
 // Données structurées Schema.org — prix machine-lisibles (HT) pour Google et les IA
 const siteUrl = 'https://pompe-a-chaleur-bw.be'
 const offresSchema = [
-  { nom: 'Entretien chaudière gaz', min: 180 },
-  { nom: 'Entretien chaudière mazout', min: 220 },
+  { nom: 'Entretien chaudière gaz atmosphérique', prix: 180 },
+  { nom: 'Entretien chaudière gaz à condensation', prix: 200 },
+  { nom: 'Entretien chaudière mazout', prix: 220 },
+  { nom: 'Entretien chaudière mazout à condensation', prix: 280 },
   { nom: 'Entretien climatisation (1 split)', prix: 170 },
   { nom: 'Entretien pompe à chaleur air-eau', prix: 240 },
   { nom: 'Entretien climatisation — unité intérieure supplémentaire', prix: 50 },
@@ -60,7 +62,10 @@ const offresSchema = [
   { nom: 'Entretien ventilation simple flux C (déplacement compris)', prix: 160 },
   { nom: 'Entretien ventilation simple flux C+ (déplacement compris)', prix: 240 },
   { nom: 'Entretien ventilation double flux D (déplacement compris)', prix: 280 },
-  { nom: 'Mise en service climatisation', min: 360 },
+  { nom: 'Mise en service climatisation 1 split', prix: 360 },
+  { nom: 'Mise en service climatisation 2 splits', prix: 400 },
+  { nom: 'Mise en service climatisation 3 splits', prix: 450 },
+  { nom: 'Mise en service climatisation 4 splits', prix: 500 },
   { nom: 'Mise en service pompe à chaleur air-eau', prix: 550 },
   { nom: 'Mise en service ventilation double flux', prix: 400 },
   { nom: 'Mise en service ventilation simple flux C', prix: 250 },
@@ -210,6 +215,28 @@ const offerCatalog = {
 
   </div>
 
+  <section class="mt-12">
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-2">Les questions qu'on nous pose sur les prix</h2>
+    <div class="space-y-5 text-[var(--color-texte-light)] leading-relaxed">
+      <div>
+        <h3 class="font-bold text-[var(--color-vert-fonce)] mb-1">Combien coûte le déplacement ?</h3>
+        <p>80 € hors TVA dans tout le Brabant Wallon et à Uccle — c'est le même tarif que vous soyez à Wavre, Nivelles ou Fort Jaco. Au-delà, ça dépend de la distance : 100 € vers Namur, Charleroi ou Mons, 120 € vers Liège, Marche ou Tournai, 150 € pour la province de Luxembourg. Et bonne nouvelle : pour un entretien de climatisation ou de ventilation, le déplacement est déjà compris dans le prix affiché, il n'y a rien à ajouter. On vous confirme toujours le montant total au téléphone avant de bloquer la date, comme ça vous savez exactement où vous allez.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-[var(--color-vert-fonce)] mb-1">Pourquoi vos prix sont-ils affichés hors TVA ?</h3>
+        <p>Parce que le taux dépend de votre situation, pas de nous. En rénovation d'un logement de plus de 10 ans, c'est 6 % ; dans le neuf, c'est 21 % — sauf pour les pompes à chaleur qui sont à 6 % partout depuis 2026, une belle économie de 1 500 à 2 250 € sur une installation. Afficher un prix TTC unique serait donc faux pour la moitié de nos clients. Sur le devis, le taux qui s'applique chez vous est indiqué noir sur blanc, ligne par ligne, et le total TTC est calculé — pas de calcul mental à faire.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-[var(--color-vert-fonce)] mb-1">Expertise et main d'œuvre dépannage, c'est quoi la différence ?</h3>
+        <p>L'expertise, c'est quand vous voulez un avis avant de décider : votre installation a un souci, un autre devis vous semble louche, ou vous hésitez entre réparer et remplacer. On vient, on diagnostique, on vous dit franchement ce qu'on en pense — 80 € de l'heure. La main d'œuvre dépannage, c'est la réparation elle-même, au même tarif de 80 € de l'heure. Dans les deux cas, le déplacement s'ajoute (80 € en Brabant Wallon et à Uccle) et le compteur ne tourne pas pendant qu'on va chercher une pièce.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-[var(--color-vert-fonce)] mb-1">Le prix annoncé peut-il changer en cours d'intervention ?</h3>
+        <p>Non — c'est notre règle de base : le prix confirmé avant l'intervention est le prix facturé. Si on découvre un imprévu une fois sur place, une pièce en plus ou un problème caché derrière la chaudière, on s'arrête et on vous appelle avant de toucher quoi que ce soit. Vous décidez, on continue ou pas. Les seuls suppléments possibles sont ceux annoncés d'avance sur cette page, comme la majoration soir et week-end en dépannage urgent. C'est aussi simple que ça, et c'est pour ça que nos 33 avis Google sont à 5 étoiles.</p>
+      </div>
+    </div>
+  </section>
+
   <div class="border-t border-[var(--color-bordure)] mt-12 pt-6 space-y-4 text-sm text-[var(--color-texte-light)] leading-relaxed">
     <p>
       Prix hors TVA. TVA 6 % pour la rénovation d'un logement de plus de 10 ans et, depuis 2026, pour toute installation de pompe à chaleur — même dans le neuf. TVA 21 % pour le reste du neuf et pour la fourniture-installation d'une chaudière au gaz ou au mazout (les radiateurs, vannes et planchers chauffants restent à 6 % en rénovation).
@@ -224,6 +251,17 @@ const offerCatalog = {
 <CTASection title="Un entretien ou un dépannage à prévoir ?" text="Appelez-nous au 02 / 886 14 57 ou demandez un devis gratuit." />
 
 <div class="h-20 lg:hidden"></div>
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Combien coûte le déplacement ?", "acceptedAnswer": { "@type": "Answer", "text": "80 € hors TVA dans tout le Brabant Wallon et à Uccle. Au-delà : 100 € vers Namur, Charleroi ou Mons, 120 € vers Liège, Marche ou Tournai, 150 € pour la province de Luxembourg. Pour un entretien de climatisation ou de ventilation, le déplacement est déjà compris dans le prix affiché. Le montant total est confirmé par téléphone avant l'intervention." } },
+    { "@type": "Question", "name": "Pourquoi les prix sont-ils affichés hors TVA ?", "acceptedAnswer": { "@type": "Answer", "text": "Le taux de TVA dépend de la situation du client : 6 % en rénovation d'un logement de plus de 10 ans, 21 % dans le neuf — sauf les pompes à chaleur, à 6 % partout depuis 2026. Le devis indique le taux applicable ligne par ligne et calcule le total TTC." } },
+    { "@type": "Question", "name": "Quelle différence entre expertise et main d'œuvre dépannage ?", "acceptedAnswer": { "@type": "Answer", "text": "L'expertise (80 €/h hors TVA) est un diagnostic et un avis indépendant avant décision : réparer ou remplacer, valider un autre devis. La main d'œuvre dépannage (80 €/h hors TVA) est la réparation elle-même. Le déplacement de 80 € en Brabant Wallon et à Uccle s'ajoute dans les deux cas." } },
+    { "@type": "Question", "name": "Le prix annoncé peut-il changer en cours d'intervention ?", "acceptedAnswer": { "@type": "Answer", "text": "Non : le prix confirmé avant l'intervention est le prix facturé. En cas d'imprévu découvert sur place, le client est appelé avant toute action supplémentaire. Seules les majorations annoncées (soir et week-end en dépannage urgent) peuvent s'appliquer." } }
+  ]
+})} />
 
 <script type="application/ld+json" set:html={JSON.stringify(offerCatalog)} />
 

@@ -40,6 +40,11 @@ const zones = [
     On installe des <a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">pompes à chaleur</a>, de la <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, du <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, des <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a> et le reste dans 16 communes, du Brabant Wallon à Uccle et Overijse. On connaît le coin — on y habite.
   </p>
 
+  <div class="space-y-4 text-[var(--color-texte-light)] leading-relaxed mb-10">
+    <p>Notre vraie zone, c'est celle où on peut être chez vous en une demi-heure et revenir sans râler si une pièce manque. Elle s'est dessinée toute seule : d'abord Wavre et ses voisines directes, puis le sud de Bruxelles avec Uccle, et Overijse juste de l'autre côté de la limite provinciale. Seize communes où on connaît les maisons — les fermettes sans gaz de ville de Genappe, les mitoyennes de Nivelles, les villas de Lasne ou de Fort Jaco — parce qu'on y a déjà travaillé.</p>
+    <p>Pourquoi ça compte pour vous ? Parce que le déplacement reste à 80 € hors TVA partout dans cette zone, que le dépannage d'hiver tourne aussi le week-end, et qu'on ne découvre pas votre type de maison le jour du devis. Chaque commune ci-dessous a sa page avec les particularités locales : le mazout à remplacer ici, l'urbanisme à respecter là, les primes qui changent selon la région.</p>
+  </div>
+
   <div class="space-y-4">
     {zones.map(z => (
       <a href={z.href} class="block bg-white border border-[var(--color-bordure)] rounded-xl p-5 hover:shadow-lg hover:shadow-green-100 hover:-translate-y-0.5 transition-all group">
