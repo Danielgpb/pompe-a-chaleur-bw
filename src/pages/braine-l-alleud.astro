@@ -1,71 +1,145 @@
 ---
+// Page zone Braine-l'Alleud réécrite le 18/10/2026 avec le skill reecriture-page-seo-locale.
+// Sources, décisions et contrôles : brouillons/braine-l-alleud/LISEZ-MOI.md
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
 import ZoneAuthority from '../components/ZoneAuthority.astro'
-import ReviewsCarousel from '../components/ReviewsCarousel.astro'
+import ReviewsSelection from '../components/ReviewsSelection.astro'
+import TrustSteps from '../components/TrustSteps.astro'
+import { PHONE_DISPLAY, RATING_DISPLAY, REVIEWS_COUNT } from '../data/business'
+
+const lien = 'text-[var(--color-vert)] font-semibold underline underline-offset-2'
+
+// Avis Google repris tels quels de la fiche (relevé du 18/10/2026).
+// Choix de Daniel : uniquement des avis qui n'apparaissent PAS sur les autres pages, donc aucun avis de
+// src/data/reviews.ts (le carrousel affiché partout). Aucun ne cite Braine-l'Alleud.
+// Seuls les apostrophes et les espaces typographiques ont été normalisés.
+const avis = [
+  {
+    name: 'Julie Urbanowiez',
+    date: '2026-09-03',
+    rating: 5,
+    text: "Notre ancienne chaudière commençait a montrer des signes de faiblesse et nous voulions profiter du remplacement pour passer a une solution plus économique. Pompe à Chaleur BW nous a conseillée un système adapté à la taille de notre maison et à nos radiateurs existants. L'installation s'est déroulée comme prévu et les explications pour les réglages étaient très claires. Après plusieurs semaines d'utilisation, la maison chauffe parfaitement et nous sommes vraiment contents d'avoir fait ce choix.",
+  },
+  {
+    name: 'Nicolas Fuks',
+    date: '2026-10-06',
+    rating: 4,
+    text: "Je pensais qu'il fallait forcément changer tous les radiateurs. Après vérification ce n'était pas nécessaire chez nous, ce qui a évité pas mal de travaux.",
+  },
+  {
+    name: 'Naomie Némégaire',
+    date: '2026-10-07',
+    rating: 5,
+    text: "On avait surtout peur du bruit parce que l'unité extérieure est proche de la terrasse. L'emplacement a été choisi avec nous et finalement ça reste discret 😊",
+  },
+  {
+    name: 'Julie Lambert',
+    date: '2026-10-16',
+    rating: 5,
+    text: "Très bon contact avec l'équipe de chantier propre et pas de mauvaise surprise sur ce qui était prévu.",
+  },
+  {
+    name: 'Sandra Lothaire',
+    date: '2026-07-04',
+    rating: 5,
+    text: "Super boîte ils sont venue me réparer ma climatisation et ont placé tout l'installation de pompe à chaleur chez mes parents, je recommande!! Bravo",
+  },
+]
+
+const faq = [
+  {
+    q: "Faut-il un permis pour l'unité extérieure ?",
+    a: `En Wallonie, une pompe à chaleur à air ne demande en principe ni permis ni déclaration, <a href="https://www.test-achats.be/maison-energie/chauffer-habitation-eau/dossier/pompes-a-chaleur-pour-votre-chauffage/pompe-a-chaleur-permis" target="_blank" rel="noopener" class="${lien}">selon Test-Achats</a>, sauf règle de la commune, par exemple pas d'unité en façade avant. Le service urbanisme de Braine-l'Alleud confirme ce qui s'applique à votre rue, et on choisit l'emplacement avec vous.`,
+  },
+  {
+    q: "Quelle prime pour une pompe à chaleur ?",
+    a: `Le régime temporaire de primes de la Wallonie courait jusqu'à fin septembre 2026, et un nouveau régime global le remplace. Les montants dépendent de vos revenus et de votre dossier : on vous donne ceux en vigueur le jour du devis, et le détail est sur notre page <a href="/pompe-a-chaleur/primes-wallonie/" class="${lien}">primes pompe à chaleur</a>.`,
+  },
+  {
+    q: 'Ma maison est mal isolée, une pompe à chaleur est-elle pour moi ?',
+    a: `Pas toujours, et on vous le dit avant de vendre. Si la maison perd beaucoup de chaleur, la facture peut décevoir. On propose alors la pompe à chaleur hybride, ou une chaudière gaz à condensation.`,
+  },
+]
+
+const ctaText = `On passe demain. Appelez le ${PHONE_DISPLAY} ou demandez votre devis gratuit. Noté ${RATING_DISPLAY}/5 sur Google (${REVIEWS_COUNT} avis).`
 ---
 <Layout
-  title="Pompe à chaleur et climatisation à Braine-l'Alleud | PAC BW"
-  description="Installateur pompe à chaleur et climatisation à Braine-l'Alleud (1420). PAC, clim, chaudière gaz. Ophain, Lillois. Devis gratuit sous 24h."
+  title="Pompe à chaleur Braine-l'Alleud 1420, devis 24 h | PAC BW"
+  description="Pompe à chaleur, clim et chaudière à Braine-l'Alleud, Ophain et Lillois. On passe demain, devis gratuit sous 24 h. Appelez le 02 / 886 14 57."
   canonical="/braine-l-alleud/"
-  ogImage="/images/zones/braine-l-alleud.webp"
+  ogImage="/images/zones/braine-l-alleud-hero.webp"
   ogImageW={1200}
-  ogImageH={676}
+  ogImageH={675}
   geoLat={50.6834}
   geoLng={4.3685}
   geoPlacename="Braine-l'Alleud"
-  preloadHero="/images/zones/braine-l-alleud.webp"
+  preloadHero="/images/zones/braine-l-alleud-hero.webp"
 >
 <Breadcrumb items={[{ label: 'Nos zones', href: '/nos-zones/' }, { label: "Braine-l'Alleud" }]} />
-<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
-  <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">Pompe à chaleur et climatisation à Braine-l'Alleud</h1>
+
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-[var(--color-vert-fonce)] leading-tight mb-4 mt-6">Pompe à chaleur et clim à Braine-l'Alleud, devis gratuit sous 24&nbsp;h</h1>
   <p class="text-lg text-[var(--color-texte)] leading-relaxed mb-3 font-medium">
-    <ZoneAuthority commune="Braine-l'Alleud" prep="à" tail=" — le nom qui revient quand on demande autour de soi" />
+    <ZoneAuthority commune="Braine-l'Alleud" prep="à" tail=", Ophain et Lillois compris" />
   </p>
-  <p class="text-lg text-[var(--color-texte-light)] mb-8">Installateur pompe à chaleur, climatisation et chauffage à Braine-l'Alleud, Ophain-Bois-Seigneur-Isaac et Lillois-Witterzée. Devis gratuit sous 24h.</p>
+  <p class="text-lg text-[var(--color-texte-light)] leading-relaxed mb-6">Vous habitez Braine-l'Alleud, Ophain ou Lillois&nbsp;? Oui, on vient chez vous, et on passe demain. Le devis gratuit arrive sous 24&nbsp;h, avec le prix annoncé avant le chantier. Appelez-nous au <a href="tel:+3228861457" class={lien}>{PHONE_DISPLAY}</a>.</p>
 
-</article>
-<ReviewsCarousel />
-<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-8">
-
-  <div class="rounded-xl overflow-hidden my-6">
-    <img src="/images/zones/braine-l-alleud.webp" alt="Église Saint-Étienne et Grand-Place fleurie de Braine-l'Alleud — zone d'intervention de Pompe à chaleur BW" width="1200" height="400" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover" />
+  <div class="hidden lg:flex flex-row gap-3 mb-6">
+    <a href="tel:+3228861457" class="inline-flex items-center justify-center gap-2 bg-[var(--color-vert)] text-white font-bold px-6 py-3.5 rounded-xl hover:opacity-90 transition-opacity">Appeler le {PHONE_DISPLAY}</a>
+    <a href="/devis/" class="inline-flex items-center justify-center bg-[var(--color-orange)] text-white font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all">Devis gratuit sous 24&nbsp;h</a>
   </div>
 
+  <div class="rounded-xl overflow-hidden aspect-[16/9] bg-[var(--color-surface)]">
+    <img src="/images/zones/braine-l-alleud-hero.webp" alt="Ballon d'eau chaude installé dans un local technique, avec vase d'expansion bleu et tuyauterie fixée au mur" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async" class="w-full h-full object-cover" />
+  </div>
+
+  <p class="text-lg text-[var(--color-texte-light)] leading-relaxed mt-8 mb-6">Votre chaudière vieillit et devient capricieuse&nbsp;? Vous voulez la <a href="/pompe-a-chaleur/remplacement-chaudiere/" class={lien}>remplacer par une pompe à chaleur</a> sans refaire toute la maison. On vient voir vos radiateurs, vos pièces et la place dehors, puis on vous dit franchement ce qu'il faut, et rien de plus.</p>
+
+  <ul class="grid gap-2 sm:grid-cols-3 text-sm font-semibold text-[var(--color-vert-fonce)] mb-4">
+    <li class="flex items-start gap-2"><span class="text-[var(--color-vert)]">✓</span> Devis gratuit sous 24&nbsp;h</li>
+    <li class="flex items-start gap-2"><span class="text-[var(--color-vert)]">✓</span> Au téléphone 7&nbsp;j/7, de 8&nbsp;h à 20&nbsp;h</li>
+    <li class="flex items-start gap-2"><span class="text-[var(--color-vert)]">✓</span> Le prix annoncé est le prix facturé</li>
+  </ul>
+</article>
+
+<ReviewsSelection items={avis} titre="Avis Google de nos clients en Brabant wallon" />
+
+<article class="max-w-3xl mx-auto px-4 sm:px-6 pb-4">
   <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
-    <p><a href="https://www.braine-lalleud.be" target="_blank" rel="noopener" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Braine-l'Alleud</a>, c'est la plus grosse commune du Brabant Wallon. Plus de 40 000 habitants, trois sections bien distinctes : le centre de Braine, Ophain-Bois-Seigneur-Isaac côté campagne, et Lillois-Witterzée entre les deux. Du coup, les situations varient énormément d'une rue à l'autre. Une maison mitoyenne rue Longue au centre, ce n'est pas du tout le même dossier qu'une villa 4 façades à Ophain.</p>
-    <p>On connaît bien Braine — c'est une des communes où on intervient le plus. Il y a pas mal d'installateurs basés directement sur place, et les gens comparent. C'est une bonne chose. On recommande toujours de demander au moins trois devis avant de se décider. Pour un même bi-split Daikin, les devis qui circulent à Braine vont de 4 800 à 7 200 euros : l'écart vient de la longueur des liaisons, du type de finition, et de la marge de chacun. Comparez, posez des questions, et choisissez en connaissance de cause -- y compris en nous mettant dans la boucle.</p>
-    <p>Le grand dilemme à Braine-l'Alleud, c'est souvent PAC ou chaudière gaz. La réponse honnête : si votre maison est bien isolée avec un chauffage sol, la PAC est imbattable sur le long terme. Si vous avez une isolation moyenne et des radiateurs haute température, la chaudière gaz condensation reste rationnelle. Et entre les deux, la <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> offre le meilleur compromis. Attention quand même : l'électricité coûte 3 à 4 fois plus cher que le gaz au kWh. Le COP de la PAC compense cette différence, mais seulement si la maison est raisonnablement isolée.</p>
-    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Installation pompe à chaleur à Braine-l'Alleud</h2>
-    <p>Au centre de Braine, les maisons mitoyennes et semi-mitoyennes posent un défi classique : où mettre l'unité extérieure sans gêner les voisins ? On a l'habitude. Un passage latéral, une cour arrière, parfois même un support mural avec des silent blocks — il y a toujours une solution. La <a href="/pompe-a-chaleur/air-eau/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC air-eau</a> reste le choix principal pour les maisons avec radiateurs ou chauffage sol existant.</p>
-    <p>Côté Ophain, c'est plus simple. Les propriétés sont plus grandes, les jardins plus profonds. On y installe des PAC air-eau en remplacement de chaudières mazout, souvent des maisons des années 80-90 avec de bonnes surfaces. Pour les maisons moins bien isolées vers Bois-Seigneur-Isaac, la <a href="/pompe-a-chaleur/hybride/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">PAC hybride</a> permet de garder la chaudière en appoint les jours les plus froids.</p>
-    <p>À Lillois-Witterzée, on voit beaucoup de lotissements des années 2000-2010 le long de la route de l'Orme. Maisons bien isolées, chauffage sol, parfois même déjà un ballon tampon — le passage en pompe à chaleur est quasiment plug-and-play.</p>
-    <div class="rounded-xl overflow-hidden my-6">
-      <img src="/images/pac/pac-air-eau.webp" alt="PAC air-eau installée dans une maison à Braine-l'Alleud" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
-    </div>
 
-    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Climatisation à Braine-l'Alleud</h2>
-    <p>La <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a> devient un réflexe à Braine. Les appartements récents de la résidence du Parc et les maisons vers la gare, avec leurs toitures plates et grandes fenêtres, sont des fours en été. Un <a href="/climatisation/mono-split/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">mono-split</a> dans le séjour suffit souvent pour les appartements. Pour les maisons, un <a href="/climatisation/multi-split/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">multi-split</a> avec 2-3 unités couvre le living et les chambres.</p>
-    <p>Les villas à Ophain, c'est plutôt la <a href="/climatisation/gainable/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation gainable</a> qui a la cote. Pas de splits au mur, juste des grilles discrètes au plafond. Plus cher à l'installation, mais le résultat est invisible.</p>
-    <div class="rounded-xl overflow-hidden my-6">
-      <img src="/images/clim/real-split-interieur.webp" alt="Climatisation split installée dans une villa à Braine-l'Alleud — réalisation Pompe à chaleur BW" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
-    </div>
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-2">Comment on installe une pompe à chaleur à Braine-l'Alleud</h2>
+    <p>On commence par vos radiateurs. Certains clients pensent devoir tous les changer, et souvent ce n'est pas nécessaire. On mesure les pièces et on vous dit ce qui reste et ce qui part. C'est la base d'une <a href="/pompe-a-chaleur/air-eau/" class={lien}>pompe à chaleur air-eau</a> bien dimensionnée.</p>
+    <p>Ensuite, on choisit avec vous la place de l'unité extérieure. Il n'y a pas de norme de bruit régionale en Wallonie pour ces pompes à chaleur sans permis, mais la commune peut avoir ses règles : on la met donc loin des fenêtres des voisins et de votre terrasse.</p>
 
-    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Chauffage et remplacement chaudière</h2>
-    <p>Le centre de Braine est bien desservi en gaz naturel. Si votre chaudière a 15-20 ans, un remplacement par une <a href="/chauffage/chaudiere-gaz/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chaudière gaz condensation</a> moderne fait déjà une grosse différence sur la facture. À Ophain et vers les zones plus rurales, là où le mazout domine encore, la question se pose autrement : faut-il remplacer par une PAC directement ou passer d'abord par une solution hybride ? On regarde ça ensemble lors de la visite technique.</p>
-    <div class="rounded-xl overflow-hidden my-6">
-      <img src="/images/chauffage/chaudiere-gaz.webp" alt="Chaudière gaz condensation installée à Braine-l'Alleud" width="800" height="500" loading="lazy" decoding="async" class="w-full h-auto object-cover" />
-    </div>
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-2">Un chantier récent près du Parc du Paradis, à Braine-l'Alleud</h2>
+    <p>Près du Parc du Paradis, une cliente avait une maison bien isolée et voulait une pompe à chaleur plus puissante que nécessaire. On lui a conseillé un modèle moins puissant. Le calcul est simple : plus une maison est bien isolée, moins la pompe a besoin de puissance, et moins elle coûte à l'achat. Dans son avis Google, elle écrit que le patron a refusé de lui vendre plus gros que nécessaire.</p>
+    <figure class="max-w-xl mx-auto">
+      <img src="/images/zones/pompe-a-chaleur-braine-l-alleud.webp" alt="Unité extérieure de pompe à chaleur posée sur deux supports antivibratiles, devant un bardage clair" width="1000" height="750" loading="lazy" decoding="async" class="w-full h-auto rounded-xl" />
+      <figcaption class="mt-2 text-sm text-[var(--color-texte-light)]">Unité extérieure posée sur supports antivibratiles.</figcaption>
+    </figure>
 
-    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Tous nos services à Braine-l'Alleud</h2>
-    <p><a href="/pompe-a-chaleur/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Pompe à chaleur</a>, <a href="/climatisation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">climatisation</a>, <a href="/chauffage/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">chauffage</a>, <a href="/ventilation/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">ventilation</a>, <a href="/panneaux-solaires/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">panneaux solaires</a>, <a href="/sanitaire/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">sanitaire</a>, <a href="/electricite/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">électricité</a>, <a href="/bornes-de-recharge/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">bornes de recharge</a>, <a href="/domotique/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">domotique</a>. On couvre tout Braine-l'Alleud, Ophain-Bois-Seigneur-Isaac et Lillois-Witterzée.</p>
-    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-4">Communes voisines</h2>
-    <p>Depuis Braine-l'Alleud, on est aussi actifs à <a href="/waterloo/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Waterloo</a>, <a href="/lasne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Lasne</a>, <a href="/court-saint-etienne/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Court-Saint-Étienne</a>, <a href="/la-hulpe/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">La Hulpe</a> et <a href="/ittre/" class="text-[var(--color-vert)] font-semibold underline underline-offset-2">Ittre</a>, à l'ouest.</p>
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] pt-2">Combien coûte une pompe à chaleur à Braine-l'Alleud ?</h2>
+    <p>Une pompe à chaleur air-eau installée coûte de 8&nbsp;000 à 15&nbsp;000&nbsp;€ hors TVA, pose et mise en service comprises. Le prix dépend de la puissance et de l'état de votre installation. Côté <a href="/climatisation/" class={lien}>climatisation</a>, comptez dès 3&nbsp;000&nbsp;€ pour un mono-split et de 5&nbsp;000 à 8&nbsp;000&nbsp;€ pour un multi-split. La TVA sur la pompe à chaleur air-eau est à 6&nbsp;%. Le détail est sur notre <a href="/tarifs/" class={lien}>page tarifs</a>.</p>
   </div>
 </article>
 
-<CTASection title="Vous êtes à Braine-l'Alleud ?" text="On passe chez vous pour un devis gratuit. Ophain, Lillois-Witterzée, tout le 1420." />
+<TrustSteps zone="Braine-l'Alleud" />
+
+<section class="max-w-3xl mx-auto px-4 sm:px-6 py-6">
+  <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-5">Vos questions sur l'installation à Braine-l'Alleud</h2>
+  <div class="space-y-6 text-[var(--color-texte-light)] leading-relaxed">
+    {faq.map(f => (
+      <div>
+        <h3 class="font-bold text-[var(--color-vert-fonce)] mb-1">{f.q}</h3>
+        <p set:html={f.a} />
+      </div>
+    ))}
+  </div>
+</section>
+
+<CTASection title="Vous êtes à Braine-l'Alleud, Ophain ou Lillois ?" text={ctaText} />
 <div class="h-20 lg:hidden"></div>
 
 <script type="application/ld+json" set:html={JSON.stringify({
@@ -73,19 +147,18 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
   "@type": "Service",
   "@id": "https://pompe-a-chaleur-bw.be/braine-l-alleud/#service",
   "name": "Installation pompe à chaleur et climatisation à Braine-l'Alleud",
-  "description": "Pompe à chaleur BW intervient à Braine-l'Alleud (1420) pour l'installation, l'entretien et le dépannage de pompes à chaleur, climatisation et chaudières.",
+  "description": "Pompe à chaleur BW installe, entretient et dépanne pompes à chaleur, climatisations et chaudières à Braine-l'Alleud (1420), Ophain-Bois-Seigneur-Isaac (1421) et Lillois-Witterzée (1428).",
   "serviceType": "HVAC Installation",
   "url": "https://pompe-a-chaleur-bw.be/braine-l-alleud/",
   "provider": {
     "@type": "HVACBusiness",
     "@id": "https://pompe-a-chaleur-bw.be/#business"
   },
-  "areaServed": {
-    "@type": "City",
-    "name": "Braine-l'Alleud",
-    "postalCode": "1420",
-    "addressCountry": "BE"
-  },
+  "areaServed": [
+    { "@type": "City", "name": "Braine-l'Alleud", "address": { "@type": "PostalAddress", "postalCode": "1420", "addressCountry": "BE" } },
+    { "@type": "City", "name": "Ophain-Bois-Seigneur-Isaac", "address": { "@type": "PostalAddress", "postalCode": "1421", "addressCountry": "BE" } },
+    { "@type": "City", "name": "Lillois-Witterzée", "address": { "@type": "PostalAddress", "postalCode": "1428", "addressCountry": "BE" } }
+  ],
   "availableChannel": {
     "@type": "ServiceChannel",
     "serviceUrl": "https://pompe-a-chaleur-bw.be/devis/",
@@ -96,6 +169,19 @@ import ReviewsCarousel from '../components/ReviewsCarousel.astro'
       "availableLanguage": "French"
     }
   }
+})} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').replace(/\s*\[À[^\]]*\]/g, '')
+    }
+  }))
 })} />
 
 </Layout>

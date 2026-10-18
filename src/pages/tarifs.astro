@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import Breadcrumb from '../components/Breadcrumb.astro'
 import CTASection from '../components/CTASection.astro'
+import { REVIEWS_COUNT } from '../data/business'
 
 const misesEnService = [
   { label: 'Climatisation 1 split', prix: '360 €' },
@@ -232,7 +233,7 @@ const offerCatalog = {
       </div>
       <div>
         <h3 class="font-bold text-[var(--color-vert-fonce)] mb-1">Le prix annoncé peut-il changer en cours d'intervention ?</h3>
-        <p>Non — c'est notre règle de base : le prix confirmé avant l'intervention est le prix facturé. Si on découvre un imprévu une fois sur place, une pièce en plus ou un problème caché derrière la chaudière, on s'arrête et on vous appelle avant de toucher quoi que ce soit. Vous décidez, on continue ou pas. Les seuls suppléments possibles sont ceux annoncés d'avance sur cette page, comme la majoration soir et week-end en dépannage urgent. C'est aussi simple que ça, et c'est pour ça que nos 33 avis Google sont à 5 étoiles.</p>
+        <p>Non — c'est notre règle de base : le prix confirmé avant l'intervention est le prix facturé. Si on découvre un imprévu une fois sur place, une pièce en plus ou un problème caché derrière la chaudière, on s'arrête et on vous appelle avant de toucher quoi que ce soit. Vous décidez, on continue ou pas. Les seuls suppléments possibles sont ceux annoncés d'avance sur cette page, comme la majoration soir et week-end en dépannage urgent. C'est aussi simple que ça, et c'est pour ça que nos {REVIEWS_COUNT} avis Google sont à 5 étoiles.</p>
       </div>
     </div>
   </section>

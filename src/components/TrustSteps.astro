@@ -7,8 +7,10 @@
  */
 interface Props {
   compact?: boolean
+  /** Page zone : titre adapté à la commune, textes courts, lignes compactes avec photo. */
+  zone?: string
 }
-const { compact = false } = Astro.props
+const { compact = false, zone } = Astro.props
 
 const steps = [
   {
@@ -47,6 +49,15 @@ const steps = [
     alt: "Remise de l'attestation et des documents de garantie au client — Pompe à chaleur BW",
   },
 ]
+
+// Version page zone : textes courts, étape 2 adaptée à la commune
+const stepsZone = steps.map((s, i) => ({
+  ...s,
+  titre: i === 1 && zone ? `On passe chez vous à ${zone}` : s.titre,
+  texte: i === 1
+    ? "On mesure, on regarde vos radiateurs et on choisit avec vous la place de l'unité extérieure. Gratuit, sans engagement."
+    : s.courtTexte,
+}))
 ---
 
 {compact ? (
@@ -64,6 +75,24 @@ const steps = [
       </div>
     ))}
   </div>
+) : zone ? (
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-6">
+    <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-5">Comment se passe un chantier à {zone} ?</h2>
+    <ol class="space-y-4">
+      {stepsZone.map((s, i) => (
+        <li class="flex items-start gap-4">
+          <span class="font-display text-2xl font-semibold text-[var(--color-vert)] tabular-nums shrink-0 w-6 pt-0.5">{i + 1}</span>
+          <div class="min-w-0 flex-1">
+            <h3 class="font-bold text-[var(--color-vert-fonce)] mb-0.5">{s.titre}</h3>
+            <p class="text-sm sm:text-base text-[var(--color-texte-light)] leading-relaxed">{s.texte}</p>
+          </div>
+          <div class="w-24 sm:w-36 shrink-0 rounded-lg overflow-hidden">
+            <img src={s.image} alt={s.alt} width="1200" height="676" loading="lazy" decoding="async" class="w-full h-auto object-cover" onerror="this.parentElement.style.display='none'" />
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
 ) : (
   <section class="max-w-3xl mx-auto px-4 sm:px-6 py-4">
     <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)] mb-2">Comment ça se passe</h2>

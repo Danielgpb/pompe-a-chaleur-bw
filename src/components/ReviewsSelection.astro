@@ -1,0 +1,50 @@
+---
+/**
+ * Sélection d'avis Google pour une page précise (page zone, service…).
+ * Affichage statique, visible d'un coup, avec la vraie note de chaque avis.
+ * Les textes passés en `items` doivent être repris tels quels de la fiche Google.
+ */
+import { RATING_DISPLAY, REVIEWS_COUNT, GBP_MAPS_URL } from '../data/business'
+
+export interface AvisChoisi {
+  name: string
+  /** AAAA-MM-JJ, date de publication sur Google */
+  date: string
+  rating: number
+  text: string
+}
+
+interface Props {
+  items: AvisChoisi[]
+  titre?: string
+}
+
+const { items, titre = 'Avis Google de nos clients' } = Astro.props
+
+const mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre']
+const formatDate = (iso: string) => {
+  const [y, m] = iso.split('-')
+  return `${mois[Number(m) - 1]} ${y}`
+}
+---
+
+<section class="px-4 sm:px-6 py-8">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-5">
+      <h2 class="text-2xl font-extrabold text-[var(--color-vert-fonce)]">{titre}</h2>
+      <a href={GBP_MAPS_URL} target="_blank" rel="noopener" class="text-sm font-semibold text-[var(--color-vert)] underline underline-offset-2 tabular-nums">{RATING_DISPLAY} sur 5 · {REVIEWS_COUNT} avis Google</a>
+    </div>
+    <div class="columns-1 md:columns-2 lg:columns-3 gap-4">
+      {items.map(r => (
+        <figure class="bg-[var(--color-blanc)] border border-[var(--color-bordure)] rounded-xl p-5 mb-4 break-inside-avoid">
+          <div class="text-[var(--color-orange)] text-sm tracking-widest mb-3" role="img" aria-label={`${r.rating} étoiles sur 5`}>{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</div>
+          <blockquote class="text-[var(--color-vert-fonce)] leading-snug mb-4">« {r.text} »</blockquote>
+          <figcaption class="flex items-baseline justify-between gap-3 pt-3 border-t border-[var(--color-bordure)] text-sm">
+            <span class="font-semibold text-[var(--color-vert-fonce)]">{r.name}</span>
+            <span class="text-xs text-[var(--color-texte-light)]">{formatDate(r.date)}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

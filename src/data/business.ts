@@ -7,10 +7,10 @@ export const BUSINESS_NAME = 'Pompe à chaleur BW'
 export const PHONE_E164 = '+32-2-886-14-57'
 export const PHONE_DISPLAY = '02 / 886 14 57'
 
-/** Note Google (format affiché) et nombre d'avis — vérifiés sur la fiche GBP le 22/08/2026 */
+/** Note Google (format affiché) et nombre d'avis — vérifiés sur la fiche GBP le 18/10/2026 */
 export const RATING_DISPLAY = '5,0'
 export const RATING_VALUE = '5.0'
-export const REVIEWS_COUNT = 33
+export const REVIEWS_COUNT = 55
 
 /** Nombre de communes couvertes par des pages dédiées */
 export const COMMUNES_COUNT = 16
