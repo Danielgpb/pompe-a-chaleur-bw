@@ -131,11 +131,6 @@ const UNITES = ['1 unité (mono-split)', '2 unités ou plus']
         📷 Envoyer des photos de votre installation
       </a>
       <p class="lead-photos-note hidden text-xs text-[var(--color-texte-light)]">Quelques photos et votre devis va deux fois plus vite.</p>
-      <a href="#" target="_blank" rel="noopener"
-        class="lead-btn-whatsapp w-full inline-flex items-center justify-center gap-2 border-2 border-[#25D366] text-[var(--color-vert-fonce)] font-bold text-lg px-6 rounded-xl hover:bg-[#25D366]/10 transition-colors"
-        style="padding-top: 1.125rem; padding-bottom: 1.125rem;">
-        💬 Continuer sur WhatsApp
-      </a>
     </div>
   </div>
 
@@ -153,25 +148,7 @@ const UNITES = ['1 unité (mono-split)', '2 unités ou plus']
 </div>
 
 <script>
-  const ENDPOINT = 'https://zawhjurtnoosnfuicxfe.supabase.co/functions/v1/formulaire-site'
-  const SITE = 's-pac'
-  const SECRET = '3653dfb02cd4a8d8635cdde77ea39e51c59a0c940ee10a67'
-  const WA_NUM = '32479890089'
-
-  function waLink(demande: string, nom: string, commune: string, tel: string): string {
-    const lignes = [
-      'Bonjour, je viens du site pompe-a-chaleur-bw.be.',
-      'Demande : ' + (demande || '—'),
-      'Nom : ' + (nom || '—'),
-      'Commune : ' + (commune || '—'),
-      'Tél : ' + (tel || '—'),
-    ]
-    return 'https://wa.me/' + WA_NUM + '?text=' + encodeURIComponent(lignes.join('\n'))
-  }
-
-  // Le nombre d'unités ne concerne qu'un entretien PAC / climatisation
-  const AVEC_UNITES = ['Pompe à chaleur', 'Climatisation']
-
+  import { LEAD_ENDPOINT as ENDPOINT, LEAD_SITE as SITE, LEAD_SECRET as SECRET, AVEC_UNITES, leadType } from '../data/lead'
   document.querySelectorAll<HTMLElement>('.lead-widget').forEach((widget) => {
     const form = widget.querySelector<HTMLFormElement>('.lead-form')
     const ok = widget.querySelector<HTMLElement>('.lead-ok')
@@ -231,13 +208,7 @@ const UNITES = ['1 unité (mono-split)', '2 unités ou plus']
       erreurChamps.classList.add('hidden')
 
       const urgent = prestation === 'Dépannage'
-      // Chaque prestation part vers le bon type de lead (et la bonne commission)
-      const type = urgent
-        ? 't-pac-depannage'
-        : prestation === 'Entretien'
-          ? (demandeUnites && unites.startsWith('1') ? 't-pac-entretien-mono' : 't-pac-entretien')
-          : 't-pac-install'
-      const service = domaine + ' — ' + prestation
+      const type = leadType(domaine, prestation, unites)
       const url = ENDPOINT + '?site=' + SITE + '&type=' + type + '&secret=' + SECRET
 
       bouton.disabled = true
@@ -266,13 +237,9 @@ const UNITES = ['1 unité (mono-split)', '2 unités ou plus']
         if (!res.ok) throw new Error('HTTP ' + res.status)
         const data = await res.json()
 
-        // Écran de confirmation (toujours affiché — aussi en secours du renvoi WhatsApp)
+        // Écran de confirmation
         form.classList.add('hidden')
         ok.classList.remove('hidden')
-
-        const wa = waLink(service, nom, commune, tel)
-        const btnWa = ok.querySelector<HTMLAnchorElement>('.lead-btn-whatsapp')
-        if (btnWa) btnWa.href = wa
 
         const btnPhotos = ok.querySelector<HTMLAnchorElement>('.lead-btn-photos')
         const notePhotos = ok.querySelector<HTMLElement>('.lead-photos-note')
@@ -287,9 +254,8 @@ const UNITES = ['1 unité (mono-split)', '2 unités ou plus']
           texteOk.textContent = 'On a déjà bien reçu votre demande — on vous recontacte très vite.'
         }
 
-        if (urgent) {
-          if (texteOk) texteOk.textContent = 'Demande urgente bien reçue. On vous ouvre WhatsApp pour aller plus vite…'
-          window.location.href = wa
+        if (urgent && texteOk) {
+          texteOk.textContent = 'Demande urgente bien reçue. On vous rappelle au plus vite.'
         }
       } catch (_) {
         form.classList.add('hidden')

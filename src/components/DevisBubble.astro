@@ -1,0 +1,415 @@
+---
+// Bulle flottante « Devis » : mini-parcours façon chat, envoi direct vers l'app
+// (même endpoint que LeadForm).
+const DOMAINES = [
+  { label: 'Pompe à chaleur', emoji: '🌡️' },
+  { label: 'Climatisation', emoji: '❄️' },
+  { label: 'Chauffage', emoji: '🔥' },
+  { label: 'Solaire', emoji: '☀️' },
+  { label: 'Sanitaire', emoji: '🚿' },
+  { label: 'Ventilation', emoji: '💨' },
+]
+const PRESTATIONS = [
+  { label: 'Installation', emoji: '🔧' },
+  { label: 'Entretien', emoji: '🗓️' },
+  { label: 'Dépannage', emoji: '🚨' },
+]
+---
+
+<div id="dv-widget" class="fixed bottom-24 lg:bottom-6 right-4 z-50 flex flex-col items-end dv-mobile-wait">
+
+  <!-- Popup -->
+  <div id="dv-popup" class="hidden mb-3 w-80 rounded-2xl shadow-2xl overflow-hidden animate-fade-in bg-white">
+    <!-- En-tête -->
+    <div class="bg-[var(--color-vert-fonce)] px-4 py-3 flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center shrink-0">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6M7.5 3.75h7.879a1.5 1.5 0 011.06.44l3.371 3.37a1.5 1.5 0 01.44 1.061V19.5a1.5 1.5 0 01-1.5 1.5h-11.25a1.5 1.5 0 01-1.5-1.5v-14.25a1.5 1.5 0 011.5-1.5z"/>
+        </svg>
+      </div>
+      <div>
+        <p class="text-white font-bold text-sm">Devis gratuit</p>
+        <p class="text-white/70 text-xs">Deux minutes, réponse dans la journée</p>
+      </div>
+      <button id="dv-close" class="ml-auto text-white/70 hover:text-white" aria-label="Fermer">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Corps -->
+    <div class="bg-[var(--color-surface)] px-4 py-4 max-h-[440px] overflow-y-auto" id="dv-body">
+
+      <!-- Étape 1 : domaine -->
+      <div id="dv-step1">
+        <div class="bg-white rounded-lg rounded-tl-none px-4 py-3 shadow-sm max-w-[90%] mb-3">
+          <p class="text-sm text-gray-800 font-medium">Bonjour&nbsp;! Votre demande concerne quoi&nbsp;?</p>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          {DOMAINES.map(d => (
+            <button type="button" data-domaine={d.label} class="dv-dom flex items-center gap-2 bg-white rounded-xl px-3 py-3 shadow-sm hover:bg-[var(--color-vert-clair)] hover:border-[var(--color-vert)] border border-transparent transition-all w-full text-left">
+              <span class="text-lg">{d.emoji}</span>
+              <span class="text-sm font-medium text-gray-800 leading-tight">{d.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Étape 2 : prestation -->
+      <div id="dv-step2" class="hidden">
+        <div class="flex justify-end mb-3">
+          <div class="bg-[var(--color-vert-clair)] rounded-lg rounded-tr-none px-4 py-2 shadow-sm max-w-[80%]">
+            <p class="text-sm text-gray-800" id="dv-chosen-dom"></p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg rounded-tl-none px-4 py-3 shadow-sm max-w-[90%] mb-3">
+          <p class="text-sm text-gray-800 font-medium">Et c'est pour quel type d'intervention&nbsp;?</p>
+        </div>
+        <div class="space-y-2">
+          {PRESTATIONS.map(p => (
+            <button type="button" data-prestation={p.label} class:list={['dv-pres flex items-center gap-3 bg-white rounded-xl px-4 py-3 shadow-sm border border-transparent transition-all w-full text-left', p.label === 'Dépannage' ? 'hover:bg-red-50 hover:border-red-400' : 'hover:bg-[var(--color-vert-clair)] hover:border-[var(--color-vert)]']}>
+              <span class="text-xl">{p.emoji}</span>
+              <span class="text-sm font-medium text-gray-800">{p.label}</span>
+            </button>
+          ))}
+        </div>
+        <button type="button" class="dv-back w-full text-xs text-gray-400 hover:text-gray-600 py-2 mt-1 transition-colors">← Changer</button>
+      </div>
+
+      <!-- Étape 3 : coordonnées -->
+      <div id="dv-step3" class="hidden">
+        <div class="flex justify-end mb-3">
+          <div class="bg-[var(--color-vert-clair)] rounded-lg rounded-tr-none px-4 py-2 shadow-sm max-w-[80%]">
+            <p class="text-sm text-gray-800" id="dv-chosen-all"></p>
+          </div>
+        </div>
+        <div class="bg-white rounded-lg rounded-tl-none px-4 py-3 shadow-sm max-w-[90%] mb-4">
+          <p class="text-sm text-gray-800 font-medium">Parfait. Il nous faut juste de quoi vous rappeler&nbsp;:</p>
+        </div>
+        <div class="space-y-3">
+          <input type="text" id="dv-nom" placeholder="Votre nom *" autocomplete="name" class="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 focus:outline-none focus:border-[var(--color-vert)] shadow-sm bg-white" />
+          <input type="tel" id="dv-tel" placeholder="Votre téléphone *" inputmode="tel" autocomplete="tel" class="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 focus:outline-none focus:border-[var(--color-vert)] shadow-sm bg-white" />
+          <select id="dv-unites" class="hidden w-full rounded-xl px-4 py-3 text-sm border border-gray-200 focus:outline-none focus:border-[var(--color-vert)] shadow-sm bg-white text-gray-800">
+            <option value="">Combien d'unités à entretenir ? *</option>
+            <option value="1 unité (mono-split)">1 unité (mono-split)</option>
+            <option value="2 unités ou plus">2 unités ou plus</option>
+          </select>
+          <input type="text" id="dv-commune" placeholder="Commune (ex : Wavre)" autocomplete="address-level2" class="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 focus:outline-none focus:border-[var(--color-vert)] shadow-sm bg-white" />
+          <select id="dv-logement" class="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 focus:outline-none focus:border-[var(--color-vert)] shadow-sm bg-white text-gray-800">
+            <option value="">Type de logement</option>
+            <option value="Maison">Maison</option>
+            <option value="Appartement">Appartement</option>
+            <option value="Bureau / Commerce">Bureau / Commerce</option>
+          </select>
+          <textarea id="dv-details" rows="2" placeholder="Détails du projet (facultatif)" class="w-full rounded-xl px-4 py-3 text-sm border border-gray-200 focus:outline-none focus:border-[var(--color-vert)] shadow-sm resize-none bg-white"></textarea>
+
+          <!-- Honeypot anti-spam -->
+          <input type="text" id="dv-piege" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; top:-9999px; height:0;" />
+
+          <p id="dv-erreur" class="hidden text-xs font-semibold text-red-700"></p>
+
+          <button type="button" id="dv-send" class="w-full flex items-center justify-center gap-2 bg-[var(--color-orange)] text-white font-bold text-sm py-3 rounded-xl hover:brightness-95 transition-all shadow-md disabled:opacity-60 disabled:cursor-wait">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/>
+            </svg>
+            <span id="dv-send-label">Envoyer ma demande</span>
+          </button>
+          <p class="text-[11px] text-gray-400 text-center">Vos données ne servent qu'à vous recontacter.</p>
+
+          <button type="button" class="dv-back w-full text-xs text-gray-400 hover:text-gray-600 py-1 transition-colors">← Changer</button>
+        </div>
+      </div>
+
+      <!-- Étape 4 : confirmation -->
+      <div id="dv-ok" class="hidden text-center py-4 space-y-3">
+        <div class="text-4xl">✅</div>
+        <p class="text-base font-extrabold text-[var(--color-vert-fonce)]">Merci, on vous recontacte vite&nbsp;!</p>
+        <p id="dv-ok-texte" class="text-sm text-gray-600">Votre demande est bien enregistrée.</p>
+        <a id="dv-photos" href="#" target="_blank" rel="noopener" class="hidden w-full items-center justify-center gap-2 bg-[var(--color-vert-fonce)] text-white font-bold text-sm py-3 rounded-xl hover:bg-[var(--color-vert)] transition-colors">
+          📷 Envoyer des photos de votre installation
+        </a>
+        <p id="dv-photos-note" class="hidden text-xs text-gray-500">Quelques photos et votre devis va deux fois plus vite.</p>
+      </div>
+
+      <!-- Erreur -->
+      <div id="dv-err" class="hidden text-center py-4 space-y-3">
+        <div class="text-4xl">😕</div>
+        <p class="text-base font-extrabold text-[var(--color-vert-fonce)]">Un souci est survenu</p>
+        <p class="text-sm text-gray-600">Votre demande n'est pas partie. Le plus simple&nbsp;: appelez-nous, on décroche.</p>
+        <a href="tel:+3228861457" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] text-white font-bold text-sm px-6 py-3 rounded-xl shadow-md">
+          📞 02 / 886 14 57
+        </a>
+        <p><button type="button" id="dv-retry" class="text-xs font-semibold text-[var(--color-vert)] underline underline-offset-2">Réessayer</button></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Teaser -->
+  <div id="dv-teaser" class="hidden items-end gap-2 mb-3 animate-dv-in">
+    <div class="relative bg-white px-4 py-3 shadow-xl border border-gray-100 max-w-[240px] cursor-pointer" id="dv-teaser-click">
+      <span class="absolute -bottom-[7px] right-6 w-3 h-3 bg-white border-r border-b border-gray-100 rotate-45"></span>
+      <p class="text-sm text-gray-900 font-semibold leading-snug pr-4">
+        Besoin d'un devis&nbsp;?
+      </p>
+      <p class="text-xs text-gray-500 mt-0.5">Deux minutes, on vous rappelle dans la journée.</p>
+      <button id="dv-teaser-close" class="absolute top-1.5 right-1.5 w-5 h-5 flex items-center justify-center text-gray-400 hover:text-gray-700" aria-label="Fermer">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Bouton flottant -->
+  <button
+    id="dv-toggle"
+    aria-label="Demander un devis gratuit"
+    class="relative w-14 h-14 rounded-full bg-[var(--color-orange)] shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center"
+  >
+    <span id="dv-attention" class="absolute inset-0 rounded-full bg-[var(--color-orange)] opacity-60 animate-dv-ping"></span>
+    <svg id="dv-icon-open" class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6M7.5 3.75h7.879a1.5 1.5 0 011.06.44l3.371 3.37a1.5 1.5 0 01.44 1.061V19.5a1.5 1.5 0 01-1.5 1.5h-11.25a1.5 1.5 0 01-1.5-1.5v-14.25a1.5 1.5 0 011.5-1.5z"/>
+    </svg>
+    <svg id="dv-icon-close" class="w-7 h-7 text-white hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
+
+  <!-- Point de notification -->
+  <span id="dv-dot" class="absolute top-0 right-0 w-4 h-4 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
+</div>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in { animation: fade-in 0.25s ease-out; }
+
+  @keyframes dv-in {
+    0%   { opacity: 0; transform: translateY(12px) scale(0.9); }
+    60%  { opacity: 1; transform: translateY(-4px) scale(1.03); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .animate-dv-in { animation: dv-in 0.5s cubic-bezier(0.2, 0.9, 0.25, 1.1) both; }
+
+  /* Ping d'attention — 3 pulses puis stop */
+  @keyframes dv-ping {
+    0%   { transform: scale(1); opacity: 0.6; }
+    70%  { transform: scale(1.8); opacity: 0; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+  .animate-dv-ping { animation: dv-ping 1.6s ease-out 3; pointer-events: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-dv-in, .animate-dv-ping, .animate-fade-in { animation: none; }
+  }
+
+  /* Mobile : la bulle n'apparaît qu'après le premier écran (sinon elle chevauche
+     le CTA principal du hero). Sur desktop (≥ 1024px) elle est visible d'emblée. */
+  @media (max-width: 1023px) {
+    #dv-widget.dv-mobile-wait {
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+  }
+</style>
+
+<script>
+  import { LEAD_ENDPOINT, LEAD_SITE, LEAD_SECRET, leadType, AVEC_UNITES } from '../data/lead'
+
+  const $ = (id: string) => document.getElementById(id)
+
+  const toggle = $('dv-toggle')
+  const popup = $('dv-popup')
+  const closeBtn = $('dv-close')
+  const iconOpen = $('dv-icon-open')
+  const iconClose = $('dv-icon-close')
+  const dot = $('dv-dot')
+  const teaser = $('dv-teaser')
+  const teaserClick = $('dv-teaser-click')
+  const teaserClose = $('dv-teaser-close')
+  const step1 = $('dv-step1')
+  const step2 = $('dv-step2')
+  const step3 = $('dv-step3')
+  const ok = $('dv-ok')
+  const err = $('dv-err')
+  const chosenDom = $('dv-chosen-dom')
+  const chosenAll = $('dv-chosen-all')
+  const unitesSel = $('dv-unites') as HTMLSelectElement | null
+  const erreur = $('dv-erreur')
+  const sendBtn = $('dv-send') as HTMLButtonElement | null
+  const sendLabel = $('dv-send-label')
+
+  let domaine = ''
+  let prestation = ''
+
+  function show(el: HTMLElement | null, on: boolean) { el?.classList.toggle('hidden', !on) }
+
+  function openPopup() {
+    hideTeaser()
+    show(popup, true)
+    show(iconOpen, false)
+    show(iconClose, true)
+    show(dot, false)
+  }
+  function closePopup() {
+    show(popup, false)
+    show(iconOpen, true)
+    show(iconClose, false)
+  }
+  function showTeaser() {
+    teaser?.classList.remove('hidden')
+    teaser?.classList.add('flex')
+    show(dot, false)
+  }
+  function hideTeaser() {
+    teaser?.classList.add('hidden')
+    teaser?.classList.remove('flex')
+  }
+
+  function goStep(n: 1 | 2 | 3) {
+    show(step1, n === 1)
+    show(step2, n === 2)
+    show(step3, n === 3)
+    show(ok, false)
+    show(err, false)
+    if (n === 1) { domaine = ''; prestation = '' }
+    if (n === 2) prestation = ''
+  }
+
+  toggle?.addEventListener('click', () => {
+    popup?.classList.contains('hidden') ? openPopup() : closePopup()
+  })
+  closeBtn?.addEventListener('click', (e) => { e.stopPropagation(); closePopup() })
+
+  document.querySelectorAll<HTMLElement>('.dv-dom').forEach(btn => {
+    btn.addEventListener('click', () => {
+      domaine = btn.dataset.domaine || ''
+      if (chosenDom) chosenDom.textContent = domaine
+      goStep(2)
+    })
+  })
+
+  document.querySelectorAll<HTMLElement>('.dv-pres').forEach(btn => {
+    btn.addEventListener('click', () => {
+      prestation = btn.dataset.prestation || ''
+      if (chosenAll) chosenAll.textContent = domaine + ' — ' + prestation
+      const demandeUnites = prestation === 'Entretien' && AVEC_UNITES.includes(domaine)
+      show(unitesSel, demandeUnites)
+      if (unitesSel && !demandeUnites) unitesSel.value = ''
+      goStep(3)
+    })
+  })
+
+  // « Changer » depuis l'étape 2 → étape 1, depuis l'étape 3 → étape 2
+  document.querySelectorAll<HTMLElement>('.dv-back').forEach(btn => {
+    btn.addEventListener('click', () => goStep(btn.closest('#dv-step3') ? 2 : 1))
+  })
+
+  $('dv-retry')?.addEventListener('click', () => goStep(3))
+
+  // Mobile : bulle masquée tant que le visiteur n'a pas dépassé le premier écran
+  const widget = $('dv-widget')
+  const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches
+  function revealWidget() {
+    widget?.classList.remove('dv-mobile-wait')
+    window.removeEventListener('scroll', onScroll)
+  }
+  function onScroll() { if (window.scrollY > 360) revealWidget() }
+  if (isDesktop()) revealWidget()
+  else { window.addEventListener('scroll', onScroll, { passive: true }); onScroll() }
+
+  // Teaser = une fois par session, sauf si fermé volontairement — desktop uniquement
+  // (sur mobile la barre sticky « Appeler / Devis » joue déjà ce rôle)
+  if (!sessionStorage.getItem('dv-dismissed') && isDesktop()) {
+    setTimeout(() => showTeaser(), 2500)
+  }
+  teaserClick?.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).closest('#dv-teaser-close')) return
+    openPopup()
+  })
+  teaserClose?.addEventListener('click', (e) => {
+    e.stopPropagation()
+    hideTeaser()
+    sessionStorage.setItem('dv-dismissed', '1')
+  })
+
+  sendBtn?.addEventListener('click', async () => {
+    const val = (id: string) => (($(id) as HTMLInputElement | null)?.value || '').trim()
+    const nom = val('dv-nom')
+    const tel = val('dv-tel')
+    const unites = val('dv-unites')
+    const commune = val('dv-commune')
+    const logement = val('dv-logement')
+    const message = val('dv-details')
+    const piege = val('dv-piege')
+    const demandeUnites = prestation === 'Entretien' && AVEC_UNITES.includes(domaine)
+
+    const manquants: string[] = []
+    if (!nom) manquants.push('votre nom')
+    if (!tel) manquants.push('votre téléphone')
+    if (demandeUnites && !unites) manquants.push("le nombre d'unités")
+    if (manquants.length) {
+      if (erreur) { erreur.textContent = 'Il manque ' + manquants.join(', ') + '.'; show(erreur, true) }
+      return
+    }
+    show(erreur, false)
+
+    const type = leadType(domaine, prestation, unites)
+    const url = LEAD_ENDPOINT + '?site=' + LEAD_SITE + '&type=' + type + '&secret=' + LEAD_SECRET
+
+    sendBtn.disabled = true
+    if (sendLabel) sendLabel.textContent = 'Envoi en cours…'
+
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nom,
+          telephone: tel,
+          message,
+          page: window.location.href,
+          photos: true,
+          champs: {
+            'Domaine': domaine,
+            'Prestation': prestation,
+            'Commune': commune,
+            'Logement': logement,
+            'Source': 'Bulle devis',
+            ...(unites ? { 'Unités': unites } : {}),
+          },
+          _piege: piege,
+        }),
+      })
+      if (!res.ok) throw new Error('HTTP ' + res.status)
+      const data = await res.json()
+
+      show(step3, false)
+      show(ok, true)
+
+      const btnPhotos = $('dv-photos') as HTMLAnchorElement | null
+      if (data && data.photosUrl && btnPhotos) {
+        btnPhotos.href = data.photosUrl
+        btnPhotos.classList.remove('hidden')
+        btnPhotos.classList.add('flex')
+        show($('dv-photos-note'), true)
+      }
+      const texteOk = $('dv-ok-texte')
+      if (texteOk && prestation === 'Dépannage') {
+        texteOk.textContent = 'Demande urgente bien reçue. On vous rappelle au plus vite.'
+      } else if (texteOk && data && data.rappel) {
+        texteOk.textContent = 'On a déjà bien reçu votre demande — on vous recontacte très vite.'
+      }
+    } catch (_) {
+      show(step3, false)
+      show(err, true)
+    } finally {
+      sendBtn.disabled = false
+      if (sendLabel) sendLabel.textContent = 'Envoyer ma demande'
+    }
+  })
+</script>

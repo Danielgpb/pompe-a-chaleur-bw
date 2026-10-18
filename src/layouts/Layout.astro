@@ -3,7 +3,7 @@ import '../styles/global.css'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 import StickyMobileCTA from '../components/StickyMobileCTA.astro'
-import WhatsAppBubble from '../components/WhatsAppBubble.astro'
+import DevisBubble from '../components/DevisBubble.astro'
 import { RATING_VALUE, REVIEWS_COUNT, VAT_NUMBER, GBP_MAPS_URL } from '../data/business'
 import { reviews } from '../data/reviews'
 
@@ -222,7 +222,7 @@ const schemaReviews = reviews.filter(r => r.date).slice(0, 8).map(r => ({
     <slot />
   </main>
   <Footer />
-  <WhatsAppBubble />
+  <DevisBubble />
   <StickyMobileCTA />
 </body>
 </html>
